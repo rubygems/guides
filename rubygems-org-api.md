@@ -355,3 +355,25 @@ contains a gem version with its dependencies making this useful for resolving de
       :number=>"3.0.3"},
     ...
     {:number=>"0.9.9", :platform=>"ruby", :dependencies=>[], :name=>"thor"}]
+
+### GET - `/api/v1/downloads/top
+
+Get a list of the 50 most downloaded gems for the last 24 hours
+
+    $ curl -u http://rubygems.org/api/v1/downloads/top
+    { "gems":[
+    [
+       {
+          "number" : "0.6.3",
+          "built_at" : "2010-12-23T05:00:00Z",
+          "summary" : "Test::Unit-based acceptance testing DSL",
+          "downloads_count" : 175,
+          "platform" : "ruby",
+          "authors" : "Evan David Light",
+          "description" : "Behaviour Driven Development derived from Cucumber but
+                           as an internal DSL with methods for reuse",
+          "prerelease" : false
+       },
+       42
+    ]
+    ]}
