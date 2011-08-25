@@ -263,23 +263,23 @@ conventions used in the [tutorial](#tutorial).
 
 An alternative convention is to build an extension `ext/<gem_name>.so`, and this
 does seem to work (in my experience). When the gem is installed, both
-`lib/<gem_name>.rb` and `lib/<gem_name>.so` are created. When the user types
-`require '<gem_name>'`, rubygems prefers `lib/<gem_name>.rb`, and when
-`lib/<gem_name>.rb` contains `require '<gem_name>'`, rubygems does seem to load
-the extension. However, this seems rather fragile.
+`lib/<gem_name>.rb` and `lib/<gem_name>.so` exist. When the user types
+`require '<gem_name>'`, rubygems prefers `lib/<gem_name>.rb`, but when
+`lib/<gem_name>.rb` contains `require '<gem_name>'`, rubygems loads the
+extension. However, this seems fragile.
 
 A further alternative is to build an extension with a name along the lines of
 `ext/<gem_name>_ext.so`. This is less fragile, but perhaps less clean than
 putting the extension in its own folder. 
 
 To summarize, the suggested conventions for a gem with name `$g` are:
-1. `ext/$g` is the folder that contains the source files and `extconf.rb`
-1. `ext/$g/$g.c` is the main source file (there may be others)
-1. `ext/$g/$g.c` contains a function `Init_$g`
-1. `ext/$g/extconf.rb` calls `create_makefile('$g/$g')`
-1. the gemspec sets `s.extensions = ['ext/$g/extconf.rb']` and lists
-   the corresponding source files in `ext/$g`
-1. the first require in `lib/$g.rb` is `require '$g/$g'
+1.  `ext/$g` is the folder that contains the source files and `extconf.rb`
+1.  `ext/$g/$g.c` is the main source file (there may be others)
+1.  `ext/$g/$g.c` contains a function `Init_$g`
+1.  `ext/$g/extconf.rb` calls `create_makefile('$g/$g')`
+1.  the gemspec sets `s.extensions = ['ext/$g/extconf.rb']` and lists
+    the corresponding source files in `ext/$g`
+1.  the first require in `lib/$g.rb` is `require '$g/$g'`
 
 Wrapping Existing Libraries
 ---------------------------
