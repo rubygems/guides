@@ -172,12 +172,10 @@ files are shown below:
 
 There are two copies of `hola.so`: one in `ext/hola` and the other in
 `lib/hola`. After rubygems builds the extension, it copies `hola/hola.so` from
-`ext` to `lib`. The gem's `lib` folder is on the `$LOAD_PATH`, so
-
-    require 'hola/hola'
-
-loads `lib/hola/hola.so`. The reason that we don't specify the file extension in
-the `require` is that it is platform-dependent, and ruby figures it out itself.
+`ext` to `lib`. The gem's `lib` folder is on the `$LOAD_PATH`, so `require
+'hola/hola'` loads `lib/hola/hola.so`. The reason that we don't specify the file
+extension in the `require` is that ruby figures it out automatically, and it is
+platform-dependent.
 
 We can now use the gem as before:
 
@@ -193,10 +191,10 @@ The string `"bonjour!"` came from our C extension. Hooray!
 Add helpful tasks to the `Rakefile`
 -----------------------------------
 
-Building and install the gem every time you make a change quickly gets tedious.
-To speed things up, it helps to add some extra tasks to your Rakefile that
-automate the build process. The following should work on *nix, but it would need
-some tweaking to run on Windows.
+Building and installing the gem every time you make a change quickly gets
+tedious.  To speed things up, it helps to add some extra tasks to your Rakefile
+that automate the build process. The following should work on *nix, but it would
+need some tweaking to run on Windows.
 
     require 'rake/testtask'
     require 'rake/clean'
@@ -204,7 +202,7 @@ some tweaking to run on Windows.
     NAME = 'hola'
 
     # rule to build the extension: this says that the extension should be
-    # rebuilt after any change to to the source files in ext
+    # rebuilt after any change to the source files in ext
     file "lib/#{NAME}/#{NAME}.so" => Dir.glob("ext/#{NAME}/*{.rb,.c}") do
       Dir.chdir("ext/#{NAME}") do
         # this does essentially the same thing as rubygems does
@@ -255,12 +253,42 @@ If the C source and `extconf.rb` build script have not changed, then running
 Some other Guidelines
 =====================
 
+<a id="naming"> </a>
 Extension Naming
 ----------------
 
-Because rubygems copies the shared object (`.so`) file to the gem's `lib`
-directory when it is installed, loading the gem puts the 
+To avoid unintended interactions between gems, each gem should try to keep all
+of its files in a single folder. This is the motivation behind the naming
+conventions used in the [tutorial](#tutorial).
 
+An alternative convention is to build an extension `ext/<gem_name>.so`, and this
+does seem to work (in my experience). When the gem is installed, both
+`lib/<gem_name>.rb` and `lib/<gem_name>.so` are created. When the user types
+`require '<gem_name>'`, rubygems prefers `lib/<gem_name>.rb`, and when
+`lib/<gem_name>.rb` contains `require '<gem_name>'`, rubygems does seem to load
+the extension. However, this seems rather fragile.
+
+A further alternative is to build an extension with a name along the lines of
+`ext/<gem_name>_ext.so`. This is less fragile, but perhaps less clean than
+putting the extension in its own folder. 
+
+To summarize, the suggested conventions for a gem with name `$g` are:
+1. `ext/$g` is the folder that contains the source files and `extconf.rb`
+1. `ext/$g/$g.c` is the main source file (there may be others)
+1. `ext/$g/$g.c` contains a function `Init_$g`
+1. `ext/$g/extconf.rb` calls `create_makefile('$g/$g')`
+1. the gemspec sets `s.extensions = ['ext/$g/extconf.rb']` and lists
+   the corresponding source files in `ext/$g`
+1. the first require in `lib/$g.rb` is `require '$g/$g'
+
+Wrapping Existing Libraries
+---------------------------
+
+Several tools exist to generate wrappers for existing C and C++ libraries.
+
+*  [SWIG](http://www.swig.org/), the Simplified Wrapper Interface Generator, is
+   the probably the most popular
+*  [rb++](http://rbplusplus.rubyforge.org/) is newer and nicer in several ways
 
 Portability
 -----------
@@ -271,8 +299,8 @@ Next Steps
 ==========
 
 There are several other tutorials, including:
-* [a 5 minute tutorial on RubyInsider](http://www.rubyinside.com/how-to-create-a-ruby-extension-in-c-in-under-5-minutes-100.html)
-* [a longer tutorial](http://tenderlovemaking.com/2009/12/18/writing-ruby-c-extensions-part-1/)
+*  [a 5 minute tutorial on RubyInsider](http://www.rubyinside.com/how-to-create-a-ruby-extension-in-c-in-under-5-minutes-100.html)
+*  [a longer tutorial](http://tenderlovemaking.com/2009/12/18/writing-ruby-c-extensions-part-1/)
 
 The main references for ruby's C API are:
 * [a chapter in the Pickaxe book](http://www.ruby-doc.org/docs/ProgrammingRuby/html/ext_ruby.html)
