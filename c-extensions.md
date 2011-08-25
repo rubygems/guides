@@ -50,8 +50,8 @@ First we'll add one more folder, `ext`, that contains two files:
 
     create_makefile('hola_ext')
 
-When you install a gem that contains the code for a C extension (and has the
-appropriate settings in its `gemspec`):
+When you install a gem that contains the code for a C extension (and has [the
+appropriate settings](#tutorial-gemspec) in its `gemspec`):
 
 1. Rubygems calls its `extconf.rb`.
 2. `extconf.rb` creates a [Makefile](http://en.wikipedia.org/wiki/Makefile)
@@ -77,7 +77,7 @@ good name to use for the extension (see below).
     /* this is called by ruby when loading the extension */
     void Init_hola_ext(void) {
       /* assume we haven't yet defined class Hola */
-      VALUE klass = rb_define_class("Hola");
+      VALUE klass = rb_define_class("Hola", rb_cObject);
 
       /* the hola_bonjour function can be called from ruby as "Hola.bonjour" */
       rb_define_singleton_method(klass, "bonjour", hola_bonjour, 0);
@@ -96,19 +96,101 @@ classes, modules and methods to C functions.
 Modify the `gemspec`
 --------------------
 
-To tell rubygems that a gem contains a C extension, we just point it to
-`extconf.rb`.
+To tell rubygems that a gem contains a C extension, we have to point it to
+`extconf.rb`, and we have to include the C source files in the `files` list.
 
     % cat hola.gemspec 
     Gem::Specification.new do |s|
       ... (other stuff) ...
 
+      s.files = Dir.glob('lib/**/*.rb') + Dir.glob('ext/*.c')
       s.extensions = ['ext/extconf.rb']
+      s.executables = ['hola']
 
       ... (other stuff) ...
     end
 
+Rubygems automatically adds the extensions and executables to the files list, so
+you don't have to list them. (Here we're computing the `files` list
+dynamically; when we run `gem build` below, it will include all matching files.)
+
+At this point we can build and install the gem:
+
+    % gem build hola.gemspec 
+    Successfully built RubyGem
+    Name: hola
+    Version: 0.0.1
+    File: hola-0.0.1.gem
+    % gem install hola-0.0.1.gem 
+    Building native extensions.  This could take a while...
+    Successfully installed hola-0.0.1
+    1 gem installed
+    % irb -rubygems
+    ruby-1.8.7-p352 :001 > require 'hola'
+     => true 
+    ruby-1.8.7-p352 :002 > Hola.bonjour
+     => "bonjour!" 
+
+The string `"bonjour!"` came from our C extension. Hooray! 
+
 <a id="tutorial-rakefile"> </a>
 Add helpful tasks to the `Rakefile`
 -----------------------------------
-TODO
+
+Building and install the gem every time you make a change quickly gets tedious.
+To speed things up, it helps to add some extra tasks to your Rakefile that
+automate the build process:
+
+    require 'rake/testtask'
+    require 'rake/clean'
+
+    # rule to build the extension: this says that the extension
+    # (ext/hola_ext.so) should be rebuilt after any change to ext/extconf.rb
+    # or ext/hola_ext.c, using the commands in the block
+    file 'ext/hola_ext.so' => %w(ext/extconf.rb ext/hola_ext.c) do
+      # this is basically what rubygems does when you run gem install, except
+      # that we don't copy the shared object to the lib directory
+      Dir.chdir('ext') do
+        ruby "extconf.rb"
+        sh "make"
+      end
+    end
+
+    # make the :test task depend on the shared object, so it will be built
+    # automatically before running the tests
+    task :test => 'ext/hola_ext.so'
+
+    # use 'rake clean' and 'rake clobber' to easily delete generated files
+    CLEAN.include('ext/*{.o,.log}')
+    CLEAN.include('ext/Makefile')
+    CLOBBER.include('ext/*.so')
+
+    # because we don't copy ext/hola_ext.so to lib, we have to tell TestTask
+    # to look for it in 'ext'
+    Rake::TestTask.new do |t|
+      t.libs.push 'test', 'ext'
+    end
+
+    desc "Run tests"
+    task :default => :test
+
+Now typing `rake` will run the tests after building (or rebuilding) the
+extension, as necessary:
+    
+    % rake
+    (in /home/john/rubygems_hola)
+    /home/john/.rvm/rubies/ruby-1.8.7-p352/bin/ruby extconf.rb
+    creating Makefile
+    make
+    gcc -I. -I/home/john/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/i686-linux -I/home/john/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/i686-linux -I. -D_FILE_OFFSET_BITS=64  -fPIC -g -O2  -fPIC   -c hola_ext.c
+    gcc -shared -o hola_ext.so hola_ext.o -L. -L/home/john/.rvm/rubies/ruby-1.8.7-p352/lib -Wl,-R/home/john/.rvm/rubies/ruby-1.8.7-p352/lib -L.  -rdynamic -Wl,-export-dynamic    -Wl,-R -Wl,/home/john/.rvm/rubies/ruby-1.8.7-p352/lib -L/home/john/.rvm/rubies/ruby-1.8.7-p352/lib -lruby  -lrt -ldl -lcrypt -lm   -lc
+    Loaded suite /home/john/.rvm/gems/ruby-1.8.7-p352/gems/rake-0.8.7/lib/rake/rake_test_loader
+    Started
+    ....
+    Finished in 0.002119 seconds.
+
+    4 tests, 4 assertions, 0 failures, 0 errors
+
+If the C source and `extconf.rb` build script have not changed, then running
+rake a second time results in only the test suite running.
+
