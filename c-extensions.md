@@ -172,7 +172,7 @@ installed into the following folder:
     |       `-- Makefile
     |-- lib
     |   |-- hola
-    |   |   |-- hola.so
+    |   |   |-- hola.so                                                  # <----
     |   |   `-- translator.rb
     |   `-- hola.rb
     `-- test
@@ -190,7 +190,7 @@ When we require the gem, rubygems puts `hola`'s `lib` folder on the
     ruby-1.8.7-p352 :001 > require 'hola'
      => true 
     ruby-1.8.7-p352 :002 > puts $LOAD_PATH
-    <b>/home/john/.rvm/gems/ruby-1.8.7-p352/gems/hola-0.0.1/lib</b>
+    /home/john/.rvm/gems/ruby-1.8.7-p352/gems/hola-0.0.1/lib             # <----
     /home/john/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8
     /home/john/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/i686-linux
     /home/john/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby
@@ -204,7 +204,7 @@ When we require the gem, rubygems puts `hola`'s `lib` folder on the
 
 When it sees `require 'hola/hola'` at the top of `lib/hola.rb`, it finds
 `/home/john/.rvm/gems/ruby-1.8.7-p352/gems/hola-0.0.1/lib/hola/hola.so`.
-(Note that we don't have to include the `.so` extension -- ruby figures this out
+(Note that we don't have to write the `.so` extension -- ruby figures this out
 for itself, which is fortunate, because it is platform-dependent.)
 
 Finally, we can call our C extension's `bonjour` method: 
@@ -277,58 +277,77 @@ extension, as necessary:
 If the C source and `extconf.rb` build script have not changed, then running
 `rake` a second time runs only the test suite.
 
-Some other Guidelines
-=====================
+Advice
+======
 
 <a id="naming"> </a>
 Extension Naming
 ----------------
 
-To avoid unintended interactions between gems, each gem should try to keep all
-of its files in a single folder. This is the motivation behind the naming
-conventions used in the [tutorial](#tutorial).
-
-An alternative convention is to build an extension `ext/<gem_name>.so`, and this
-does seem to work (in my experience). When the gem is installed, both
-`lib/<gem_name>.rb` and `lib/<gem_name>.so` exist. When the user types
-`require '<gem_name>'`, rubygems prefers `lib/<gem_name>.rb`, but when
-`lib/<gem_name>.rb` contains `require '<gem_name>'`, rubygems loads the
-extension. However, this seems fragile.
-
-A further alternative is to build an extension with a name along the lines of
-`ext/<gem_name>_ext.so`. This is less fragile, but perhaps less clean than
-putting the extension in its own folder. 
-
-To summarize, the suggested conventions for a gem with name `$g` are:
+To avoid unintended interactions between gems, it's a good idea for each gem to
+keep all of its files in a single folder. This is the motivation behind the
+naming conventions used in the [tutorial](#tutorial). To summarize, the
+suggested conventions for a gem with name `$g` are:
 
 1.   `ext/$g` is the folder that contains the source files and `extconf.rb`
 1.   `ext/$g/$g.c` is the main source file (there may be others)
 1.   `ext/$g/$g.c` contains a function `Init_$g`
 1.   `ext/$g/extconf.rb` calls `create_makefile('$g/$g')`
-1.   the gemspec sets `s.extensions = ['ext/$g/extconf.rb']` and lists
-     the corresponding source files in `ext/$g`
+1.   the gemspec sets `extensions = ['ext/$g/extconf.rb']` and lists
+     the required source files (and header files, if any) in `ext/$g`
 1.   the first require in `lib/$g.rb` is `require '$g/$g'`
+
+An alternative is to name the the extension like `<gem_name>_ext` instead of
+`<gem_name>/<gem_name>`. The result is that the `<gem_name>_ext.so` file is
+installed into the gem's `lib` folder, and it can be required from
+`lib/<gem_name>.rb` as `require '<gem_name>_ext'`. This also works, though it is
+perhaps not as clean as the first convention.
 
 Wrapping Existing Libraries
 ---------------------------
 
-Several tools exist to generate wrappers for existing C and C++ libraries.
+A common reason for writing a C extension is to wrap an existing C or C++
+library. This can be done manually (see this tutorial --
+[part
+1](http://tenderlovemaking.com/2009/12/18/writing-ruby-c-extensions-part-1)
+and [part
+2](http://tenderlovemaking.com/2010/12/11/writing-ruby-c-extensions-part-2)),
+but several tools also exist:
 
 *  [SWIG](http://www.swig.org/), the Simplified Wrapper Interface Generator, is
-   the probably the most popular
-*  [rb++](http://rbplusplus.rubyforge.org/) is newer and nicer in several ways
+   mature and probably the most popular
+*  [rb++](http://rbplusplus.rubyforge.org/) is nicer in several ways, but is
+   less stable
 
-Portability
------------
+Multi-Platform Extensions
+-------------------------
+
+The focus of this guide has been on writing extensions for Linux, but it is also
+possible to write extensions that work on multiple operating systems.
+
+This section needs help! [Please contribute.](http://github.com/rubygems/guides)
+
+Multi-Implementation Extensions
+-------------------------------
+
+There are several ruby implementations. C extensions that use the ruby C API can
+be loaded by the the standard ruby interpreter (the MRI -- Matz's Ruby
+Interpreter) and other C-based interpreters, but they cannot be loaded into
+[JRuby](http://jruby.org/) (ruby on the Java Virtual machine) or
+[IronRuby](http://ironruby.net/) (ruby on the Common Language Runtime (.NET)),
+for example.
+
+See [ruby-ffi](http://github.com/ffi/ffi) for a way to build extensions that
+work with other Ruby implementations.
 
 This section needs help! [Please contribute.](http://github.com/rubygems/guides)
 
 References
 ==========
 
-There are several other tutorials, including:
-*  [a 5 minute tutorial on RubyInsider](http://www.rubyinside.com/how-to-create-a-ruby-extension-in-c-in-under-5-minutes-100.html)
-*  [a longer tutorial](http://tenderlovemaking.com/2009/12/18/writing-ruby-c-extensions-part-1/)
+This guide is based largely on this excellent two-part tutorial:
+*  [part 1](http://tenderlovemaking.com/2009/12/18/writing-ruby-c-extensions-part-1)
+*  [part 2](http://tenderlovemaking.com/2010/12/11/writing-ruby-c-extensions-part-2)
 
 The main references for ruby's C API are:
 *  [a chapter in the Pickaxe book](http://www.ruby-doc.org/docs/ProgrammingRuby/html/ext_ruby.html)
