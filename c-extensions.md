@@ -138,7 +138,7 @@ the top of `lib/hola.rb`:
 
 This works because rubygems copies the shared object from `ext` to `lib` when
 the gem is installed. It seems a bit like magic, but we can now build and
-install the gem to see why it works:
+install the gem to see what's going on:
 
     % gem build hola.gemspec 
     Successfully built RubyGem
@@ -155,8 +155,9 @@ the gem is installed:
     Successfully installed hola-0.0.1
     1 gem installed
 
-On Linux with [rvm](http://beginrescueend.com/), the ruby version manager,
-the gem is installed into the following folder:
+Where exactly the gem is installed to depends on how ruby is set up. On Linux
+with [rvm](http://beginrescueend.com/), the ruby version manager, the gem is
+installed into the following folder:
 
     % tree ~/.rvm/gems/ruby-1.8.7-p352/gems/hola-0.0.1/
     /home/john/.rvm/gems/ruby-1.8.7-p352/gems/hola-0.0.1/
@@ -189,7 +190,7 @@ When we require the gem, rubygems puts `hola`'s `lib` folder on the
     ruby-1.8.7-p352 :001 > require 'hola'
      => true 
     ruby-1.8.7-p352 :002 > puts $LOAD_PATH
-    /home/john/.rvm/gems/ruby-1.8.7-p352/gems/hola-0.0.1/lib
+    <b>/home/john/.rvm/gems/ruby-1.8.7-p352/gems/hola-0.0.1/lib</b>
     /home/john/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8
     /home/john/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/i686-linux
     /home/john/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby
@@ -202,9 +203,9 @@ When we require the gem, rubygems puts `hola`'s `lib` folder on the
     => nil 
 
 When it sees `require 'hola/hola'` at the top of `lib/hola.rb`, it finds
-`lib/hola/hola.so`. (Note that we don't have to include the `.so` extension --
-ruby figures this out itself, which is fortunate, because it is platform
-dependent.)
+`/home/john/.rvm/gems/ruby-1.8.7-p352/gems/hola-0.0.1/lib/hola/hola.so`.
+(Note that we don't have to include the `.so` extension -- ruby figures this out
+for itself, which is fortunate, because it is platform-dependent.)
 
 Finally, we can call our C extension's `bonjour` method: 
 
