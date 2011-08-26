@@ -5,11 +5,11 @@ previous: /run-your-own-gem-server
 next: /resources
 ---
 
-This guide explains how to make a C extension and package it as a gem.
+This guide explains how to package a C extension as a rubygem.
 
 To get started, we'll add a C method to the `hola` gem from the
-[make your own gem](/make-your-own-gem) guide. Then we'll discuss some general
-issues and give some pointers on where to go for information.
+[make your own gem](/make-your-own-gem) guide. Then there's some general
+[advice](#advice) and some [references](#references) for further reading.
 
 <a id="tutorial"> </a>
 Tutorial: Adding a C extension to `hola` 
@@ -31,7 +31,7 @@ like this:
     `-- test
         `-- test_hola.rb
 
-To add in the C extension, we'll go through a few steps.
+Now we'll add in a simple C extension.
 
 <a id="tutorial-ext"> </a>
 Create an `ext` folder
