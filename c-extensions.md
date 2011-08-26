@@ -346,10 +346,12 @@ References
 ==========
 
 This guide is based largely on this excellent two-part tutorial:
+
 *   [part 1](http://tenderlovemaking.com/2009/12/18/writing-ruby-c-extensions-part-1)
 *   [part 2](http://tenderlovemaking.com/2010/12/11/writing-ruby-c-extensions-part-2)
 
 The main references for ruby's C API are:
+
 *   [a chapter in the Pickaxe book](http://www.ruby-doc.org/docs/ProgrammingRuby/html/ext_ruby.html)
 *   [the README.EXT file](https://github.com/ruby/ruby/blob/trunk/README.EXT)
 
