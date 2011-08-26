@@ -297,7 +297,7 @@ suggested conventions for a gem with name `$g` are:
      the required source files (and header files, if any) in `ext/$g`
 1.   the first require in `lib/$g.rb` is `require '$g/$g'`
 
-An alternative is to name the the extension like `<gem_name>_ext` instead of
+An alternative is to name the extension like `<gem_name>_ext` instead of
 `<gem_name>/<gem_name>`. The result is that the `<gem_name>_ext.so` file is
 installed into the gem's `lib` folder, and it can be required from
 `lib/<gem_name>.rb` as `require '<gem_name>_ext'`. This also works, though it is
@@ -331,7 +331,7 @@ Multi-Implementation Extensions
 -------------------------------
 
 There are several ruby implementations. C extensions that use the ruby C API can
-be loaded by the the standard ruby interpreter (the MRI -- Matz's Ruby
+be loaded by the standard ruby interpreter (the MRI -- Matz's Ruby
 Interpreter) and other C-based interpreters, but they cannot be loaded into
 [JRuby](http://jruby.org/) (ruby on the Java Virtual machine) or
 [IronRuby](http://ironruby.net/) (ruby on the Common Language Runtime (.NET)),
@@ -346,10 +346,10 @@ References
 ==========
 
 This guide is based largely on this excellent two-part tutorial:
-*  [part 1](http://tenderlovemaking.com/2009/12/18/writing-ruby-c-extensions-part-1)
-*  [part 2](http://tenderlovemaking.com/2010/12/11/writing-ruby-c-extensions-part-2)
+*   [part 1](http://tenderlovemaking.com/2009/12/18/writing-ruby-c-extensions-part-1)
+*   [part 2](http://tenderlovemaking.com/2010/12/11/writing-ruby-c-extensions-part-2)
 
 The main references for ruby's C API are:
-*  [a chapter in the Pickaxe book](http://www.ruby-doc.org/docs/ProgrammingRuby/html/ext_ruby.html)
-*  [the README.EXT file](https://github.com/ruby/ruby/blob/trunk/README.EXT)
+*   [a chapter in the Pickaxe book](http://www.ruby-doc.org/docs/ProgrammingRuby/html/ext_ruby.html)
+*   [the README.EXT file](https://github.com/ruby/ruby/blob/trunk/README.EXT)
 
