@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Command Reference
-previous: /specification-reference
-next: /rubygems-org-api
+previous: /patterns
+next: /specification-reference
 ---
 
 What each `gem` command does, and how to use it.
@@ -42,11 +42,13 @@ What each `gem` command does, and how to use it.
 
 Build a gem from a gemspec
 
+
   
 ### Arguments
 
 
 * *GEMSPEC_FILE* -   gemspec file name to build a gem for
+
 
   
 
@@ -60,6 +62,7 @@ Build a gem from a gemspec
 
 Manage RubyGems certificates and signing settings
 
+
   
 
 ### Usage
@@ -71,6 +74,7 @@ Manage RubyGems certificates and signing settings
 ## gem check
 
 Check installed gems
+
 
   
 
@@ -84,11 +88,13 @@ Check installed gems
 
 Clean up old versions of installed gems in the local repository
 
+
   
 ### Arguments
 
 
 * *GEMNAME* -        name of gem to cleanup
+
 
   
 
@@ -108,11 +114,13 @@ installed elsewhere in GEM_PATH the cleanup command won't touch it.
 
 Display the contents of the installed gems
 
+
   
 ### Arguments
 
 
 * *GEMNAME* -        name of gem to list contents for
+
 
   
 
@@ -126,11 +134,13 @@ Display the contents of the installed gems
 
 Show the dependencies of an installed gem
 
+
   
 ### Arguments
 
 
 * *GEMNAME* -        name of gem to show dependencies for
+
 
   
 
@@ -144,17 +154,25 @@ Show the dependencies of an installed gem
 
 Display information about the RubyGems environment
 
+
   
 ### Arguments
 
 
 * *packageversion* -   display the package version
+
 * *gemdir* -           display the path where gems are installed
+
 * *gempath* -          display path used to search for gems
+
 * *version* -          display the gem format version
+
 * *remotesources* -    display the remote gem servers
+
 * *platform* -         display the supported gem platforms
+
 * *&lt;omitted&gt;* -        display everything
+
 
   
 
@@ -205,11 +223,13 @@ lib/rubygems/defaults/operating_system.rb
 
 Download a gem and place it in the current directory
 
+
   
 ### Arguments
 
 
 * *GEMNAME* -        name of gem to download
+
 
   
 
@@ -222,6 +242,7 @@ Download a gem and place it in the current directory
 ## gem generate_index
 
 Generates the index files for a gem server directory
+
 
   
 
@@ -245,14 +266,14 @@ When done, it will generate a set of files like this:
     gems/*.gem                                   # .gem files you want to
                                                  # index
 
-    specs.&lt;version&gt;.gz                           # specs index
-    latest_specs.&lt;version&gt;.gz                    # latest specs index
-    prerelease_specs.&lt;version&gt;.gz                # prerelease specs index
-    quick/Marshal.&lt;version&gt;/&lt;gemname&gt;.gemspec.rz # Marshal quick index file
+    specs.<version>.gz                           # specs index
+    latest_specs.<version>.gz                    # latest specs index
+    prerelease_specs.<version>.gz                # prerelease specs index
+    quick/Marshal.<version>/<gemname>.gemspec.rz # Marshal quick index file
 
     # these files support legacy RubyGems
-    Marshal.&lt;version&gt;
-    Marshal.&lt;version&gt;.Z                          # Marshal full index
+    Marshal.<version>
+    Marshal.<version>.Z                          # Marshal full index
 
 The .Z and .rz extension files are compressed with the inflate algorithm.
 The Marshal version number comes from ruby's Marshal::MAJOR_VERSION and
@@ -267,13 +288,17 @@ index.rss containing gems released in the last two days.
 
 Provide help on the 'gem' command
 
+
   
 ### Arguments
 
 
 * *commands* -       List all 'gem' commands
+
 * *examples* -       Show examples of 'gem' usage
+
 * *&lt;command&gt;* -      Show specific help for &lt;command&gt;
+
 
   
 
@@ -287,11 +312,13 @@ Provide help on the 'gem' command
 
 Install a gem into the local repository
 
+
   
 ### Arguments
 
 
 * *GEMNAME* -        name of gem to install
+
 
   
 
@@ -341,7 +368,7 @@ to write the specification by hand.  For example:
     Results logged to /path/to/gems/some_extension_gem-1.0/gem_make.out
     $ [cd /path/to/gems/some_extension_gem-1.0]
     $ [edit files or what-have-you and run make]
-    $ gem spec ../../cache/some_extension_gem-1.0.gem --ruby &gt; \
+    $ gem spec ../../cache/some_extension_gem-1.0.gem --ruby > \
                ../../specifications/some_extension_gem-1.0.gemspec
     $ gem list some_extension_gem
 
@@ -350,18 +377,19 @@ to write the specification by hand.  For example:
     some_extension_gem (1.0)
     $
 
-
   
 
 ## gem list
 
 Display gems whose name starts with STRING
 
+
   
 ### Arguments
 
 
 * *STRING* -         start of gem name to look for
+
 
   
 
@@ -375,12 +403,15 @@ Display gems whose name starts with STRING
 
 Generate a lockdown list of gems
 
+
   
 ### Arguments
 
 
 * *GEMNAME* -        name of gem to lock
+
 * *VERSION* -        version of gem to lock
+
 
   
 
@@ -399,7 +430,7 @@ generated.
 
 Example:
 
-    gemlock rails-1.0.0 &gt; lockdown.rb
+    gemlock rails-1.0.0 > lockdown.rb
 
 will produce in lockdown.rb:
 
@@ -426,6 +457,7 @@ lock it down to the exact version.
 
 Display all gems that need updates
 
+
   
 
 ### Usage
@@ -438,11 +470,13 @@ Display all gems that need updates
 
 Manage gem owners on RubyGems.org.
 
+
   
 ### Arguments
 
 
 * *GEM* -        gem to manage owners for
+
 
   
 
@@ -454,17 +488,20 @@ Manage gem owners on RubyGems.org.
 ### Description
 
 Manage gem owners on RubyGems.org.
+
   
 
 ## gem pristine
 
 Restores installed gems to pristine condition from files located in the gem cache
 
+
   
 ### Arguments
 
 
 * *GEMNAME* -        gem to restore to pristine condition (unless --all)
+
 
   
 
@@ -494,11 +531,13 @@ extensions.
 
 Push a gem up to RubyGems.org
 
+
   
 ### Arguments
 
 
 * *GEM* -        built gem to push up
+
 
   
 
@@ -510,11 +549,13 @@ Push a gem up to RubyGems.org
 ### Description
 
 Push a gem up to RubyGems.org
+
   
 
 ## gem query
 
 Query gem information in local or remote repositories
+
 
   
 
@@ -528,11 +569,13 @@ Query gem information in local or remote repositories
 
 Generates RDoc for pre-installed gems
 
+
   
 ### Arguments
 
 
 * *GEMNAME* -        gem to generate documentation for (unless --all)
+
 
   
 
@@ -552,11 +595,13 @@ The rdoc command builds RDoc and RI documentation for installed gems.  Use
 
 Display all gems whose name contains STRING
 
+
   
 ### Arguments
 
 
 * *STRING* -         fragment of gem name to search for
+
 
   
 
@@ -569,6 +614,7 @@ Display all gems whose name contains STRING
 ## gem server
 
 Documentation and gem repository HTTP server
+
 
   
 
@@ -594,12 +640,12 @@ You can set up a shortcut to gem server documentation using the URL:
     http://localhost:8808/rdoc?q=%s - Firefox
     http://localhost:8808/rdoc?q=* - LaunchBar
 
-
   
 
 ## gem sources
 
 Manage the sources and cache file RubyGems uses to search for gems
+
 
   
 
@@ -613,12 +659,15 @@ Manage the sources and cache file RubyGems uses to search for gems
 
 Display gem specification (in yaml)
 
+
   
 ### Arguments
 
 
 * *GEMFILE* -        name of gem to show the gemspec for
+
 * *FIELD* -          name of gemspec field to show
+
 
   
 
@@ -632,6 +681,7 @@ Display gem specification (in yaml)
 
 List gems along with access times
 
+
   
 
 ### Usage
@@ -644,11 +694,13 @@ List gems along with access times
 
 Uninstall gems from the local repository
 
+
   
 ### Arguments
 
 
 * *GEMNAME* -        name of gem to uninstall
+
 
   
 
@@ -662,11 +714,13 @@ Uninstall gems from the local repository
 
 Unpack an installed gem to the current directory
 
+
   
 ### Arguments
 
 
 * *GEMNAME* -        name of gem to unpack
+
 
   
 
@@ -680,11 +734,13 @@ Unpack an installed gem to the current directory
 
 Update the named gems (or all installed gems) in the local repository
 
+
   
 ### Arguments
 
 
 * *GEMNAME* -        name of gem to update
+
 
   
 
@@ -698,11 +754,13 @@ Update the named gems (or all installed gems) in the local repository
 
 Find the location of a library file you can require
 
+
   
 ### Arguments
 
 
 * *FILE* -           name of file to find
+
 
   
 
