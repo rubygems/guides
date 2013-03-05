@@ -481,25 +481,27 @@ Install a gem into the local repository
 *         -&#8203;-\[no-\]prerelease          - Allow prerelease versions of a gem to be installed. (Only for listed gems)
 
 ###   Deprecated Options:
-
+*         -&#8203;-\[no-\]rdoc                - Generate RDoc documentation for the gem on install
+*         -&#8203;-\[no-\]ri                  - Generate RI documentation for the gem on install
 *     -u, -&#8203;-\[no-\]update-sources      - Update local source cache
 
 ###   Install/Update Options:
 
 *     -i, -&#8203;-install-dir DIR          - Gem repository directory to get installed gems
 *     -n, -&#8203;-bindir DIR               - Directory where binary files are located
-*     -d, -&#8203;-\[no-\]rdoc                - Generate RDoc documentation for the gem on install
-*         -&#8203;-\[no-\]ri                  - Generate RI documentation for the gem on install
-*     -E, -&#8203;-\[no-\]env-shebang         - Rewrite the shebang line on installed scripts to use /usr/bin/env
-*     -f, -&#8203;-\[no-\]force               - Force gem to install, bypassing dependency checks
-*     -w, -&#8203;-\[no-\]wrappers            - Use bin wrappers for executables Not available on dosish platforms
+*         --[no-]document [TYPES]           - Generate documentation for installed gems List the documentation types you wish to generate.  For example: rdoc,ri
+*     -E, -&#8203;-\[no-\]env-shebang       - Rewrite the shebang line on installed scripts to use /usr/bin/env
+*     -f, -&#8203;-\[no-\]force             - Force gem to install, bypassing dependency checks
+*     -w, -&#8203;-\[no-\]wrappers          - Use bin wrappers for executables Not available on dosish platforms
 *     -P, -&#8203;-trust-policy POLICY      - Specify gem trust policy
 *         -&#8203;-ignore-dependencies      - Do not install any required dependent gems
-*     -y, -&#8203;-include-dependencies     - Unconditionally install the required dependent gems
-*         -&#8203;-\[no-\]format-executable   - Make installed executable names match ruby. If ruby is ruby18, foo_exec will be foo_exec18
-*         -&#8203;-\[no-\]user-install        - Install in user's home directory instead of GEM_HOME.
-*         -&#8203;-development              - Install any additional development dependencies
+*         -&#8203;-\[no-\]format-executable - Make installed executable names match ruby. If ruby is ruby18, foo_exec will be foo_exec18
+*         -&#8203;-[no-]user-install        - Install in user's home directory instead of GEM_HOME.
+*         -&#8203;-development              - Install additional development dependencies
+*         -&#8203;-development-all          - Install development dependencies for all gems (including dev deps themselves)
 *         -&#8203;-conservative             - Don't attempt to upgrade gems already meeting version requirement
+*         -&#8203;-minimal-deps             - Don't upgrade any dependencies that already meet version requirements
+*     -g, -&#8203;-file FILE                - Read from a gem dependencies API file and install the listed gems
 
 ###   Local/Remote Options:
 
