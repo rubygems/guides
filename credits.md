@@ -33,6 +33,7 @@ These people have donated time to creating and improving the RubyGems Guides sit
 * [Sebastian Spier](https://github.com/spier)
 * [Antonio Terceiro](https://github.com/terceiro)
 * [thrackle](https://github.com/thrackle)
+* [Jeff Zelenkov](https://github.com/zjjz)
 
 Acknowledgments
 ---------------
