@@ -17,7 +17,7 @@ This reference was automatically generated from RubyGems version 2.2.2.
 * [gem dependency](#gem-dependency)
 * [gem environment](#gem-environment)
 * [gem fetch](#gem-fetch)
-* [gem generate_index](#gem-generate_index)
+* [gem generate_index](#gem-generateindex)
 * [gem help](#gem-help)
 * [gem install](#gem-install)
 * [gem list](#gem-list)
