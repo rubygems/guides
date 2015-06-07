@@ -249,6 +249,9 @@ Further Reading
   source for this extension with some additional comments.
 * [README.EXT][README.EXT] describes in greater detail how to build extensions
   in ruby
+* [Extending Ruby](http://ruby-doc.com/docs/ProgrammingRuby/html/ext_ruby.html)
+  is a [Programming Ruby](http://docs.ruby-doc.com/docs/ProgrammingRuby/)
+  book chapter about building C extensions
 * [MakeMakefile][mkmf.rb] contains documentation for mkmf.rb, the library
   extconf.rb uses to detect ruby and C library features
 * [rake-compiler][rake-compiler] integrates building C and Java extensions into
