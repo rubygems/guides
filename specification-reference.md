@@ -494,15 +494,24 @@ specified to the patch-level:</p>
 ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 #&lt;Gem::Version &quot;2.0.0.247&quot;&gt;</pre>
 
+<p>Because patch-level is taken into account, be very careful specifying using
+`&lt;=`: `<= 2.2.2` will not match any patch-level of 2.2.2 after the `p0`
+release. It is much safer to specify `&lt; 2.2.3` instead</p>
+
 <p>Usage:</p>
 
 <pre># This gem will work with 1.8.6 or greater...
 spec.required_ruby_version = &#39;&gt;= 1.8.6&#39;
 
 # Only with ruby 2.0.x
-spec.required_ruby_version = &#39;~&gt; 2.0&#39;</pre>    
+spec.required_ruby_version = &#39;~&gt; 2.0&#39;
+
+# Only with ruby between 2.2.0 and 2.2.2
+spec.required_ruby_version = [&#39;&gt;= 2.2.0&#39;, &#39;&lt; 2.2.3&#39;]</pre>
 
 <a id="required_rubygems_version"> </a>
+
+
 
 ## required_rubygems_version
 
