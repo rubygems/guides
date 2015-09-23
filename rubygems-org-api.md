@@ -3,7 +3,7 @@ layout: default
 title: RubyGems.org API
 url: /rubygems-org-api
 previous: /command-reference
-next: /run-your-own-gem-server
+next: /rubygems-org-api-v2
 ---
 
 <em class="t-gray">Details on interacting with RubyGems.org over HTTP.</em>
