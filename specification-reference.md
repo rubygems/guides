@@ -524,7 +524,10 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">required_ruby_version</span> = <span class="ruby-string">&#39;&gt;= 1.8.6&#39;</span>
 
 <span class="ruby-comment"># Only with ruby 2.0.x</span>
-<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">required_ruby_version</span> = <span class="ruby-string">&#39;~&gt; 2.0&#39;</span>
+<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">required_ruby_version</span> = <span class="ruby-string">&#39;~&gt; 2.0.0&#39;</span>
+
+<span class="ruby-comment"># Require ruby >= 2.2.0 but < 3</span>
+<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">required_ruby_version</span> = <span class="ruby-string">&#39;~&gt; 2.2&#39;</span>
 
 <span class="ruby-comment"># Only with ruby between 2.2.0 and 2.2.2</span>
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">required_ruby_version</span> = [<span class="ruby-string">&#39;&gt;= 2.2.0&#39;</span>, <span class="ruby-string">&#39;&lt; 2.2.3&#39;</span>]
