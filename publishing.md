@@ -64,16 +64,48 @@ should set this value to prevent accidental pushes to rubygems.org:
 See the [Resources](/resources) guide for an up-to-date listing of options for
 private gem servers.
 
+Authenticating for Publishing
+-----------------------------
+
+The push command will prompt for authentication, and this is the basic workflow
+for authenticating with [RubyGems.org][rubygems-url].
+
+However, if your `gem push` is
+automated, or you'd prefer to authenticate prior to pushing, the `gem signin`
+command provides the ability to store authentication information.
+
+To begin, you'll need to create an account on RubyGems.org. Visit the
+[sign up][rubygems-signup-url] page and supply an email address that you control,
+a handle (username), and a password.
+
+After creating the account, use your email and password when signing in.
+(RubyGems saves the credentials in ~/.gem/credentials for you so you only need
+to log in once.)
+
+Alternatively, you can authenticate with a private registry by providing the `--host`
+flag while signing in.
+
+To authenticate and enable you to push version 0.1.0 of a new gem named 'squid-utils':
+
+    $ gem signin squid-utils-0.1.0.gem
+    Enter your RubyGems.org credentials.
+    Don't have an account yet? Create one at https://rubygems.org/sign_up
+       Email:   gem_author@example
+    Password:
+    Signed in.
+
+You are now ready to push your gem without being prompted for authentication details.
+
 Publishing to RubyGems.org
 --------------------------
 
 The simplest way to distribute a gem for public consumption is to use
-[RubyGems.org](https://rubygems.org/).  Gems that are published to RubyGems.org
+[RubyGems.org][rubygems-url].  Gems that are published to RubyGems.org
 can be installed via the `gem install` command or through the use of tools such
 as Isolate or Bundler.
 
 To begin, you'll need to create an account on RubyGems.org. Visit the [sign
-up](https://rubygems.org/users/new) page and supply an email address that you
+up][rubygems-signin-url] page and supply an email address that you
 control, a handle (username) and a password.
 
 After creating the account, use your email and password when pushing the gem.
@@ -105,3 +137,6 @@ Gem Security
 ------------
 
 See [Security](/security) page.
+
+[rubygems-url]: https://rubygems.org/
+[rubygems-signup-url]: https://rubygems.org/users/new
