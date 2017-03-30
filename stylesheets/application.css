@@ -48,7 +48,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   background-color: #e9573f;
-  font-family: "aktiv-grotesk-std", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px; }
 
 section:not(:last-of-type) {
@@ -660,7 +660,7 @@ pre {
   border: none;
   border-radius: 5px;
   font-weight: 300;
-  font-family: "aktiv-grotesk-std", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;;
   color: #141c22;
   outline: none; }
   .header__search::-webkit-input-placeholder {
@@ -786,7 +786,8 @@ main {
 
 .page__heading {
   margin-bottom: 30px;
-  border-bottom: 1px solid #c1c4ca; }
+  border-bottom: 1px solid #c1c4ca;
+  font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif; }
   @media (max-width: 929px) {
     .page__heading {
       padding-top: 18px;
