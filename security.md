@@ -64,7 +64,7 @@ Verify the checksum, if available
     gem fetch gemname -v version
     ruby -rdigest/sha2 -e "puts Digest::SHA512.new.hexdigest(File.read('gemname-version.gem'))
 
-Know the risks of being pwned, as described by [Benjamin Smith's Hacking with Gems talk](http://lanyrd.com/2013/rulu/scgxzr/)
+Know the risks of being pwned, as described by [Benjamin Smith's Hacking with Gems talk](https://speakerdeck.com/benjaminleesmith/hacking-with-gems-rulu-2013)
 
 Building Gems
 -------
