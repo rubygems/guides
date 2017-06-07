@@ -125,7 +125,7 @@ Returns some basic information about the given gem. See below an example respons
 
 ### GET - `/api/v1/search.(json|yaml)?query=[YOUR QUERY]`
 
-Submit a search to Gemcutter for active gems, just like a search query on the
+Submit a search to RubyGems.org for active gems, just like a search query on the
 site. Returns an array of the JSON or YAML representation of gems that match.
 
     $ curl 'https://rubygems.org/api/v1/search.json?query=cucumber'
