@@ -47,7 +47,7 @@ into the `lib/` directory for you.
 extconf.rb
 ----------
 
-The extconf.rb configures a Makefile that will build your extension based.  The
+The extconf.rb configures a Makefile that will build your extension.  The
 extconf.rb must check for the necessary functions, macros and shared libraries
 your extension depends upon.  The extconf.rb must exit with an error if any of
 these are missing.

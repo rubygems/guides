@@ -68,9 +68,8 @@ Here, you can see the major components of a gem:
 The Gemspec
 -----------
 
-Your application, your gem's users, and you 6 months from now will want to
-know who wrote a gem, when, and what it does.  The gemspec contains this
-information.
+The gemspec specifies the information about a gem such as its name, version,
+description, authors and homepage.
 
 Here's an example of a gemspec file. You can learn more in [how to make a
 gem](/make-your-own-gem).

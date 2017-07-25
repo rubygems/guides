@@ -9,7 +9,7 @@ next: /rubygems-basics
 
 The RubyGems software allows you to easily 
 download, install, and use ruby software packages on your system.  The
-software package is called a "gem" and contains a package Ruby
+software package is called a "gem" which contains a packaged Ruby
 application or library.
 
 Gems can be used to extend or modify
