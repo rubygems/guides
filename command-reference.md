@@ -33,6 +33,7 @@ This reference was automatically generated from RubyGems version 2.6.6.
 * [gem rdoc](#gem-rdoc)
 * [gem search](#gem-search)
 * [gem server](#gem-server)
+* [gem signin](#gem-signin)
 * [gem sources](#gem-sources)
 * [gem specification](#gem-specification)
 * [gem stale](#gem-stale)
@@ -1359,6 +1360,29 @@ You can set up a shortcut to gem server documentation using the URL:
     http://localhost:8808/rdoc?q=%s - Firefox
     http://localhost:8808/rdoc?q=* - LaunchBar
   
+  
+## gem signin
+
+Sign in to any gemcutter-compatible host.
+
+###   Options:
+
+*     --host HOST       - Push to another gemcutter-compatible host
+
+###   Common Options:
+
+*     -h, -&#8203;-help                     - Get help on this command
+*     -V, -&#8203;-\[no-\]verbose             - Set the verbose level of output
+*     -q, -&#8203;-quiet                    - Silence command progress meter
+*         -&#8203;-silent                   - Silence rubygems output
+*         -&#8203;-config-file FILE         - Use this config file instead of default
+*         -&#8203;-backtrace                - Show stack backtrace on errors
+*         -&#8203;-debug                    - Turn on Ruby debugging
+*         -&#8203;-norc                     - Avoid loading any .gemrc file
+
+### Description
+The signin command executes host sign in for a push server (the default is 
+https://rubygems.org). The host can be provided with the `host` flag. 
 
 ## gem sources
 
