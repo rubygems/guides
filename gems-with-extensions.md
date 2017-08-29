@@ -139,7 +139,7 @@ The C extension that wraps `malloc()` and `free()` goes in
     Init_my_malloc(void) {
       VALUE cMyMalloc;
 
-      cMyMalloc = rb_const_get(rb_cObject, rb_intern("MyMalloc"));
+      cMyMalloc = rb_define_class("MyMalloc", rb_cObject)
 
       rb_define_alloc_func(cMyMalloc, my_malloc_alloc);
       rb_define_method(cMyMalloc, "initialize", my_malloc_init, 1);
@@ -176,7 +176,7 @@ You can test building the extension as follows:
     compiling my_malloc.c
     linking shared-object my_malloc.bundle
     $ cd ../..
-    $ ruby -Ilib:ext -r my_malloc -e "p MyMalloc.new(5).free"
+    $ ruby -Iext/my_malloc -r my_malloc -e "p MyMalloc.new(5).free"
     #<MyMalloc:0x007fed838addb0>
 
 But this will get tedious after a while.  Let's automate it!
