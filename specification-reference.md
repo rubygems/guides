@@ -22,6 +22,7 @@ information for a <a href="../Gem.html">Gem</a>.  Typically defined in a
   <span class="ruby-identifier">s</span>.<span class="ruby-identifier">email</span>       = <span class="ruby-string">&#39;rubycoder@example.com&#39;</span>
   <span class="ruby-identifier">s</span>.<span class="ruby-identifier">files</span>       = [<span class="ruby-string">&quot;lib/example.rb&quot;</span>]
   <span class="ruby-identifier">s</span>.<span class="ruby-identifier">homepage</span>    = <span class="ruby-string">&#39;https://rubygems.org/gems/example&#39;</span>
+  <span class="ruby-identifier">s</span>.<span class="ruby-identifier">metadata</span>    = { <span class="ruby-string">&quot;source_code_uri&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://github.com/example/example&quot;</span> }
 <span class="ruby-keyword">end</span>
 </pre>
 
@@ -34,25 +35,21 @@ specification.</p>
 
 ## Required gemspec attributes
     
-* [author=](#author=)
-    
-* [authors=](#authors=)
-    
 * [files](#files)
     
 * [name](#name)
-    
-* [platform=](#platform=)
-    
-* [require_paths=](#require_paths=)
-    
-* [rubygems_version](#rubygems_version)
     
 * [summary](#summary)
     
 * [version](#version)
     
 ## Recommended gemspec attributes
+    
+* [author=](#author=)
+    
+* [authors=](#authors=)
+    
+* [description](#description)
     
 * [email](#email)
     
@@ -61,6 +58,8 @@ specification.</p>
 * [license=](#license=)
     
 * [licenses=](#licenses=)
+    
+* [metadata](#metadata)
     
 ## Optional gemspec attributes
     
@@ -72,19 +71,19 @@ specification.</p>
     
 * [cert_chain](#cert_chain)
     
-* [description](#description)
-    
 * [executables](#executables)
     
 * [extensions](#extensions)
     
 * [extra_rdoc_files](#extra_rdoc_files)
     
-* [metadata](#metadata)
+* [platform=](#platform=)
     
 * [post_install_message](#post_install_message)
     
 * [rdoc_options](#rdoc_options)
+    
+* [require_paths=](#require_paths=)
     
 * [required_ruby_version](#required_ruby_version)
     
@@ -96,6 +95,8 @@ specification.</p>
     
 * [requirements](#requirements)
     
+* [rubygems_version](#rubygems_version)
+    
 * [signing_key](#signing_key)
     
 
@@ -103,28 +104,6 @@ specification.</p>
 # Required gemspec attributes
 
 
-
-<a id="author="> </a>
-
-## author=(`o`)
-
-<p>Singular writer for authors</p>
-
-<p>Usage:</p>
-
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">author</span> = <span class="ruby-string">&#39;John Jones&#39;</span>
-</pre>    
-
-<a id="authors="> </a>
-
-## authors=(`value`)
-
-<p>Sets the list of authors, ensuring it is an array.</p>
-
-<p>Usage:</p>
-
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">authors</span> = [<span class="ruby-string">&#39;John Jones&#39;</span>, <span class="ruby-string">&#39;Mary Smith&#39;</span>]
-</pre>    
 
 <a id="files"> </a>
 
@@ -163,58 +142,6 @@ other non-files cause an error.</p>
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">name</span> = <span class="ruby-string">&#39;rake&#39;</span>
 </pre>    
 
-<a id="platform="> </a>
-
-## platform=(`platform`)
-
-<p>The platform this gem runs on.</p>
-
-<p>This is usually Gem::Platform::RUBY or Gem::Platform::CURRENT.</p>
-
-<p>Most gems contain pure Ruby code; they should simply leave the default
-value in place.  Some gems contain C (or other) code to be compiled into a
-Ruby “extension”.  The gem should leave the default value in place unless
-the code will only compile on a certain type of system.  Some gems consist
-of pre-compiled code (“binary gems”).  It&#39;s especially important that
-they set the platform attribute appropriately.  A shortcut is to set the
-platform to Gem::Platform::CURRENT, which will cause the gem builder to set
-the platform to the appropriate value for the system on which the build is
-being performed.</p>
-
-<p>If this attribute is set to a non-default value, it will be included in the
-filename of the gem when it is built such as:
-nokogiri-1.6.0-x86-mingw32.gem</p>
-
-<p>Usage:</p>
-
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">platform</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Platform</span>.<span class="ruby-identifier">local</span>
-</pre>    
-
-<a id="require_paths="> </a>
-
-## require_paths=(`val`)
-
-<p>Paths in the gem to add to <code>$LOAD_PATH</code> when this gem is
-activated. If you have an extension you do not need to add
-<code>&quot;ext&quot;</code> to the require path, the extension build
-process will copy the extension files into “lib” for you.</p>
-
-<p>The default value is <code>&quot;lib&quot;</code></p>
-
-<p>Usage:</p>
-
-<pre class="ruby"><span class="ruby-comment"># If all library files are in the root directory...</span>
-<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">require_paths</span> = [<span class="ruby-string">&#39;.&#39;</span>]
-</pre>    
-
-<a id="rubygems_version"> </a>
-
-## rubygems_version
-
-<p>The version of RubyGems used to create this gem.</p>
-
-<p>Do not set this, it is set automatically when the gem is packaged.</p>    
-
 <a id="summary"> </a>
 
 ## summary
@@ -247,6 +174,46 @@ a letter in it, such as <code>1.0.0.pre</code>.</p>
 # Recommended gemspec attributes
 
 
+
+<a id="author="> </a>
+
+## author=(`o`)
+
+<p>Singular writer for authors</p>
+
+<p>Usage:</p>
+
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">author</span> = <span class="ruby-string">&#39;John Jones&#39;</span>
+</pre>    
+
+<a id="authors="> </a>
+
+## authors=(`value`)
+
+<p>Sets the list of authors, ensuring it is an array.</p>
+
+<p>Usage:</p>
+
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">authors</span> = [<span class="ruby-string">&#39;John Jones&#39;</span>, <span class="ruby-string">&#39;Mary Smith&#39;</span>]
+</pre>    
+
+<a id="description"> </a>
+
+## description
+
+<p>A long description of this gem</p>
+
+<p>The description should be more detailed than the summary but not
+excessively long.  A few paragraphs is a recommended length with no
+examples or formatting.</p>
+
+<p>Usage:</p>
+
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">description</span> = <span class="ruby-value">&lt;&lt;-EOF
+  Rake is a Make-like program implemented in Ruby. Tasks and
+  dependencies are specified in standard Ruby syntax.
+EOF</span>
+</pre>    
 
 <a id="email"> </a>
 
@@ -323,6 +290,46 @@ discussion</p>
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">licenses</span> = [<span class="ruby-string">&#39;MIT&#39;</span>, <span class="ruby-string">&#39;GPL-2.0&#39;</span>]
 </pre>    
 
+<a id="metadata"> </a>
+
+## metadata
+
+<p>The metadata holds extra data for this gem that may be useful to other
+consumers and is settable by gem authors without requiring an update to the
+rubygems software.</p>
+
+<p>Metadata items have the following restrictions:</p>
+<ul><li>
+<p>The metadata must be a Hash object</p>
+</li><li>
+<p>All keys and values must be Strings</p>
+</li><li>
+<p>Keys can be a maximum of 128 bytes and values can be a maximum of 1024
+bytes</p>
+</li><li>
+<p>All strings must be UTF-8, no binary data is allowed</p>
+</li></ul>
+
+<p>You can use metadata to specify links to your gem&#39;s homepage, codebase,
+documentation, wiki, mailing list, issue tracker and changelog.</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span>.<span class="ruby-identifier">metadata</span> = {
+  <span class="ruby-string">&quot;bug_tracker_uri&quot;</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever/issues&quot;</span>,
+  <span class="ruby-string">&quot;changelog_uri&quot;</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever/CHANGELOG.md&quot;</span>,
+  <span class="ruby-string">&quot;documentation_uri&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://www.example.info/gems/bestgemever/0.0.1&quot;</span>,
+  <span class="ruby-string">&quot;homepage_uri&quot;</span>      =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://bestgemever.example.io&quot;</span>,
+  <span class="ruby-string">&quot;mailing_list_uri&quot;</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://groups.example.com/bestgemever&quot;</span>,
+  <span class="ruby-string">&quot;source_code_uri&quot;</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever&quot;</span>,
+  <span class="ruby-string">&quot;wiki_uri&quot;</span>          =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever/wiki&quot;</span>
+}
+</pre>
+
+<p>These links will be used on your gem&#39;s page on rubygems.org and must
+pass validation against following regex.</p>
+
+<pre class="ruby"><span class="ruby-regexp">%r{\Ahttps?:\/\/([^\s:@]+:[^\s:@]*@)?[A-Za-z\d\-]+(\.[A-Za-z\d\-]+)+\.?(:\d{1,5})?([\/?]\S*)?\z}</span>
+</pre>    
+
 # Optional gemspec attributes
 
 
@@ -371,24 +378,6 @@ activated when a gem is required.</p>
 
 <p>The certificate chain used to sign this gem.  See Gem::Security for
 details.</p>    
-
-<a id="description"> </a>
-
-## description
-
-<p>A long description of this gem</p>
-
-<p>The description should be more detailed than the summary but not
-excessively long.  A few paragraphs is a recommended length with no
-examples or formatting.</p>
-
-<p>Usage:</p>
-
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">description</span> = <span class="ruby-value">&lt;&lt;-EOF
-  Rake is a Make-like program implemented in Ruby. Tasks and
-  dependencies are specified in standard Ruby syntax.
-EOF</span>
-</pre>    
 
 <a id="executables"> </a>
 
@@ -442,31 +431,31 @@ a more complete set of documentation.</p>
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">extra_rdoc_files</span> = [<span class="ruby-string">&#39;README&#39;</span>, <span class="ruby-string">&#39;doc/user-guide.txt&#39;</span>]
 </pre>    
 
-<a id="metadata"> </a>
+<a id="platform="> </a>
 
-## metadata
+## platform=(`platform`)
 
-<p>:attr_accessor: metadata</p>
+<p>The platform this gem runs on.</p>
 
-<p>The metadata holds extra data for this gem that may be useful to other
-consumers and is settable by gem authors without requiring an update to the
-rubygems software.</p>
+<p>This is usually Gem::Platform::RUBY or Gem::Platform::CURRENT.</p>
 
-<p>Metadata items have the following restrictions:</p>
-<ul><li>
-<p>The metadata must be a Hash object</p>
-</li><li>
-<p>All keys and values must be Strings</p>
-</li><li>
-<p>Keys can be a maximum of 128 bytes and values can be a maximum of 1024
-bytes</p>
-</li><li>
-<p>All strings must be UTF-8, no binary data is allowed</p>
-</li></ul>
+<p>Most gems contain pure Ruby code; they should simply leave the default
+value in place.  Some gems contain C (or other) code to be compiled into a
+Ruby “extension”.  The gem should leave the default value in place unless
+the code will only compile on a certain type of system.  Some gems consist
+of pre-compiled code (“binary gems”).  It&#39;s especially important that
+they set the platform attribute appropriately.  A shortcut is to set the
+platform to Gem::Platform::CURRENT, which will cause the gem builder to set
+the platform to the appropriate value for the system on which the build is
+being performed.</p>
 
-<p>To add metadata for the location of a issue tracker:</p>
+<p>If this attribute is set to a non-default value, it will be included in the
+filename of the gem when it is built such as:
+nokogiri-1.6.0-x86-mingw32.gem</p>
 
-<pre class="ruby"><span class="ruby-identifier">s</span>.<span class="ruby-identifier">metadata</span> = { <span class="ruby-string">&quot;issue_tracker&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://example/issues&quot;</span> }
+<p>Usage:</p>
+
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">platform</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Platform</span>.<span class="ruby-identifier">local</span>
 </pre>    
 
 <a id="post_install_message"> </a>
@@ -491,6 +480,23 @@ bytes</p>
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">rdoc_options</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;--title&#39;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;Rake -- Ruby Make&#39;</span> <span class="ruby-operator">&lt;&lt;</span>
   <span class="ruby-string">&#39;--main&#39;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;README&#39;</span> <span class="ruby-operator">&lt;&lt;</span>
   <span class="ruby-string">&#39;--line-numbers&#39;</span>
+</pre>    
+
+<a id="require_paths="> </a>
+
+## require_paths=(`val`)
+
+<p>Paths in the gem to add to <code>$LOAD_PATH</code> when this gem is
+activated. If you have an extension you do not need to add
+<code>&quot;ext&quot;</code> to the require path, the extension build
+process will copy the extension files into “lib” for you.</p>
+
+<p>The default value is <code>&quot;lib&quot;</code></p>
+
+<p>Usage:</p>
+
+<pre class="ruby"><span class="ruby-comment"># If all library files are in the root directory...</span>
+<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">require_paths</span> = [<span class="ruby-string">&#39;.&#39;</span>]
 </pre>    
 
 <a id="required_ruby_version"> </a>
@@ -519,7 +525,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 <pre class="ruby"><span class="ruby-comment"># This gem will work with 1.8.6 or greater...</span>
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">required_ruby_version</span> = <span class="ruby-string">&#39;&gt;= 1.8.6&#39;</span>
 
-<span class="ruby-comment"># Only with ruby 2.x</span>
+<span class="ruby-comment"># Only with ruby 2.0.x</span>
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">required_ruby_version</span> = <span class="ruby-string">&#39;~&gt; 2.0&#39;</span>
 
 <span class="ruby-comment"># Only with ruby between 2.2.0 and 2.2.2</span>
@@ -550,6 +556,14 @@ to work.  It&#39;s simply information for the user.</p>
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">requirements</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;libmagick, v6.0&#39;</span>
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">requirements</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;A good graphics card&#39;</span>
 </pre>    
+
+<a id="rubygems_version"> </a>
+
+## rubygems_version
+
+<p>The version of RubyGems used to create this gem.</p>
+
+<p>Do not set this, it is set automatically when the gem is packaged.</p>    
 
 <a id="signing_key"> </a>
 
