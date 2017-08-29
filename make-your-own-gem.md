@@ -339,7 +339,7 @@ when a gem is downloaded.
 
 In short: *TEST YOUR GEM!* Please!
 
-`Test::Unit` is Ruby's built-in test framework. There are
+`Minitest` is Ruby's built-in test framework. There are
 [lots](http://www.mikeperham.com/2012/09/25/minitest-ruby-1-9s-test-framework/) of
 [tutorials](https://github.com/seattlerb/minitest/blob/master/README.rdoc) for
 using it online. There are many other test frameworks available for Ruby as
