@@ -283,19 +283,19 @@ readable manner (and is included with Ruby 1.9). Here's an example:
     }
 
 Adding an executable to a gem is a simple process. You just need to place the file in
-your gem's `bin` directory, and then add it to the list of executables
+your gem's `exe` directory, and then add it to the list of executables
 in the gemspec. Let's add one for the Hola gem. First create the file
 and make it executable:
 
-    % mkdir bin
-    % touch bin/hola
-    % chmod a+x bin/hola
+    % mkdir exe
+    % touch exe/hola
+    % chmod a+x exe/hola
 
 The executable file itself just needs a
 [shebang](http://www.catb.org/jargon/html/S/shebang.html) in order to figure out
 what program to run it with. Here's what Hola's executable looks like:
 
-    % cat bin/hola
+    % cat exe/hola
     #!/usr/bin/env ruby
 
     require 'hola'
@@ -304,10 +304,10 @@ what program to run it with. Here's what Hola's executable looks like:
 All it's doing is loading up the gem, and passing the first command line
 argument as the language to say hello with. Here's an example of running it:
 
-    % ruby -Ilib ./bin/hola
+    % ruby -Ilib ./exe/hola
     hello world
 
-    % ruby -Ilib ./bin/hola spanish
+    % ruby -Ilib ./exe/hola spanish
     hola mundo
 
 Finally, to get Hola's executable included when you push the gem, you'll need
@@ -320,7 +320,7 @@ to add it in the gemspec.
       s.executables << 'hola'
 
 Push up that new gem, and you'll have your own command line utility published!
-You can add more executables as well in the `bin` directory if you need to,
+You can add more executables as well in the `exe` directory if you need to,
 there's an `executables` array field on the gemspec.
 
 > Note that you should change the gem's version when pushing up a new release.
