@@ -62,6 +62,7 @@ Tools to help build gems.
 * [rubygems-tasks](https://github.com/postmodern/rubygems-tasks) - Rake tasks for building, installing, and releasing Ruby Gems.
 * [ore](https://github.com/ruby-ore/ore) - Project generator with a variety of templates.
 * [Omnibus](https://github.com/opscode/omnibus-ruby) - Generate full-stack installers for ruby code (see this [Omnibus tutorial](http://blog.scoutapp.com/articles/2013/06/21/omnibus-tutorial-package-a-standalone-ruby-gem) for instructions on using it to package a standalone RubyGem.)
+* [Gemsmith](https://github.com/bkuhlmann/gemsmith) - Smith (generate) gem skeletons with best practices, autogenerate change logs, build/publish gems (including signed versions/tags), and much more!
 
 Monitoring
 ----------
