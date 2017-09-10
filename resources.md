@@ -53,11 +53,8 @@ Creating
 
 Tools to help build gems.
 
-* [gemerator](https://github.com/rkh/gemerator) - Minimalist tool for generating skeleton gems.
 * [hoe](https://github.com/seattlerb/hoe) - Rake/RubyGems helper.
 * [Jeweler](https://github.com/technicalpickles/jeweler) - Opinionated tool for managing RubyGems projects.
-* [micro-cutter](https://github.com/tjh/micro-cutter) - Tool to build the base files for a MicroGem.
-* [newgem](https://github.com/drnic/newgem) - New gem generator.
 * [RStack](https://github.com/jrun/rstack) - Generator intended for use on private gems.
 * [rubygems-tasks](https://github.com/postmodern/rubygems-tasks) - Rake tasks for building, installing, and releasing Ruby Gems.
 * [ore](https://github.com/ruby-ore/ore) - Project generator with a variety of templates.
