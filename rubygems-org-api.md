@@ -182,8 +182,7 @@ Update a previously yanked gem back into RubyGems.org's index. Platform is optio
 
 ### GET - `/api/v1/gems/[GEM NAME]/reverse_dependencies.json`
 
-List gems that depends on specified gem. This is all the dependents of particular gem.
-Returns an array that includes names of dependent gems.
+List dependants of the specified gem. This is all the dependants whose latest version depend on the particular gem. Returns an array that includes names of the dependant gems.
 
     $ curl https://rubygems.org/api/v1/gems/shoulda/reverse_dependencies.json
 
