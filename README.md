@@ -25,9 +25,13 @@ are gladly accepted!
 Setup
 =====
 
-Make sure you have jekyll installed (`gem install jekyll`), and run:
+Install the required dependencies using [Bundler](https://github.com/bundler/bundler)
 
-    $ jekyll serve
+    $ bundle install
+
+To start the application run:
+
+    $ bundle exec jekyll serve
 
 The pages will be available at http://localhost:4000/
 
