@@ -462,11 +462,23 @@ rubygems software.</p>
 bytes</p>
 </li><li>
 <p>All strings must be UTF-8, no binary data is allowed</p>
+</li><li>
+<p><a href="https://github.com/rubygems/rubygems.org/blob/master/app/models/links.rb#L3">Standard metadata keys</a> are:
+  <ul>
+    <li>changelog_uri</li>
+    <li>source_code_uri</li>
+    <li>documentation_uri</li>
+    <li>wiki_uri</li>
+    <li>mailing_list_uri</li>
+    <li>bug_tracker_uri</li>
+    <li>download_uri</li>
+  </ul>
+</p>
 </li></ul>
 
 <p>To add metadata for the location of a issue tracker:</p>
 
-<pre class="ruby"><span class="ruby-identifier">s</span>.<span class="ruby-identifier">metadata</span> = { <span class="ruby-string">&quot;issue_tracker&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://example/issues&quot;</span> }
+<pre class="ruby"><span class="ruby-identifier">s</span>.<span class="ruby-identifier">metadata</span> = { <span class="ruby-string">&quot;bug_tracker_uri&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://example/issues&quot;</span> }
 </pre>    
 
 <a id="post_install_message"> </a>
