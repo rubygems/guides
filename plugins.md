@@ -12,34 +12,33 @@ As of RubyGems 1.3.2, RubyGems will load plugins installed in gems or $LOAD\_PAT
 
 The following list of RubyGems plugins is probably not exhaustive. If you know of plugins that we missed, feel free to update this page.
 
-* [executable-hooks](#executablehooks)
-* [gem-browse](#gembrowse)
-* [gem-ctags](#gemctags)
-* [gem-empty](#gemempty)
-* [gem_info](#geminfo)
-* [gem-init](#geminit)
-* [gem-compare](#gemcompare)
-* [gem-man](#gemman)
-* [gem-nice-install](#gemniceinstall)
-* [gem-orphan](#gemorphan)
-* [gem-patch](#gempatch)
-* [gem-toolbox](#gemtoolbox)
-* [gem-wrappers](#gemwrappers)
+* [executable-hooks](#executable-hooks)
+* [gem-browse](#gem-browse)
+* [gem-ctags](#gem-ctags)
+* [gem-empty](#gem-empty)
+* [gem_info](#gem_info)
+* [gem-init](#gem-init)
+* [gem-compare](#gem-compare)
+* [gem-man](#gem-man)
+* [gem-nice-install](#gem-nice-install)
+* [gem-orphan](#gem-orphan)
+* [gem-patch](#gem-patch)
+* [gem-toolbox](#gem-toolbox)
+* [gem-wrappers](#gem-wrappers)
 * [graph](#graph)
-* [maven-gem](#mavengem)
+* [maven_gem](#maven_gem)
 * [manpages](#manpages)
-* [open-gem](#opengem)
-* [PushSafety](#pushsafety)
-* [rbenv-rehash](#rbenvrehash)
-* [rubygems-desc](#rubygemsdesc)
-* [rubygems-openpgp](#rubygemsopenpgp)
-* [rubygems-sandbox](#rubygemssandbox)
-* [rubygems_snapshot](#rubygemssnapshot)
+* [open_gem](#open_gem)
+* [push_safety](#push_safety)
+* [rbenv-gem-rehash](#rbenv-gem-rehash)
+* [rubygems-desc](#rubygems-desc)
+* [rubygems-openpgp](#rubygems-openpgp)
+* [rubygems-sandbox](#rubygems-sandbox)
+* [rubygems_snapshot](#rubygems_snapshot)
 * [specific_install](#specific_install)
-* [rubygems-tasks](#rubygemstasks)
-* [rubygems_plugin_generator](#rubygemsplugingenerator)
+* [rubygems-tasks](#rubygems-tasks)
+* [rubygems_plugin_generator](#rubygems_plugin_generator)
 
-<a id="executablehooks"> </a>
 
 ## executable-hooks
 
@@ -54,8 +53,6 @@ In gem lib dir create rubygems_executable_plugin.rb:
     end
 
 
-<a id="gembrowse"> </a>
-
 ## gem-browse
 
 [https://github.com/tpope/gem-browse](https://github.com/tpope/gem-browse)
@@ -67,7 +64,6 @@ Adds four commands:
 - `gem clone` clones a gem from GitHub
 - `gem browse` opens a gem's homepage in your browser
 
-<a id="gemempty"> </a>
 
 ## gem-empty
 
@@ -75,7 +71,6 @@ Adds four commands:
 
 Adds command `gem empty` to remove all gems from current `GEM_HOME`.
 
-<a id="gemctags"> </a>
 
 ## gem-ctags
 
@@ -83,7 +78,6 @@ Adds command `gem empty` to remove all gems from current `GEM_HOME`.
 
 Adds a `gem ctags` command to invoke the Exuberant Ctags indexer on already-installed gems, and then automatically invokes it on gems as they are installed.
 
-<a id="geminfo"> </a>
 
 ## gem_info
 
@@ -91,7 +85,6 @@ Adds a `gem ctags` command to invoke the Exuberant Ctags indexer on already-inst
 
 Adds a `gem info` command with fuzzy matching on name and version. Designed for scripting use.
 
-<a id="geminit"> </a>
 
 ## gem-init
 
@@ -99,7 +92,6 @@ Adds a `gem info` command with fuzzy matching on name and version. Designed for 
 
 Adds `gem init` to create a barebones gem.
 
-<a id="gemcompare"> </a>
 
 ## gem-compare
 
@@ -109,15 +101,12 @@ Adds `gem compare` command that can help you to track upstream changes in the re
 .gem files by comparing gemspec values, gemspec and Gemfile dependencies and files.
 
 
-<a id="gemman"> </a>
-
 ## gem-man
 
 [https://github.com/defunkt/gem-man](https://github.com/defunkt/gem-man)
 
 The `gem man` command lets you view a gem's man page.
 
-<a id="gemniceinstall"> </a>
 
 ## gem-nice-install
 
@@ -127,7 +116,6 @@ Tries to install system dependencies needed to install your gems with binary ext
 using standard `gem install` command. This currently works only for Fedora, but
 hopefully will be extended.
 
-<a id="gemorphan"> </a>
 
 ## gem-orphan
 
@@ -135,7 +123,6 @@ hopefully will be extended.
 
 Adds a `gem orphan` command that finds and lists  gems on which no other gems are depending.
 
-<a id="gempatch"> </a>
 
 ## gem-patch
 
@@ -144,7 +131,6 @@ Adds a `gem orphan` command that finds and lists  gems on which no other gems ar
 Adds `gem patch` command, which enables you to apply patches directly on `.gem` files.
 Supports both RubyGems 1.8 and RubyGems 2.0.
 
-<a id="gemtoolbox"> </a>
 
 ## gem-toolbox
 
@@ -159,7 +145,6 @@ Adds six commands:
 - `gem doc` - Browse a gem's documentation in your default browser
 - `gem visit` - Open a gem's homepage in your default browser
 
-<a id="gemwrappers"> </a>
 
 ## gem-wrappers
 
@@ -173,7 +158,6 @@ Adds this commands:
 - `gem wrappers regenerate` - force rebuilding wrappers for all gem executables
 - `gem wrappers` - show current configuration
 
-<a id="graph"> </a>
 
 ## graph
 
@@ -181,7 +165,6 @@ Adds this commands:
 
 Adds a `gem graph` command to output a gem dependency graph in graphviz's dot format.
 
-<a id="mavengem"> </a>
 
 ## maven_gem
 
@@ -189,7 +172,6 @@ Adds a `gem graph` command to output a gem dependency graph in graphviz's dot fo
 
 Adds `gem maven` to install any Maven-published Java library as though it were a gem.
 
-<a id="manpages"> </a>
 
 ## manpages
 
@@ -198,7 +180,6 @@ Adds `gem maven` to install any Maven-published Java library as though it were a
 Exposes manpages inside of a gem to the `man` command without the need to call `gem man` or
 another command to read the man page of a gem.
 
-<a id="opengem"> </a>
 
 ## open_gem
 
@@ -209,15 +190,13 @@ Adds two commands:
 - `gem open` opens a gem in your default editor
 - `gem read` opens a gem's rdoc in your default browser
 
-<a id="pushsafety"> </a>
 
-## PushSafety
+## push_safety
 
 [https://github.com/jdleesmiller/push_safety](https://github.com/jdleesmiller/push_safety)
 
 Applies a whitelist to `gem push` to prevent accidentally pushing private gems to the public RubyGems repository.
 
-<a id="rbenvrehash"> </a>
 
 ## rbenv-gem-rehash
 
@@ -225,7 +204,9 @@ Applies a whitelist to `gem push` to prevent accidentally pushing private gems t
 
 Automatically runs `rbenv rehash` after installing or uninstalling gems.
 
-<a id="rubygemsdesc"> </a>
+> This plugin is deprecated since its behavior is now included in
+> rbenv core.
+
 
 ## rubygems-desc
 
@@ -233,7 +214,6 @@ Automatically runs `rbenv rehash` after installing or uninstalling gems.
 
 Adds `gem desc` to describe a gem by name.
 
-<a id="rubygemsopenpgp"> </a>
 
 ## rubygems-openpgp
 
@@ -246,7 +226,6 @@ Adds commands and flags to allow OpenPGP signing of gems.
 - `gem build foo.gemspec --sign` to sign at build time.
 - `gem install foo --verify --trust` to verify on install.
 
-<a id="rubygemssandbox"> </a>
 
 ## rubygems-sandbox
 
@@ -254,7 +233,6 @@ Adds commands and flags to allow OpenPGP signing of gems.
 
 Manages command-line gem tools and dependencies with a `gem  sandbox` command. This lets you install things like flay and rdoc outside of the global rubygems repository.
 
-<a id="rubygemssnapshot"> </a>
 
 ## rubygems_snapshot
 
@@ -262,7 +240,6 @@ Manages command-line gem tools and dependencies with a `gem  sandbox` command. T
 
 Adds `gem snapshot` to create exports of all your current gems into a single file that you can import later.
 
-<a id="specific_install"> </a>
 
 ## specific_install
 
@@ -270,7 +247,6 @@ Adds `gem snapshot` to create exports of all your current gems into a single fil
 
 Allows you to install an "edge" gem straight from its GitHub repository, or install one from an arbitrary web URI.
 
-<a id="rubygemstasks"> </a>
 
 ## rubygems-tasks
 
@@ -278,7 +254,6 @@ Allows you to install an "edge" gem straight from its GitHub repository, or inst
 
 rubygems-tasks provides agnostic and unobtrusive Rake tasks for building, installing and releasing Ruby Gems.
 
-<a id="rubygemsplugingenerator"> </a>
 
 ## rubygems_plugin_generator
 
