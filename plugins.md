@@ -8,7 +8,10 @@ next: /credits
 
 <em class="t-gray">Extensions that use the RubyGems plugin API.</em>
 
-As of RubyGems 1.3.2, RubyGems will load plugins installed in gems or $LOAD\_PATH.  Plugins must be named 'rubygems\_plugin' (.rb, .so, etc) and placed at the root of your gem's #require\_path.  Plugins are discovered via Gem::find\_files then loaded.  Take care when implementing a plugin as your plugin file may be loaded multiple times if multiple versions of your gem are installed.
+As of RubyGems 1.3.2, RubyGems will load plugins installed in gems or
+`$LOAD_PATH`.  Plugins must be named 'rubygems\_plugin' (.rb, .so, etc)
+and placed at the root of your gem's #require\_path.  Plugins are
+discovered via `Gem::find_files` then loaded.
 
 The following list of RubyGems plugins is probably not exhaustive. If you know of plugins that we missed, feel free to update this page.
 
