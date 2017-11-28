@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 2.7.2.
+This reference was automatically generated from RubyGems version 2.7.3.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -227,6 +227,7 @@ Clean up old versions of installed gems
 ###   Options:
 
 *     -n, -d, -&#8203;-dryrun               - Do not uninstall gems
+*     -D, -&#8203;-\[no-\]check-development   - Check development dependencies while uninstalling (default: true)
 
 ###   Common Options:
 
