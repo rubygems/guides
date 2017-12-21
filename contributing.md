@@ -108,27 +108,6 @@ Chef cookbooks and bootstrap scripts to configure and manage Rubygems.org on AWS
   </a>
 </p>
 
-<a class="project__name" href="https://github.com/rubygems/rubygems-status">RubyGems Status</a>
-
-A simple Rails app to show the status of the rubygems.org infrastructure.
-
-<div class="project__links">
-  <a class="project__link t-link" href="http://status.rubygems.org">Site</a>
-  <a class="project__link t-link" href="https://github.com/rubygems/rubygems-status/issues">Issues</a>
-</div>
-
-<p class="avatars">
-  <a href="https://github.com/sferik">
-    <img src="https://secure.gravatar.com/avatar/1f74b13f1e5c6c69cb5d7fbaabb1e2cb?s=32" title="Erik Michaels-Ober">
-  </a>
-  <a href="https://github.com/dwradcliffe">
-    <img src="https://secure.gravatar.com/avatar/013fd4dfb0e29744d5f37cf9068ba930?s=32" title="David Radcliffe">
-  </a>
-  <a href="https://github.com/arthurnn">
-    <img src="https://secure.gravatar.com/avatar/bd33b5aaf0eb48d67a8145732d8f61a9?s=32" title="Arthur Nogueira Neves">
-  </a>
-</p>
-
 <a class="project__name" href="https://github.com/rubygems/guides">RubyGems Guides</a>
 
 The central home for RubyGems documentation, including tutorials and reference material.
