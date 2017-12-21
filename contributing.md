@@ -227,21 +227,6 @@ many machines systematically and repeatably.
   </a>
 </p>
 
-<a class="project__name" href="https://github.com/jbarnette/isolate">Isolate</a>
-
-A simple gem sandbox that makes sure your application has the exact gem
-versions you require. It does not perform dependency resolution like Bundler.
-
-<div class="project__links">
-  <a class="project__link t-link" href="https://github.com/jbarnette/isolate/issues">Issues</a>
-</div>
-
-<p class="avatars">
-  <a href="https://github.com/jbarnette">
-    <img src="https://secure.gravatar.com/avatar/c237cf537a06b60921c97804679e3b15?s=32" title="John Barnette">
-  </a>
-</p>
-
 <a class="project__name" href="https://github.com/lsegal/rubydoc.info">RubyDoc.info</a>
 
 A fantastic provider of [YARD](http://yardoc.org) documentation for every
