@@ -130,25 +130,6 @@ User-contributed guides are more than welcome and encouraged!
   </a>
 </p>
 
-<a class="project__name" href="https://github.com/rubygems/rubygems-test">RubyGems Testers</a>
-
-A community effort to document the test results for various gems,
-on various machine architectures.
-
-<div class="project__links">
-  <a class="project__link t-link" href="http://test.rubygems.org/">Site</a>
-  <a class="project__link t-link" href="https://github.com/rubygems/rubygems-test/issues">Issues</a>
-</div>
-
-<p class="avatars">
-  <a href="https://github.com/bluepojo">
-    <img src="https://secure.gravatar.com/avatar/4b1e87301a43b027903617a98d61831a?s=32" title="Josiah Kiehl">
-  </a>
-  <a href="https://github.com/erikh">
-    <img src="https://secure.gravatar.com/avatar/1b641a79b2717f2d582ad455b40d5b89?s=32" title="Erik Hollensbe">
-  </a>
-</p>
-
 <a class="project__name" href="https://github.com/rubygems/gemwhisperer">Gem Whisperer</a>
 
 An example of how to use [RubyGems.org's
