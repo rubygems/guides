@@ -108,27 +108,6 @@ Chef cookbooks and bootstrap scripts to configure and manage Rubygems.org on AWS
   </a>
 </p>
 
-<a class="project__name" href="https://github.com/rubygems/rubygems-status">RubyGems Status</a>
-
-A simple Rails app to show the status of the rubygems.org infrastructure.
-
-<div class="project__links">
-  <a class="project__link t-link" href="http://status.rubygems.org">Site</a>
-  <a class="project__link t-link" href="https://github.com/rubygems/rubygems-status/issues">Issues</a>
-</div>
-
-<p class="avatars">
-  <a href="https://github.com/sferik">
-    <img src="https://secure.gravatar.com/avatar/1f74b13f1e5c6c69cb5d7fbaabb1e2cb?s=32" title="Erik Michaels-Ober">
-  </a>
-  <a href="https://github.com/dwradcliffe">
-    <img src="https://secure.gravatar.com/avatar/013fd4dfb0e29744d5f37cf9068ba930?s=32" title="David Radcliffe">
-  </a>
-  <a href="https://github.com/arthurnn">
-    <img src="https://secure.gravatar.com/avatar/bd33b5aaf0eb48d67a8145732d8f61a9?s=32" title="Arthur Nogueira Neves">
-  </a>
-</p>
-
 <a class="project__name" href="https://github.com/rubygems/guides">RubyGems Guides</a>
 
 The central home for RubyGems documentation, including tutorials and reference material.
@@ -148,25 +127,6 @@ User-contributed guides are more than welcome and encouraged!
   </a>
   <a href="https://github.com/ffmike">
     <img src="https://secure.gravatar.com/avatar/a54251b745d59735ea5e9f0656a5d58d?s=32" title="Mike Gunderloy">
-  </a>
-</p>
-
-<a class="project__name" href="https://github.com/rubygems/rubygems-test">RubyGems Testers</a>
-
-A community effort to document the test results for various gems,
-on various machine architectures.
-
-<div class="project__links">
-  <a class="project__link t-link" href="http://test.rubygems.org/">Site</a>
-  <a class="project__link t-link" href="https://github.com/rubygems/rubygems-test/issues">Issues</a>
-</div>
-
-<p class="avatars">
-  <a href="https://github.com/bluepojo">
-    <img src="https://secure.gravatar.com/avatar/4b1e87301a43b027903617a98d61831a?s=32" title="Josiah Kiehl">
-  </a>
-  <a href="https://github.com/erikh">
-    <img src="https://secure.gravatar.com/avatar/1b641a79b2717f2d582ad455b40d5b89?s=32" title="Erik Hollensbe">
   </a>
 </p>
 
@@ -264,21 +224,6 @@ many machines systematically and repeatably.
   </a>
   <a href="https://github.com/carllerche">
     <img src="https://secure.gravatar.com/avatar/da5274b27cc6c0f505495bf5d504575d?s=32" title="Carl Lerche">
-  </a>
-</p>
-
-<a class="project__name" href="https://github.com/jbarnette/isolate">Isolate</a>
-
-A simple gem sandbox that makes sure your application has the exact gem
-versions you require. It does not perform dependency resolution like Bundler.
-
-<div class="project__links">
-  <a class="project__link t-link" href="https://github.com/jbarnette/isolate/issues">Issues</a>
-</div>
-
-<p class="avatars">
-  <a href="https://github.com/jbarnette">
-    <img src="https://secure.gravatar.com/avatar/c237cf537a06b60921c97804679e3b15?s=32" title="John Barnette">
   </a>
 </p>
 
