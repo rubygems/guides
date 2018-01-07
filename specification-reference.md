@@ -365,11 +365,11 @@ activated when a gem is required.</p>
 
 ## bindir
 
-<p>The path in the gem for executable scripts.  Usually &#39;bin&#39;</p>
+<p>The path in the gem for executable scripts.  Usually &#39;exe&#39; by default.</p>
 
 <p>Usage:</p>
 
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">bindir</span> = <span class="ruby-string">&#39;bin&#39;</span>
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">bindir</span> = <span class="ruby-string">&#39;exe&#39;</span>
 </pre>    
 
 <a id="cert_chain"> </a>
@@ -386,7 +386,7 @@ details.</p>
 <p>Executables included in the gem.</p>
 
 <p>For example, the rake gem has rake as an executable. You don’t specify the
-full path (as in bin/rake); all application-style files are expected to be
+full path (as in exe/rake); all application-style files are expected to be
 found in bindir.  These files must be executable Ruby files.  Files that
 use bash or other interpreters will not work.</p>
 
