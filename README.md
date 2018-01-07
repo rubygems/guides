@@ -4,14 +4,14 @@ RubyGems Guides
 An effort to provide awesome documentation for the RubyGems ecosystem.
 
 Goals
-=====
+-----
 
 * Be the definitive place for RubyGems knowledge
 * Help out those new to RubyGems get started and get things done
 * Make it easy to contribute more guides
 
 Want to help?
-=============
+-------------
 
 If a guide is empty, start filling it out! Or, make a new one! Pull requests
 are gladly accepted!
@@ -23,7 +23,7 @@ are gladly accepted!
 * Fill out more guides!
 
 Setup
-=====
+-----
 
 Make sure you have jekyll installed (`gem install jekyll`), and run:
 
@@ -46,11 +46,11 @@ where your code directory is, and run:
     $ RUBYGEMS_DIR=~/Dev/ruby/rubygems rake spec_guide --trace
 
 Thanks
-======
+------
 
 Huge thanks to [thoughtbot](http://thoughtbot.com) whose [handbook](http://handbook.thoughtbot.com) this is based off of.
 
 Legal
-=====
+-----
 
 The actual content of the articles is licensed under Creative Commons. The code that this project consists of is licensed under MIT.
