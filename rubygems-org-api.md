@@ -1,7 +1,7 @@
 ---
 layout: default
 title: RubyGems.org API
-url: /rubygems-org-api
+permalink: /rubygems-org-api
 previous: /command-reference
 next: /rubygems-org-api-v2
 ---

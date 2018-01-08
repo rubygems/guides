@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Frequently Asked Questions
-url: /faqs
+permalink: /faqs
 previous: /contributing
 next: /plugins
 ---

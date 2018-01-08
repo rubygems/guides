@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Contributing to RubyGems
-url: /contributing
+permalink: /contributing
 previous: /resources
 next: /faqs
 ---
