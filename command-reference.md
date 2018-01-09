@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Command Reference
-permalink: /command-reference
+url: /command-reference
 previous: /patterns
 next: /rubygems-org-api
 ---

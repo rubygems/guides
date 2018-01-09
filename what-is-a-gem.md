@@ -1,7 +1,7 @@
 ---
 layout: default
 title: What is a gem?
-permalink: /what-is-a-gem
+url: /what-is-a-gem
 previous: /rubygems-basics
 next: /make-your-own-gem
 ---

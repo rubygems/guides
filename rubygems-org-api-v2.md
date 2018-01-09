@@ -1,7 +1,7 @@
 ---
 layout: default
 title: RubyGems.org API V2
-permalink: /rubygems-org-api-v2
+url: /rubygems-org-api-v2
 previous: /rubygems-org-api
 next: /run-your-own-gem-server
 ---

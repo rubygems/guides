@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Specification Reference
-permalink: /specification-refence
+url: /specification-refence
 previous: /patterns
 next: /command-reference
 ---

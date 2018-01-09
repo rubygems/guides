@@ -1,7 +1,7 @@
 ---
 layout: default
 title: RubyGems Basics
-permalink: /rubygems-basics
+url: /rubygems-basics
 previous: /
 next: /what-is-a-gem
 ---

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Make your own gem
-permalink: /make-your-own-gem
+url: /make-your-own-gem
 previous: /what-is-a-gem
 next: /gems-with-extensions
 ---

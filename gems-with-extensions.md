@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Gems with Extensions
-permalink: /gems-with-extensions
+url: /gems-with-extensions
 previous: /make-your-own-gem
 next: /name-your-gem
 alias: /c-extensions

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Plugins
-permalink: /plugins
+url: /plugins
 previous: /faqs
 next: /credits
 ---

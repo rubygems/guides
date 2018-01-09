@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Run your own gem server
-permalink: /run-your-own-gem-server
+url: /run-your-own-gem-server
 previous: /rubygems-org-api-v2
 next: /resources
 ---
