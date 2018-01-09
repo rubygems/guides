@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Security
-permalink: /security
+url: /security
 previous: /publishing
 next: /ssl-certificate-update
 ---

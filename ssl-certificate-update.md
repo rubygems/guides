@@ -1,7 +1,7 @@
 ---
 layout: default
 title: SSL Certificate Update
-permalink: /ssl-certificate-update
+url: /ssl-certificate-update
 previous: /security
 next: /patterns
 ---

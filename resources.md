@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Resources
-permalink: /resources
+url: /resources
 previous: /run-your-own-gem-server
 next: /contributing
 ---

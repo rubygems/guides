@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Patterns
-permalink: /patterns
+url: /patterns
 previous: /ssl-certificate-update
 next: /specification-reference
 ---

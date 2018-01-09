@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Name your gem
-permalink: /name-your-gem
+url: /name-your-gem
 previous: /gems-with-extensions
 next: /publishing
 ---

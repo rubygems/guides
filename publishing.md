@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Publishing your gem
-permalink: /publishing
+url: /publishing
 previous: /name-your-gem
 next: /security
 ---
