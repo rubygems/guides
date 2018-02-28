@@ -265,7 +265,7 @@ internal or proprietary code to.
   </a>
 </p>
 
-<a class="project__name" href="https://github.com/cwninja/geminabox">Geminabox</a>
+<a class="project__name" href="https://github.com/geminabox/geminabox">Geminabox</a>
 
 Need simple RubyGems hosting? Geminabox can do that! This project provides an
 easy to setup way to host RubyGems internally and allow uploading of gems
