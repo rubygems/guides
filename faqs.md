@@ -40,7 +40,7 @@ For example, if you use bash you can add that directory to your `PATH` by
 adding code like this to your `~/.bashrc` file:
 
     if which ruby >/dev/null && which gem >/dev/null; then
-        PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+        PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
     fi
 
 After adding this code to your `~/.bashrc`, you need to restart your shell for
