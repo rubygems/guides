@@ -28,7 +28,7 @@ Tutorials
 Presentations
 -------------
 
-* [History of RDoc and RubyGems](http://confreaks.tv/videos/rubyconf2010-history-of-rdoc-and-rubygems)
+* [History of RDoc and RubyGems](https://web.archive.org/web/20110527141407/http://blog.segment7.net/2011/01/17/history-of-rdoc-and-rubygems)
 * [Building a Gem](http://www.slideshare.net/sarah.allen/building-a-ruby-gem)
 * [Gemology](http://www.slideshare.net/copiousfreetime/gemology)
 
