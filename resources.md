@@ -68,6 +68,7 @@ Monitoring
 
 Tools to watch gems for changes.
 
+* [Depfu](https://depfu.com/) - Depfu continuously updates your dependencies one gem at a time and creates a pull request with all the info you need.  Free for open source.
 * [Gemnasium](https://gemnasium.com/) - Parses your GitHub projects to learn what to notify you about. Free for public repos only.
 * [Gemnasium gem](https://github.com/gemnasium/gemnasium-gem) - Allows you to use Gemnasium without granting it access to private repos.
 * [gemwhisperer](https://github.com/rubygems/gemwhisperer)
