@@ -231,6 +231,20 @@ Returns an object containing the latest version of particular gem.
     {
       "version": "4.2.1"
     }
+    
+### GET - `/api/v1/timeframe_versions.json`
+
+Returns an array of gem versions that were created within the timeframe specified by the timestamp parameters.
+
+An iso8601 timestamp parameter named `from` is required. This is the time from which you'd like to start querying.
+You may include an iso8601 timestamp parameter named `to`. If present, only the versions created within
+`from` and `to` will be returned. If `to` is not given, all versions created between `from` and the current time
+will be returned.
+
+The results are paginated so the API call will return only the first 30 versions in your timeframe.
+To get subsequent results, use the page query parameter until an empty response is received.
+
+    $ curl 'https://rubygems.org/api/v1/activity/timeframe_versions.json?from=2018-06-24T22:33:33-07:00'
 
 Gem Download Methods
 --------------------
