@@ -3,7 +3,7 @@ layout: default
 title: Run your own gem server
 url: /run-your-own-gem-server
 previous: /rubygems-org-api-v2
-next: /resources
+next: /using-multifactor-authentication
 ---
 
 <em class="t-gray">Need to serve gems locally or for your organization?</em>
