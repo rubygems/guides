@@ -36,14 +36,34 @@ Ruby's premier packaging system. Bundled with Ruby 1.9+ and available for Ruby 1
   <a href="https://github.com/drbrain">
     <img src="https://secure.gravatar.com/avatar/58479f76374a3ba3c69b9804163f39f4?s=32" title="Eric Hodel">
   </a>
+  <a href="https://github.com/evanphx">
+    <img src="https://secure.gravatar.com/avatar/540cb3b3712ffe045113cb03bab616a2?s=32" title="Evan Phoenix">
+  </a>
+  <a href="https://github.com/tenderlove">
+    <img src="https://secure.gravatar.com/avatar/f29327647a9cff5c69618bae420792ea?s=32" title="Evan Phoenix">
+  </a>
+  <a href="https://github.com/luislavena">
+    <img src="https://secure.gravatar.com/avatar/e7cff3cfd41c495e1012227d7dc24202?s=32" title="Evan Phoenix">
+  </a>
+  <a href="https://github.com/indirect">
+    <img src="https://secure.gravatar.com/avatar/4c3ed917e59156a36212d48155831482?s=32" title="Evan Phoenix">
+  </a>
+  <a href="https://github.com/segiddins">
+    <img src="https://secure.gravatar.com/avatar/4d6be90af74894fd132fb06dacec04d7?s=32" title="Evan Phoenix">
+  </a>
+  <a href="https://github.com/hsbt">
+    <img src="https://secure.gravatar.com/avatar/f2748d34b03ed11330f2a2218904eb2d?s=32" title="Evan Phoenix">
+  </a>
+</p>
+
+<em class="t-gray t-uppercase">Alumni:</em>
+
+<p class="avatars">
   <a href="https://github.com/zenspider">
     <img src="https://secure.gravatar.com/avatar/16c4b19d8670085a428787f8b2438223?s=32" title="Ryan Davis">
   </a>
   <a href="https://github.com/jbarnette">
     <img src="https://secure.gravatar.com/avatar/c237cf537a06b60921c97804679e3b15?s=32" title="John Barnette">
-  </a>
-  <a href="https://github.com/evanphx">
-    <img src="https://secure.gravatar.com/avatar/540cb3b3712ffe045113cb03bab616a2?s=32" title="Evan Phoenix">
   </a>
 </p>
 
@@ -186,6 +206,9 @@ to improve it.
   <a href="https://github.com/raggi">
     <img src="https://secure.gravatar.com/avatar/b19b02a49b433c9e2e6e6c43785d2bfb?s=32" title="James Tucker">
   </a>
+  <a href="https://github.com/hsbt">
+    <img src="https://secure.gravatar.com/avatar/f2748d34b03ed11330f2a2218904eb2d?s=32" title="Evan Phoenix">
+  </a>
 </p>
 
 <a class="project__name" href="https://github.com/rubygems/rubygems-verification">RubyGems Verification</a>
@@ -224,6 +247,15 @@ many machines systematically and repeatably.
   </a>
   <a href="https://github.com/carllerche">
     <img src="https://secure.gravatar.com/avatar/da5274b27cc6c0f505495bf5d504575d?s=32" title="Carl Lerche">
+  </a>
+  <a href="https://github.com/indirect">
+    <img src="https://secure.gravatar.com/avatar/4c3ed917e59156a36212d48155831482?s=32" title="Evan Phoenix">
+  </a>
+  <a href="https://github.com/segiddins">
+    <img src="https://secure.gravatar.com/avatar/4d6be90af74894fd132fb06dacec04d7?s=32" title="Evan Phoenix">
+  </a>
+  <a href="https://github.com/hsbt">
+    <img src="https://secure.gravatar.com/avatar/f2748d34b03ed11330f2a2218904eb2d?s=32" title="Evan Phoenix">
   </a>
 </p>
 
