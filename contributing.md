@@ -248,9 +248,6 @@ many machines systematically and repeatably.
   <a href="https://github.com/carllerche">
     <img src="https://secure.gravatar.com/avatar/da5274b27cc6c0f505495bf5d504575d?s=32" title="Carl Lerche">
   </a>
-  <a href="https://github.com/indirect">
-    <img src="https://secure.gravatar.com/avatar/4c3ed917e59156a36212d48155831482?s=32" title="André Arko">
-  </a>
   <a href="https://github.com/segiddins">
     <img src="https://secure.gravatar.com/avatar/4d6be90af74894fd132fb06dacec04d7?s=32" title="Samuel Giddins">
   </a>
