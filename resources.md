@@ -2,7 +2,7 @@
 layout: default
 title: Resources
 url: /resources
-previous: /using-multifactor-authentication
+previous: /using-mfa-in-command-line
 next: /contributing
 ---
 
