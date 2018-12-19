@@ -7,10 +7,11 @@ next: /resources
 ---
 
 When your MFA level is _UI and API_, we will ask to you provide an OTP
-for `gem signin`, `gem push`, `gem owner --add/remove`. Check [setting up multifactor authentication](/setting-up-multifactor-authentication)
+for `gem signin`, `gem push`, `gem owner --add` and `gem owner --remove`.
+Check [setting up multifactor authentication](/setting-up-multifactor-authentication)
 for enabling MFA.
 
-You can preemptively pass otp code using `--otp` flag or else we will prompt
+You can preemptively pass an OTP code using `--otp` flag or else we will prompt
 for the OTP code when required:
 
     $ gem signin
@@ -34,10 +35,10 @@ Passing OTP as flag:
     Signed in.
 
 Note that `gem signin` only fetches and stores your rubygems.org api key. `gem signin`
-not equivalent of creating a user session. We will check for OTP code everytime you
-use any of commands mentioned above.
+is not equivalent to creating a user session. We will check for OTP code every time you
+use any of the commands mentioned above.
 
-Publishing a gem after sign in from cli:
+Publishing a gem after signing in from cli:
 
     $ gem push hello-0.0.1.gem
     Pushing gem to https://rubygems.org...
