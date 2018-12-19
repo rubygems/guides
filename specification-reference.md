@@ -9,7 +9,7 @@ next: /command-reference
 
 
 <p>The Specification class contains the
-information for a <a href="../what-is-a-gem/">Gem</a>.  Typically defined in a
+information for a <a href="../Gem.html">Gem</a>.  Typically defined in a
 .gemspec file or a Rakefile, and looks like this:</p>
 
 <pre class="ruby"><span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
@@ -22,7 +22,7 @@ information for a <a href="../what-is-a-gem/">Gem</a>.  Typically defined in a
   <span class="ruby-identifier">s</span>.<span class="ruby-identifier">email</span>       = <span class="ruby-string">&#39;rubycoder@example.com&#39;</span>
   <span class="ruby-identifier">s</span>.<span class="ruby-identifier">files</span>       = [<span class="ruby-string">&quot;lib/example.rb&quot;</span>]
   <span class="ruby-identifier">s</span>.<span class="ruby-identifier">homepage</span>    = <span class="ruby-string">&#39;https://rubygems.org/gems/example&#39;</span>
-  <span class="ruby-identifier">s</span>.<span class="ruby-identifier">metadata</span>    = { <span class="ruby-string">&quot;source_code_uri&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://github.com/example/example&quot;</span> }
+  <span class="ruby-identifier">s</span>.<span class="ruby-identifier">metadata</span>    = { <span class="ruby-string">&quot;source_code_uri&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://github.com/example/example&quot;</span> }
 <span class="ruby-keyword">end</span>
 </pre>
 
@@ -35,6 +35,8 @@ specification.</p>
 
 ## Required gemspec attributes
     
+* [authors=](#authors=)
+    
 * [files](#files)
     
 * [name](#name)
@@ -44,10 +46,6 @@ specification.</p>
 * [version](#version)
     
 ## Recommended gemspec attributes
-    
-* [author=](#author=)
-    
-* [authors=](#authors=)
     
 * [description](#description)
     
@@ -66,6 +64,8 @@ specification.</p>
 * [add_development_dependency](#add_development_dependency)
     
 * [add_runtime_dependency](#add_runtime_dependency)
+    
+* [author=](#author=)
     
 * [bindir](#bindir)
     
@@ -105,6 +105,20 @@ specification.</p>
 
 
 
+<a id="authors="> </a>
+
+## authors=(`value`)
+
+<p>A list of authors for this gem.</p>
+
+<p>Alternatively, a single author can be specified by assigning a string to
+`spec.author`</p>
+
+<p>Usage:</p>
+
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">authors</span> = [<span class="ruby-string">&#39;John Jones&#39;</span>, <span class="ruby-string">&#39;Mary Smith&#39;</span>]
+</pre>    
+
 <a id="files"> </a>
 
 ## files
@@ -120,15 +134,15 @@ other non-files cause an error.</p>
 <p>Usage:</p>
 
 <pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;rake&#39;</span>
-<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">files</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;lib.rb&#39;</span>,
+<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">files</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-string">&#39;lib     .rb&#39;</span>,
                       <span class="ruby-string">&#39;bin/*&#39;</span>,
                       <span class="ruby-string">&#39;[A-Z]*&#39;</span>,
-                      <span class="ruby-string">&#39;test/*&#39;</span>].<span class="ruby-identifier">to_a</span>
+                      <span class="ruby-string">&#39;test/   *&#39;</span>].<span class="ruby-identifier">to_a</span>
 
 <span class="ruby-comment"># or without Rake...</span>
-<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">files</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-string">&#39;lib/*.rb&#39;</span>] <span class="ruby-operator">+</span> <span class="ruby-constant">Dir</span>[<span class="ruby-string">&#39;bin/*&#39;</span>]
+<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">files</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-string">&#39;lib/   *.rb&#39;</span>] <span class="ruby-operator">+</span> <span class="ruby-constant">Dir</span>[<span class="ruby-string">&#39;bin/*&#39;</span>]
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">files</span> <span class="ruby-operator">+=</span> <span class="ruby-constant">Dir</span>[<span class="ruby-string">&#39;[A-Z]*&#39;</span>] <span class="ruby-operator">+</span> <span class="ruby-constant">Dir</span>[<span class="ruby-string">&#39;test/**/*&#39;</span>]
-<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">files</span>.<span class="ruby-identifier">reject!</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">fn</span><span class="ruby-operator">|</span> <span class="ruby-identifier">fn</span>.<span class="ruby-identifier">include?</span> <span class="ruby-string">&quot;CVS&quot;</span> }
+<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">files</span>.<span class="ruby-identifier">reject!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">fn</span><span class="ruby-operator">|</span> <span class="ruby-identifier">fn</span>.<span class="ruby-identifier">include?</span> <span class="ruby-string">&quot;CVS&quot;</span> }
 </pre>    
 
 <a id="name"> </a>
@@ -175,28 +189,6 @@ a letter in it, such as <code>1.0.0.pre</code>.</p>
 
 
 
-<a id="author="> </a>
-
-## author=(`o`)
-
-<p>Singular writer for authors</p>
-
-<p>Usage:</p>
-
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">author</span> = <span class="ruby-string">&#39;John Jones&#39;</span>
-</pre>    
-
-<a id="authors="> </a>
-
-## authors=(`value`)
-
-<p>Sets the list of authors, ensuring it is an array.</p>
-
-<p>Usage:</p>
-
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">authors</span> = [<span class="ruby-string">&#39;John Jones&#39;</span>, <span class="ruby-string">&#39;Mary Smith&#39;</span>]
-</pre>    
-
 <a id="description"> </a>
 
 ## description
@@ -209,10 +201,10 @@ examples or formatting.</p>
 
 <p>Usage:</p>
 
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">description</span> = <span class="ruby-value">&lt;&lt;-EOF
-  Rake is a Make-like program implemented in Ruby. Tasks and
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">description</span> = <span class="ruby-identifier">&lt;&lt;-EOF</span>
+<span class="ruby-value">  Rake is a Make-like program implemented in Ruby. Tasks and
   dependencies are specified in standard Ruby syntax.
-EOF</span>
+</span><span class="ruby-identifier">EOF</span>
 </pre>    
 
 <a id="email"> </a>
@@ -314,13 +306,13 @@ bytes</p>
 documentation, wiki, mailing list, issue tracker and changelog.</p>
 
 <pre class="ruby"><span class="ruby-identifier">s</span>.<span class="ruby-identifier">metadata</span> = {
-  <span class="ruby-string">&quot;bug_tracker_uri&quot;</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever/issues&quot;</span>,
-  <span class="ruby-string">&quot;changelog_uri&quot;</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever/CHANGELOG.md&quot;</span>,
-  <span class="ruby-string">&quot;documentation_uri&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://www.example.info/gems/bestgemever/0.0.1&quot;</span>,
-  <span class="ruby-string">&quot;homepage_uri&quot;</span>      =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://bestgemever.example.io&quot;</span>,
-  <span class="ruby-string">&quot;mailing_list_uri&quot;</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://groups.example.com/bestgemever&quot;</span>,
-  <span class="ruby-string">&quot;source_code_uri&quot;</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever&quot;</span>,
-  <span class="ruby-string">&quot;wiki_uri&quot;</span>          =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever/wiki&quot;</span>
+  <span class="ruby-string">&quot;bug_tracker_uri&quot;</span>   <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever/issues&quot;</span>,
+  <span class="ruby-string">&quot;changelog_uri&quot;</span>     <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever/CHANGELOG.md&quot;</span>,
+  <span class="ruby-string">&quot;documentation_uri&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://www.example.info/gems/bestgemever/0.0.1&quot;</span>,
+  <span class="ruby-string">&quot;homepage_uri&quot;</span>      <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://bestgemever.example.io&quot;</span>,
+  <span class="ruby-string">&quot;mailing_list_uri&quot;</span>  <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://groups.example.com/bestgemever&quot;</span>,
+  <span class="ruby-string">&quot;source_code_uri&quot;</span>   <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever&quot;</span>,
+  <span class="ruby-string">&quot;wiki_uri&quot;</span>          <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever/wiki&quot;</span>
 }
 </pre>
 
@@ -359,6 +351,17 @@ activated when a gem is required.</p>
 <p>Usage:</p>
 
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_runtime_dependency</span> <span class="ruby-string">&#39;example&#39;</span>, <span class="ruby-string">&#39;~&gt; 1.1&#39;</span>, <span class="ruby-string">&#39;&gt;= 1.1.4&#39;</span>
+</pre>    
+
+<a id="author="> </a>
+
+## author=(`o`)
+
+<p>Singular (alternative) writer for authors</p>
+
+<p>Usage:</p>
+
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">author</span> = <span class="ruby-string">&#39;John Jones&#39;</span>
 </pre>    
 
 <a id="bindir"> </a>
@@ -516,9 +519,7 @@ specified to the patch-level:</p>
 ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 #&lt;Gem::Version &quot;2.0.0.247&quot;&gt;</pre>
 
-<p>Because patch-level is taken into account, be very careful specifying using
-`&lt;=`: `&lt;= 2.2.2` will not match any patch-level of 2.2.2 after the
-`p0` release. It is much safer to specify `&lt; 2.2.3` instead</p>
+<p>Prereleases can also be specified.</p>
 
 <p>Usage:</p>
 
@@ -528,8 +529,8 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 <span class="ruby-comment"># Only with ruby 2.0.x</span>
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">required_ruby_version</span> = <span class="ruby-string">&#39;~&gt; 2.0&#39;</span>
 
-<span class="ruby-comment"># Only with ruby between 2.2.0 and 2.2.2</span>
-<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">required_ruby_version</span> = [<span class="ruby-string">&#39;&gt;= 2.2.0&#39;</span>, <span class="ruby-string">&#39;&lt; 2.2.3&#39;</span>]
+<span class="ruby-comment"># Only prereleases or final releases after 2.6.0.preview2</span>
+<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">required_ruby_version</span> = <span class="ruby-string">&#39;&gt; 2.6.0.preview2&#39;</span>
 </pre>    
 
 <a id="required_rubygems_version"> </a>

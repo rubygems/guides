@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 2.7.3.
+This reference was automatically generated from RubyGems version 3.0.0.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -20,6 +20,7 @@ This reference was automatically generated from RubyGems version 2.7.3.
 * [gem fetch](#gem-fetch)
 * [gem generate_index](#gem-generate_index)
 * [gem help](#gem-help)
+* [gem info](#gem-info)
 * [gem install](#gem-install)
 * [gem list](#gem-list)
 * [gem lock](#gem-lock)
@@ -58,6 +59,8 @@ Build a gem from a gemspec
 ###   Options:
 
 *         -&#8203;-force                    - skip validation of the spec
+*         -&#8203;-strict                   - consider warnings as errors when validating the spec
+*     -o, -&#8203;-output FILE              - output gem with the given filename
 
 ###   Common Options:
 
@@ -96,6 +99,10 @@ with gem spec:
     $ cd my_gem-1.0
     [edit gem contents]
     $ gem build my_gem-1.0.gemspec
+
+Gems can be saved to a specified filename with the output option:
+
+    $ gem build my_gem-1.0.gemspec --output=release.gem
   
 
 ## gem cert
@@ -117,6 +124,7 @@ Manage RubyGems certificates and signing settings
 *     -K, -&#8203;-private-key KEY          - Key for -&#8203;-sign or -&#8203;-build
 *     -s, -&#8203;-sign CERT                - Signs CERT with the key from -K and the certificate from -C
 *     -d, -&#8203;-days NUMBER_OF_DAYS      - Days before the certificate expires
+*     -R, -&#8203;-re-sign                  - Re-signs the certificate from -C with the key from -K
 
 ###   Common Options:
 
@@ -228,6 +236,7 @@ Clean up old versions of installed gems
 
 *     -n, -d, -&#8203;-dryrun               - Do not uninstall gems
 *     -D, -&#8203;-\[no-\]check-development   - Check development dependencies while uninstalling (default: true)
+*         -&#8203;-\[no-\]user-install        - Cleanup in user's home directory instead of GEM_HOME.
 
 ###   Common Options:
 
@@ -581,6 +590,65 @@ Provide help on the 'gem' command
 
   
 
+## gem info
+
+Show information for the given gem
+
+### Usage
+
+    gem info GEMNAME [options]
+
+
+###   Options:
+
+*     -i, -&#8203;-\[no-\]installed           - Check for installed gem
+*     -I                             - Equivalent to -&#8203;-no-installed
+*     -v, -&#8203;-version VERSION          - Specify version of gem to info for use with -&#8203;-installed
+*         -&#8203;-\[no-\]versions            - Display only gem names
+*     -a, -&#8203;-all                      - Display all gem versions
+*     -e, -&#8203;-exact                    - Name of gem(s) to query on matches the provided STRING
+*         -&#8203;-\[no-\]prerelease          - Display prerelease versions
+
+###   Deprecated Options:
+
+*     -u, -&#8203;-\[no-\]update-sources      - Update local source cache
+
+###   Local/Remote Options:
+
+*     -l, -&#8203;-local                    - Restrict operations to the LOCAL domain
+*     -r, -&#8203;-remote                   - Restrict operations to the REMOTE domain
+*     -b, -&#8203;-both                     - Allow LOCAL and REMOTE operations
+*     -B, -&#8203;-bulk-threshold COUNT     - Threshold for switching to bulk synchronization (default 1000)
+*         -&#8203;-clear-sources            - Clear the gem sources
+*     -s, -&#8203;-source URL               - Append URL to list of remote gem sources
+*     -p, -&#8203;-\[no-\]http-proxy \[URL\]    - Use HTTP proxy for remote operations
+
+###   Common Options:
+
+*     -h, -&#8203;-help                     - Get help on this command
+*     -V, -&#8203;-\[no-\]verbose             - Set the verbose level of output
+*     -q, -&#8203;-quiet                    - Silence command progress meter
+*         -&#8203;-silent                   - Silence RubyGems output
+*         -&#8203;-config-file FILE         - Use this config file instead of default
+*         -&#8203;-backtrace                - Show stack backtrace on errors
+*         -&#8203;-debug                    - Turn on Ruby debugging
+*         -&#8203;-norc                     - Avoid loading any .gemrc file
+
+
+  
+### Arguments
+
+
+* *GEMNAME* -         name of the gem to print information about
+
+  
+
+  
+### Description
+
+Info prints information about the gem such as name, description, website, license and installed paths
+  
+
 ## gem install
 
 Install a gem into the local repository
@@ -598,14 +666,12 @@ Install a gem into the local repository
 
 ###   Deprecated Options:
 
-*         -&#8203;-\[no-\]rdoc                - Generate RDoc for installed gems Use -&#8203;-document instead
-*         -&#8203;-\[no-\]ri                  - Generate ri data for installed gems. Use -&#8203;-document instead
 *     -u, -&#8203;-\[no-\]update-sources      - Update local source cache
 
 ###   Install/Update Options:
 
 *     -i, -&#8203;-install-dir DIR          - Gem repository directory to get installed gems
-*     -n, -&#8203;-bindir DIR               - Directory where binary files are located
+*     -n, -&#8203;-bindir DIR               - Directory where executables are located
 *         -&#8203;-\[no-\]document \[TYPES\]    - Generate documentation for installed gems List the documentation types you wish to generate.  For example: rdoc,ri
 *         -&#8203;-build-root DIR           - Temporary installation root. Useful for building packages. Do not use this when installing remote gems.
 *         -&#8203;-vendor                   - Install gem into the vendor directory. Only for use by gem repackagers.
@@ -728,6 +794,13 @@ to write the specification by hand.  For example:
 
     some_extension_gem (1.0)
     $
+
+Command Alias
+==========================
+
+You can use `i` command instead of `install`.
+
+    $ gem i GEMNAME
   
 
 ## gem list
@@ -897,12 +970,12 @@ Open gem sources in editor
 
 ### Usage
 
-    gem open GEMNAME [-e EDITOR] [options]
+    gem open GEMNAME [-e COMMAND] [options]
 
 
 ###   Options:
 
-*     -e, -&#8203;-editor EDITOR            - Opens gem sources in EDITOR
+*     -e, -&#8203;-editor COMMAND           - Prepends COMMAND to gem path. Could be used to specify editor.
 *     -v, -&#8203;-version VERSION          - Opens specific gem version
 
 ###   Common Options:
@@ -929,9 +1002,9 @@ Open gem sources in editor
 ### Description
 
           The open command opens gem in editor and changes current path
-          to gem's source directory. Editor can be specified with -e option,
-          otherwise rubygems will look for editor in $EDITOR, $VISUAL and
-          $GEM_EDITOR variables.
+          to gem's source directory.
+          Editor command can be specified with -e option, otherwise rubygems
+          will look for editor in $EDITOR, $VISUAL and $GEM_EDITOR variables.
   
 
 ## gem outdated
@@ -996,6 +1069,7 @@ Manage gem owners of a gem on the push server
 ###   Options:
 
 *     -k, -&#8203;-key KEYNAME              - Use the given API key from ~/.gem/credentials
+*         -&#8203;-otp CODE                 - Digit code for multifactor authentication
 *     -a, -&#8203;-add EMAIL                - Add an owner
 *     -r, -&#8203;-remove EMAIL             - Remove an owner
 *         -&#8203;-host HOST                - Use another gemcutter-compatible host (e.g. https://rubygems.org)
@@ -1051,6 +1125,7 @@ Restores installed gems to pristine condition from files located in the gem cach
 *         -&#8203;-\[no-\]extensions          - Restore gems with extensions in addition to regular gems
 *         -&#8203;-only-executables         - Only restore executables
 *     -E, -&#8203;-\[no-\]env-shebang         - Rewrite executables with a shebang of /usr/bin/env
+*     -n, -&#8203;-bindir DIR               - Directory where executables are located
 *     -v, -&#8203;-version VERSION          - Specify version of gem to restore to pristine condition
 
 ###   Common Options:
@@ -1105,6 +1180,7 @@ Push a gem up to the gem server
 ###   Options:
 
 *     -k, -&#8203;-key KEYNAME              - Use the given API key from ~/.gem/credentials
+*         -&#8203;-otp CODE                 - Digit code for multifactor authentication
 *         -&#8203;-host HOST                - Push to another gemcutter-compatible host (e.g. https://rubygems.org)
 
 ###   Local/Remote Options:
@@ -1137,7 +1213,7 @@ Push a gem up to the gem server
 The push command uploads a gem to the push server (the default is
 https://rubygems.org) and adds it to the index.
 
-The gem can be removed from the index (but only the index) using the yank
+The gem can be removed from the index and deleted from the server using the yank
 command.  For further discussion see the help for the yank command.
   
 
@@ -1376,6 +1452,7 @@ Sign in to any gemcutter-compatible host. It defaults to https://rubygems.org
 ###   Options:
 
 *         -&#8203;-host HOST                - Push to another gemcutter-compatible host
+*         -&#8203;-otp CODE                 - Digit code for multifactor authentication
 
 ###   Common Options:
 
@@ -1625,7 +1702,7 @@ Uninstall gems from the local repository
 *     -D, -&#8203;-\[no-\]check-development   - Check development dependencies while uninstalling (default: false)
 *     -x, -&#8203;-\[no-\]executables         - Uninstall applicable executables without confirmation
 *     -i, -&#8203;-install-dir DIR          - Directory to uninstall gem from
-*     -n, -&#8203;-bindir DIR               - Directory to remove binaries from
+*     -n, -&#8203;-bindir DIR               - Directory to remove executables from
 *         -&#8203;-\[no-\]user-install        - Uninstall from user's home directory in addition to GEM_HOME.
 *         -&#8203;-\[no-\]format-executable   - Assume executable names match Ruby's prefix and suffix.
 *         -&#8203;-\[no-\]force               - Uninstall all versions of the named gems ignoring dependencies
@@ -1738,14 +1815,12 @@ Update installed gems to the latest version
 
 ###   Deprecated Options:
 
-*         -&#8203;-\[no-\]rdoc                - Generate RDoc for installed gems Use -&#8203;-document instead
-*         -&#8203;-\[no-\]ri                  - Generate ri data for installed gems. Use -&#8203;-document instead
 *     -u, -&#8203;-\[no-\]update-sources      - Update local source cache
 
 ###   Install/Update Options:
 
 *     -i, -&#8203;-install-dir DIR          - Gem repository directory to get installed gems
-*     -n, -&#8203;-bindir DIR               - Directory where binary files are located
+*     -n, -&#8203;-bindir DIR               - Directory where executables are located
 *         -&#8203;-\[no-\]document \[TYPES\]    - Generate documentation for installed gems List the documentation types you wish to generate.  For example: rdoc,ri
 *         -&#8203;-build-root DIR           - Temporary installation root. Useful for building packages. Do not use this when installing remote gems.
 *         -&#8203;-vendor                   - Install gem into the vendor directory. Only for use by gem repackagers.
