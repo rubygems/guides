@@ -2,7 +2,7 @@
 layout: default
 title: Resources
 url: /resources
-previous: /run-your-own-gem-server
+previous: /using-mfa-in-command-line
 next: /contributing
 ---
 

@@ -3,7 +3,7 @@ layout: default
 title: Run your own gem server
 url: /run-your-own-gem-server
 previous: /rubygems-org-api-v2
-next: /resources
+next: /setting-up-multifactor-authentication
 ---
 
 <em class="t-gray">Need to serve gems locally or for your organization?</em>
@@ -58,7 +58,7 @@ Include the following in a `config.ru` file:
     [~/dev/geminabox] cat config.ru
     require "rubygems"
     require "geminabox"
-
+    
     Geminabox.data = "./data"
     run Geminabox::Server
 
@@ -153,7 +153,7 @@ server as a gem source in your `Gemfile`:
     [~/dev/myapp] cat Gemfile
     source "http://localhost:9292"
     gem "secretgem"
-
+    
     [~/dev/myapp] bundle
     Using secretgem (0.0.1)
     Using bundler (1.0.13)

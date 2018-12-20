@@ -910,4 +910,11 @@ a.page__heading {
     .nav--v__link--footer:last-child {
       margin-bottom: 36px; } }
 
+.t-body .t-img {
+  border-radius: 0%;
+  width: 98%;
+  height: 100%;
+  margin: 1%;
+}
+
 /*# sourceMappingURL=application.css.map */
