@@ -5,8 +5,7 @@ url: /rubygems-org-api-v2
 previous: /rubygems-org-api
 next: /run-your-own-gem-server
 ---
-
-> NOTE: This API version is under construction! It might change without further notice.
+<em class="t-gray">Get twice more info with API v2</em>
 
 Gem Version Methods
 -------------------

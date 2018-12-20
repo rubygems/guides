@@ -104,7 +104,7 @@ deploying, and managing gems along with clear and accessible project pages.
   </a>
   <a href="https://github.com/arthurnn">
     <img src="https://secure.gravatar.com/avatar/bd33b5aaf0eb48d67a8145732d8f61a9?s=32" title="Arthur Nogueira Neves">
-  </a>  
+  </a>
 </p>
 
 <a class="project__name" href="https://github.com/rubygems/rubygems-infrastructure">RubyGems Infrastructure</a>
@@ -211,15 +211,6 @@ to improve it.
   </a>
 </p>
 
-<a class="project__name" href="https://github.com/rubygems/rubygems-verification">RubyGems Verification</a>
-
-A collection of tools and data used for verifying the integrity of gems on rubygems.org based on checksums
-collected by third parties.
-
-<div class="project__links">
-  <a class="project__link t-link" href="https://github.com/rubygems/rubygems-verification/issues">Issues</a>
-</div>
-
 ## Ecosystem Projects
 
 These projects are outside of the RubyGems core, but work closely with RubyGems to improve the gem experience for everyone.
@@ -256,7 +247,7 @@ many machines systematically and repeatably.
   </a>
 </p>
 
-<a class="project__name" href="https://github.com/lsegal/rubydoc.info">RubyDoc.info</a>
+<a class="project__name" href="https://github.com/docmeta/rubydoc.info">RubyDoc.info</a>
 
 A fantastic provider of [YARD](http://yardoc.org) documentation for every
 RubyGem available. Push a gem, and you get docs created instantly!
@@ -265,7 +256,7 @@ webhooks](http://guides.rubygems.org/rubygems-org-api/#webhook) as well.
 
 <div class="project__links">
   <a class="project__link t-link" href="http://rubydoc.info">Site</a>
-  <a class="project__link t-link" href="https://github.com/lsegal/rubydoc.info/issues">Issues</a>
+  <a class="project__link t-link" href="https://github.com/docmeta/rubydoc.info/issues">Issues</a>
   <a class="project__link t-link" href="https://groups.google.com/forum/#!forum/yardoc">Mailing List</a>
 </div>
 
@@ -301,11 +292,11 @@ easy to setup way to host RubyGems internally and allow uploading of gems
 without much hassle.
 
 <div class="project__links">
-  <a class="project__link t-link" href="https://github.com/cwninja/geminabox/issues">Issues</a>
+  <a class="project__link t-link" href="https://github.com/geminabox/geminabox/issues">Issues</a>
 </div>
 
 <p class="avatars">
-  <a href="https://github.com/cwninja">
+  <a href="https://github.com/tomlea">
     <img src="https://secure.gravatar.com/avatar/f61c5838432c656ea88dd77a56a40f52?s=32" title="Tom Leal">
   </a>
 </p>
