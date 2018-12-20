@@ -17,13 +17,13 @@ identity.
 ## Prerequisite
 
 You should have an authenticator app (like [Google Authenticator](https://support.google.com/accounts/answer/1066447) or [Authy](https://authy.com/download/)) which
-supports time-based one-time password (TOTP) to scan the QR-code and generate
+supports time-based one-time password (TOTP) to scan the QR code and generate
 an access code. SMS-based authentication or recovery is **not** supported.
 
 ## Enabling multi-factor authentication
 
 1. Login to rubygems.org using your existing account and go to the [edit profile](https://rubygems.org/profile/edit) page.
-Click _register a new device_ in the _multifactor authentication_ section.
+Click **register a new device** in the _multifactor authentication_ section.
     ![Multifactor authentication section on the profile edit page](/images/enabling_mfa_step1.png){:class="t-img"}
 2. You will be redirected to a page with a QR code and a text box for verifying OTP
 code. Please use your authenticator to scan the QR code. A new account for rubygems.org will be
@@ -52,7 +52,7 @@ will see a dropdown menu with three options:
 
 - **Disabled**: disables MFA. Please delete rubygems.org account from you authenticator app after disabling.
 - **UI only**: sign in from browser and disabling MFA will require OTP code.
-- **UI and API**: gem signin, push and owner --add and owner --remove will require OTP code.
+- **UI and API**: `gem signin`, `push`, `owner --add` and `owner --remove` will require OTP code.
 
 Steps to change your MFA level:
 
