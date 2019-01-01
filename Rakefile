@@ -120,7 +120,7 @@ file 'command-reference.md' =>
         if helpline =~ /^\s{10,}(.*)/
           options = options[0..-2] + " #{$1}\n"
         else
-          if helpline =~ /^(.*)\s{3,}(.*)/
+          if helpline =~ /^(.+)\s{2,}(.*)/
             helpline = "#{$1} - #{$2}"
           end
           if helpline =~ /options/i
