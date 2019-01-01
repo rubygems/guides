@@ -2,13 +2,13 @@
 layout: default
 title: Command Reference
 url: /command-reference
-previous: /patterns
+previous: /specification-reference
 next: /rubygems-org-api
 ---
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.0.0.
+This reference was automatically generated from RubyGems version 3.0.2.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -672,7 +672,7 @@ Install a gem into the local repository
 
 *     -i, -&#8203;-install-dir DIR          - Gem repository directory to get installed gems
 *     -n, -&#8203;-bindir DIR               - Directory where executables are located
-*         -&#8203;-\[no-\]document \[TYPES\]    - Generate documentation for installed gems List the documentation types you wish to generate.  For example: rdoc,ri
+*         -&#8203;-document \[TYPES\]         - Generate documentation for installed gems List the documentation types you wish to generate.  For example: rdoc,ri
 *         -&#8203;-build-root DIR           - Temporary installation root. Useful for building packages. Do not use this when installing remote gems.
 *         -&#8203;-vendor                   - Install gem into the vendor directory. Only for use by gem repackagers.
 *     -N, -&#8203;-no-document              - Disable documentation generation
@@ -1821,7 +1821,7 @@ Update installed gems to the latest version
 
 *     -i, -&#8203;-install-dir DIR          - Gem repository directory to get installed gems
 *     -n, -&#8203;-bindir DIR               - Directory where executables are located
-*         -&#8203;-\[no-\]document \[TYPES\]    - Generate documentation for installed gems List the documentation types you wish to generate.  For example: rdoc,ri
+*         -&#8203;-document \[TYPES\]         - Generate documentation for installed gems List the documentation types you wish to generate.  For example: rdoc,ri
 *         -&#8203;-build-root DIR           - Temporary installation root. Useful for building packages. Do not use this when installing remote gems.
 *         -&#8203;-vendor                   - Install gem into the vendor directory. Only for use by gem repackagers.
 *     -N, -&#8203;-no-document              - Disable documentation generation
