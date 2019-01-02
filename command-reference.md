@@ -1216,6 +1216,10 @@ https://rubygems.org) and adds it to the index.
 The gem can be removed from the index and deleted from the server using the yank
 command.  For further discussion see the help for the yank command.
 
+the push command will use ~/.gem/credentials to authenticate to a server,
+but you can use the RubyGems environment variable GEM_HOST_API_KEY to set the api key to
+authenticate.
+
 
 ## gem query
 
