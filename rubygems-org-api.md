@@ -231,7 +231,7 @@ Returns an object containing the latest version of particular gem.
     {
       "version": "4.2.1"
     }
-    
+
 ### GET - `/api/v1/timeframe_versions.json`
 
 Returns an array of gem versions that were created within the timeframe specified by the timestamp parameters.
@@ -243,7 +243,88 @@ NOTE: The timeframe you specify with `from` and `to` cannot exceed a 7 day span.
 
 The results are paginated so the API call will return only the first 30 versions in your timeframe. To get subsequent results, use the page query parameter until an empty response is received.
 
-    $ curl 'https://rubygems.org/api/v1/activity/timeframe_versions.json?from=2018-06-24T22:33:33-07:00'
+Example response:
+
+    $ curl 'https://rubygems.org/api/v1/timeframe_versions.json?from=2019-01-18T21:24:29Z&to=2019-01-18T21:24:31Z
+
+    [{
+      "name": "rails",
+      "downloads": 158094751,
+      "version": "6.0.0.beta1",
+      "version_downloads": 677,
+      "platform": "ruby",
+      "authors": "David Heinemeier Hansson",
+      "info": "Ruby on Rails is a full-stack web framework optimized for programmer happiness and sustainable productivity. It encourages beautiful code by favoring convention over configuration.",
+      "licenses": ["MIT"],
+      "metadata": {},
+      "sha": "f70cc2e606eafd6c3fd1d7e15f015d6a3e5626d34724ba5c0114922a8eb864b8",
+      "project_uri": "http://localhost/gems/rails",
+      "gem_uri": "http://localhost/gems/rails-6.0.0.beta1.gem",
+      "homepage_uri": "http://rubyonrails.org",
+      "wiki_uri": "",
+      "documentation_uri": "http://api.rubyonrails.org",
+      "mailing_list_uri": "http://groups.google.com/group/rubyonrails-talk",
+      "source_code_uri": "http://github.com/rails/rails",
+      "bug_tracker_uri": "http://github.com/rails/rails/issues",
+      "changelog_uri": null,
+      "dependencies": {
+        "development": [],
+        "runtime": [{
+          "name": "actioncable",
+          "requirements": "= 6.0.0.beta1"
+        }, {
+          "name": "actionmailbox",
+          "requirements": "= 6.0.0.beta1"
+        }, {
+          "name": "actionmailer",
+          "requirements": "= 6.0.0.beta1"
+        }, {
+          "name": "actionpack",
+          "requirements": "= 6.0.0.beta1"
+        }, {
+          "name": "actiontext",
+          "requirements": "= 6.0.0.beta1"
+        }, {
+          "name": "actionview",
+          "requirements": "= 6.0.0.beta1"
+        }, {
+          "name": "activejob",
+          "requirements": "= 6.0.0.beta1"
+        }, {
+          "name": "activemodel",
+          "requirements": "= 6.0.0.beta1"
+        }, {
+          "name": "activerecord",
+          "requirements": "= 6.0.0.beta1"
+        }, {
+          "name": "activestorage",
+          "requirements": "= 6.0.0.beta1"
+        }, {
+          "name": "activesupport",
+          "requirements": "= 6.0.0.beta1"
+        }, {
+          "name": "bundler",
+          "requirements": "\u003e= 1.3.0"
+        }, {
+          "name": "railties",
+          "requirements": "= 6.0.0.beta1"
+        }, {
+          "name": "sprockets-rails",
+          "requirements": "\u003e= 2.0.0"
+        }]
+      },
+      "built_at": "2019-01-18T00:00:00.000Z",
+      "created_at": "2019-01-18T21:24:30.197Z",
+      "description": "Ruby on Rails is a full-stack web framework optimized for programmer happiness and sustainable productivity. It encourages beautiful code by favoring convention over configuration.",
+      "downloads_count": 677,
+      "number": "6.0.0.beta1",
+      "summary": "Full-stack web application framework.",
+      "rubygems_version": "\u003e= 1.8.11",
+      "ruby_version": "\u003e= 2.5.0",
+      "prerelease": true,
+      "requirements": []
+    }]
+
 
 Gem Download Methods
 --------------------
