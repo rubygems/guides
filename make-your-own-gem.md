@@ -257,7 +257,7 @@ your gemspec's `files` array before publishing a new gem! For this reason (among
 many developers automate this with
 [Hoe](https://github.com/seattlerb/hoe),
 [Jeweler](https://github.com/technicalpickles/jeweler),
-[Rake](https://github.com/jimweirich/rake),
+[Rake](https://github.com/ruby/rake),
 [Bundler](http://railscasts.com/episodes/245-new-gem-with-bundler), or
 [just a dynamic gemspec
 ](https://github.com/wycats/newgem-template/blob/master/newgem.gemspec).
