@@ -2,7 +2,7 @@
 layout: default
 title: Resources
 url: /resources
-previous: /using-mfa-in-command-line
+previous: /using-s3-source
 next: /contributing
 ---
 

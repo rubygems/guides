@@ -3,9 +3,9 @@ layout: default
 title: Using multifactor authentication in command line
 url: /using-mfa-in-command-line
 previous: /setting-up-multifactor-authentication
-next: /resources
+next: /using-s3-source
 ---
-<em class="t-gray">How to use MFA with gem CLI</em>
+<em class="t-gray">How to use MFA with gem CLI.</em>
 
 When your MFA level is _UI and API_, we will ask to you provide an OTP
 for `gem signin`, `gem push`, `gem owner --add` and `gem owner --remove`.
