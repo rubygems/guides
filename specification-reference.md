@@ -526,8 +526,8 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 <pre class="ruby"><span class="ruby-comment"># This gem will work with 1.8.6 or greater...</span>
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">required_ruby_version</span> = <span class="ruby-string">&#39;&gt;= 1.8.6&#39;</span>
 
-<span class="ruby-comment"># Only with ruby 2.0.x</span>
-<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">required_ruby_version</span> = <span class="ruby-string">&#39;~&gt; 2.0&#39;</span>
+<span class="ruby-comment"># Only with final releases of major version 2 where minor version is at least 3</span>
+<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">required_ruby_version</span> = <span class="ruby-string">&#39;~&gt; 2.3&#39;</span>
 
 <span class="ruby-comment"># Only prereleases or final releases after 2.6.0.preview2</span>
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">required_ruby_version</span> = <span class="ruby-string">&#39;&gt; 2.6.0.preview2&#39;</span>
