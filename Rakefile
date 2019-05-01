@@ -126,7 +126,7 @@ file 'command-reference.md' =>
           if helpline =~ /options/i
             options += "\n### #{helpline}\n"
           else
-            options += "* #{helpline}\n"
+            options += "* #{helpline.strip}\n"
           end
         end
       end
