@@ -58,9 +58,9 @@ can see some output from the gem:
     end
 
 The gemspec defines what’s in the gem, who made it, and the version of the gem.
-It’s also your interface to [RubyGems.org](http://rubygems.org). All of the
+It’s also your interface to [RubyGems.org](https://rubygems.org). All of the
 information you see on a gem page
-(like [jekyll](http://rubygems.org/gems/jekyll)’s) comes from the gemspec.
+(like [jekyll](https://rubygems.org/gems/jekyll)’s) comes from the gemspec.
 
     % cat hola.gemspec
     Gem::Specification.new do |s|
@@ -73,7 +73,7 @@ information you see on a gem page
       s.email       = 'nick@quaran.to'
       s.files       = ["lib/hola.rb"]
       s.homepage    =
-        'http://rubygems.org/gems/hola'
+        'https://rubygems.org/gems/hola'
       s.license       = 'MIT'
     end
 
@@ -273,7 +273,7 @@ Adding an executable
 In addition to providing libraries of Ruby code, gems can also expose one or many
 executable files to your shell's `PATH`. Probably the best known example of
 this is `rake`. Another very useful one is `prettify_json.rb`, included
-with the [JSON](http://rubygems.org/gems/json) gem, which formats JSON in a
+with the [JSON](https://rubygems.org/gems/json) gem, which formats JSON in a
 readable manner (and is included with Ruby 1.9). Here's an example:
 
     % curl -s http://jsonip.com/ | \
