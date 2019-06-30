@@ -7,7 +7,7 @@ next: /resources
 ---
 <em class="t-gray">How to use S3 bucket as gem source.</em>
 
-[Gem server solutions]((/run-your-own-gem-server)) with their wide feature set, come in very handy for usecases like private hosting, mirroring and inter-release builds. With s3 bucket as your gem source, you get convenience of a private gem server, without the hassle of running or maintaining a host. In this guide, we cover steps required for setting up a private gem source using a s3 bucket and configuration for its use with the `gem` command.
+[Gem server solutions](/run-your-own-gem-server) with their wide feature set, come in very handy for usecases like private hosting, mirroring and inter-release builds. With s3 bucket as your gem source, you get convenience of a private gem server, without the hassle of running or maintaining a host. In this guide, we cover steps required for setting up a private gem source using a s3 bucket and configuration for its use with the `gem` command.
 > Please check [s3 documentation](https://docs.aws.amazon.com/s3/index.html) if you would like to learn about creating a s3 buckets and their pricing.
 
 ## Setting up repo
