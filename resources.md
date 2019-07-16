@@ -36,10 +36,10 @@ Philosophy
 ----------
 
 * [Semantic Versioning](http://semver.org/)
-* [Ruby Packaging Standard](http://chneukirchen.github.com/rps/)
+* [Ruby Packaging Standard](https://web.archive.org/web/20170704013540/http://chneukirchen.github.io/rps/)
 * [Why `require 'rubygems'` Is Wrong](http://tomayko.com/writings/require-rubygems-antipattern)
-* [How to Name Gems](http://blog.segment7.net/2010/11/15/how-to-name-gems)
-* [Make the world a better place; put a license in your gemspec](http://www.benjaminfleischer.com/2013/07/12/make-the-world-a-better-place-put-a-license-in-your-gemspec/)
+* [How to Name Gems](https://web.archive.org/web/20130821183311/http://blog.segment7.net:80/2010/11/15/how-to-name-gems)
+* [Make the world a better place; put a license in your gemspec](http://www.benjaminfleischer.com/2013/07/12/put-a-license-in-your-gemspec/)
 
 Patterns
 --------
