@@ -59,6 +59,50 @@ Add your s3 source under `:sources` key. AWS access id and secret per s3 source 
       }
     }
 
+## S3 source signature to AWS SigV4
+
+AWS announced that they are planning to deprecated SigV2 soon, so we adopt AWS SigV4 implementation instead.
+
+The following improvements had been made:
+
+- Explicitly define a region in .gemrc for a give S3 bucket.
+- Session-Token support for temporary credentials.
+- Added an option to define a provider in .gemrc to extract S3 credentials from different sources:
+ - `env` extracts credentials from environment variable according to the AWS env-vars naming convention
+ - `instance_profile` uses EC2 metadata endpoint to extract unique EC2 instance credentials.
+
+    $ cat ~/.gemrc
+    ....
+    :sources:
+    - s3://bucket1/
+    - s3://bucket2/path_to_gems_dir
+    - https://rubygems.org/
+    s3_source: {
+      bucket-default: {
+        id: "AOUEAOEU123123AOEUAO",
+        secret: "aodnuhtdao/saeuhto+19283oaehu/asoeu+123h"
+      },
+      bucket-with-region: {
+        id: "EOUEAOEU123123AOEUAE",
+        secret: "aodnuhtdao/saeuhto+17283oaehu/asoeu+124h",
+        region: "us-east-1"
+      },
+      bucket-with-region-and-token: {
+        id: "UOUEAOEU123123AOEUAU",
+        secret: "aodnuhtdao/saeuhto+15383oaehe/asoeu+125h",
+        security_token: "",
+        region: "us-west-2"
+      },
+      bucket-with-env-provider-and-region: {
+        provider: "env",
+        region: "us-west-2"
+      },
+      bucket-with-env-instance-profile-and-region: {
+        provider: "instance_profile",
+        region: "us-west-2"
+      }
+    }
+
 
 #### Read more:
 [Setting up Travis for inter-release builds](https://simonwo.net/code/gem-server-in-s3/)
