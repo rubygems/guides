@@ -221,7 +221,7 @@ Bundler manages an application's dependencies through its entire life across
 many machines systematically and repeatably.
 
 <div class="project__links">
-  <a class="project__link t-link" href="http://bundler.io">Site</a>
+  <a class="project__link t-link" href="https://bundler.io/">Site</a>
   <a class="project__link t-link" href="https://github.com/bundler/bundler/issues">Issues</a>
   <a class="project__link t-link" href="https://groups.google.com/forum/#!forum/ruby-bundler">Mailing List</a>
 </div>

@@ -9,7 +9,7 @@ next: /gems-with-extensions
 <p><em class="t-gray">From start to finish, learn how to package your Ruby code in a gem.</em></p>
 <p><em class="t-gray">Note: Many people use Bundler to create Gems. You can
 learn how to do that by reading the &ldquo;<a
-href="https://bundler.io/v1.13/guides/creating_gem">Developing a RubyGem
+href="https://bundler.io/v2.0/guides/creating_gem.html">Developing a RubyGem
 using Bundler</a>&rdquo; guide on the Bundler website.</em></p>
 
 * [Introduction](#introduction)
