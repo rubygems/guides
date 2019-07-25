@@ -58,7 +58,7 @@ Include the following in a `config.ru` file:
     [~/dev/geminabox] cat config.ru
     require "rubygems"
     require "geminabox"
-    
+
     Geminabox.data = "./data"
     run Geminabox::Server
 
@@ -88,12 +88,12 @@ read the [Gem in a box](https://github.com/geminabox/geminabox) README.
 
 ## Running Gemirro
 
-If you need a simple application that makes it easy way to create your own 
-RubyGems mirror without having to push or write all gem you wanted in a 
-configuration file try out [Gemirro](https://github.com/PierreRambaud/gemirro). 
-It does mirroring without any authentication and you can add your private 
-gems in the gems directory. More, to mirroring a source, you only need 
-to start the server, and gems will automaticly be downloaded when needed. 
+If you need a simple application that makes it easy way to create your own
+RubyGems mirror without having to push or write all gem you wanted in a
+configuration file try out [Gemirro](https://github.com/PierreRambaud/gemirro).
+It does mirroring without any authentication and you can add your private
+gems in the gems directory. More, to mirroring a source, you only need
+to start the server, and gems will automaticly be downloaded when needed.
 
 To get started, install `gemirro`:
 
@@ -147,13 +147,13 @@ Then install gems as usual:
     Successfully installed secretgem-0.0.1
     1 gem installed
 
-If you're using [Bundler](http://bundler.io) then you can specify this
+If you're using [Bundler](https://bundler.io/) then you can specify this
 server as a gem source in your `Gemfile`:
 
     [~/dev/myapp] cat Gemfile
     source "http://localhost:9292"
     gem "secretgem"
-    
+
     [~/dev/myapp] bundle
     Using secretgem (0.0.1)
     Using bundler (1.0.13)
