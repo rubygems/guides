@@ -37,25 +37,43 @@ You can use your s3 source using `--source` flag:
 
     $ gem install rake -v 12.3.2 --source s3://<AWS_ACCESS_KEY_ID>:<AWS_SECRET_ACCESS_KEY>@bucket1
 
-Use `.gemrc` if you would like to pre configure multiple s3 sources. It also helps avoid issues related to special characters in the secret key.
+Use `.gemrc` if you would like to pre configure multiple s3 sources. It also helps avoid issues related to special characters in the secret key and allows you to specify s3 bucket region.
 
-Add your s3 source under `:sources` key. AWS access id and secret per s3 source can be set with a hash under `s3_source` key.
+Add your s3 source under `:sources` key. Each s3 bucket should have its own set of credentials in a hash under `s3_source` key. You can use one of the providers to extract AWS credentials:
+ - `env` - [AWS environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
+ - `instance-profile` - [AWS EC2 Instance Metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) - will only work on the actual EC2 instance
+
+Or set AWS access id, secret and session token explicitly.
+
 > Note that you need to add `<path_to_gems_dir>` to your s3 source uri, if your gem repo doesn't exist at the root of the bucket.
 
     $ cat ~/.gemrc
     ....
     :sources:
     - s3://bucket1/
-    - s3://bucket2/path_to_gems_dir
+    - s3://bucket2/
+    - s3://bucket3/path_to_gems_dir
+    - s3://bucket4/
     - https://rubygems.org/
     s3_source: {
       bucket1: {
-        id: "AOUEAOEU123123AOEUAO",
-        secret: "aodnuhtdao/saeuhto+19283oaehu/asoeu+123h"
+        provider: "env",
+        # region defaults to us-east-1
       },
       bucket2: {
+        provider: "instance-profile",
+        region: "us-west-2"
+      }
+      bucket3: {
         id: "AOUEAOEU123123AOEUAO",
-        secret: "aodnuhtdao/saeuhto+19283oaehu/asoeu+123h"
+        secret: "aodnuhtdao/saeuhto+19283oaehu/asoeu+123h",
+        region: "us-east-2"
+      },
+      bucket4: {
+        id: "AOUEAOEU123123AOEUAO",
+        secret: "aodnuhtdao/saeuhto+19283oaehu/asoeu+123h",
+        security_token: "AQoDYXdzEJr",
+        region: "us-west-1"
       }
     }
 
