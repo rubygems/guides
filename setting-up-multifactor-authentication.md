@@ -47,10 +47,10 @@ login to rubygems.org.
 ## Authentication levels
 
 When you register a new device or enable MFA for the first time, we will enable
-MFA only for UI. If you go to the _profile edit_ page again, in the _multifactor authentication_ section, you
+MFA for both the UI and the API. If you go to the _profile edit_ page again, in the _multifactor authentication_ section, you
 will see a dropdown menu with three options:
 
-- **Disabled**: disables MFA. Please delete rubygems.org account from you authenticator app after disabling.
+- **Disabled**: disables MFA. Please delete rubygems.org account from your authenticator app after disabling.
 - **UI only**: sign in from browser and disabling MFA will require OTP code.
 - **UI and API**: `gem signin`, `push`, `owner --add` and `owner --remove` will require OTP code.
 
