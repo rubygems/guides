@@ -41,7 +41,7 @@ Use `.gemrc` if you would like to pre configure multiple s3 sources. It also hel
 
 Add your s3 source under `:sources` key. Each s3 bucket should have its own set of credentials in a hash under `s3_source` key. You can use one of the providers to extract AWS credentials:
  - `env` - [AWS environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
- - `instance-profile` - [AWS EC2 Instance Metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) - will only work on the actual EC2 instance
+ - `instance_profile` - [AWS EC2 Instance Metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) - will only work on the actual EC2 instance
 
 Or set AWS access id, secret and session token explicitly.
 
@@ -61,7 +61,7 @@ Or set AWS access id, secret and session token explicitly.
         # region defaults to us-east-1
       },
       bucket2: {
-        provider: "instance-profile",
+        provider: "instance_profile",
         region: "us-west-2"
       }
       bucket3: {
