@@ -12,6 +12,9 @@ for `gem signin`, `gem push`, `gem owner --add` and `gem owner --remove`.
 Check [setting up multifactor authentication](/setting-up-multifactor-authentication)
 for enabling MFA.
 
+This level requires a recent enough `gem` command as shipped with Ruby 2.6+,
+or [RubyGems 3.0+](https://rubygems.org/pages/download).
+
 You can preemptively pass an OTP code using `--otp` flag or else we will prompt
 for the OTP code when required:
 
