@@ -154,8 +154,7 @@ User-contributed guides are more than welcome and encouraged!
 
 An example of how to use [RubyGems.org's
 webhooks](http://guides.rubygems.org/rubygems-org-api/#webhook) to listen to every gem being
-pushed. Currently powers [m.rubygems.org](http://m.rubygems.org) and
-[@rubygems](http://twitter.com/rubygems).
+pushed.
 
 <div class="project__links">
   <a class="project__link t-link" href="http://m.rubygems.org/">Site</a>
