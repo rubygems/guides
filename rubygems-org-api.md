@@ -435,13 +435,13 @@ List the webhooks registered under your account.
 Create a webhook. Requires two parameters: `gem_name` and `url`. Specify `*`
 for the `gem_name` parameter to apply the hook globally to all gems.
 
-    $ curl -H 'Authorization:701243f217cdf23b1370c7b66b65ca97' \
+    $ curl -X POST -H 'Authorization:701243f217cdf23b1370c7b66b65ca97' \
            -F 'gem_name=rails' -F 'url=http://example.com' \
            https://rubygems.org/api/v1/web_hooks
 
     Successfully created webhook for rails to http://example.com
 
-    $ curl -H 'Authorization:701243f217cdf23b1370c7b66b65ca97' \
+    $ curl -X POST -H 'Authorization:701243f217cdf23b1370c7b66b65ca97' \
            -F 'gem_name=*' -F 'url=http://example.com' \
            https://rubygems.org/api/v1/web_hooks
 
