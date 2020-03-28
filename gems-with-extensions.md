@@ -279,7 +279,7 @@ Further Reading
   book chapter about building C extensions. _Please note_: this content is somewhat
   older and some C extension APIs have changed.
 
-[extension.rdoc]: https://github.com/ruby/ruby/blob/trunk/doc/extension.rdoc
-[mkmf.rb]: https://github.com/ruby/ruby/blob/trunk/lib/mkmf.rb
+[extension.rdoc]: https://github.com/ruby/ruby/blob/master/doc/extension.rdoc
+[mkmf.rb]: https://github.com/ruby/ruby/blob/master/lib/mkmf.rb
 [rake-compiler]: https://github.com/luislavena/rake-compiler
 [nokogiri]: https://rubygems.org/gems/nokogiri
