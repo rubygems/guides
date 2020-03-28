@@ -1,7 +1,7 @@
 ---
 layout: default
 title: RubyGems Common Vulnerabilities and Exposures
-permalink: /cve
+url: /cve
 ---
 
 # RubyGems Common Vulnerabilities and Exposures
