@@ -220,6 +220,13 @@ It's also important to know that if you specify a major version only, like this:
 
 It will only use the latest version from the 2.x series -- so 2.3.0 -- and not 3.0.0. This behaviour may surprise some people, but automatically allowing any major version past version 2 is more surprising behaviour.
 
+You can also exclude specific versions using `!=`. Let's say version 2.2.1 has a show-stopping bug, or a change that accidentally breaks backwards-compatibility, and thus breaks your gem. You can exclude it as follows:
+
+    # gemspec
+    spec.add_runtime_dependency 'library', '~> 2', '!= 2.2.1'
+    
+You can append additional versions by adding them as an additional argument to `add_runtime_dependency` - after all, its last argument is just an array.
+
 ### Requiring RubyGems
 
 Summary: don't.
