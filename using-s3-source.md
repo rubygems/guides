@@ -10,9 +10,14 @@ next: /resources
 [Gem server solutions](/run-your-own-gem-server) with their wide feature set, come in very handy for usecases like private hosting, mirroring and inter-release builds. With s3 bucket as your gem source, you get convenience of a private gem server, without the hassle of running or maintaining a host. In this guide, we cover steps required for setting up a private gem source using a s3 bucket and configuration for its use with the `gem` command.
 > Please check [s3 documentation](https://docs.aws.amazon.com/s3/index.html) if you would like to learn about creating a s3 buckets and their pricing.
 
+Make sure you are running on ruby gems version that supports s3 signing. You can update your ruby gems with the following command:
+
+    $ gem update --system
+
 ## Setting up repo
 
 For a static gem source, you will need 4 additional files beside the `<gemname>.gem` file:
+
  - `specs.<version>.gz`
  - `latest_specs.<version>.gz`
  - `prerelease_specs.<version>.gz`
@@ -33,6 +38,8 @@ You can generate all of them using one command: `gem generate_index`.
 
 ## Use with gem command
 
+> It's good practice to create a seperate IAM user with only read rights on the S3 bucket. Use a other IAM user for pushing the gems with write rights.
+
 You can use your s3 source using `--source` flag:
 
     $ gem install rake -v 12.3.2 --source s3://<AWS_ACCESS_KEY_ID>:<AWS_SECRET_ACCESS_KEY>@bucket1
@@ -45,17 +52,19 @@ Add your s3 source under `:sources` key. Each s3 bucket should have its own set 
 
 Or set AWS access id, secret and session token explicitly.
 
-> Note that you need to add `<path_to_gems_dir>` to your s3 source uri, if your gem repo doesn't exist at the root of the bucket.
+> Note that you need to add `<path_to_gems_dir>/` to your s3 source uri, if your gem repo doesn't exist at the root of the bucket. NOTE: The trailing slash.
 
     $ cat ~/.gemrc
-    ....
     :sources:
+    - s3://my-great-bucket/my-gems/ 
     - s3://bucket1/
-    - s3://bucket2/
-    - s3://bucket3/path_to_gems_dir
-    - s3://bucket4/
     - https://rubygems.org/
     s3_source: {
+      my-great-bucket: {
+        id: "MY-ACCESS-KEY",
+        secret: "MY-ACCESS-SECRET",
+        region: "eu-west-3",
+      },
       bucket1: {
         provider: "env",
         # region defaults to us-east-1
@@ -77,6 +86,6 @@ Or set AWS access id, secret and session token explicitly.
       }
     }
 
-
 #### Read more:
+
 [Setting up Travis for inter-release builds](https://simonwo.net/code/gem-server-in-s3/)
