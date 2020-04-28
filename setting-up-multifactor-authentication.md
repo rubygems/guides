@@ -60,3 +60,25 @@ Steps to change your MFA level:
 in the _multifactor authentication_ section, you will see a dropdown menu.
     ![Multifactor section at profile edit page](/images/changing_mfa_step1.png){:class="t-img"}
 2. Select your intended option, enter OTP access code from your authenticator app and click **Update**
+
+## Using recovery codes and re-setup a previously enabled MFA
+
+You might be in a situation where you no longer have access to your rubygems account in an
+authenticator app. This can happen if you loose or upgrade your phone or accidentally deleted
+the rubygems account in the authenticator app.
+
+In this situation, you'll need your recovery codes to gain access to your Rubygems account.
+Each recovery code can *only be used once* and you'll need *2 recovery codes* to re-setup
+a previously enabled MFA rubygems account on a new device or add it to an authenticator app.
+
+1. To login into your account, enter an unused recovery code as the OTP code when prompted.
+
+2. To setup the new device for multi-factor authentication on a previously MFA enabled account,
+you'll need to disable MFA and use a recovery code as the OTP code. Then follow the steps in
+the enable multi-factor authentication section above to enable MFA using your new device or
+add rubygems back to the authenticator app.
+
+Note: The Google Authenticator app only allows an MFA account to be installed on one device
+and there is no backup or cloud sync of the data. So if you loose or upgrade your phone, you'll
+have to re-setup MFA on the new phone. On the other hand, Authy app allows you to use multiple
+devices and backs up/syncs the data in the cloud across devices.
