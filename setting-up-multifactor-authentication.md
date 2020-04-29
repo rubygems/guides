@@ -16,7 +16,8 @@ identity.
 
 ## Prerequisite
 
-You should have an authenticator app (like [Google Authenticator](https://support.google.com/accounts/answer/1066447) or [Authy](https://authy.com/download/)) which
+You should have an authenticator app (like [Google Authenticator](https://support.google.com/accounts/answer/1066447),
+[Authy](https://authy.com/download/), or [Authenticator Plus](https://www.authenticatorplus.com)) which
 supports time-based one-time password (TOTP) to scan the QR code and generate
 an access code. SMS-based authentication or recovery is **not** supported.
 
@@ -39,7 +40,7 @@ codes. Please copy and store these codes in a safe place. You can use these reco
 codes to access your account, should you ever lose your phone or accidentally delete the
 rubygems.org account from your authenticator app. Note that each recovery code can be used
 only once. Please reregister your authenticator app after using recovery code to
-login to rubygems.org.
+login to rubygems.org (see [Using recovery codes and re-setup a previously enabled MFA](#using-recovery-codes-and-re-setup-a-previously-enabled-MFA)).
     ![Recovery codes](/images/enabling_mfa_step3.png){:class="t-img"}
 4. Sign out and sign in again. Signing in will now ask for an OTP code.
     ![OTP prompt at login page](/images/mfa_login.png){:class="t-img"}
@@ -60,3 +61,26 @@ Steps to change your MFA level:
 in the _multifactor authentication_ section, you will see a dropdown menu.
     ![Multifactor section at profile edit page](/images/changing_mfa_step1.png){:class="t-img"}
 2. Select your intended option, enter OTP access code from your authenticator app and click **Update**
+
+## Using recovery codes and re-setup a previously enabled MFA
+
+You might be in a situation where you no longer have access to your rubygems account in an
+authenticator app. This can happen if you lose/upgrade your phone or accidentally deleted
+the rubygems account in the authenticator app.
+
+In this situation, you'll need your recovery codes to gain access to your Rubygems account.
+Each recovery code can *only be used once* and you'll need *2 recovery codes* to re-setup
+a previously enabled MFA rubygems account on a new device or add it to an authenticator app.
+
+1. To login into your account, enter an unused recovery code as the OTP code when prompted.
+
+2. To setup the new device for multi-factor authentication on a previously MFA enabled account,
+you'll need to disable MFA and use a recovery code as the OTP code. Then follow the steps in
+the enable multi-factor authentication section above to enable MFA using your new device or
+add rubygems back to the authenticator app.
+
+Note: The Google Authenticator app only allows an MFA account to be installed on one device
+and there is no backup or cloud sync of the data. So if you lose or upgrade your phone, you'll
+have to set up MFA again on the new phone. On the other hand, the Authy and Authenticator Plus
+apps allow you to use multiple devices by providing cloud backups and cross-device sync
+capabilities.
