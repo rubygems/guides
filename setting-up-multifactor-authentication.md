@@ -64,7 +64,7 @@ in the _multifactor authentication_ section, you will see a dropdown menu.
 ## Using recovery codes and re-setup a previously enabled MFA
 
 You might be in a situation where you no longer have access to your rubygems account in an
-authenticator app. This can happen if you loose or upgrade your phone or accidentally deleted
+authenticator app. This can happen if you lose/upgrade your phone or accidentally deleted
 the rubygems account in the authenticator app.
 
 In this situation, you'll need your recovery codes to gain access to your Rubygems account.
@@ -79,6 +79,7 @@ the enable multi-factor authentication section above to enable MFA using your ne
 add rubygems back to the authenticator app.
 
 Note: The Google Authenticator app only allows an MFA account to be installed on one device
-and there is no backup or cloud sync of the data. So if you loose or upgrade your phone, you'll
-have to re-setup MFA on the new phone. On the other hand, Authy app allows you to use multiple
-devices and backs up/syncs the data in the cloud across devices.
+and there is no backup or cloud sync of the data. So if you lose or upgrade your phone, you'll
+have to set up MFA again on the new phone. On the other hand, the Authy and Authenticator Plus
+apps allow you to use multiple devices by providing cloud backups and cross-device sync
+capabilities.
