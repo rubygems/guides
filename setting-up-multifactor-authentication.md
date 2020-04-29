@@ -16,7 +16,8 @@ identity.
 
 ## Prerequisite
 
-You should have an authenticator app (like [Google Authenticator](https://support.google.com/accounts/answer/1066447) or [Authy](https://authy.com/download/)) which
+You should have an authenticator app (like [Google Authenticator](https://support.google.com/accounts/answer/1066447),
+[Authy](https://authy.com/download/), or [Authenticator Plus](https://www.authenticatorplus.com)) which
 supports time-based one-time password (TOTP) to scan the QR code and generate
 an access code. SMS-based authentication or recovery is **not** supported.
 
