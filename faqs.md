@@ -12,10 +12,10 @@ The RubyGems development team has gotten a lot of support requests over the
 years, and this is a list of the questions users both new and old that
 frequently pop up.
 
-* [I installed gems with `--user-install` and their commands are not available](#user-install)
-* [How can I trust Gem code that's automatically downloaded?](#security)
-* [Why does `require 'some-gem'` fail?](#require-fail)
-* [Why does require return false when loading a file from a gem?](#require-false)
+* [I installed gems with `--user-install` and their commands are not available](#i-installed-gems-with---user-install-and-their-commands-are-not-available)
+* [How can I trust Gem code that's automatically downloaded?](#how-can-i-trust-gem-code-thats-automatically-downloaded)
+* [Why does `require 'some-gem'` fail?](#why-does-require-some-gem-fail)
+* [Why does require return false when loading a file from a gem?](#why-does-require-return-false-when-loading-a-file-from-a-gem)
 
 We also answer questions on the [RubyGems Support](http://help.rubygems.org/) site and on IRC
 in #rubygems. Some of the information you can find on the support site includes:
@@ -23,8 +23,6 @@ in #rubygems. Some of the information you can find on the support site includes:
 * [Installing gems with no network](http://help.rubygems.org/kb/rubygems/installing-gems-with-no-network)
 * [Why do I get HTTP Response 302 or 301 when installing a gem?](http://help.rubygems.org/kb/rubygems/why-do-i-get-http-response-302-or-301-when-installing-a-gem)
 * [RubyGems Upgrade Issues](http://help.rubygems.org/kb/rubygems/rubygems-upgrade-issues)
-
-<a id="user-install"></a>
 
 I installed gems with `--user-install` and their commands are not available
 ---------------------------------------------------------------------------
@@ -47,8 +45,6 @@ After adding this code to your `~/.bashrc`, you need to restart your shell for
 the changes to take effect. You can do this by opening a new terminal window or
 by running `exec $SHELL` in the window you already have open.
 
-<a id="security"></a>
-
 How can I trust Gem code that's automatically downloaded?
 ---------------------------------------------------------
 
@@ -61,8 +57,6 @@ The Ruby community is discussing ways to make gem code more secure in the future
 using some public-key infrastructure. To see the progress of this discussion, visit the
 [rubygems-trust](https://github.com/rubygems-trust) organization on GitHub.
 
-<a id="require-fail"></a>
-
 Why does `require 'some-gem'` fail?
 -----------------------------------
 
@@ -74,7 +68,7 @@ the file you need to require. First you should check to see if the files match c
     *** LOCAL GEMS ***
 
     RedCloth (4.1.1)
-    $ ruby -rubygems -e 'require "RedCloth"'
+    $ ruby -e 'require "RedCloth"'
     /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require': no such file to load -- RedCloth (LoadError)
       from /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
       from -e:1
@@ -88,7 +82,7 @@ the file you need to require. First you should check to see if the files match c
     lib/redcloth/textile_doc.rb
     lib/redcloth/version.rb
     lib/redcloth.rb
-    $ ruby -rubygems -e 'require "redcloth"'
+    $ ruby -e 'require "redcloth"'
     $ # success!
 
 If you’re requiring the correct file, maybe `gem` is using a different ruby than `ruby`:
@@ -111,8 +105,6 @@ In this instance we’ve got two ruby installations so that `gem` uses a differe
 
 You may also need to give `irb` the same treatment.
 
-<a id="require-false"></a>
-
 Why does require return false when loading a file from a gem?
 -------------------------------------------------------------
 
@@ -132,4 +124,3 @@ During that activation, any autoloaded files will be loaded for you.
 So, by the time your require statement actually does the work of loading
 the file, it has already been autoloaded via the gem activation, and
 therefore the statement returns false.
-
