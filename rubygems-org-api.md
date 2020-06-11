@@ -169,17 +169,6 @@ Remove a gem from RubyGems.org's index. Platform is optional.
     Successfully yanked gem: bills (0.0.1)
 
 
-### PUT - `/api/v1/gems/unyank`
-
-Update a previously yanked gem back into RubyGems.org's index. Platform is optional.
-
-    $ curl -X PUT -H 'Authorization:701243f217cdf23b1370c7b66b65ca97' \
-           -d 'gem_name=bills' -d 'version=0.0.1' \
-           -d 'platform=x86-darwin-10' \
-           https://rubygems.org/api/v1/gems/unyank
-
-    Successfully unyanked gem: bills (0.0.1)
-
 ### GET - `/api/v1/gems/[GEM NAME]/reverse_dependencies.json`
 
 List dependants of the specified gem. This is all the dependants whose latest version depend on the particular gem. Returns an array that includes names of the dependant gems.
