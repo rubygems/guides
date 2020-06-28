@@ -2,7 +2,7 @@
 layout: default
 title: Run your own gem server
 url: /run-your-own-gem-server
-previous: /rubygems-org-api-v2
+previous: /rubygems-org-rate-limits
 next: /setting-up-multifactor-authentication
 ---
 
