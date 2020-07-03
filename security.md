@@ -186,7 +186,6 @@ Several sources were used for content for this guide:
 
 * [How to cryptographically sign your RubyGem](http://www.benjaminfleischer.com/2013/11/08/how-to-sign-your-rubygem-cert/) - Step-by-step guide
 * [Signing rubygems - Pasteable instructions](https://developer.zendesk.com/blog/2013/02/03/signing-gems/)
-* [Twitter gem gemspec](https://github.com/sferik/twitter/blob/master/twitter.gemspec)
 * [RubyGems Trust Model Overview](https://github.com/rubygems-trust/rubygems.org/wiki/Overview), [doc](https://goo.gl/ybFIO)
 * [Let's figure out a way to start signing RubyGems](https://tonyarcieri.com/lets-figure-out-a-way-to-start-signing-rubygems)
 * [A Practical Guide to Using Signed Ruby Gems - Part 3: Signing your Own](http://blog.meldium.com/home/2013/3/6/signing-gems-how-to)
