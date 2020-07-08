@@ -3,7 +3,7 @@ layout: default
 title: RubyGems.org API V2
 url: /rubygems-org-api-v2
 previous: /rubygems-org-api
-next: /run-your-own-gem-server
+next: /rubygems-org-rate-limits
 ---
 <em class="t-gray">Get twice more info with API v2</em>
 

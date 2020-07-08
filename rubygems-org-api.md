@@ -51,15 +51,7 @@ examples in the README. You can install the library with the command:
 Rate Limits
 -----------
 
-To protect the RubyGems.org service from abuse, both intentionally and unintentionally, we have rate limits in place for some of our endpoints. Some endpoints may be cached by our CDN at times and therefore _may_ allow higher request rates. The following is a general guideline for the rate limit rules.
-
-* API and website: 10 requests per second
-* Dependency API: 15 requests per second
-* Website sign up, sign in, api key, and forgot password: 100 requests per 10 minutes
-
-Users who hit a rate limit will see HTTP 429 responses, for the remainder of the limit window. Usually this is just a few minutes.
-
-The RubyGems.org team may occasionally blackhole user IP addresses for extreme cases to protect the platform. If you think this has happened to you, please [submit a help ticket](http://help.rubygems.org/discussion/new) and we'll be happy to look at it.
+Please see [RubyGems.org ratelimits](/rubygems-org-rate-limits)
 
 Gem Methods
 -----------
