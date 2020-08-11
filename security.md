@@ -130,7 +130,7 @@ Add cert paths to your gemspec
 
 -------
 
-### OpenPGP signing is [not recommended due to lack of support](http://www.rubygems-openpgp-ca.org/blog/nobody-cares-about-signed-gems.html).
+### OpenPGP signing is [not recommended due to lack of support (archive)](https://web.archive.org/web/20131125012205/http://www.rubygems-openpgp-ca.org/blog/nobody-cares-about-signed-gems.html).
 
 For details, see discussion [with Yorick
 Peterse](https://github.com/rubygems/guides/pull/70#issuecomment-29007487).
@@ -185,9 +185,9 @@ Credits
 Several sources were used for content for this guide:
 
 * [How to cryptographically sign your RubyGem](http://www.benjaminfleischer.com/2013/11/08/how-to-sign-your-rubygem-cert/) - Step-by-step guide
-* [Signing rubygems - Pasteable instructions](https://developer.zendesk.com/blog/2013/02/03/signing-gems/)
+* [Signing rubygems - Pasteable instructions (archive)](https://web.archive.org/web/20130218074304/https://developer.zendesk.com/blog/2013/02/03/signing-gems/)
 * [Twitter gem gemspec](https://github.com/sferik/twitter/blob/master/twitter.gemspec)
 * [RubyGems Trust Model Overview](https://github.com/rubygems-trust/rubygems.org/wiki/Overview), [doc](https://goo.gl/ybFIO)
 * [Let's figure out a way to start signing RubyGems](https://tonyarcieri.com/lets-figure-out-a-way-to-start-signing-rubygems)
-* [A Practical Guide to Using Signed Ruby Gems - Part 3: Signing your Own](http://blog.meldium.com/home/2013/3/6/signing-gems-how-to)
+* [A Practical Guide to Using Signed Ruby Gems - Part 3: Signing your Own (archive)](https://web.archive.org/web/20131125020053/http://blog.meldium.com/home/2013/3/6/signing-gems-how-to)
 * Also see the [Resources](/resources) page.
