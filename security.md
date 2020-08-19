@@ -3,7 +3,7 @@ layout: default
 title: Security
 url: /security
 previous: /publishing
-next: /removing-a-published-gem
+next: /managing-owners-using-ui
 ---
 
 <em class="t-gray">How to build and install cryptographically signed gems-- and other security concerns.</em>
