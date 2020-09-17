@@ -16,7 +16,7 @@ Ownership section of your gem
 
 If you are an owner of a gem,
 a link to *Ownership* will be visible in the Links section, as shown in the image below.
-![Rubygem page](/images/managing-owners-using-ui/rubygem-page.png){:class="t-img"}
+![Rubygem page](/images/managing-owners-using-ui/rubygem-page.png){:class="t-img t-img--small"}
 
 You will be asked to enter your account's password when you visit this page. You won't be prompted for the password confirmation for the next 10 minutes. It is a precautionary measure to ensure that no one abuses your unattended logged in session.
 ![Confirm Password](/images/managing-owners-using-ui/confirm-password.png){:class="t-img"}
@@ -42,7 +42,7 @@ In case you weren't able to confirm the ownership within 48 hours,
 you can resend the confirmation link by visiting the gem page.
 `https://rubygems.org/gems/<gem-name>`
 
-![Owners Index](/images/managing-owners-using-ui/rubygem-resend-confirmation.png){:class="t-img"}
+![Resend confirmation](/images/managing-owners-using-ui/rubygem-resend-confirmation.png){:class="t-img t-img--small"}
 
 Clicking on *Resend Confirmation* will send an email with the confirmation link
 to your email address.
