@@ -2,7 +2,7 @@
 layout: default
 title: Removing a published gem
 url: /removing-a-published-gem
-previous: /security
+previous: /managing-owners-using-ui
 next: /ssl-certificate-update
 ---
 
