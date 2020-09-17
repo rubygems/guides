@@ -21,7 +21,7 @@ a link to *Ownership* will be visible in the Links section, as shown in the imag
 You will be asked to enter your account's password when you visit this page. You won't be prompted for the password confirmation for the next 10 minutes. It is a precautionary measure to ensure that no one abuses your unattended logged in session.
 ![Confirm Password](/images/managing-owners-using-ui/confirm-password.png){:class="t-img"}
 
-You will be able to see the confirmation status, MFA level and the user who authorized the owner's addition. Confirmed owners will have the time they confirmed their ownership. `ADDED BY` column may be empty for owners who were added before we started tracking authorizers.
+You will be able to see the confirmation status, MFA level and the user who authorized the owner's addition. Confirmed owners will have the time they confirmed their ownership. *ADDED BY* column may be empty for owners who were added before we started tracking authorizers.
 ![Owners Index](/images/managing-owners-using-ui/owners-index.png){:class="t-img"}
 
 Adding user as an owner to your gem
