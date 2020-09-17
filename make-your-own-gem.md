@@ -115,7 +115,7 @@ Of course, the smoke test isn’t over yet: the final step is to `require` the g
 
 Now you can share hola with the rest of the Ruby community. Publishing your
 gem out to RubyGems.org only takes one command, provided that you have an account on
-the site. To setup your computer with your RubyGems account:
+the site. To setup your computer with your RubyGems account, you can run below command (where `qrush` should be replaced by your own username):
 
     $ curl -u qrush https://rubygems.org/api/v1/api_key.yaml >
     ~/.gem/credentials; chmod 0600 ~/.gem/credentials
