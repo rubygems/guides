@@ -129,6 +129,33 @@ A web interface will be available at [http://localhost:2000](http://localhost:20
 
 For more information, read the [Gemirro](https://github.com/PierreRambaud/gemirro) README.
 
+## Running Gemstash
+
+If you're looking for ways to host your own private gem servers, try Gemstash. 
+Gemstash is a Rubygems.org gem server application maintained by RubyTogether.
+
+To get started, install `gemstash`:
+    
+    $ gem install gemstash
+    
+After it is installed, starting Gemstash requires no additional steps. Simply start the Gemstash server with the gemstash command:
+
+    $ gemstash start
+    
+The command will execute fairly quickly. By default, the server runs on port 9292.
+
+Then, with the server running, you can bundle against it. Tell Bundler that you want to use Gemstash to find gems from RubyGems.org:
+
+    $ bundle config mirror.https://rubygems.org http://localhost:9292
+    
+Now, you can create your gemfile, and begin installing gems through gemstash:
+
+    $ bundle install --path .bundle
+
+From now on, all gems fetched from RubyGems.org via bundler is cached indefinitely in the Gemstash. 
+You can also push your own gems and use the gemstash server as a private gemsource. For more information about
+gemstash features and commands, read the [Gemstash](https://github.com/rubygems/gemstash) README.
+
 ## Using gems from your server
 
 Whether you use `gem server`, Gem in a Box, Gemirro or another gem server, you can
