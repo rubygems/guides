@@ -21,30 +21,30 @@ how to use these servers as gem sources during development.
 
 ## Running Gemstash
 
-If you're looking for ways to host your own private gem servers, try Gemstash. 
-Gemstash is a Rubygems.org gem server application maintained by RubyTogether.
+Gemstash is both a cache for remote servers (such as <https://rubygems.org>),
+and a private gem source.
 
 To get started, install `gemstash`:
 
     $ gem install gemstash
 
-After it is installed, starting Gemstash requires no additional steps. Simply start the Gemstash server with the gemstash command:
+After it is installed, start the Gemstash server with the following command:
 
     $ gemstash start
 
-The command will execute fairly quickly. By default, the server runs on port 9292.
+By default, the server runs on port 9292.
 
-Then, with the server running, you can bundle against it. Tell Bundler that you want to use Gemstash to find gems from RubyGems.org:
+If you want to use it as a cache, you can tell Bundler to use Gemstash to
+find gems from RubyGems.org:
 
     $ bundle config mirror.https://rubygems.org http://localhost:9292
 
-Now, you can create your gemfile, and begin installing gems through gemstash:
+With this configuration, all gems fetched from RubyGems.org via bundler are
+cached by Gemstash.
 
-    $ bundle install --path .bundle
-
-From now on, all gems fetched from RubyGems.org via bundler is cached indefinitely in the Gemstash. 
-You can also push your own gems and use the gemstash server as a private gemsource. For more information about
-gemstash features and commands, read the [Gemstash](https://github.com/rubygems/gemstash) README.
+You can also push your own gems and use the gemstash server as a private
+gemsource. For more information about gemstash features and commands, read
+the [Gemstash](https://github.com/rubygems/gemstash) documentation.
 
 ## Running Gem in a Box
 
