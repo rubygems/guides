@@ -14,9 +14,10 @@ may have private code, internal to your organization, that you'd like to
 distribute and manage as gems without making the source publicly available.
 
 There are a few options to set up a server to host gems from within your
-organization. This guide covers the [Gemstash](https://github.com/rubygems/gemstash)
-and [Gem in a Box](https://github.com/geminabox/geminabox) project. It also
-discusses how to use these servers as gem sources during development.
+organization. This guide covers the [Gemstash](https://github.com/rubygems/gemstash),
+[Gem in a Box](https://github.com/geminabox/geminabox), and
+[Gemirro](https://github.com/PierreRambaud/gemirro) projects. It also discusses
+how to use these servers as gem sources during development.
 
 ## Running Gemstash
 
