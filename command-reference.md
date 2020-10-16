@@ -1225,6 +1225,8 @@ authenticate.
 
 Query gem information in local or remote repositories
 
+* *NOTE:* `query` is deprecated as of RubyGems 3.2
+
 ### Usage
 
     gem query [options]
