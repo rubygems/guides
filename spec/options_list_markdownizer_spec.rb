@@ -41,9 +41,29 @@ describe OptionsListMarkdownizer do
       'short, long, optional argument',
     ],
     [
+      "    -s, --spec-dir a,b,c             Search for gems under specific paths\n",
+      "    `-s, --spec-dir a,b,c`             Search for gems under specific paths\n",
+      'short, long and argument list',
+    ],
+    [
       "    -V, --[no-]verbose               Set the verbose level of output\n",
       "    `-V, --[no-]verbose`               Set the verbose level of output\n",
       'short option and boolean switch long',
+    ],
+    [
+      "    -K, --private-key KEY            Key for --sign or --build\n",
+      "    `-K, --private-key KEY`            Key for `--sign` or `--build`\n",
+      'long option in description',
+    ],
+    [
+      "    -R, --re-sign                    Re-signs the certificate from -C with the key from -K\n",
+      "    `-R, --re-sign`                    Re-signs the certificate from `-C` with the key from `-K`\n",
+      'short option in description',
+    ],
+    [
+      "                                     and the certificate from -C\n",
+      "                                     and the certificate from `-C`\n",
+      'short option in description continuation',
     ],
   ].each do |given,expected,description|
     it (description || given) do

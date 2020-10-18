@@ -1,4 +1,5 @@
 class OptionsListMarkdownizer
+  # Builds markdownized option list of a Gem::Command
   def call(command)
     ui = Gem::SilentUI.new
     Gem::DefaultUserInteraction.use_ui ui do
@@ -35,6 +36,20 @@ class OptionsListMarkdownizer
   # Marks options mentioned on the given summary line
   def markdownize_options(line)
     # Mark options up as code (also prevents change of -- to &ndash;)
-    line.sub(/^(\s*)((-\w, )*--[^\s]+)( [A-Z_\[\]]+)*(\s{3,})/, '\1`\2\4`\5')
+    option_line_re = /^(\s*)((-\w, )*--[^\s]+)( [A-Za-z_\[\],]+)*(\s{3,})(.+)/
+    if option_line_re =~ line
+      line.sub(option_line_re) do |m|
+        "#{$1}`#{$2}#{$4}`#{$5}" +
+          markdownize_inline_options($6)
+      end
+    else
+      markdownize_inline_options(line)
+    end
+  end
+
+  private
+
+  def markdownize_inline_options(line)
+    line.gsub(/(?<=\s)(--[^\s]+|-[^\s])/, '`\1`')
   end
 end

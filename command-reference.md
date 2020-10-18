@@ -59,7 +59,7 @@ Build a gem from a gemspec
 * `--force`                     - skip validation of the spec
 * `--strict`                    - consider warnings as errors when validating the spec
 * `-o, --output FILE`               - output gem with the given filename
-* - -C PATH Run as if gem build was started in <PATH> instead of the current working directory.
+* - `-C` PATH Run as if gem build was started in <PATH> instead of the current working directory.
 
 ### Common Options
 
@@ -111,11 +111,11 @@ Manage RubyGems certificates and signing settings
 * `-l, --list [FILTER]`             - List trusted certificates where the subject contains FILTER
 * `-r, --remove FILTER`             - Remove trusted certificates where the subject contains FILTER
 * `-b, --build EMAIL_ADDR`          - Build private key and self-signed certificate for EMAIL_ADDR
-* `-C, --certificate CERT`          - Signing certificate for --sign
-* `-K, --private-key KEY`           - Key for --sign or --build
-* `-s, --sign CERT`                 - Signs CERT with the key from -K and the certificate from -C
+* `-C, --certificate CERT`          - Signing certificate for `--sign`
+* `-K, --private-key KEY`           - Key for `--sign` or `--build`
+* `-s, --sign CERT`                 - Signs CERT with the key from `-K` and the certificate from `-C`
 * `-d, --days NUMBER_OF_DAYS`       - Days before the certificate expires
-* `-R, --re-sign`                   - Re-signs the certificate from -C with the key from -K
+* `-R, --re-sign`                   - Re-signs the certificate from `-C` with the key from `-K`
 
 ### Common Options
 
@@ -254,7 +254,7 @@ Display the contents of the installed gems
 
 * `-v, --version VERSION`           - Specify version of gem to contents
 * `--all`                       - Contents for all gems
-* -s, --spec-dir a,b,c            - Search for gems under specific paths
+* `-s, --spec-dir a,b,c`            - Search for gems under specific paths
 * `-l, --[no-]lib-only`             - Only return files in the Gem's lib_dirs
 * `--[no-]prefix`               - Don't include installed path prefix
 * `--[no-]show-install-dir`     - Show only the gem install dir
@@ -293,8 +293,8 @@ Show the dependencies of an installed gem
 * `-v, --version VERSION`           - Specify version of gem to dependency
 * `--platform PLATFORM`         - Specify the platform of gem to dependency
 * `--[no-]prerelease`           - Allow prerelease versions of a gem
-* -R, --[no-]reverse-dependencies - Include reverse dependencies in the output
-* `--pipe`                      - Pipe Format (name --version ver)
+* `-R`, `--[no-]reverse-dependencies` - Include reverse dependencies in the output
+* `--pipe`                      - Pipe Format (name `--version` ver)
 
 ### Deprecated Options
 
@@ -530,8 +530,8 @@ Show information for the given gem
 ### Options
 
 * `-i, --[no-]installed`            - Check for installed gem
-* -I                              - Equivalent to --no-installed
-* `-v, --version VERSION`           - Specify version of gem to info for use with --installed
+* `-I`                              - Equivalent to `--no-installed`
+* `-v, --version VERSION`           - Specify version of gem to info for use with `--installed`
 * `--[no-]versions`             - Display only gem names
 * `-a, --all`                       - Display all gem versions
 * `-e, --exact`                     - Name of gem(s) to query on matches the provided STRING
@@ -607,12 +607,12 @@ Install a gem into the local repository
 * `--development-all`           - Install development dependencies for all gems (including dev deps themselves)
 * `--conservative`              - Don't attempt to upgrade gems already meeting version requirement
 * `--[no-]minimal-deps`         - Don't upgrade any dependencies that already meet version requirements
-* --[no-]post-install-message - Print post install message
+* `--[no-]post-install-message` - Print post install message
 * `-g, --file [FILE]`               - Read from a gem dependencies API file and install the listed gems
 * `--without GROUPS`            - Omit the named groups (comma separated) when installing from a gem dependencies file
 * `--default`                   - Add the gem's full specification to specifications/default and extract only its bin
 * `--explain`                   - Rather than install the gems, indicate which would be installed
-* `--[no-]lock`                 - Create a lock file (when used with -g/--file)
+* `--[no-]lock`                 - Create a lock file (when used with `-g`/--file)
 * `--[no-]suggestions`          - Suggest alternates when gems are not found
 
 ### Local/Remote Options
@@ -727,8 +727,8 @@ Display local gems whose name matches REGEXP
 ### Options
 
 * `-i, --[no-]installed`            - Check for installed gem
-* -I                              - Equivalent to --no-installed
-* `-v, --version VERSION`           - Specify version of gem to list for use with --installed
+* `-I`                              - Equivalent to `--no-installed`
+* `-v, --version VERSION`           - Specify version of gem to list for use with `--installed`
 * `-d, --[no-]details`              - Display detailed information of gem(s)
 * `--[no-]versions`             - Display only gem names
 * `-a, --all`                       - Display all gem versions
@@ -989,7 +989,7 @@ Restores installed gems to pristine condition from files located in the gem cach
 ### Options
 
 * `--all`                       - Restore all installed gems to pristine condition
-* `--skip=gem_name`             - used on --all, skip if name == gem_name
+* `--skip=gem_name`             - used on `--all,` skip if name == gem_name
 * `--[no-]extensions`           - Restore gems with extensions in addition to regular gems
 * `--only-executables`          - Only restore executables
 * `--only-plugins`              - Only restore plugins
@@ -1085,8 +1085,8 @@ Query gem information in local or remote repositories
 
 * `-n, --name-matches REGEXP`       - Name of gem(s) to query on matches the provided REGEXP
 * `-i, --[no-]installed`            - Check for installed gem
-* -I                              - Equivalent to --no-installed
-* `-v, --version VERSION`           - Specify version of gem to query for use with --installed
+* `-I`                              - Equivalent to `--no-installed`
+* `-v, --version VERSION`           - Specify version of gem to query for use with `--installed`
 * `-d, --[no-]details`              - Display detailed information of gem(s)
 * `--[no-]versions`             - Display only gem names
 * `-a, --all`                       - Display all gem versions
@@ -1176,8 +1176,8 @@ Display remote gems whose name matches REGEXP
 ### Options
 
 * `-i, --[no-]installed`            - Check for installed gem
-* -I                              - Equivalent to --no-installed
-* `-v, --version VERSION`           - Specify version of gem to search for use with --installed
+* `-I`                              - Equivalent to `--no-installed`
+* `-v, --version VERSION`           - Specify version of gem to search for use with `--installed`
 * `-d, --[no-]details`              - Display detailed information of gem(s)
 * `--[no-]versions`             - Display only gem names
 * `-a, --all`                       - Display all gem versions
@@ -1616,12 +1616,12 @@ Update installed gems to the latest version
 * `--development-all`           - Install development dependencies for all gems (including dev deps themselves)
 * `--conservative`              - Don't attempt to upgrade gems already meeting version requirement
 * `--[no-]minimal-deps`         - Don't upgrade any dependencies that already meet version requirements
-* --[no-]post-install-message - Print post install message
+* `--[no-]post-install-message` - Print post install message
 * `-g, --file [FILE]`               - Read from a gem dependencies API file and install the listed gems
 * `--without GROUPS`            - Omit the named groups (comma separated) when installing from a gem dependencies file
 * `--default`                   - Add the gem's full specification to specifications/default and extract only its bin
 * `--explain`                   - Rather than install the gems, indicate which would be installed
-* `--[no-]lock`                 - Create a lock file (when used with -g/--file)
+* `--[no-]lock`                 - Create a lock file (when used with `-g`/--file)
 * `--[no-]suggestions`          - Suggest alternates when gems are not found
 
 ### Local/Remote Options
