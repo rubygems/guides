@@ -14,8 +14,7 @@ class OptionsListMarkdownizer
       break if (helpline =~ /Arguments/) || (helpline =~  /Summary/)
       next if helpline.strip == ''
 
-      # Use zero-width space to prevent "helpful" change of -- to &ndash;
-      helpline = helpline.gsub('--', '-&#8203;-').gsub('[', '\\[').gsub(']', '\\]')
+      helpline = markdownize_options helpline
 
       if helpline =~ /^\s{10,}(.*)/
         options = options[0..-2] + " #{$1}\n"
@@ -31,5 +30,11 @@ class OptionsListMarkdownizer
       end
     end
     options
+  end
+
+  # Marks options mentioned on the given summary line
+  def markdownize_options(line)
+    # Mark options up as code (also prevents change of -- to &ndash;)
+    line.sub(/^(\s*)((-\w, )*--[^\s]+)( [A-Z_\[\]]+)*(\s{3,})/, '\1`\2\4`\5')
   end
 end
