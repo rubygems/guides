@@ -12,7 +12,7 @@ class OptionsListMarkdownizer
     helplines = parser.summarize
     helplines.each do |helpline|
       break if (helpline =~ /Arguments/) || (helpline =~  /Summary/)
-      next if helpline.gsub(/\n/, '').strip == ''
+      next if helpline.strip == ''
 
       # Use zero-width space to prevent "helpful" change of -- to &ndash;
       helpline = helpline.gsub('--', '-&#8203;-').gsub('[', '\\[').gsub(']', '\\]')
