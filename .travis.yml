@@ -1,7 +1,10 @@
 language: ruby
 rvm: 2.7.2
 install: "gem install jekyll"
-script: "jekyll build"
+script:
+  - jekyll build
+  - git clone https://github.com/rubygems/rubygems ../rubygems && git -C ../rubygems checkout v3.1.4 -b v3.1.4
+  - RUBYOPT="--disable-gems -I../rubygems/lib" rake command_guide && git diff --exit-code
 notifications:
   email:
   - drbrain@segment7.net
