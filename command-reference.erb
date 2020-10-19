@@ -10,10 +10,9 @@ next: /rubygems-org-api
 
 This reference was automatically generated from RubyGems version <%= rubygems_version %>.
 
-<% commands.each do |name, command| %>* [gem <%= name %>](#gem-<%= name %>)
-<% end %>
+<%- commands.each do |name, command| -%><%= "* [gem #{name}](#gem-#{name})\n" %><%- end -%>
+<%- commands.each do |name, command| -%>
 
-<% commands.each do |name, command| %>
 ## gem <%= name %>
 
 <%= htmlify(command.summary) %>
@@ -21,20 +20,18 @@ This reference was automatically generated from RubyGems version <%= rubygems_ve
 ### Usage
 
     <%= command.usage %> [options]
+<%= options_list(command).rstrip + "\n" -%>
+<%- if command.arguments != "" -%>
 
-<%= options_list(command) %>
-
-<% if command.arguments != "" %>
 ### Arguments
 
-<% arguments = command.arguments.split("\n") %>
-<% arguments.each do |argument| %><%= argument_list_item(argument) %>
-<% end %>
-<% end %>
+<%- command.arguments.split("\n").each do |argument| -%><%= argument_list_item(argument) %>
+<%- end -%>
+<%- end -%>
+<%- if command.description && command.description != "" -%>
 
-<% if command.description && command.description != "" %>
 ### Description
 
 <%= htmlify(command.description).gsub(/^  /, "    ") %>
-<% end %>
-<% end %>
+<%- end -%>
+<%- end -%>

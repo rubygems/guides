@@ -136,12 +136,10 @@ file 'command-reference.md' =>
 
   filename = "command-reference.erb"
 
-  erbio = RDoc::ERBIO.new File.read(filename), nil, nil
-  erbio.filename = filename
+  erbio = ERB.new File.read(filename), trim_mode: '-'
+  content = erbio.result binding
 
-  open 'command-reference.md', 'w' do |io|
-    erbio.result binding
-  end
+  File.write 'command-reference.md', content
 end
 
 desc "serve documentation on http://localhost:4000"
