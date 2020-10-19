@@ -124,7 +124,7 @@ file 'command-reference.md' =>
             helpline = "#{$1} - #{$2}"
           end
           if helpline =~ /options/i
-            options += "\n### #{helpline}\n"
+            options += "\n### #{helpline.strip.delete_suffix(":")}\n\n"
           else
             options += "* #{helpline.strip}\n"
           end

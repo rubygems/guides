@@ -53,14 +53,14 @@ Build a gem from a gemspec
 
     gem build GEMSPEC_FILE [options]
 
-###   Options:
+### Options
 
 * -&#8203;-force                     - skip validation of the spec
 * -&#8203;-strict                    - consider warnings as errors when validating the spec
 * -o, -&#8203;-output FILE               - output gem with the given filename
 * - -C PATH Run as if gem build was started in <PATH> instead of the current working directory.
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -104,7 +104,7 @@ Manage RubyGems certificates and signing settings
 
     gem cert [options]
 
-###   Options:
+### Options
 
 * -a, -&#8203;-add CERT                  - Add a trusted certificate.
 * -l, -&#8203;-list \[FILTER\]             - List trusted certificates where the subject contains FILTER
@@ -116,7 +116,7 @@ Manage RubyGems certificates and signing settings
 * -d, -&#8203;-days NUMBER_OF_DAYS       - Days before the certificate expires
 * -R, -&#8203;-re-sign                   - Re-signs the certificate from -C with the key from -K
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -172,7 +172,7 @@ Check a gem repository for added or missing files
 
     gem check [OPTIONS] [GEMNAME ...] [options]
 
-###   Options:
+### Options
 
 * -a, -&#8203;-\[no-\]alien                - Report "unmanaged" or rogue files in the gem repository
 * -&#8203;-\[no-\]doctor               - Clean up uninstalled gems and broken specifications
@@ -180,7 +180,7 @@ Check a gem repository for added or missing files
 * -&#8203;-\[no-\]gems                 - Check installed gems for problems
 * -v, -&#8203;-version VERSION           - Specify version of gem to check
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -208,13 +208,13 @@ Clean up old versions of installed gems
 
     gem cleanup [GEMNAME ...] [options]
 
-###   Options:
+### Options
 
 * -n, -d, -&#8203;-dryrun                - Do not uninstall gems
 * -D, -&#8203;-\[no-\]check-development    - Check development dependencies while uninstalling (default: true)
 * -&#8203;-\[no-\]user-install         - Cleanup in user's home directory instead of GEM_HOME.
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -245,7 +245,7 @@ Display the contents of the installed gems
 
     gem contents GEMNAME [GEMNAME ...] [options]
 
-###   Options:
+### Options
 
 * -v, -&#8203;-version VERSION           - Specify version of gem to contents
 * -&#8203;-all                       - Contents for all gems
@@ -254,7 +254,7 @@ Display the contents of the installed gems
 * -&#8203;-\[no-\]prefix               - Don't include installed path prefix
 * -&#8203;-\[no-\]show-install-dir     - Show only the gem install dir
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -283,7 +283,7 @@ Show the dependencies of an installed gem
 
     gem dependency REGEXP [options]
 
-###   Options:
+### Options
 
 * -v, -&#8203;-version VERSION           - Specify version of gem to dependency
 * -&#8203;-platform PLATFORM         - Specify the platform of gem to dependency
@@ -291,11 +291,11 @@ Show the dependencies of an installed gem
 * -R, -&#8203;-\[no-\]reverse-dependencies - Include reverse dependencies in the output
 * -&#8203;-pipe                      - Pipe Format (name -&#8203;-version ver)
 
-###   Deprecated Options:
+### Deprecated Options
 
 * -u, -&#8203;-\[no-\]update-sources       - Update local source cache
 
-###   Local/Remote Options:
+### Local/Remote Options
 
 * -l, -&#8203;-local                     - Restrict operations to the LOCAL domain
 * -r, -&#8203;-remote                    - Restrict operations to the REMOTE domain
@@ -305,7 +305,7 @@ Show the dependencies of an installed gem
 * -s, -&#8203;-source URL                - Append URL to list of remote gem sources
 * -p, -&#8203;-\[no-\]http-proxy \[URL\]     - Use HTTP proxy for remote operations
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -337,7 +337,7 @@ Display information about the RubyGems environment
 
     gem environment [arg] [options]
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -410,20 +410,20 @@ Download a gem and place it in the current directory
 
     gem fetch GEMNAME [GEMNAME ...] [options]
 
-###   Options:
+### Options
 
 * -v, -&#8203;-version VERSION           - Specify version of gem to fetch
 * -&#8203;-platform PLATFORM         - Specify the platform of gem to fetch
 * -&#8203;-\[no-\]prerelease           - Allow prerelease versions of a gem
 
-###   Local/Remote Options:
+### Local/Remote Options
 
 * -B, -&#8203;-bulk-threshold COUNT      - Threshold for switching to bulk synchronization (default 1000)
 * -p, -&#8203;-\[no-\]http-proxy \[URL\]     - Use HTTP proxy for remote operations
 * -s, -&#8203;-source URL                - Append URL to list of remote gem sources
 * -&#8203;-clear-sources             - Clear the gem sources
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -454,13 +454,13 @@ Generates the index files for a gem server directory
 
     gem generate_index [options]
 
-###   Options:
+### Options
 
 * -d, -&#8203;-directory=DIRNAME         - repository base dir containing gems subdir
 * -&#8203;-\[no-\]modern               - Generate indexes for RubyGems (always true)
 * -&#8203;-update                    - Update modern indexes with gems added since the last update
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -503,7 +503,7 @@ Provide help on the 'gem' command
 
     gem help ARGUMENT [options]
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -522,7 +522,7 @@ Show information for the given gem
 
     gem info GEMNAME [options]
 
-###   Options:
+### Options
 
 * -i, -&#8203;-\[no-\]installed            - Check for installed gem
 * -I                              - Equivalent to -&#8203;-no-installed
@@ -532,11 +532,11 @@ Show information for the given gem
 * -e, -&#8203;-exact                     - Name of gem(s) to query on matches the provided STRING
 * -&#8203;-\[no-\]prerelease           - Display prerelease versions
 
-###   Deprecated Options:
+### Deprecated Options
 
 * -u, -&#8203;-\[no-\]update-sources       - Update local source cache
 
-###   Local/Remote Options:
+### Local/Remote Options
 
 * -l, -&#8203;-local                     - Restrict operations to the LOCAL domain
 * -r, -&#8203;-remote                    - Restrict operations to the REMOTE domain
@@ -546,7 +546,7 @@ Show information for the given gem
 * -s, -&#8203;-source URL                - Append URL to list of remote gem sources
 * -p, -&#8203;-\[no-\]http-proxy \[URL\]     - Use HTTP proxy for remote operations
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -573,17 +573,17 @@ Install a gem into the local repository
 
     gem install GEMNAME [GEMNAME ...] [options] -- --build-flags [options]
 
-###   Options:
+### Options
 
 * -&#8203;-platform PLATFORM         - Specify the platform of gem to install
 * -v, -&#8203;-version VERSION           - Specify version of gem to install
 * -&#8203;-\[no-\]prerelease           - Allow prerelease versions of a gem to be installed. (Only for listed gems)
 
-###   Deprecated Options:
+### Deprecated Options
 
 * -u, -&#8203;-\[no-\]update-sources       - Update local source cache
 
-###   Install/Update Options:
+### Install/Update Options
 
 * -i, -&#8203;-install-dir DIR           - Gem repository directory to get installed gems
 * -n, -&#8203;-bindir DIR                - Directory where executables are located
@@ -610,7 +610,7 @@ Install a gem into the local repository
 * -&#8203;-\[no-\]lock                 - Create a lock file (when used with -g/-&#8203;-file)
 * -&#8203;-\[no-\]suggestions          - Suggest alternates when gems are not found
 
-###   Local/Remote Options:
+### Local/Remote Options
 
 * -l, -&#8203;-local                     - Restrict operations to the LOCAL domain
 * -r, -&#8203;-remote                    - Restrict operations to the REMOTE domain
@@ -620,7 +620,7 @@ Install a gem into the local repository
 * -s, -&#8203;-source URL                - Append URL to list of remote gem sources
 * -p, -&#8203;-\[no-\]http-proxy \[URL\]     - Use HTTP proxy for remote operations
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -719,7 +719,7 @@ Display local gems whose name matches REGEXP
 
     gem list [REGEXP ...] [options]
 
-###   Options:
+### Options
 
 * -i, -&#8203;-\[no-\]installed            - Check for installed gem
 * -I                              - Equivalent to -&#8203;-no-installed
@@ -730,11 +730,11 @@ Display local gems whose name matches REGEXP
 * -e, -&#8203;-exact                     - Name of gem(s) to query on matches the provided STRING
 * -&#8203;-\[no-\]prerelease           - Display prerelease versions
 
-###   Deprecated Options:
+### Deprecated Options
 
 * -u, -&#8203;-\[no-\]update-sources       - Update local source cache
 
-###   Local/Remote Options:
+### Local/Remote Options
 
 * -l, -&#8203;-local                     - Restrict operations to the LOCAL domain
 * -r, -&#8203;-remote                    - Restrict operations to the REMOTE domain
@@ -744,7 +744,7 @@ Display local gems whose name matches REGEXP
 * -s, -&#8203;-source URL                - Append URL to list of remote gem sources
 * -p, -&#8203;-\[no-\]http-proxy \[URL\]     - Use HTTP proxy for remote operations
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -776,11 +776,11 @@ Generate a lockdown list of gems
 
     gem lock GEMNAME-VERSION [GEMNAME-VERSION ...] [options]
 
-###   Options:
+### Options
 
 * -s, -&#8203;-\[no-\]strict               - fail if unable to satisfy a dependency
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -835,7 +835,7 @@ Mirror all gem files (requires rubygems-mirror)
 
     gem mirror [options]
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -858,12 +858,12 @@ Open gem sources in editor
 
     gem open GEMNAME [-e COMMAND] [options]
 
-###   Options:
+### Options
 
 * -e, -&#8203;-editor COMMAND            - Prepends COMMAND to gem path. Could be used to specify editor.
 * -v, -&#8203;-version VERSION           - Opens specific gem version
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -893,15 +893,15 @@ Display all gems that need updates
 
     gem outdated [options]
 
-###   Options:
+### Options
 
 * -&#8203;-platform PLATFORM         - Specify the platform of gem to outdated
 
-###   Deprecated Options:
+### Deprecated Options
 
 * -u, -&#8203;-\[no-\]update-sources       - Update local source cache
 
-###   Local/Remote Options:
+### Local/Remote Options
 
 * -l, -&#8203;-local                     - Restrict operations to the LOCAL domain
 * -r, -&#8203;-remote                    - Restrict operations to the REMOTE domain
@@ -911,7 +911,7 @@ Display all gems that need updates
 * -s, -&#8203;-source URL                - Append URL to list of remote gem sources
 * -p, -&#8203;-\[no-\]http-proxy \[URL\]     - Use HTTP proxy for remote operations
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -937,7 +937,7 @@ Manage gem owners of a gem on the push server
 
     gem owner GEM [options]
 
-###   Options:
+### Options
 
 * -k, -&#8203;-key KEYNAME               - Use the given API key from ~/.gem/credentials
 * -&#8203;-otp CODE                  - Digit code for multifactor authentication
@@ -945,11 +945,11 @@ Manage gem owners of a gem on the push server
 * -r, -&#8203;-remove EMAIL              - Remove an owner
 * -&#8203;-host HOST                 - Use another gemcutter-compatible host (e.g. https://rubygems.org)
 
-###   Local/Remote Options:
+### Local/Remote Options
 
 * -p, -&#8203;-\[no-\]http-proxy \[URL\]     - Use HTTP proxy for remote operations
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -981,7 +981,7 @@ Restores installed gems to pristine condition from files located in the gem cach
 
     gem pristine [GEMNAME ...] [options]
 
-###   Options:
+### Options
 
 * -&#8203;-all                       - Restore all installed gems to pristine condition
 * -&#8203;-skip=gem_name             - used on -&#8203;-all, skip if name == gem_name
@@ -991,7 +991,7 @@ Restores installed gems to pristine condition from files located in the gem cach
 * -n, -&#8203;-bindir DIR                - Directory where executables are located
 * -v, -&#8203;-version VERSION           - Specify version of gem to restore to pristine condition
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -1032,17 +1032,17 @@ Push a gem up to the gem server
 
     gem push GEM [options]
 
-###   Options:
+### Options
 
 * -k, -&#8203;-key KEYNAME               - Use the given API key from ~/.gem/credentials
 * -&#8203;-otp CODE                  - Digit code for multifactor authentication
 * -&#8203;-host HOST                 - Push to another gemcutter-compatible host (e.g. https://rubygems.org)
 
-###   Local/Remote Options:
+### Local/Remote Options
 
 * -p, -&#8203;-\[no-\]http-proxy \[URL\]     - Use HTTP proxy for remote operations
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -1075,7 +1075,7 @@ Query gem information in local or remote repositories
 
     gem query [options]
 
-###   Options:
+### Options
 
 * -i, -&#8203;-\[no-\]installed            - Check for installed gem
 * -I                              - Equivalent to -&#8203;-no-installed
@@ -1087,11 +1087,11 @@ Query gem information in local or remote repositories
 * -e, -&#8203;-exact                     - Name of gem(s) to query on matches the provided STRING
 * -&#8203;-\[no-\]prerelease           - Display prerelease versions
 
-###   Deprecated Options:
+### Deprecated Options
 
 * -u, -&#8203;-\[no-\]update-sources       - Update local source cache
 
-###   Local/Remote Options:
+### Local/Remote Options
 
 * -l, -&#8203;-local                     - Restrict operations to the LOCAL domain
 * -r, -&#8203;-remote                    - Restrict operations to the REMOTE domain
@@ -1101,7 +1101,7 @@ Query gem information in local or remote repositories
 * -s, -&#8203;-source URL                - Append URL to list of remote gem sources
 * -p, -&#8203;-\[no-\]http-proxy \[URL\]     - Use HTTP proxy for remote operations
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -1127,7 +1127,7 @@ Generates RDoc for pre-installed gems
 
     gem rdoc [args] [options]
 
-###   Options:
+### Options
 
 * -&#8203;-all                       - Generate RDoc/RI documentation for all installed gems
 * -&#8203;-\[no-\]rdoc                 - Generate RDoc HTML
@@ -1135,7 +1135,7 @@ Generates RDoc for pre-installed gems
 * -&#8203;-\[no-\]overwrite            - Overwrite installed documents
 * -v, -&#8203;-version VERSION           - Specify version of gem to rdoc
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -1167,7 +1167,7 @@ Display remote gems whose name matches REGEXP
 
     gem search [REGEXP] [options]
 
-###   Options:
+### Options
 
 * -i, -&#8203;-\[no-\]installed            - Check for installed gem
 * -I                              - Equivalent to -&#8203;-no-installed
@@ -1178,11 +1178,11 @@ Display remote gems whose name matches REGEXP
 * -e, -&#8203;-exact                     - Name of gem(s) to query on matches the provided STRING
 * -&#8203;-\[no-\]prerelease           - Display prerelease versions
 
-###   Deprecated Options:
+### Deprecated Options
 
 * -u, -&#8203;-\[no-\]update-sources       - Update local source cache
 
-###   Local/Remote Options:
+### Local/Remote Options
 
 * -l, -&#8203;-local                     - Restrict operations to the LOCAL domain
 * -r, -&#8203;-remote                    - Restrict operations to the REMOTE domain
@@ -1192,7 +1192,7 @@ Display remote gems whose name matches REGEXP
 * -s, -&#8203;-source URL                - Append URL to list of remote gem sources
 * -p, -&#8203;-\[no-\]http-proxy \[URL\]     - Use HTTP proxy for remote operations
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -1226,7 +1226,7 @@ Documentation and gem repository HTTP server
 
     gem server [options]
 
-###   Options:
+### Options
 
 * -p, -&#8203;-port=PORT                 - port to listen on
 * -d, -&#8203;-dir=GEMDIR                - directories from which to serve gems multiple directories may be provided
@@ -1234,7 +1234,7 @@ Documentation and gem repository HTTP server
 * -b, -&#8203;-bind=HOST,HOST            - addresses to bind
 * -l, -&#8203;-launch\[=COMMAND\]          - launches a browser window COMMAND defaults to 'start' on Windows and 'open' on all other platforms
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -1270,12 +1270,12 @@ Sign in to any gemcutter-compatible host. It defaults to https://rubygems.org
 
     gem signin [options]
 
-###   Options:
+### Options
 
 * -&#8203;-host HOST                 - Push to another gemcutter-compatible host
 * -&#8203;-otp CODE                  - Digit code for multifactor authentication
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -1298,7 +1298,7 @@ Sign out from all the current sessions.
 
     gem signout [options]
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -1321,7 +1321,7 @@ Manage the sources and cache file RubyGems uses to search for gems
 
     gem sources [options]
 
-###   Options:
+### Options
 
 * -a, -&#8203;-add SOURCE_URI            - Add source
 * -l, -&#8203;-list                      - List sources
@@ -1329,11 +1329,11 @@ Manage the sources and cache file RubyGems uses to search for gems
 * -c, -&#8203;-clear-all                 - Remove all sources (clear the cache)
 * -u, -&#8203;-update                    - Update source cache
 
-###   Local/Remote Options:
+### Local/Remote Options
 
 * -p, -&#8203;-\[no-\]http-proxy \[URL\]     - Use HTTP proxy for remote operations
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -1396,7 +1396,7 @@ Display gem specification (in yaml)
 
     gem specification [GEMFILE] [FIELD] [options]
 
-###   Options:
+### Options
 
 * -v, -&#8203;-version VERSION           - Specify version of gem to examine
 * -&#8203;-platform PLATFORM         - Specify the platform of gem to specification
@@ -1406,11 +1406,11 @@ Display gem specification (in yaml)
 * -&#8203;-yaml                      - Output YAML format
 * -&#8203;-marshal                   - Output Marshal format
 
-###   Deprecated Options:
+### Deprecated Options
 
 * -u, -&#8203;-\[no-\]update-sources       - Update local source cache
 
-###   Local/Remote Options:
+### Local/Remote Options
 
 * -l, -&#8203;-local                     - Restrict operations to the LOCAL domain
 * -r, -&#8203;-remote                    - Restrict operations to the REMOTE domain
@@ -1420,7 +1420,7 @@ Display gem specification (in yaml)
 * -s, -&#8203;-source URL                - Append URL to list of remote gem sources
 * -p, -&#8203;-\[no-\]http-proxy \[URL\]     - Use HTTP proxy for remote operations
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -1457,7 +1457,7 @@ List gems along with access times
 
     gem stale [options]
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -1484,7 +1484,7 @@ Uninstall gems from the local repository
 
     gem uninstall GEMNAME [GEMNAME ...] [options]
 
-###   Options:
+### Options
 
 * -a, -&#8203;-\[no-\]all                  - Uninstall all matching versions
 * -I, -&#8203;-\[no-\]ignore-dependencies  - Ignore dependency requirements while uninstalling
@@ -1500,7 +1500,7 @@ Uninstall gems from the local repository
 * -&#8203;-platform PLATFORM         - Specify the platform of gem to uninstall
 * -&#8203;-vendor                    - Uninstall gem from the vendor directory. Only for use by gem repackagers.
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -1531,17 +1531,17 @@ Unpack an installed gem to the current directory
 
     gem unpack GEMNAME [options]
 
-###   Options:
+### Options
 
 * -&#8203;-target=DIR                - target directory for unpacking
 * -&#8203;-spec                      - unpack the gem specification
 * -v, -&#8203;-version VERSION           - Specify version of gem to unpack
 
-###   Install/Update Options:
+### Install/Update Options
 
 * -P, -&#8203;-trust-policy POLICY       - Specify gem trust policy
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -1580,17 +1580,17 @@ Update installed gems to the latest version
 
     gem update GEMNAME [GEMNAME ...] [options]
 
-###   Options:
+### Options
 
 * -&#8203;-system \[VERSION\]          - Update the RubyGems system software
 * -&#8203;-platform PLATFORM         - Specify the platform of gem to update
 * -&#8203;-\[no-\]prerelease           - Allow prerelease versions of a gem as update targets
 
-###   Deprecated Options:
+### Deprecated Options
 
 * -u, -&#8203;-\[no-\]update-sources       - Update local source cache
 
-###   Install/Update Options:
+### Install/Update Options
 
 * -i, -&#8203;-install-dir DIR           - Gem repository directory to get installed gems
 * -n, -&#8203;-bindir DIR                - Directory where executables are located
@@ -1617,7 +1617,7 @@ Update installed gems to the latest version
 * -&#8203;-\[no-\]lock                 - Create a lock file (when used with -g/-&#8203;-file)
 * -&#8203;-\[no-\]suggestions          - Suggest alternates when gems are not found
 
-###   Local/Remote Options:
+### Local/Remote Options
 
 * -l, -&#8203;-local                     - Restrict operations to the LOCAL domain
 * -r, -&#8203;-remote                    - Restrict operations to the REMOTE domain
@@ -1627,7 +1627,7 @@ Update installed gems to the latest version
 * -s, -&#8203;-source URL                - Append URL to list of remote gem sources
 * -p, -&#8203;-\[no-\]http-proxy \[URL\]     - Use HTTP proxy for remote operations
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -1657,12 +1657,12 @@ Find the location of a library file you can require
 
     gem which FILE [FILE ...] [options]
 
-###   Options:
+### Options
 
 * -a, -&#8203;-\[no-\]all                  - show all matching files
 * -g, -&#8203;-\[no-\]gems-first           - search gems before non-gems
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
@@ -1694,7 +1694,7 @@ Remove a pushed gem from the index
 
     gem yank GEM -v VERSION [-p PLATFORM] [--key KEY_NAME] [--host HOST] [options]
 
-###   Options:
+### Options
 
 * -v, -&#8203;-version VERSION           - Specify version of gem to remove
 * -&#8203;-platform PLATFORM         - Specify the platform of gem to remove
@@ -1702,7 +1702,7 @@ Remove a pushed gem from the index
 * -&#8203;-host HOST                 - Yank from another gemcutter-compatible host (e.g. https://rubygems.org)
 * -k, -&#8203;-key KEYNAME               - Use the given API key from ~/.gem/credentials
 
-###   Common Options:
+### Common Options
 
 * -h, -&#8203;-help                      - Get help on this command
 * -V, -&#8203;-\[no-\]verbose              - Set the verbose level of output
