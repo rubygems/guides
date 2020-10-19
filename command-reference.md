@@ -75,15 +75,15 @@ Build a gem from a gemspec
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *GEMSPEC_FILE* -   gemspec file name to build a gem for
 
-  
 
-  
+
+
 ### Description
 
 The build command allows you to create a gem from a ruby gemspec.
@@ -104,7 +104,7 @@ with gem spec:
 Gems can be saved to a specified filename with the output option:
 
     $ gem build my_gem-1.0.gemspec --output=release.gem
-  
+
 
 ## gem cert
 
@@ -139,9 +139,9 @@ Manage RubyGems certificates and signing settings
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
 
-  
+
+
 ### Description
 
 The cert command manages signing keys and certificates for creating signed
@@ -178,7 +178,7 @@ To sign another gem author's certificate:
     gem cert --sign /path/to/other_cert.pem
 
 For further reading on signing gems see `ri Gem::Security`.
-  
+
 
 ## gem check
 
@@ -209,20 +209,20 @@ Check a gem repository for added or missing files
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *GEMNAME* -        name of gem to check
 
-  
 
-  
+
+
 ### Description
 
 The check command can list and repair problems with installed gems and
 specifications and will clean up gems that have been partially uninstalled.
-  
+
 
 ## gem cleanup
 
@@ -251,15 +251,15 @@ Clean up old versions of installed gems
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *GEMNAME* -        name of gem to cleanup
 
-  
 
-  
+
+
 ### Description
 
 The cleanup command removes old versions of gems from GEM_HOME that are not
@@ -267,7 +267,7 @@ required to meet a dependency.  If a gem is installed elsewhere in GEM_PATH
 the cleanup command won't delete it.
 
 If no gems are named all gems in GEM_HOME are cleaned.
-  
+
 
 ## gem contents
 
@@ -299,21 +299,21 @@ Display the contents of the installed gems
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *GEMNAME* -        name of gem to list contents for
 
-  
 
-  
+
+
 ### Description
 
 The contents command lists the files in an installed gem.  The listing can
 be given as full file names, file names without the installed directory
 prefix or only the files that are requireable.
-  
+
 
 ## gem dependency
 
@@ -358,15 +358,15 @@ Show the dependencies of an installed gem
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *REGEXP* -         show dependencies for gems whose names start with REGEXP
 
-  
 
-  
+
+
 ### Description
 
 The dependency commands lists which other gems a given gem depends on.  For
@@ -375,7 +375,7 @@ the named gem).
 
 The dependency list can be displayed in a format suitable for piping for
 use with other commands.
-  
+
 
 ## gem environment
 
@@ -398,7 +398,7 @@ Display information about the RubyGems environment
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
@@ -409,9 +409,9 @@ Display information about the RubyGems environment
 * *platform* -         display the supported gem platforms
 * *&lt;omitted&gt;* -        display everything
 
-  
 
-  
+
+
 ### Description
 
 The environment command lets you query rubygems for its configuration for
@@ -456,7 +456,7 @@ environment variable can be set to the URI for that server.
 If you are packaging RubyGems all of RubyGems' defaults are in
 lib/rubygems/defaults.rb.  You may override these in
 lib/rubygems/defaults/operating_system.rb
-  
+
 
 ## gem fetch
 
@@ -492,15 +492,15 @@ Download a gem and place it in the current directory
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *GEMNAME* -        name of gem to download
 
-  
 
-  
+
+
 ### Description
 
 The fetch command fetches gem files that can be stored for later use or
@@ -508,7 +508,7 @@ unpacked to examine their contents.
 
 See the build command help for an example of unpacking a gem, modifying it,
 then repackaging it.
-  
+
 
 ## gem generate_index
 
@@ -537,9 +537,9 @@ Generates the index files for a gem server directory
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
 
-  
+
+
 ### Description
 
 The generate_index command creates a set of indexes for serving gems
@@ -563,7 +563,7 @@ When done, it will generate a set of files like this:
 The .rz extension files are compressed with the inflate algorithm.
 The Marshal version number comes from ruby's Marshal::MAJOR_VERSION and
 Marshal::MINOR_VERSION constants.  It is used to ensure compatibility.
-  
+
 
 ## gem help
 
@@ -586,9 +586,9 @@ Provide help on the 'gem' command
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
 
-  
+
+
 
 ## gem info
 
@@ -635,19 +635,19 @@ Show information for the given gem
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *GEMNAME* -         name of the gem to print information about
 
-  
 
-  
+
+
 ### Description
 
 Info prints information about the gem such as name, description, website, license and installed paths
-  
+
 
 ## gem install
 
@@ -717,15 +717,15 @@ Install a gem into the local repository
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *GEMNAME* -        name of gem to install
 
-  
 
-  
+
+
 ### Description
 
 The install command installs local or remote gem into a gem repository.
@@ -801,7 +801,7 @@ Command Alias
 You can use `i` command instead of `install`.
 
     $ gem i GEMNAME
-  
+
 
 ## gem list
 
@@ -849,15 +849,15 @@ Display local gems whose name matches REGEXP
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *REGEXP* -         regexp to look for in gem name
 
-  
 
-  
+
+
 ### Description
 
 The list command is used to view the gems you have installed locally.
@@ -866,7 +866,7 @@ The --details option displays additional details including the summary, the
 homepage, the author, the locations of different versions of the gem.
 
 To search for remote gems use the search command.
-  
+
 
 ## gem lock
 
@@ -893,16 +893,16 @@ Generate a lockdown list of gems
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *GEMNAME* -        name of gem to lock
 * *VERSION* -        version of gem to lock
 
-  
 
-  
+
+
 ### Description
 
 The lock command will generate a list of +gem+ statements that will lock down
@@ -933,7 +933,7 @@ other require statements.
 Notice that rails 1.0.0 only requires that rake 0.6.2 or better be used.
 Rake-0.7.0.1 is the most recent version installed that satisfies that, so we
 lock it down to the exact version.
-  
+
 
 ## gem mirror
 
@@ -956,13 +956,13 @@ Mirror all gem files (requires rubygems-mirror)
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
 
-  
+
+
 ### Description
 
 The mirror command has been moved to the rubygems-mirror gem.
-  
+
 
 ## gem open
 
@@ -990,22 +990,22 @@ Open gem sources in editor
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *GEMNAME* -      name of gem to open in editor
 
-  
 
-  
+
+
 ### Description
 
           The open command opens gem in editor and changes current path
           to gem's source directory.
           Editor command can be specified with -e option, otherwise rubygems
           will look for editor in $EDITOR, $VISUAL and $GEM_EDITOR variables.
-  
+
 
 ## gem outdated
 
@@ -1046,16 +1046,16 @@ Display all gems that need updates
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
 
-  
+
+
 ### Description
 
 The outdated command lists gems you may wish to upgrade to a newer version.
 
 You can check for dependency mismatches using the dependency command and
 update the gems with the update or install commands.
-  
+
 
 ## gem owner
 
@@ -1090,15 +1090,15 @@ Manage gem owners of a gem on the push server
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *GEM* -        gem to manage owners for
 
-  
 
-  
+
+
 ### Description
 
 The owner command lets you add and remove owners of a gem on a push
@@ -1107,7 +1107,7 @@ server (the default is https://rubygems.org).
 The owner of a gem has the permission to push new versions, yank existing
 versions or edit the HTML page of the gem.  Be careful of who you give push
 permission to.
-  
+
 
 ## gem pristine
 
@@ -1140,15 +1140,15 @@ Restores installed gems to pristine condition from files located in the gem cach
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *GEMNAME* -        gem to restore to pristine condition (unless --all)
 
-  
 
-  
+
+
 ### Description
 
 The pristine command compares an installed gem with the contents of its
@@ -1166,7 +1166,7 @@ with an extension.
 
 If --extensions is given (but not --all or gem names) only gems with
 extensions will be restored.
-  
+
 
 ## gem push
 
@@ -1199,15 +1199,15 @@ Push a gem up to the gem server
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *GEM* -        built gem to push up
 
-  
 
-  
+
+
 ### Description
 
 The push command uploads a gem to the push server (the default is
@@ -1217,7 +1217,7 @@ The gem can be removed from the index and deleted from the server using the yank
 command.  For further discussion see the help for the yank command.
 
 The push command will use ~/.gem/credentials to authenticate to a server, but you can use the RubyGems environment variable GEM_HOST_API_KEY to set the api key to authenticate.
-  
+
 
 ## gem query
 
@@ -1266,16 +1266,16 @@ Query gem information in local or remote repositories
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
 
-  
+
+
 ### Description
 
 The query command is the basis for the list and search commands.
 
 You should really use the list and search commands instead.  This command
 is too hard to use.
-  
+
 
 ## gem rdoc
 
@@ -1306,15 +1306,15 @@ Generates RDoc for pre-installed gems
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *GEMNAME* -        gem to generate documentation for (unless --all)
 
-  
 
-  
+
+
 ### Description
 
 The rdoc command builds documentation for installed gems.  By default
@@ -1323,7 +1323,7 @@ documentation may be built through rubygems plugins and the
 Gem.post_installs hook.
 
 Use --overwrite to force rebuilding of documentation.
-  
+
 
 ## gem search
 
@@ -1371,15 +1371,15 @@ Display remote gems whose name matches REGEXP
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *REGEXP* -         regexp to search for in gem name
 
-  
 
-  
+
+
 ### Description
 
 The search command displays remote gems whose name matches the given
@@ -1390,7 +1390,7 @@ take a little longer to complete as it must download the information
 individually from the index.
 
 To list local gems use the list command.
-  
+
 
 ## gem server
 
@@ -1421,9 +1421,9 @@ Documentation and gem repository HTTP server
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
 
-  
+
+
 ### Description
 
 The server command starts up a web server that hosts the RDoc for your
@@ -1440,7 +1440,7 @@ You can set up a shortcut to gem server documentation using the URL:
 
     http://localhost:8808/rdoc?q=%s - Firefox
     http://localhost:8808/rdoc?q=* - LaunchBar
-  
+
 
 ## gem signin
 
@@ -1468,13 +1468,13 @@ Sign in to any gemcutter-compatible host. It defaults to https://rubygems.org
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
 
-  
+
+
 ### Description
 
 The signin command executes host sign in for a push server (the default is https://rubygems.org). The host can be provided with the host flag or can be inferred from the provided gem. Host resolution matches the resolution strategy for the push command.
-  
+
 
 ## gem signout
 
@@ -1497,13 +1497,13 @@ Sign out from all the current sessions.
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
 
-  
+
+
 ### Description
 
 The `signout` command is used to sign out from all current sessions, allowing you to sign in using a different set of credentials.
-  
+
 
 ## gem sources
 
@@ -1538,9 +1538,9 @@ Manage the sources and cache file RubyGems uses to search for gems
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
 
-  
+
+
 ### Description
 
 RubyGems fetches gems from the sources you have configured (stored in your
@@ -1584,7 +1584,7 @@ To remove a source use the --remove argument:
 
       $ gem sources --remove https://rubygems.org/
       https://rubygems.org/ removed from sources
-  
+
 
 ## gem specification
 
@@ -1631,16 +1631,16 @@ Display gem specification (in yaml)
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *GEMFILE* -        name of gem to show the gemspec for
 * *FIELD* -          name of gemspec field to show
 
-  
 
-  
+
+
 ### Description
 
 The specification command allows you to extract the specification from
@@ -1653,7 +1653,7 @@ Specific fields in the specification can be extracted in YAML format:
     $ gem spec rake summary
     --- Ruby based make-like utility.
     ...
-  
+
 
 ## gem stale
 
@@ -1676,9 +1676,9 @@ List gems along with access times
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
 
-  
+
+
 ### Description
 
 The stale command lists the latest access time for all the files in your
@@ -1686,7 +1686,7 @@ installed gems.
 
 You can use this command to discover gems and gem versions you are no
 longer using.
-  
+
 
 ## gem uninstall
 
@@ -1725,15 +1725,15 @@ Uninstall gems from the local repository
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *GEMNAME* -        name of gem to uninstall
 
-  
 
-  
+
+
 ### Description
 
 The uninstall command removes a previously installed gem.
@@ -1741,7 +1741,7 @@ The uninstall command removes a previously installed gem.
 RubyGems will ask for confirmation if you are attempting to uninstall a gem
 that is a dependency of an existing gem.  You can use the
 --ignore-dependencies option to skip this check.
-  
+
 
 ## gem unpack
 
@@ -1774,15 +1774,15 @@ Unpack an installed gem to the current directory
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *GEMNAME* -        name of gem to unpack
 
-  
 
-  
+
+
 ### Description
 
 The unpack command allows you to examine the contents of a gem or modify
@@ -1798,7 +1798,7 @@ RUBYLIB environment variable or -I:
 
 You can repackage an unpacked gem using the build command.  See the build
 command help for an example.
-  
+
 
 ## gem update
 
@@ -1868,22 +1868,22 @@ Update installed gems to the latest version
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *GEMNAME* -        name of gem to update
 
-  
 
-  
+
+
 ### Description
 
 The update command will update your gems to the latest version.
 
 The update command does not remove the previous version. Use the cleanup
 command to remove old versions.
-  
+
 
 ## gem which
 
@@ -1911,15 +1911,15 @@ Find the location of a library file you can require
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *FILE* -           name of file to find
 
-  
 
-  
+
+
 ### Description
 
 The which command is like the shell which command and shows you where
@@ -1928,7 +1928,7 @@ the file you wish to require lives.
 You can use the which command to help determine why you are requiring a
 version you did not expect or to look at the content of a file you are
 requiring to see why it does not behave as you expect.
-  
+
 
 ## gem yank
 
@@ -1959,15 +1959,15 @@ Remove a pushed gem from the index
 * -&#8203;-norc                      - Avoid loading any .gemrc file
 
 
-  
+
 ### Arguments
 
 
 * *GEM* -        name of gem
 
-  
 
-  
+
+
 ### Description
 
 The yank command permanently removes a gem you pushed to a server.
@@ -1975,5 +1975,5 @@ The yank command permanently removes a gem you pushed to a server.
 Once you have pushed a gem several downloads will happen automatically
 via the webhooks. If you accidentally pushed passwords or other sensitive
 data you will need to change them immediately and yank your gem.
-  
+
 
