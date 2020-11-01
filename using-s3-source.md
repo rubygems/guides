@@ -56,15 +56,12 @@ Or set AWS access id, secret and session token explicitly.
 
     $ cat ~/.gemrc
     :sources:
-    - s3://my-great-bucket/my-gems/ 
     - s3://bucket1/
+    - s3://bucket2/
+    - s3://bucket3/path_to_gems_dir/
+    - s3://bucket4/
     - https://rubygems.org/
     s3_source: {
-      my-great-bucket: {
-        id: "MY-ACCESS-KEY",
-        secret: "MY-ACCESS-SECRET",
-        region: "eu-west-3",
-      },
       bucket1: {
         provider: "env",
         # region defaults to us-east-1
