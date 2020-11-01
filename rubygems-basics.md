@@ -200,15 +200,6 @@ You can view the documentation for your installed gems with `ri`:
     subclass of MultiRBTree.
     -------------------------------------------
 
-You can view the documentation for your installed gems in your browser with
-the `server` command:
-
-    $ gem server
-    Server started at http://0.0.0.0:8808
-    Server started at http://[::]:8808
-
-You can access this documentation at http://localhost:8808
-
 Fetching and Unpacking Gems
 ---------------------------
 

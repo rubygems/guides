@@ -917,4 +917,8 @@ a.page__heading {
   margin: 1%;
 }
 
+.t-body .t-img--small {
+  width: 70%;
+}
+
 /*# sourceMappingURL=application.css.map */
