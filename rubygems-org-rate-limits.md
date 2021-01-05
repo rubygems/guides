@@ -3,7 +3,7 @@ layout: default
 title: RubyGems.org rate limits
 url: /rubygems-org-rate-limits
 previous: /rubygems-org-api-v2
-next: /run-your-own-gem-server
+next: /api-key-scopes
 ---
 
 <em class="t-gray">Why are you seeing 429 responses?</em>
@@ -30,7 +30,7 @@ We use [rack-attack](https://github.com/kickstarter/rack-attack) for throttling 
 * Profile delete - `DELETE /profile`
 * Email confirmation request - `POST /email_confirmations`
 
-## Rate limits with exponential backoff 
+## Rate limits with exponential backoff
 
 It is not possible to brute force your MFA code in a single time window. However, an attacker's chance of successfully guessing the code at least once increases when the brute force is attempted over an extended period. You can read more about this [here](https://security.stackexchange.com/a/185917) and check our calculation of the backoff period [here](https://github.com/rubygems/rubygems.org/pull/2330#issuecomment-643931531).
 Following endpoints have rate limits of **300 requests/5 minutes** and **600 requests/25 hours**:
