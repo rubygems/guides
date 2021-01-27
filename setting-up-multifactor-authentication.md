@@ -52,8 +52,9 @@ MFA for both the UI and the API. If you go to the _profile edit_ page again, in 
 will see a dropdown menu with three options:
 
 - **Disabled**: disables MFA. Please delete rubygems.org account from your authenticator app after disabling.
-- **UI only**: sign in from browser and disabling MFA will require OTP code.
-- **UI and API**: `gem signin`, `push`, `owner --add` and `owner --remove` will require OTP code.
+- **UI only**: sign in from browser, updating MFA levels and resetting password will require OTP code. These are referred to as UI operations.
+- **UI and gem signin**: UI operations and `gem signin` will require OTP code.
+- **UI and API**: UI operations, `gem signin`, `push`, `owner --add` and `owner --remove` will require OTP code.
 
 Steps to change your MFA level:
 
