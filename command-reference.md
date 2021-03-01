@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.1.4.
+This reference was automatically generated from RubyGems version 3.2.12.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -55,6 +55,7 @@ Build a gem from a gemspec
 
 ### Options
 
+* -&#8203;-platform PLATFORM         - Specify the platform of gem to build
 * -&#8203;-force                     - skip validation of the spec
 * -&#8203;-strict                    - consider warnings as errors when validating the spec
 * -o, -&#8203;-output FILE               - output gem with the given filename
@@ -210,9 +211,13 @@ Clean up old versions of installed gems
 
 ### Options
 
-* -n, -d, -&#8203;-dryrun                - Do not uninstall gems
+* -n, -d, -&#8203;-dry-run               - Do not uninstall gems
 * -D, -&#8203;-\[no-\]check-development    - Check development dependencies while uninstalling (default: true)
 * -&#8203;-\[no-\]user-install         - Cleanup in user's home directory instead of GEM_HOME.
+
+### Deprecated Options
+
+* -&#8203;-dryrun                    - Do not uninstall gems
 
 ### Common Options
 
@@ -586,7 +591,7 @@ Install a gem into the local repository
 ### Install/Update Options
 
 * -i, -&#8203;-install-dir DIR           - Gem repository directory to get installed gems
-* -n, -&#8203;-bindir DIR                - Directory where executables are located
+* -n, -&#8203;-bindir DIR                - Directory where executables will be placed when the gem is installed
 * -&#8203;-document \[TYPES\]          - Generate documentation for installed gems List the documentation types you wish to generate.  For example: rdoc,ri
 * -&#8203;-build-root DIR            - Temporary installation root. Useful for building packages. Do not use this when installing remote gems.
 * -&#8203;-vendor                    - Install gem into the vendor directory. Only for use by gem repackagers.
@@ -601,7 +606,7 @@ Install a gem into the local repository
 * -&#8203;-development               - Install additional development dependencies
 * -&#8203;-development-all           - Install development dependencies for all gems (including dev deps themselves)
 * -&#8203;-conservative              - Don't attempt to upgrade gems already meeting version requirement
-* -&#8203;-minimal-deps              - Don't upgrade any dependencies that already meet version requirements
+* -&#8203;-\[no-\]minimal-deps         - Don't upgrade any dependencies that already meet version requirements
 * -&#8203;-\[no-\]post-install-message - Print post install message
 * -g, -&#8203;-file \[FILE\]               - Read from a gem dependencies API file and install the listed gems
 * -&#8203;-without GROUPS            - Omit the named groups (comma separated) when installing from a gem dependencies file
@@ -939,7 +944,7 @@ Manage gem owners of a gem on the push server
 
 ### Options
 
-* -k, -&#8203;-key KEYNAME               - Use the given API key from ~/.gem/credentials
+* -k, -&#8203;-key KEYNAME               - Use the given API key from ~/.local/share/gem/credentials
 * -&#8203;-otp CODE                  - Digit code for multifactor authentication
 * -a, -&#8203;-add EMAIL                 - Add an owner
 * -r, -&#8203;-remove EMAIL              - Remove an owner
@@ -987,6 +992,7 @@ Restores installed gems to pristine condition from files located in the gem cach
 * -&#8203;-skip=gem_name             - used on -&#8203;-all, skip if name == gem_name
 * -&#8203;-\[no-\]extensions           - Restore gems with extensions in addition to regular gems
 * -&#8203;-only-executables          - Only restore executables
+* -&#8203;-only-plugins              - Only restore plugins
 * -E, -&#8203;-\[no-\]env-shebang          - Rewrite executables with a shebang of /usr/bin/env
 * -n, -&#8203;-bindir DIR                - Directory where executables are located
 * -v, -&#8203;-version VERSION           - Specify version of gem to restore to pristine condition
@@ -1034,7 +1040,7 @@ Push a gem up to the gem server
 
 ### Options
 
-* -k, -&#8203;-key KEYNAME               - Use the given API key from ~/.gem/credentials
+* -k, -&#8203;-key KEYNAME               - Use the given API key from ~/.local/share/gem/credentials
 * -&#8203;-otp CODE                  - Digit code for multifactor authentication
 * -&#8203;-host HOST                 - Push to another gemcutter-compatible host (e.g. https://rubygems.org)
 
@@ -1077,10 +1083,10 @@ Query gem information in local or remote repositories
 
 ### Options
 
+* -n, -&#8203;-name-matches REGEXP       - Name of gem(s) to query on matches the provided REGEXP
 * -i, -&#8203;-\[no-\]installed            - Check for installed gem
 * -I                              - Equivalent to -&#8203;-no-installed
 * -v, -&#8203;-version VERSION           - Specify version of gem to query for use with -&#8203;-installed
-* -n, -&#8203;-name-matches REGEXP       - Name of gem(s) to query on matches the provided REGEXP
 * -d, -&#8203;-\[no-\]details              - Display detailed information of gem(s)
 * -&#8203;-\[no-\]versions             - Display only gem names
 * -a, -&#8203;-all                       - Display all gem versions
@@ -1328,6 +1334,7 @@ Manage the sources and cache file RubyGems uses to search for gems
 * -r, -&#8203;-remove SOURCE_URI         - Remove source
 * -c, -&#8203;-clear-all                 - Remove all sources (clear the cache)
 * -u, -&#8203;-update                    - Update source cache
+* -f, -&#8203;-\[no-\]force                - Do not show any confirmation prompts and behave as if 'yes' was always answered
 
 ### Local/Remote Options
 
@@ -1593,7 +1600,7 @@ Update installed gems to the latest version
 ### Install/Update Options
 
 * -i, -&#8203;-install-dir DIR           - Gem repository directory to get installed gems
-* -n, -&#8203;-bindir DIR                - Directory where executables are located
+* -n, -&#8203;-bindir DIR                - Directory where executables will be placed when the gem is installed
 * -&#8203;-document \[TYPES\]          - Generate documentation for installed gems List the documentation types you wish to generate.  For example: rdoc,ri
 * -&#8203;-build-root DIR            - Temporary installation root. Useful for building packages. Do not use this when installing remote gems.
 * -&#8203;-vendor                    - Install gem into the vendor directory. Only for use by gem repackagers.
@@ -1608,7 +1615,7 @@ Update installed gems to the latest version
 * -&#8203;-development               - Install additional development dependencies
 * -&#8203;-development-all           - Install development dependencies for all gems (including dev deps themselves)
 * -&#8203;-conservative              - Don't attempt to upgrade gems already meeting version requirement
-* -&#8203;-minimal-deps              - Don't upgrade any dependencies that already meet version requirements
+* -&#8203;-\[no-\]minimal-deps         - Don't upgrade any dependencies that already meet version requirements
 * -&#8203;-\[no-\]post-install-message - Print post install message
 * -g, -&#8203;-file \[FILE\]               - Read from a gem dependencies API file and install the listed gems
 * -&#8203;-without GROUPS            - Omit the named groups (comma separated) when installing from a gem dependencies file
@@ -1700,7 +1707,7 @@ Remove a pushed gem from the index
 * -&#8203;-platform PLATFORM         - Specify the platform of gem to remove
 * -&#8203;-otp CODE                  - Digit code for multifactor authentication
 * -&#8203;-host HOST                 - Yank from another gemcutter-compatible host (e.g. https://rubygems.org)
-* -k, -&#8203;-key KEYNAME               - Use the given API key from ~/.gem/credentials
+* -k, -&#8203;-key KEYNAME               - Use the given API key from ~/.local/share/gem/credentials
 
 ### Common Options
 
