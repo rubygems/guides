@@ -5,7 +5,7 @@ install:
   - gem install mdl
 script:
   - jekyll build
-  - git clone https://github.com/rubygems/rubygems ../rubygems && git -C ../rubygems checkout v3.1.4 -b v3.1.4
+  - git clone https://github.com/rubygems/rubygems ../rubygems && git -C ../rubygems checkout v3.2.12 -b v3.2.12
   - RUBYOPT="--disable-gems -I../rubygems/lib" rake command_guide && git diff --exit-code
   - mdl --rules MD009,MD012 command-reference.md
 notifications:

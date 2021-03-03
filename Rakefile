@@ -137,7 +137,7 @@ file 'command-reference.md' =>
   filename = "command-reference.erb"
 
   erbio = ERB.new File.read(filename), trim_mode: '-'
-  content = erbio.result binding
+  content = erbio.result(binding).gsub(ENV["HOME"], "~")
 
   File.write 'command-reference.md', content
 end
