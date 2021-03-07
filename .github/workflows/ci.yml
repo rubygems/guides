@@ -1,0 +1,41 @@
+---
+
+name: ci
+
+on: [pull_request]
+
+jobs:
+  ci:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+
+      - name: Install dependencies
+        run: |
+          gem install jekyll
+          gem install mdl
+
+      - uses: actions/checkout@v2
+        with:
+          path: guides
+
+      - uses: actions/checkout@v2
+        with:
+          repository: rubygems/rubygems
+          path: rubygems
+          ref: v3.2.12
+
+      - name: Build jekyll
+        run: jekyll build
+        working-directory: guides
+
+      - name: Generate command guide
+        run: RUBYOPT="--disable-gems -I../rubygems/lib" rake command_guide && git diff --exit-code
+        working-directory: guides
+
+      - name: Lint generated markdown
+        run: mdl --rules MD009,MD012 command-reference.md
+        working-directory: guides
