@@ -4,6 +4,8 @@ require 'rdoc/rdoc'
 require 'rdoc/task'
 require 'fileutils'
 
+require_relative 'lib/options_list_markdownizer'
+
 $:.unshift '.', '../rubygems/lib'
 
 ENV['RUBYGEMS_DIR'] ||= File.expand_path '../../rubygems', __FILE__
@@ -101,37 +103,7 @@ file 'command-reference.md' =>
   end
 
   def options_list(command)
-    ui = Gem::SilentUI.new
-    Gem::DefaultUserInteraction.use_ui ui do
-      # Invoke the Ruby options parser by asking for help. Otherwise the
-      # options list in the parser will never be initialized.
-      command.show_help
-    end
-
-    parser = command.send(:parser)
-    options = ''
-    helplines = parser.summarize
-    helplines.each do |helpline|
-      break if (helpline =~ /Arguments/) || (helpline =~  /Summary/)
-      unless helpline.gsub(/\n/, '').strip == ''
-        # Use zero-width space to prevent "helpful" change of -- to &ndash;
-        helpline = helpline.gsub('--', '-&#8203;-').gsub('[', '\\[').gsub(']', '\\]')
-
-        if helpline =~ /^\s{10,}(.*)/
-          options = options[0..-2] + " #{$1}\n"
-        else
-          if helpline =~ /^(.+)\s{2,}(.*)/
-            helpline = "#{$1} - #{$2}"
-          end
-          if helpline =~ /options/i
-            options += "\n### #{helpline.strip.delete_suffix(":")}\n\n"
-          else
-            options += "* #{helpline.strip}\n"
-          end
-        end
-      end
-    end
-    options
+    OptionsListMarkdownizer.new.call command
   end
 
   filename = "command-reference.erb"
