@@ -38,7 +38,7 @@ You can generate all of them using one command: `gem generate_index`.
 
 ## Use with gem command
 
-> It's good practice to create a seperate IAM user with only read rights on the S3 bucket. Use a other IAM user for pushing the gems with write rights.
+> It's good practice to create a separate IAM user with only read rights on the S3 bucket. Use a other IAM user for pushing the gems with write rights.
 
 You can use your s3 source using `--source` flag:
 
