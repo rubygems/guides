@@ -90,7 +90,7 @@ This vulnerability was discovered by Alexander Cherepanov <cherepan@mccme.ru>
 
 RubyGems provides the ability of a domain to direct clients to a separate
 host that is used to fetch gems and make API calls against. This mechanism
-is implemented via DNS, specificly a SRV record _rubygems._tcp under the
+is implemented via DNS, specifically a SRV record _rubygems._tcp under the
 original requested domain.
 
 For example, this is the one that users who use rubygems.org see:

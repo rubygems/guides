@@ -99,7 +99,7 @@ RubyGems mirror without having to push or write all gem you wanted in a
 configuration file try out [Gemirro](https://github.com/PierreRambaud/gemirro).
 It does mirroring without any authentication and you can add your private
 gems in the gems directory. More, to mirroring a source, you only need
-to start the server, and gems will automaticly be downloaded when needed.
+to start the server, and gems will automatically be downloaded when needed.
 
 To get started, install `gemirro`:
 
