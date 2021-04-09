@@ -118,7 +118,7 @@ next: /command-reference
 
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">authors</span> = [<span class="ruby-string">&#39;John Jones&#39;</span>, <span class="ruby-string">&#39;Mary Smith&#39;</span>]
 </pre>
-    
+
 
 <a id="files"> </a>
 
@@ -142,7 +142,7 @@ next: /command-reference
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">files</span> <span class="ruby-operator">+=</span> <span class="ruby-constant">Dir</span>[<span class="ruby-string">&#39;[A-Z]*&#39;</span>]
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">files</span>.<span class="ruby-identifier">reject!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">fn</span><span class="ruby-operator">|</span> <span class="ruby-identifier">fn</span>.<span class="ruby-identifier">include?</span> <span class="ruby-string">&quot;CVS&quot;</span> }
 </pre>
-    
+
 
 <a id="name"> </a>
 
@@ -154,7 +154,7 @@ next: /command-reference
 
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">name</span> = <span class="ruby-string">&#39;rake&#39;</span>
 </pre>
-    
+
 
 <a id="summary"> </a>
 
@@ -168,7 +168,7 @@ next: /command-reference
 
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">summary</span> = <span class="ruby-string">&quot;This is a small summary of my gem&quot;</span>
 </pre>
-    
+
 
 <a id="version"> </a>
 
@@ -182,7 +182,7 @@ next: /command-reference
 
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">version</span> = <span class="ruby-string">&#39;0.4.1&#39;</span>
 </pre>
-    
+
 
 
 # Recommended gemspec attributes
@@ -204,7 +204,7 @@ next: /command-reference
   dependencies are specified in standard Ruby syntax.
 </span><span class="ruby-identifier">EOF</span>
 </pre>
-    
+
 
 <a id="email"> </a>
 
@@ -217,7 +217,7 @@ next: /command-reference
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">email</span> = <span class="ruby-string">&#39;john.jones@example.com&#39;</span>
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">email</span> = [<span class="ruby-string">&#39;jack@example.com&#39;</span>, <span class="ruby-string">&#39;jill@example.com&#39;</span>]
 </pre>
-    
+
 
 <a id="homepage"> </a>
 
@@ -229,7 +229,7 @@ next: /command-reference
 
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">homepage</span> = <span class="ruby-string">&#39;https://github.com/ruby/rake&#39;</span>
 </pre>
-    
+
 
 <a id="license="> </a>
 
@@ -253,7 +253,7 @@ next: /command-reference
 
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">license</span> = <span class="ruby-string">&#39;MIT&#39;</span>
 </pre>
-    
+
 
 <a id="licenses="> </a>
 
@@ -271,7 +271,7 @@ next: /command-reference
 
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">licenses</span> = [<span class="ruby-string">&#39;MIT&#39;</span>, <span class="ruby-string">&#39;GPL-2.0&#39;</span>]
 </pre>
-    
+
 
 <a id="metadata"> </a>
 
@@ -307,7 +307,7 @@ next: /command-reference
 
 <pre class="ruby"><span class="ruby-regexp">%r{\Ahttps?:\/\/([^\s:@]+:[^\s:@]*@)?[A-Za-z\d\-]+(\.[A-Za-z\d\-]+)+\.?(:\d{1,5})?([\/?]\S*)?\z}</span>
 </pre>
-    
+
 
 
 # Optional gemspec attributes
@@ -326,7 +326,7 @@ next: /command-reference
 </pre>
 
 <p>Development dependencies aren&#39;t installed by default and aren&#39;t activated when a gem is required.</p>
-    
+
 
 <a id="add_runtime_dependency"> </a>
 
@@ -338,7 +338,7 @@ next: /command-reference
 
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_runtime_dependency</span> <span class="ruby-string">&#39;example&#39;</span>, <span class="ruby-string">&#39;~&gt; 1.1&#39;</span>, <span class="ruby-string">&#39;&gt;= 1.1.4&#39;</span>
 </pre>
-    
+
 
 <a id="author="> </a>
 
@@ -350,7 +350,7 @@ next: /command-reference
 
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">author</span> = <span class="ruby-string">&#39;John Jones&#39;</span>
 </pre>
-    
+
 
 <a id="bindir"> </a>
 
@@ -362,14 +362,14 @@ next: /command-reference
 
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">bindir</span> = <span class="ruby-string">&#39;bin&#39;</span>
 </pre>
-    
+
 
 <a id="cert_chain"> </a>
 
 ## cert_chain
 
 <p>The certificate chain used to sign this gem.  See Gem::Security for details.</p>
-    
+
 
 <a id="executables"> </a>
 
@@ -385,7 +385,7 @@ next: /command-reference
 
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">executables</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;rake&#39;</span>
 </pre>
-    
+
 
 <a id="extensions"> </a>
 
@@ -401,7 +401,7 @@ next: /command-reference
 </pre>
 
 <p>See Gem::Ext::Builder for information about writing extensions for gems.</p>
-    
+
 
 <a id="extra_rdoc_files"> </a>
 
@@ -415,7 +415,7 @@ next: /command-reference
 
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">extra_rdoc_files</span> = [<span class="ruby-string">&#39;README&#39;</span>, <span class="ruby-string">&#39;doc/user-guide.txt&#39;</span>]
 </pre>
-    
+
 
 <a id="platform="> </a>
 
@@ -433,7 +433,7 @@ next: /command-reference
 
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">platform</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Platform</span>.<span class="ruby-identifier">local</span>
 </pre>
-    
+
 
 <a id="post_install_message"> </a>
 
@@ -445,7 +445,7 @@ next: /command-reference
 
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">post_install_message</span> = <span class="ruby-string">&quot;Thanks for installing!&quot;</span>
 </pre>
-    
+
 
 <a id="rdoc_options"> </a>
 
@@ -459,7 +459,7 @@ next: /command-reference
   <span class="ruby-string">&#39;--main&#39;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;README&#39;</span> <span class="ruby-operator">&lt;&lt;</span>
   <span class="ruby-string">&#39;--line-numbers&#39;</span>
 </pre>
-    
+
 
 <a id="require_paths="> </a>
 
@@ -474,14 +474,14 @@ next: /command-reference
 <pre class="ruby"><span class="ruby-comment"># If all library files are in the root directory...</span>
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">require_paths</span> = [<span class="ruby-string">&#39;.&#39;</span>]
 </pre>
-    
+
 
 <a id="required_ruby_version"> </a>
 
 ## required_ruby_version
 
 <p>The version of Ruby required by this gem</p>
-    
+
 
 <a id="required_ruby_version="> </a>
 
@@ -509,21 +509,21 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 <span class="ruby-comment"># This gem will work with 2.3.0 or greater, including major version 3, but lesser than 4.0.0</span>
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">required_ruby_version</span> = <span class="ruby-string">&#39;&gt;= 2.3&#39;</span>, <span class="ruby-string">&#39;&lt; 4&#39;</span>
 </pre>
-    
+
 
 <a id="required_rubygems_version"> </a>
 
 ## required_rubygems_version
 
 <p>The RubyGems version required by this gem</p>
-    
+
 
 <a id="required_rubygems_version="> </a>
 
 ## required_rubygems_version=(`req`)
 
 <p>The RubyGems version required by this gem</p>
-    
+
 
 <a id="requirements"> </a>
 
@@ -536,7 +536,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">requirements</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;libmagick, v6.0&#39;</span>
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">requirements</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;A good graphics card&#39;</span>
 </pre>
-    
+
 
 <a id="rubygems_version"> </a>
 
@@ -545,14 +545,14 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 <p>The version of RubyGems used to create this gem.</p>
 
 <p>Do not set this, it is set automatically when the gem is packaged.</p>
-    
+
 
 <a id="signing_key"> </a>
 
 ## signing_key
 
 <p>The key used to sign this gem.  See Gem::Security for details.</p>
-    
+
 
 
 
