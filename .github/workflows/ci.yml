@@ -26,7 +26,7 @@ jobs:
         with:
           repository: rubygems/rubygems
           path: rubygems
-          ref: v3.2.12
+          ref: 3.2
 
       - name: Build jekyll
         run: jekyll build

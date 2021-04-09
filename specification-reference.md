@@ -8,7 +8,7 @@ next: /command-reference
 
 
 
-<p>The <a href="Specification.html"><code>Specification</code></a> class contains the information for a gem.  Typically defined in a .gemspec file or a Rakefile, and looks like this:</p>
+<p>The Specification class contains the information for a gem.  Typically defined in a .gemspec file or a Rakefile, and looks like this:</p>
 
 <pre class="ruby"><span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
   <span class="ruby-identifier">s</span>.<span class="ruby-identifier">name</span>        = <span class="ruby-string">&#39;example&#39;</span>
@@ -24,7 +24,7 @@ next: /command-reference
 <span class="ruby-keyword">end</span>
 </pre>
 
-<p>Starting in RubyGems 2.0, a <a href="Specification.html"><code>Specification</code></a> can hold arbitrary metadata.  See <code>metadata</code> for restrictions on the format and size of metadata items you may add to a specification.</p>
+<p>Starting in RubyGems 2.0, a Specification can hold arbitrary metadata.  See <code>metadata</code> for restrictions on the format and size of metadata items you may add to a specification.</p>
 
 
 
