@@ -10,7 +10,7 @@ next: /command-reference
    description.gsub! %r%<a\shref=(["'])Specification\.html#.*?\1>(.*?)</a>%m, '\2'
    description.gsub! %r%<a\shref=(["'])Specification\.html\1><code>Specification</code></a>%,
      'Specification' %>
-<%= description %>
+<%= description -%>
 
 <%
   sections = {}
@@ -32,16 +32,16 @@ next: /command-reference
       end
     end
   end
-%>
+-%>
 
 <% all_methods.each do |section, methods| %>
 ## <%= section.title %>
     <% methods.sort_by(&:first).each do |name, method| %>
 * [<%= name %>](#<%= name %>)
-    <% end %>
+    <% end -%>
 <% end %>
 
-<% all_methods.each do |section, methods| %>
+<% all_methods.each do |section, methods| -%>
 
 # <%= section.title %>
 
@@ -57,7 +57,7 @@ next: /command-reference
          "(#{params})"
        end
      end
-%>
+-%>
 
 <a id="<%= name %>"> </a>
 
@@ -67,8 +67,8 @@ next: /command-reference
    description.gsub! %r%<a\shref=(["'])Specification\.html\1>Specification</a>%,
                      'Specification' %>
 <%= description %>
-    <% end %>
-<% end %>
+<% end -%>
+<% end -%>
 
 
 <!--<html -->
