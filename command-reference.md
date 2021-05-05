@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.2.16.
+This reference was automatically generated from RubyGems version 3.2.17.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -576,7 +576,7 @@ Install a gem into the local repository
 
 ### Usage
 
-    gem install GEMNAME [GEMNAME ...] [options] -- --build-flags [options]
+    gem install [options] GEMNAME [GEMNAME ...] -- --build-flags [options]
 
 ### Options
 
@@ -861,7 +861,7 @@ Open gem sources in editor
 
 ### Usage
 
-    gem open GEMNAME [-e COMMAND] [options]
+    gem open [-e COMMAND] GEMNAME [options]
 
 ### Options
 
@@ -1699,7 +1699,7 @@ Remove a pushed gem from the index
 
 ### Usage
 
-    gem yank GEM -v VERSION [-p PLATFORM] [--key KEY_NAME] [--host HOST] [options]
+    gem yank -v VERSION [-p PLATFORM] [--key KEY_NAME] [--host HOST] GEM [options]
 
 ### Options
 
