@@ -69,10 +69,10 @@ Suppose you have a 'stack' gem that holds a `Stack` class with both `push` and
 `pop` functionality. Your `CHANGELOG` might look like this if you use
 semantic versioning:
 
-* **Version 0.0.1**: The initial `Stack` class is released.
-* **Version 0.0.2**: Switched to a linked list implementation because it is
+* **Version 0.1.0**: The initial `Stack` class is released.
+* **Version 0.2.0**: Switched to a linked list implementation because it is
   cooler.
-* **Version 0.1.0**: Added a `depth` method.
+* **Version 0.3.0**: Added a `depth` method.
 * **Version 1.0.0**: Added `top` and made `pop` return `nil` (`pop` used to
   return the old top item).
 * **Version 1.1.0**: `push` now returns the value pushed (it used to return
