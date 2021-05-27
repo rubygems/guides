@@ -59,7 +59,7 @@ with details requires downloading more files:
         Full-stack web application framework.
 
 You can also search for gems on rubygems.org such as [this search for
-rake](https://rubygems.org/search?utf8=✓&query=rake)
+rake](https://rubygems.org/search?query=rake)
 
 Installing Gems
 ---------------
