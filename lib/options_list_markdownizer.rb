@@ -36,11 +36,11 @@ class OptionsListMarkdownizer
   # Marks options mentioned on the given summary line
   def markdownize_options(line)
     # Mark options up as code (also prevents change of -- to &ndash;)
-    option_line_re = /^(\s*)((-\w, )*--[^\s]+)( [A-Za-z_\[\],]+)*(\s{3,})(.+)/
+    option_line_re = /^(\s*)((?:--[^\s]+|-[^\s])(?:, (?:--[^\s]+|-[^\s]))*(?: [A-Za-z_\[\],]+)*)(\s{3,})(.+)/
     if option_line_re =~ line
       line.sub(option_line_re) do |m|
-        "#{$1}`#{$2}#{$4}`#{$5}" +
-          markdownize_inline_options($6)
+        "#{$1}`#{$2}`#{$3}" +
+          markdownize_inline_options($4)
       end
     else
       markdownize_inline_options(line)
