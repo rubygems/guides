@@ -59,7 +59,7 @@ Build a gem from a gemspec
 * `--force`                     - skip validation of the spec
 * `--strict`                    - consider warnings as errors when validating the spec
 * `-o, --output FILE`               - output gem with the given filename
-* `-C` PATH                         - Run as if gem build was started in <PATH> instead of the current working directory.
+* `-C PATH`                         - Run as if gem build was started in <PATH> instead of the current working directory.
 
 ### Common Options
 

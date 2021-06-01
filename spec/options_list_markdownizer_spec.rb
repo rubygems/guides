@@ -65,6 +65,11 @@ describe OptionsListMarkdownizer do
       "                                     and the certificate from `-C`\n",
       'short option in description continuation',
     ],
+    [
+      "    -C PATH                      Run as if gem build was started in <PATH> instead of the current working directory.\n",
+      "    `-C PATH`                      Run as if gem build was started in <PATH> instead of the current working directory.\n",
+      'short option only with argument',
+    ],
   ].each do |given,expected,description|
     it (description || given) do
       expected = given if expected.nil?
