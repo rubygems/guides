@@ -72,11 +72,10 @@ Ruby's premier packaging system. Bundled with Ruby 1.9+ and available for Ruby 1
 * New features should be coupled with tests.
 * Ensure that your code blends well with ours (eg, no trailing whitespace, match indentation and coding style).
 * Don’t modify the history file or version number.
-* If you have any questions, just ask us on IRC in #rubygems or file [an issue][1].
+* If you have any questions, just ask us on [Bundler.io Slack][slack] or file [an issue][1].
 
-[0]: https://github.com/rubygems/rubygems
+[slack]: https://slack.bundler.io/
 [1]: https://github.com/rubygems/rubygems/issues
-[2]: http://help.rubygems.org
 
 <a class="project__name" href="https://github.com/rubygems/rubygems.org">RubyGems.org</a>
 

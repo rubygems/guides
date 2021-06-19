@@ -22,12 +22,11 @@ how to require the files in your gem. Following these conventions also lets
 Bundler require your gem with no extra configuration.
 
 If you publish a gem on [rubygems.org][rubygems] it may be removed if the name
-is objectionable, violates intellectual property or the contents of the gem
-meet these criteria.  You can report such a gem on the
-[RubyGems Support][rubygems-support] site.
+is objectionable, violates intellectual property or the contents of the gem meet
+these criteria.  You can report such a gem to [support@rubygems.org](mailto:support@rubygems.org)
+via email.
 
 [rubygems]: http://rubygems.org
-[rubygems-support]: http://help.rubygems.org
 
 Use underscores for multiple words
 ----------------------------------

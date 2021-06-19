@@ -59,4 +59,5 @@ Following endpoints have rate limits of **300 requests/5 minutes** and **600 req
 * 10 request/10 minutes/email on password reset request - `POST /passwords`
 * 10 request/10 minutes/email on email confirmation request - `POST /email_confirmations`
 
-The RubyGems.org team may occasionally blackhole user IP addresses for extreme cases to protect the platform. If you think this has happened to you, please [submit a help ticket](https://help.rubygems.org/discussion/new), and we'll be happy to look at it.
+The RubyGems.org team may occasionally blackhole user IP addresses for extreme cases to protect the platform.
+If you think this has happened to you, please email to [support@rubygems.org](mailto:support@rubygems.org), and we'll be happy to look at it.
