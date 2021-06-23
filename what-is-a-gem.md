@@ -12,7 +12,7 @@ Structure of a Gem
 ------------------
 
 Each gem has a name, version, and platform. For example, the
-[rake](http://rubygems.org/gems/rake) gem has a `0.8.7` version (from May,
+[rake](https://rubygems.org/gems/rake) gem has a `0.8.7` version (from May,
 2009).  Rake's platform is `ruby`, which means it works on any platform Ruby
 runs on.
 
@@ -55,8 +55,8 @@ Here, you can see the major components of a gem:
   installed.
 * Documentation is usually included in the `README` and inline with the code.
   When you install a gem, documentation is generated automatically for you.
-  Most gems include [RDoc](http://rdoc.sourceforge.net/doc/) documentation,
-  but some use [YARD](http://yardoc.org/) docs instead.
+  Most gems include [RDoc](https://ruby.github.io/rdoc/) documentation,
+  but some use [YARD](https://yardoc.org/) docs instead.
 * The final piece is the gemspec, which contains information about the gem.
   The gem's files, test information, platform, version number and more are all
   laid out here along with the author's email and name.
