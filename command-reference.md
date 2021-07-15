@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.2.23.
+This reference was automatically generated from RubyGems version 3.2.24.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -945,7 +945,7 @@ Manage gem owners of a gem on the push server
 ### Options
 
 * `-k, --key KEYNAME`               - Use the given API key from ~/.local/share/gem/credentials
-* `--otp CODE`                  - Digit code for multifactor authentication
+* `--otp CODE`                  - Digit code for multifactor authentication You can also use the environment variable GEM_HOST_OTP_CODE
 * `-a, --add EMAIL`                 - Add an owner
 * `-r, --remove EMAIL`              - Remove an owner
 * `--host HOST`                 - Use another gemcutter-compatible host (e.g. https://rubygems.org)
@@ -1041,7 +1041,7 @@ Push a gem up to the gem server
 ### Options
 
 * `-k, --key KEYNAME`               - Use the given API key from ~/.local/share/gem/credentials
-* `--otp CODE`                  - Digit code for multifactor authentication
+* `--otp CODE`                  - Digit code for multifactor authentication You can also use the environment variable GEM_HOST_OTP_CODE
 * `--host HOST`                 - Push to another gemcutter-compatible host (e.g. https://rubygems.org)
 
 ### Local/Remote Options
@@ -1279,7 +1279,7 @@ Sign in to any gemcutter-compatible host. It defaults to https://rubygems.org
 ### Options
 
 * `--host HOST`                 - Push to another gemcutter-compatible host
-* `--otp CODE`                  - Digit code for multifactor authentication
+* `--otp CODE`                  - Digit code for multifactor authentication You can also use the environment variable GEM_HOST_OTP_CODE
 
 ### Common Options
 
@@ -1705,7 +1705,7 @@ Remove a pushed gem from the index
 
 * `-v, --version VERSION`           - Specify version of gem to remove
 * `--platform PLATFORM`         - Specify the platform of gem to remove
-* `--otp CODE`                  - Digit code for multifactor authentication
+* `--otp CODE`                  - Digit code for multifactor authentication You can also use the environment variable GEM_HOST_OTP_CODE
 * `--host HOST`                 - Yank from another gemcutter-compatible host (e.g. https://rubygems.org)
 * `-k, --key KEYNAME`               - Use the given API key from ~/.local/share/gem/credentials
 
