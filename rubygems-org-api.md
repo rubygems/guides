@@ -35,6 +35,13 @@ using an API key:
 
     $ curl -H 'Authorization:YOUR_API_KEY' \
       https://rubygems.org/api/v1/some_api_call.json
+      
+If you are using Multi-factor authentication, you will need to provide one-time passcode
+in the `OTP` header. Here's an example of using your API key with a OTP:
+
+    $ curl -H 'Authorization:YOUR_API_KEY' \
+           -H 'OTP:YOUR_ONE_TIME_PASSCODE' \
+      https://rubygems.org/api/v1/some_api_call.json
 
 Ruby Library
 ------------
