@@ -53,6 +53,11 @@ next: /command-reference
 * [licenses=](#licenses=)
     
 * [metadata](#metadata)
+
+* [required_ruby_version](#required_ruby_version)
+
+* [required_ruby_version=](#required_ruby_version=)
+
     
 ## Optional gemspec attributes
     
@@ -79,10 +84,6 @@ next: /command-reference
 * [rdoc_options](#rdoc_options)
     
 * [require_paths=](#require_paths=)
-    
-* [required_ruby_version](#required_ruby_version)
-    
-* [required_ruby_version=](#required_ruby_version=)
     
 * [required_rubygems_version](#required_rubygems_version)
     
