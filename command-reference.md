@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.2.29.
+This reference was automatically generated from RubyGems version 3.2.30.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -113,6 +113,7 @@ Manage RubyGems certificates and signing settings
 * `-b, --build EMAIL_ADDR`          - Build private key and self-signed certificate for EMAIL_ADDR
 * `-C, --certificate CERT`          - Signing certificate for `--sign`
 * `-K, --private-key KEY`           - Key for `--sign` or `--build`
+* `-A, --key-algorithm ALGORITHM`   - Select which key algorithm to use for `--build`
 * `-s, --sign CERT`                 - Signs CERT with the key from `-K` and the certificate from `-C`
 * `-d, --days NUMBER_OF_DAYS`       - Days before the certificate expires
 * `-R, --re-sign`                   - Re-signs the certificate from `-C` with the key from `-K`
