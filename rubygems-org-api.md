@@ -142,7 +142,7 @@ response is received.
 List all gems that you own. Returns an array of the JSON or YAML representation
 of gems you own.
 
-    $ curl -H 'Authorization:701243f217cdf23b1370c7b66b65ca97' \
+    $ curl -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
               https://rubygems.org/api/v1/gems.json
 
 
@@ -151,7 +151,7 @@ of gems you own.
 Submit a gem to RubyGems.org. Must post a built RubyGem in the request body.
 
     $ curl --data-binary @gemcutter-0.2.1.gem \
-           -H 'Authorization:701243f217cdf23b1370c7b66b65ca97' \
+           -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
            https://rubygems.org/api/v1/gems
 
     Successfully registered gem: gemcutter (0.2.1)
@@ -160,7 +160,7 @@ Submit a gem to RubyGems.org. Must post a built RubyGem in the request body.
 
 Remove a gem from RubyGems.org's index. Platform is optional.
 
-    $ curl -X DELETE -H 'Authorization:701243f217cdf23b1370c7b66b65ca97' \
+    $ curl -X DELETE -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
            -d 'gem_name=bills' -d 'version=0.0.1' \
            -d 'platform=x86-darwin-10' \
            https://rubygems.org/api/v1/gems/yank
@@ -377,7 +377,7 @@ View all owners of a gem. These users can all push to this gem.
 
 Add an owner to a RubyGem you own, giving that user permission to manage it.
 
-    $ curl -H 'Authorization:701243f217cdf23b1370c7b66b65ca97' \
+    $ curl -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
            -F 'email=josh@technicalpickles.com' \
            https://rubygems.org/api/v1/gems/gemcutter/owners
 
@@ -387,7 +387,7 @@ Add an owner to a RubyGem you own, giving that user permission to manage it.
 
 Remove a user's permission to manage a RubyGem you own.
 
-    $ curl -X DELETE -H 'Authorization:701243f217cdf23b1370c7b66b65ca97' \
+    $ curl -X DELETE -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
             -d "email=josh@technicalpickles.com" \
             https://rubygems.org/api/v1/gems/gemcutter/owners
 
@@ -400,7 +400,7 @@ WebHook Methods
 
 List the webhooks registered under your account.
 
-    $ curl -H 'Authorization:701243f217cdf23b1370c7b66b65ca97' \
+    $ curl -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
            https://rubygems.org/api/v1/web_hooks.json
 
     {
@@ -423,13 +423,13 @@ List the webhooks registered under your account.
 Create a webhook. Requires two parameters: `gem_name` and `url`. Specify `*`
 for the `gem_name` parameter to apply the hook globally to all gems.
 
-    $ curl -X POST -H 'Authorization:701243f217cdf23b1370c7b66b65ca97' \
+    $ curl -X POST -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
            -F 'gem_name=rails' -F 'url=http://example.com' \
            https://rubygems.org/api/v1/web_hooks
 
     Successfully created webhook for rails to http://example.com
 
-    $ curl -X POST -H 'Authorization:701243f217cdf23b1370c7b66b65ca97' \
+    $ curl -X POST -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
            -F 'gem_name=*' -F 'url=http://example.com' \
            https://rubygems.org/api/v1/web_hooks
 
@@ -440,13 +440,13 @@ for the `gem_name` parameter to apply the hook globally to all gems.
 Remove a webhook. Requires two parameters: `gem_name` and `url`. Specify `*`
 for the `gem_name` parameter to apply the hook globally to all gems.
 
-    $ curl -X DELETE -H 'Authorization:701243f217cdf23b1370c7b66b65ca97' \
+    $ curl -X DELETE -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
            -d 'gem_name=rails' -d 'url=http://example.com' \
            https://rubygems.org/api/v1/web_hooks/remove
 
     Successfully removed webhook for rails to http://example.com
 
-    $ curl -X DELETE -H 'Authorization:701243f217cdf23b1370c7b66b65ca97' \
+    $ curl -X DELETE -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
            -d 'gem_name=*' -d 'url=http://example.com' \
            https://rubygems.org/api/v1/web_hooks/remove
 
@@ -463,13 +463,13 @@ An `Authorization` header is included with every fired webhook so you can be
 sure the request came from RubyGems.org. The value of the header is the
 SHA2-hashed concatenation of the gem name, the gem version and your API key.
 
-    $ curl -H 'Authorization:701243f217cdf23b1370c7b66b65ca97' \
+    $ curl -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
            -F 'gem_name=rails' -F 'url=http://example.com' \
            https://rubygems.org/api/v1/web_hooks/fire
 
     Successfully deployed webhook for rails to http://example.com
 
-    $ curl -H 'Authorization:701243f217cdf23b1370c7b66b65ca97' \
+    $ curl -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
            -F 'gem_name=*' -F 'url=http://example.com' \
            https://rubygems.org/api/v1/web_hooks/fire
 
