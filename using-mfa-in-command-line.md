@@ -3,7 +3,7 @@ layout: default
 title: Using multifactor authentication in command line
 url: /using-mfa-in-command-line
 previous: /setting-up-multifactor-authentication
-next: /using-s3-source
+next: /mfa-requirement-opt-in
 ---
 <em class="t-gray">How to use MFA with gem CLI.</em>
 
