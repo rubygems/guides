@@ -2,7 +2,7 @@
 layout: default
 title: Using S3 as gem source
 url: /using-s3-source
-previous: /using-mfa-in-command-line
+previous: /mfa-requirement-opt-in
 next: /resources
 ---
 <em class="t-gray">How to use S3 bucket as gem source.</em>
