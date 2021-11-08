@@ -224,11 +224,13 @@ next: /command-reference
 
 <p>This should just be the name of your license. The full text of the license should be inside of the gem (at the top level) when you build it.</p>
 
-<p>The simplest way, is to specify the standard SPDX ID <a href="https://spdx.org/licenses">spdx.org/licenses</a>/ for the license. Ideally you should pick one that is OSI (Open Source Initiative) <a href="http://opensource.org/licenses/alphabetical">opensource.org/licenses/alphabetical</a> approved.</p>
+<p>The simplest way is to specify the standard SPDX ID <a href="https://spdx.org/licenses">spdx.org/licenses</a>/ for the license. Ideally, you should pick one that is OSI (Open Source Initiative) <a href="http://opensource.org/licenses/alphabetical">opensource.org/licenses/alphabetical</a> approved.</p>
 
-<p>The most commonly used OSI approved licenses are MIT and Apache-2.0. GitHub also provides a license picker at <a href="http://choosealicense.com">choosealicense.com</a>/.</p>
+<p>The most commonly used OSI-approved licenses are MIT and Apache-2.0. GitHub also provides a license picker at <a href="http://choosealicense.com">choosealicense.com</a>/.</p>
 
-<p>You should specify a license for your gem so that people know how they are permitted to use it, and any restrictions you&#39;re placing on it.  Not specifying a license means all rights are reserved; others have no rights to use the code for any purpose.</p>
+<p>You can also use a custom license file along with your gemspec and specify a LicenseRef-&lt;idstring&gt;, where idstring is the name of the file containing the license text.</p>
+
+<p>You should specify a license for your gem so that people know how they are permitted to use it and any restrictions you&#39;re placing on it.  Not specifying a license means all rights are reserved; others have no right to use the code for any purpose.</p>
 
 <p>You can set multiple licenses with <code>licenses=</code></p>
 
