@@ -85,7 +85,9 @@ deploying, and managing gems along with clear and accessible project pages.
 <div class="project__links">
   <a class="project__link t-link" href="https://rubygems.org">Site</a>
   <a class="project__link t-link" href="https://github.com/rubygems/rubygems.org/issues">Issues</a>
-  <a class="project__link t-link" href="https://groups.google.com/forum/#!forum/gemcutter">Mailing List</a>
+  <a class="project__link t-link" href="https://github.com/rubygems/rubygems.org/discussions/">Discussions</a>
+  <a class="project__link t-link" href="http://slack.bundler.io/">Slack</a>
+  <a class="project__link t-link" href="https://github.com/rubygems/rubygems.org">Source code</a>
 </div>
 
 <p class="avatars">
