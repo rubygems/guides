@@ -80,6 +80,9 @@ After creating the account, use your email and password when pushing the gem.
 (RubyGems saves the credentials in ~/.gem/credentials for you so you only need
 to log in once.)
 
+Note that your gem name must be unique. It cannot have a name that is already
+in use from another gem alrady published in [RubyGems.org](https://rubygems.org/).
+
 To publish version 0.1.0 of a new gem named 'squid-utils':
 
     $ gem push squid-utils-0.1.0.gem
