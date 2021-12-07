@@ -54,6 +54,8 @@ next: /command-reference
     
 * [metadata](#metadata)
     
+* [required_ruby_version](#required_ruby_version)
+    
 ## Optional gemspec attributes
     
 * [add_development_dependency](#add_development_dependency)
@@ -79,8 +81,6 @@ next: /command-reference
 * [rdoc_options](#rdoc_options)
     
 * [require_paths=](#require_paths=)
-    
-* [required_ruby_version](#required_ruby_version)
     
 * [required_ruby_version=](#required_ruby_version=)
     
@@ -291,6 +291,17 @@ next: /command-reference
 <pre class="ruby"><span class="ruby-regexp">%r{\Ahttps?:\/\/([^\s:@]+:[^\s:@]*@)?[A-Za-z\d\-]+(\.[A-Za-z\d\-]+)+\.?(:\d{1,5})?([\/?]\S*)?\z}</span>
 </pre>
 
+<a id="required_ruby_version"> </a>
+
+## required_ruby_version
+
+<p>The version of Ruby required by this gem</p>
+
+<p>Usage:</p>
+
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">required_ruby_version</span> = <span class="ruby-string">&#39;&gt;= 2.7.0&#39;</span>
+</pre>
+
 # Optional gemspec attributes
 
 
@@ -443,12 +454,6 @@ next: /command-reference
 <pre class="ruby"><span class="ruby-comment"># If all library files are in the root directory...</span>
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">require_paths</span> = [<span class="ruby-string">&#39;.&#39;</span>]
 </pre>
-
-<a id="required_ruby_version"> </a>
-
-## required_ruby_version
-
-<p>The version of Ruby required by this gem</p>
 
 <a id="required_ruby_version="> </a>
 
