@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.2.33.
+This reference was automatically generated from RubyGems version 3.3.0.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -1228,19 +1228,11 @@ To list local gems use the list command.
 
 ## gem server
 
-Documentation and gem repository HTTP server
+Starts up a web server that hosts the RDoc (requires rubygems-server)
 
 ### Usage
 
     gem server [options]
-
-### Options
-
-* `-p, --port=PORT`                 - port to listen on
-* `-d, --dir=GEMDIR`                - directories from which to serve gems multiple directories may be provided
-* `--[no-]daemon`               - run as a daemon
-* `-b, --bind=HOST,HOST`            - addresses to bind
-* `-l, --launch[=COMMAND]`          - launches a browser window COMMAND defaults to 'start' on Windows and 'open' on all other platforms
 
 ### Common Options
 
@@ -1255,20 +1247,7 @@ Documentation and gem repository HTTP server
 
 ### Description
 
-The server command starts up a web server that hosts the RDoc for your
-installed gems and can operate as a server for installation of gems on other
-machines.
-
-The cache files for installed gems must exist to use the server as a source
-for gem installation.
-
-To install gems from a running server, use `gem install GEMNAME --source
-http://gem_server_host:8808`
-
-You can set up a shortcut to gem server documentation using the URL:
-
-    http://localhost:8808/rdoc?q=%s - Firefox
-    http://localhost:8808/rdoc?q=* - LaunchBar
+The server command has been moved to the rubygems-server gem.
 
 ## gem signin
 
