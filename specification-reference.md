@@ -105,7 +105,7 @@ next: /command-reference
 
 <p>A list of authors for this gem.</p>
 
-<p>Alternatively, a single author can be specified by assigning a string to `spec.author`</p>
+<p>Alternatively, a single author can be specified by assigning a string to ‘spec.author`</p>
 
 <p>Usage:</p>
 
@@ -139,7 +139,7 @@ next: /command-reference
 
 ## name
 
-<p>This gem&#39;s name.</p>
+<p>This gem’s name.</p>
 
 <p>Usage:</p>
 
@@ -150,7 +150,7 @@ next: /command-reference
 
 ## summary
 
-<p>A short summary of this gem&#39;s description.  Displayed in `gem list -d`.</p>
+<p>A short summary of this gem’s description.  Displayed in ‘gem list -d`.</p>
 
 <p>The <code>description</code> should be more detailed than the summary.</p>
 
@@ -163,9 +163,9 @@ next: /command-reference
 
 ## version
 
-<p>This gem&#39;s version.</p>
+<p>This gem’s version.</p>
 
-<p>The version string can contain numbers and periods, such as <code>1.0.0</code>. A gem is a &#39;prerelease&#39; gem if the version has a letter in it, such as <code>1.0.0.pre</code>.</p>
+<p>The version string can contain numbers and periods, such as <code>1.0.0</code>. A gem is a ‘prerelease’ gem if the version has a letter in it, such as <code>1.0.0.pre</code>.</p>
 
 <p>Usage:</p>
 
@@ -207,7 +207,7 @@ next: /command-reference
 
 ## homepage
 
-<p>The URL of this gem&#39;s home page</p>
+<p>The URL of this gem’s home page</p>
 
 <p>Usage:</p>
 
@@ -230,7 +230,7 @@ next: /command-reference
 
 <p>You can also use a custom license file along with your gemspec and specify a LicenseRef-&lt;idstring&gt;, where idstring is the name of the file containing the license text.</p>
 
-<p>You should specify a license for your gem so that people know how they are permitted to use it and any restrictions you&#39;re placing on it.  Not specifying a license means all rights are reserved; others have no right to use the code for any purpose.</p>
+<p>You should specify a license for your gem so that people know how they are permitted to use it and any restrictions you’re placing on it.  Not specifying a license means all rights are reserved; others have no right to use the code for any purpose.</p>
 
 <p>You can set multiple licenses with <code>licenses=</code></p>
 
@@ -273,7 +273,7 @@ next: /command-reference
 <p>All strings must be UTF-8, no binary data is allowed</p>
 </li></ul>
 
-<p>You can use metadata to specify links to your gem&#39;s homepage, codebase, documentation, wiki, mailing list, issue tracker and changelog.</p>
+<p>You can use metadata to specify links to your gem’s homepage, codebase, documentation, wiki, mailing list, issue tracker and changelog.</p>
 
 <pre>s.metadata = {
   &quot;bug_tracker_uri&quot;   =&gt; &quot;https://example.com/user/bestgemever/issues&quot;,
@@ -286,7 +286,7 @@ next: /command-reference
   &quot;funding_uri&quot;       =&gt; &quot;https://example.com/donate&quot;
 }</pre>
 
-<p>These links will be used on your gem&#39;s page on rubygems.org and must pass validation against following regex.</p>
+<p>These links will be used on your gem’s page on rubygems.org and must pass validation against following regex.</p>
 
 <pre class="ruby"><span class="ruby-regexp">%r{\Ahttps?:\/\/([^\s:@]+:[^\s:@]*@)?[A-Za-z\d\-]+(\.[A-Za-z\d\-]+)+\.?(:\d{1,5})?([\/?]\S*)?\z}</span>
 </pre>
@@ -316,7 +316,7 @@ next: /command-reference
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_development_dependency</span> <span class="ruby-string">&#39;example&#39;</span>, <span class="ruby-string">&#39;~&gt; 1.1&#39;</span>, <span class="ruby-string">&#39;&gt;= 1.1.4&#39;</span>
 </pre>
 
-<p>Development dependencies aren&#39;t installed by default and aren&#39;t activated when a gem is required.</p>
+<p>Development dependencies aren’t installed by default and aren’t activated when a gem is required.</p>
 
 <a id="add_runtime_dependency"> </a>
 
@@ -344,7 +344,7 @@ next: /command-reference
 
 ## bindir
 
-<p>The path in the gem for executable scripts.  Usually &#39;bin&#39;</p>
+<p>The path in the gem for executable scripts.  Usually ‘bin’</p>
 
 <p>Usage:</p>
 
@@ -408,7 +408,7 @@ next: /command-reference
 
 <p>This is usually Gem::Platform::RUBY or Gem::Platform::CURRENT.</p>
 
-<p>Most gems contain pure Ruby code; they should simply leave the default value in place.  Some gems contain C (or other) code to be compiled into a Ruby “extension”.  The gem should leave the default value in place unless the code will only compile on a certain type of system.  Some gems consist of pre-compiled code (“binary gems”).  It&#39;s especially important that they set the platform attribute appropriately.  A shortcut is to set the platform to Gem::Platform::CURRENT, which will cause the gem builder to set the platform to the appropriate value for the system on which the build is being performed.</p>
+<p>Most gems contain pure Ruby code; they should simply leave the default value in place.  Some gems contain C (or other) code to be compiled into a Ruby “extension”.  The gem should leave the default value in place unless the code will only compile on a certain type of system.  Some gems consist of pre-compiled code (“binary gems”).  It’s especially important that they set the platform attribute appropriately.  A shortcut is to set the platform to Gem::Platform::CURRENT, which will cause the gem builder to set the platform to the appropriate value for the system on which the build is being performed.</p>
 
 <p>If this attribute is set to a non-default value, it will be included in the filename of the gem when it is built such as: nokogiri-1.6.0-x86-mingw32.gem</p>
 
@@ -498,7 +498,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 
 ## requirements
 
-<p>Lists the external (to RubyGems) requirements that must be met for this gem to work.  It&#39;s simply information for the user.</p>
+<p>Lists the external (to RubyGems) requirements that must be met for this gem to work.  It’s simply information for the user.</p>
 
 <p>Usage:</p>
 
