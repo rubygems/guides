@@ -80,6 +80,14 @@ API key scopes
 * [Access webhooks](https://guides.rubygems.org/rubygems-org-api/#webhook-methods): List, create, delete or fire webhooks associated with your account
 * [Show dashboard](https://rubygems.org/dashboard): Access to atom feed of your RubyGems.org dashboard. It is an exclusive scope and can't be enabled with any other scope.
 
+Enable MFA on specific API keys
+-----------------------------
+
+If your account has MFA enabled on the **UI only** or **UI and gem signin** [authentication level](https://guides.rubygems.org/setting-up-multifactor-authentication/#authentication-levels), you have the option to enable MFA on a specific API key. This will require an OTP code for `gem push`, `yank`, `owner --add/--remove` commands.
+
+You can toggle this option when creating or editing an API key on the UI. 
+![New API key with MFA enabled](/images/new-mfa-api-key.png){:class="t-img"}
+
 Migration from legacy-api key
 -----------------------------
 
