@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.3.4.
+This reference was automatically generated from RubyGems version 3.3.5.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -421,6 +421,7 @@ Download a gem and place it in the current directory
 * `-v, --version VERSION`           - Specify version of gem to fetch
 * `--platform PLATFORM`         - Specify the platform of gem to fetch
 * `--[no-]prerelease`           - Allow prerelease versions of a gem
+* `--[no-]suggestions`          - Suggest alternates when gems are not found
 
 ### Local/Remote Options
 
