@@ -105,7 +105,7 @@ next: /command-reference
 
 <p>A list of authors for this gem.</p>
 
-<p>Alternatively, a single author can be specified by assigning a string to ‘spec.author`</p>
+<p>Alternatively, a single author can be specified by assigning a string to <code>spec.author</code></p>
 
 <p>Usage:</p>
 
@@ -150,7 +150,7 @@ next: /command-reference
 
 ## summary
 
-<p>A short summary of this gem’s description.  Displayed in ‘gem list -d`.</p>
+<p>A short summary of this gem’s description.  Displayed in <code>gem list -d</code>.</p>
 
 <p>The <code>description</code> should be more detailed than the summary.</p>
 

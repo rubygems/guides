@@ -37,13 +37,13 @@ straight up markdown page, so just go edit it!
 For the Command Guide (`command-reference.md`), edit `command-reference.erb`
 and run:
 
-    $ rake command_guide
+    $ bundle exec rake command_guide
 
 For the Specification Guide, the documentation comes directly from the
 `Gem::Specification` class in RubyGems. Edit it, set your `RUBYGEMS_DIR` to
 where your code directory is, and run:
 
-    $ RUBYGEMS_DIR=~/Dev/ruby/rubygems rake spec_guide --trace
+    $ RUBYGEMS_DIR=~/Dev/ruby/rubygems bundle exec rake spec_guide --trace
 
 Thanks
 ------
