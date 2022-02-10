@@ -278,6 +278,8 @@ Further Reading
   is a [Programming Ruby](http://docs.ruby-doc.com/docs/ProgrammingRuby/)
   book chapter about building C extensions. _Please note_: this content is somewhat
   older and some C extension APIs have changed.
+* [Creating Ruby native extensions](https://dev.to/vinistock/creating-ruby-native-extensions-kg1)
+  by Vinicious Stock.
 
 [extension.rdoc]: https://github.com/ruby/ruby/blob/master/doc/extension.rdoc
 [mkmf.rb]: https://github.com/ruby/ruby/blob/master/lib/mkmf.rb
