@@ -40,7 +40,7 @@ codes. Please copy and store these codes in a safe place. You can use these reco
 codes to access your account, should you ever lose your phone or accidentally delete the
 rubygems.org account from your authenticator app. Note that each recovery code can be used
 only once. Please reregister your authenticator app after using recovery code to
-login to rubygems.org (see [Using recovery codes and re-setup a previously enabled MFA](#using-recovery-codes-and-re-setup-a-previously-enabled-MFA)).
+login to rubygems.org (see [Using recovery codes and re-setup a previously enabled MFA](#using-recovery-codes-and-re-setup-a-previously-enabled-mfa)).
     ![Recovery codes](/images/enabling_mfa_step3.png){:class="t-img"}
 4. Sign out and sign in again. Signing in will now ask for an OTP code.
     ![OTP prompt at login page](/images/mfa_login.png){:class="t-img"}
