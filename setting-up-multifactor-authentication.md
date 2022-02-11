@@ -69,13 +69,13 @@ in the _multifactor authentication_ section, you will see a dropdown menu.
 
 ## Using recovery codes and re-setup a previously enabled MFA
 
-You might be in a situation where you no longer have access to your rubygems account in an
+You might be in a situation where you no longer have access to your rubygems.org account in an
 authenticator app. This can happen if you lose/upgrade your phone or accidentally deleted
-the rubygems account in the authenticator app.
+the rubygems.org account in the authenticator app.
 
-In this situation, you'll need your recovery codes to gain access to your Rubygems account.
+In this situation, you'll need your recovery codes to gain access to your rubygems.org account.
 Each recovery code can *only be used once* and you'll need *2 recovery codes* to re-setup
-a previously enabled MFA rubygems account on a new device or add it to an authenticator app.
+a previously enabled MFA rubygems.org account on a new device or add it to an authenticator app.
 
 1. To login into your account, enter an unused recovery code as the OTP code when prompted.
 
