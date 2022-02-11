@@ -23,9 +23,9 @@ an access code. SMS-based authentication or recovery is **not** supported.
 
 ## Enabling multi-factor authentication
 
-1. Login to rubygems.org using your existing account and go to the [edit profile](https://rubygems.org/profile/edit) page.
+1. Login to rubygems.org using your existing account and go to the [edit settings](https://rubygems.org/settings/edit) page.
 Click **register a new device** in the _multifactor authentication_ section.
-    ![Multifactor authentication section on the profile edit page](/images/enabling_mfa_step1.png){:class="t-img"}
+    ![Multifactor authentication section on the edit settings page](/images/enabling_mfa_step1.png){:class="t-img"}
 2. You will be redirected to a page with a QR code and a text box for verifying OTP
 code. Please use your authenticator to scan the QR code. A new account for rubygems.org will be
 added to your authenticator app as soon as the scan completes.
@@ -48,7 +48,7 @@ login to rubygems.org (see [Using recovery codes and re-setup a previously enabl
 ## Authentication levels
 
 When you register a new device or enable MFA for the first time, we will enable
-MFA for both the UI and the API. If you go to the _profile edit_ page again, in the _multifactor authentication_ section, you
+MFA for both the UI and the API. If you go to the _edit settings_ page again, in the _multifactor authentication_ section, you
 will see a dropdown menu with three options:
 
 - **Disabled**: disables MFA. Please delete rubygems.org account from your authenticator app after disabling.
@@ -62,9 +62,9 @@ This is different from the **UI and API** level as MFA is enabled on all API key
 
 Steps to change your MFA level:
 
-1. Sign in and go to the _edit profile_ page. If you have enabled MFA for your account,
+1. Sign in and go to the _edit settings_ page. If you have enabled MFA for your account,
 in the _multifactor authentication_ section, you will see a dropdown menu.
-    ![Multifactor section at profile edit page](/images/changing_mfa_step1.png){:class="t-img"}
+    ![Multifactor section on the edit settings page](/images/changing_mfa_step1.png){:class="t-img"}
 2. Select your intended option, enter OTP access code from your authenticator app and click **Update**
 
 ## Using recovery codes and re-setup a previously enabled MFA
