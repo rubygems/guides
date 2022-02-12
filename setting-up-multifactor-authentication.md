@@ -23,9 +23,9 @@ an access code. SMS-based authentication or recovery is **not** supported.
 
 ## Enabling multi-factor authentication
 
-1. Login to rubygems.org using your existing account and go to the [edit profile](https://rubygems.org/profile/edit) page.
+1. Login to rubygems.org using your existing account and go to the [edit settings](https://rubygems.org/settings/edit) page.
 Click **register a new device** in the _multifactor authentication_ section.
-    ![Multifactor authentication section on the profile edit page](/images/enabling_mfa_step1.png){:class="t-img"}
+    ![Multifactor authentication section on the edit settings page](/images/enabling_mfa_step1.png){:class="t-img"}
 2. You will be redirected to a page with a QR code and a text box for verifying OTP
 code. Please use your authenticator to scan the QR code. A new account for rubygems.org will be
 added to your authenticator app as soon as the scan completes.
@@ -40,7 +40,7 @@ codes. Please copy and store these codes in a safe place. You can use these reco
 codes to access your account, should you ever lose your phone or accidentally delete the
 rubygems.org account from your authenticator app. Note that each recovery code can be used
 only once. Please reregister your authenticator app after using recovery code to
-login to rubygems.org (see [Using recovery codes and re-setup a previously enabled MFA](#using-recovery-codes-and-re-setup-a-previously-enabled-MFA)).
+login to rubygems.org (see [Using recovery codes and re-setup a previously enabled MFA](#using-recovery-codes-and-re-setup-a-previously-enabled-mfa)).
     ![Recovery codes](/images/enabling_mfa_step3.png){:class="t-img"}
 4. Sign out and sign in again. Signing in will now ask for an OTP code.
     ![OTP prompt at login page](/images/mfa_login.png){:class="t-img"}
@@ -48,7 +48,7 @@ login to rubygems.org (see [Using recovery codes and re-setup a previously enabl
 ## Authentication levels
 
 When you register a new device or enable MFA for the first time, we will enable
-MFA for both the UI and the API. If you go to the _profile edit_ page again, in the _multifactor authentication_ section, you
+MFA for both the UI and the API. If you go to the _edit settings_ page again, in the _multifactor authentication_ section, you
 will see a dropdown menu with three options:
 
 - **Disabled**: disables MFA. Please delete rubygems.org account from your authenticator app after disabling.
@@ -62,20 +62,20 @@ This is different from the **UI and API** level as MFA is enabled on all API key
 
 Steps to change your MFA level:
 
-1. Sign in and go to the _edit profile_ page. If you have enabled MFA for your account,
+1. Sign in and go to the _edit settings_ page. If you have enabled MFA for your account,
 in the _multifactor authentication_ section, you will see a dropdown menu.
-    ![Multifactor section at profile edit page](/images/changing_mfa_step1.png){:class="t-img"}
+    ![Multifactor section on the edit settings page](/images/changing_mfa_step1.png){:class="t-img"}
 2. Select your intended option, enter OTP access code from your authenticator app and click **Update**
 
 ## Using recovery codes and re-setup a previously enabled MFA
 
-You might be in a situation where you no longer have access to your rubygems account in an
+You might be in a situation where you no longer have access to your rubygems.org account in an
 authenticator app. This can happen if you lose/upgrade your phone or accidentally deleted
-the rubygems account in the authenticator app.
+the rubygems.org account in the authenticator app.
 
-In this situation, you'll need your recovery codes to gain access to your Rubygems account.
+In this situation, you'll need your recovery codes to gain access to your rubygems.org account.
 Each recovery code can *only be used once* and you'll need *2 recovery codes* to re-setup
-a previously enabled MFA rubygems account on a new device or add it to an authenticator app.
+a previously enabled MFA rubygems.org account on a new device or add it to an authenticator app.
 
 1. To login into your account, enter an unused recovery code as the OTP code when prompted.
 
