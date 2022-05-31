@@ -29,8 +29,8 @@ next: /rubygems-org-api-v2
 API Authorization
 -----------------
 
-Some API calls require an Authorization header. To find your API key, click on
-your username when logged in to [RubyGems.org](http://rubygems.org) and then click on 'Edit Profile'. Here's an example of
+Some API calls require an Authorization header. To create or view existing API keys, click on
+your username when logged in to [RubyGems.org](http://rubygems.org), 'Settings', and then 'API Keys'. Here's an example of
 using an API key:
 
     $ curl -H 'Authorization:YOUR_API_KEY' \
@@ -392,6 +392,47 @@ Remove a user's permission to manage a RubyGem you own.
             https://rubygems.org/api/v1/gems/gemcutter/owners
 
     Owner removed successfully.
+
+Profile Methods
+-------------
+
+### GET - `/api/v1/profiles/[USER HANDLE|USER ID].(json|yaml)`
+
+View basic user info for a user.
+
+    $ curl https://rubygems.org/api/v1/profiles/qrush
+
+    [
+      {
+        "id": 1,
+        "handle": "qrush"
+      }
+    ]
+
+    $ curl https://rubygems.org/api/v1/profiles/1
+
+    [
+      {
+        "id": 1,
+        "handle": "qrush"
+      }
+    ]
+
+
+### GET - `/api/v1/profile/me.(json|yaml)`
+
+View basic user information for your account, including Multi-factor authentication status. Requires username and password to be passed.
+
+    $ curl -u "nick@gemcutter.org:schwwwwing" \
+           https://rubygems.org/api/v1/profile/me
+
+    [
+      {
+        "id": 1,
+        "handle": "qrush",
+        "mfa": "enabled"
+      }
+    ]
 
 WebHook Methods
 ---------------
