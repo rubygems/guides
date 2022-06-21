@@ -52,11 +52,12 @@ MFA for both the UI and the API. If you go to the _edit settings_ page again, in
 will see a dropdown menu with three options:
 
 - **Disabled**: disables MFA. Please delete rubygems.org account from your authenticator app after disabling.
-- **UI only**: sign in from browser, updating MFA levels and resetting password will require OTP code. These are referred to as UI operations.
 - **UI and gem signin**: UI operations and `gem signin` will require OTP code.
 - **UI and API**: UI operations, `gem signin`, `push`, `owner --add` and `owner --remove` will require OTP code.
 
-Note: If you are on the **UI only** or **UI and gem signin** authentication level,
+UI Only was previously a valid MFA level, however, it is being removed and only accounts that are at that level will still see it in the dropdown.
+
+Note: If you are on the **UI and gem signin** authentication level,
 you can selectively enable MFA on specific API keys (see [API key scopes](http://guides.rubygems.org/api-key-scopes/#/#enable-mfa-on-specific-api-keys)).
 This is different from the **UI and API** level as MFA is enabled on all API keys by default and cannot be selectively enabled.
 
