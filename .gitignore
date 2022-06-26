@@ -5,3 +5,7 @@
 /_site
 /html
 /tmp
+
+## Environment normalization:
+/.bundle/
+/vendor/bundle
