@@ -51,8 +51,8 @@ describe OptionsListMarkdownizer do
       'short option and boolean switch long',
     ],
     [
-      "    -K, --private-key KEY            Key for --sign or --build\n",
-      "    `-K, --private-key KEY`            Key for `--sign` or `--build`\n",
+      "    -K, --private-key KEY            Key for --sign or --build. -g/--file can be used.\n",
+      "    `-K, --private-key KEY`            Key for `--sign` or `--build`. `-g`/`--file` can be used.\n",
       'long option in description',
     ],
     [

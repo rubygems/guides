@@ -614,7 +614,7 @@ Install a gem into the local repository
 * `--without GROUPS`            - Omit the named groups (comma separated) when installing from a gem dependencies file
 * `--default`                   - Add the gem's full specification to specifications/default and extract only its bin
 * `--explain`                   - Rather than install the gems, indicate which would be installed
-* `--[no-]lock`                 - Create a lock file (when used with `-g`/--file)
+* `--[no-]lock`                 - Create a lock file (when used with `-g`/`--file`)
 * `--[no-]suggestions`          - Suggest alternates when gems are not found
 
 ### Local/Remote Options
@@ -996,7 +996,7 @@ Restores installed gems to pristine condition from files located in the gem cach
 ### Options
 
 * `--all`                       - Restore all installed gems to pristine condition
-* `--skip=gem_name`             - used on `--all,` skip if name == gem_name
+* `--skip=gem_name`             - used on `--all`, skip if name == gem_name
 * `--[no-]extensions`           - Restore gems with extensions in addition to regular gems
 * `--only-executables`          - Only restore executables
 * `--only-plugins`              - Only restore plugins
@@ -1608,7 +1608,7 @@ Update installed gems to the latest version
 * `--without GROUPS`            - Omit the named groups (comma separated) when installing from a gem dependencies file
 * `--default`                   - Add the gem's full specification to specifications/default and extract only its bin
 * `--explain`                   - Rather than install the gems, indicate which would be installed
-* `--[no-]lock`                 - Create a lock file (when used with `-g`/--file)
+* `--[no-]lock`                 - Create a lock file (when used with `-g`/`--file`)
 * `--[no-]suggestions`          - Suggest alternates when gems are not found
 
 ### Local/Remote Options
