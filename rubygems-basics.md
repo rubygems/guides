@@ -11,8 +11,7 @@ next: /what-is-a-gem
 The `gem` command allows you to interact with RubyGems.
 
 Ruby 1.9 and newer ships with RubyGems built-in but you may need to upgrade for
-bug fixes or new features.  To upgrade RubyGems or install it for the first
-time (if you need to use Ruby 1.9) visit the
+bug fixes or new features.  To upgrade RubyGems, visit the
 [download](https://rubygems.org/pages/download) page.
 
 If you want to see how to require files from a gem, skip ahead to [What is a
@@ -37,11 +36,11 @@ expression characters in your query:
 
     *** REMOTE GEMS ***
 
-    rails (4.0.0)
+    rails (7.0.3)
     rails-3-settings (0.1.1)
+    rails-acm (0.1.0)
     rails-action-args (0.1.1)
-    rails-admin (0.0.0)
-    rails-ajax (0.2.0.20130731)
+    rails-action-authorization (1.1.2)
     [...]
 
 If you see a gem you want more information on you can add the details option.
@@ -52,9 +51,9 @@ with details requires downloading more files:
 
     *** REMOTE GEMS ***
 
-    rails (4.0.0)
+    rails (7.0.3)
         Author: David Heinemeier Hansson
-        Homepage: http://www.rubyonrails.org
+        Homepage: https://rubyonrails.org
 
         Full-stack web application framework.
 
@@ -68,15 +67,15 @@ The `install` command downloads and installs the gem and any necessary
 dependencies then builds documentation for the installed gems.
 
     $ gem install drip
-    Fetching: rbtree-0.4.1.gem (100%)
-    Building native extensions.  This could take a while...
-    Successfully installed rbtree-0.4.1
-    Fetching: drip-0.0.2.gem (100%)
-    Successfully installed drip-0.0.2
-    Parsing documentation for rbtree-0.4.1
-    Installing ri documentation for rbtree-0.4.1
-    Parsing documentation for drip-0.0.2
-    Installing ri documentation for drip-0.0.2
+    Fetching drip-0.1.1.gem
+    Fetching rbtree-0.4.5.gem
+    Building native extensions. This could take a while...
+    Successfully installed rbtree-0.4.5
+    Successfully installed drip-0.1.1
+    Parsing documentation for rbtree-0.4.5
+    Installing ri documentation for rbtree-0.4.5
+    Parsing documentation for drip-0.1.1
+    Installing ri documentation for drip-0.1.1
     Done installing documentation for rbtree, drip after 0 seconds
     2 gems installed
 
@@ -84,7 +83,7 @@ Here the drip command depends upon the rbtree gem which has an extension.  Ruby
 installs the dependency rbtree and builds its extension, installs the drip gem,
 then builds documentation for the installed gems.
 
-You can disable documentation generation using the `--no-doc` argument when
+You can disable documentation generation using the `--no-document` argument when
 installing gems.
 
 Requiring code
@@ -93,31 +92,47 @@ Requiring code
 RubyGems modifies your Ruby load path, which controls how your Ruby code is
 found by the `require` statement. When you `require` a gem, really you're just
 placing that gem's `lib` directory onto your `$LOAD_PATH`. Let's try this out
-in `irb` and get some help from the `pretty_print` library included with Ruby.
+in `irb`.
 
-*Tip: Passing `-r` to
-`irb` will automatically require a library when irb is loaded.*
-
-    % irb -rpp
-    >> pp $LOAD_PATH
-    [".../lib/ruby/site_ruby/1.9.1",
+    % irb
+    irb(main):001:0> pp $LOAD_PATH
+    [".../lib/ruby/site_ruby/3.1.0",
+     ".../lib/ruby/site_ruby/3.1.0/x86_64-linux",
      ".../lib/ruby/site_ruby",
-     ".../lib/ruby/vendor_ruby/1.9.1",
+     ".../lib/ruby/vendor_ruby/3.1.0",
+     ".../lib/ruby/vendor_ruby/3.1.0/x86_64-linux",
      ".../lib/ruby/vendor_ruby",
-     ".../lib/ruby/1.9.1",
-     "."]
+     ".../lib/ruby/3.1.0",
+     ".../lib/ruby/3.1.0/x86_64-linux"]
 
 By default you have just a few system directories on the load path and the Ruby
 standard libraries.  To add the awesome_print directories to the load path,
 you can require one of its files:
 
-    % irb -rpp
-    >> require 'ap'
+    $ gem install awesome_print
+    [...]
+    $ irb
+    irb(main):001:0> require "ap"
     => true
-    >> pp $LOAD_PATH.first
-    ".../gems/awesome_print-1.0.2/lib"
+    irb(main):002:0> pp $LOAD_PATH.first
+    ".../gems/awesome_print-1.9.2/lib"
 
-Note:  For Ruby 1.8 you must `require 'rubygems'` before requiring any gems.
+*Tip: Passing `-r` to `irb` will automatically require a library when irb is
+loaded.*
+
+    $ irb -rap
+    irb(main):001:0> ap $LOAD_PATH
+    [
+        [0] ".../bundle/gems/awesome_print-1.9.2/lib",
+        [1] ".../lib/ruby/site_ruby/3.1.0",
+        [2] ".../lib/ruby/site_ruby/3.1.0/x86_64-linux",
+        [3] ".../lib/ruby/site_ruby",
+        [4] ".../lib/ruby/vendor_ruby/3.1.0",
+        [5] ".../lib/ruby/vendor_ruby/3.1.0/x86_64-linux",
+        [6] ".../lib/ruby/vendor_ruby",
+        [7] ".../lib/ruby/3.1.0",
+        [8] ".../lib/ruby/3.1.0/x86_64-linux"
+    ]
 
 Once you've required `ap`, RubyGems automatically places its
 `lib` directory on the `$LOAD_PATH`.
@@ -150,19 +165,28 @@ The `list` command shows your locally installed gems:
 
     *** LOCAL GEMS ***
 
-    bigdecimal (1.2.0)
-    drip (0.0.2)
-    io-console (0.4.2)
-    json (1.7.7)
-    minitest (4.3.2)
-    psych (2.0.0)
-    rake (0.9.6)
-    rbtree (0.4.1)
-    rdoc (4.0.0)
-    test-unit (2.0.0.0)
+    abbrev (default: 0.1.0)
+    awesome_print (1.9.2)
+    base64 (default: 0.1.1)
+    benchmark (default: 0.2.0)
+    bigdecimal (default: 3.1.1)
+    bundler (default: 2.3.7)
+    cgi (default: 0.3.1)
+    csv (default: 3.2.2)
+    date (default: 3.2.2)
+    debug (1.4.0)
+    delegate (default: 0.2.0)
+    did_you_mean (default: 1.6.1)
+    digest (default: 3.1.0)
+    drb (default: 2.1.0)
+    drip (0.1.1)
+    english (default: 0.7.1)
+    [...]
 
-(Ruby ships with some gems by default, bigdecimal, io-console, json, minitest,
-psych, rake, rdoc, test-unit for ruby 2.0.0).
+The list includes defaults gems and bundled gems both of which were shipped
+with Ruby by default. In Ruby 3.1, the default gems are 70 gems in total
+including bigdecimal, bundler, csv, did_you_mean etc. and the bundled gems are
+debug, rake etc.
 
 Uninstalling Gems
 -----------------
@@ -170,16 +194,16 @@ Uninstalling Gems
 The `uninstall` command removes the gems you have installed.
 
     $ gem uninstall drip
-    Successfully uninstalled drip-0.0.2
+    Successfully uninstalled drip-0.1.1
 
 If you uninstall a dependency of a gem RubyGems will ask you for confirmation.
 
     $ gem uninstall rbtree
 
     You have requested to uninstall the gem:
-      rbtree-0.4.1
+            rbtree-0.4.5
 
-    drip-0.0.2 depends on rbtree (>= 0)
+    drip-0.1.1 depends on rbtree (>= 0)
     If you remove this gem, these dependencies will not be met.
     Continue with Uninstall? [yN]  n
     ERROR:  While executing gem ... (Gem::DependencyRemovalException)
@@ -191,14 +215,14 @@ Viewing Documentation
 You can view the documentation for your installed gems with `ri`:
 
     $ ri RBTree
-    RBTree < MultiRBTree
+    = RBTree < MultiRBTree
 
-    (from gem rbtree-0.4.0)
-    -------------------------------------------
-    A sorted associative collection that cannot
-    contain duplicate keys. RBTree is a
-    subclass of MultiRBTree.
-    -------------------------------------------
+    (from gem rbtree-0.4.5)
+    ------------------------------------------------------------------------
+    A sorted associative collection that cannot contain duplicate keys.
+    RBTree is a subclass of MultiRBTree.
+    ------------------------------------------------------------------------
+
 
 Fetching and Unpacking Gems
 ---------------------------
@@ -208,10 +232,9 @@ If you wish to audit a gem's contents without installing it you can use the
 `unpack` command.
 
     $ gem fetch malice
-    Fetching: malice-13.gem (100%)
+    Fetching malice-13.gem
     Downloaded malice-13
     $ gem unpack malice-13.gem
-    Fetching: malice-13.gem (100%)
     Unpacked gem: '.../malice-13'
     $ more malice-13/README
 
@@ -228,9 +251,9 @@ You can also unpack a gem you have installed, modify a few files, then use the
 modified gem in place of the installed one:
 
     $ gem unpack rake
-    Unpacked gem: '.../rake-10.1.0'
-    $ vim rake-10.1.0/lib/rake/...
-    $ ruby -I rake-10.1.0/lib -S rake some_rake_task
+    Unpacked gem: '.../13.0.6'
+    $ vim 13.0.6/lib/rake/...
+    $ ruby -I 13.0.6/lib -S rake some_rake_task
     [...]
 
 The `-I` argument adds your unpacked rake to the ruby `$LOAD_PATH` which
