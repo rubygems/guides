@@ -1,0 +1,8 @@
+image: gitpod/workspace-ruby-3.1
+tasks:
+  - init: |
+      # Code fetch for generating command guide into /workspace/rubygems
+      git clone --depth 1 -b 3.3 https://github.com/rubygems/rubygems.git ../rubygems
+      bundle config set path vendor/bundle
+      bundle install
+    command: bundle exec jekyll serve
