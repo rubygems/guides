@@ -77,6 +77,39 @@ Ruby's premier packaging system. Bundled with Ruby 1.9+ and available for Ruby 1
 [slack]: https://slack.bundler.io/
 [1]: https://github.com/rubygems/rubygems/issues
 
+<a class="project__name" href="https://github.com/bundler/bundler">Bundler</a>
+
+Bundler manages an application's dependencies through its entire life across
+many machines systematically and repeatably.
+
+<div class="project__links">
+  <a class="project__link t-link" href="https://bundler.io/">Site</a>
+  <a class="project__link t-link" href="https://github.com/rubygems/rubygems/labels/Bundler">Issues</a>
+  <a class="project__link t-link" href="https://groups.google.com/forum/#!forum/ruby-bundler">Mailing List</a>
+  <a class="project__link t-link" href="https://bundler.slack.com/archives/C08V1RPAP">Slack channel</a>
+</div>
+
+<p class="avatars">
+  <a href="https://github.com/indirect">
+    <img src="https://secure.gravatar.com/avatar/fb389f1e8b98d5d03be29e9dd309b3be?s=32" title="Andre Arko">
+  </a>
+  <a href="https://github.com/hone">
+    <img src="https://secure.gravatar.com/avatar/efb7c66871043330ce1310a9bdd0aaf6?s=32" title="Terence Lee">
+  </a>
+  <a href="https://github.com/wycats">
+    <img src="https://secure.gravatar.com/avatar/428167a3ec72235ba971162924492609?s=32" title="Yehuda Katz">
+  </a>
+  <a href="https://github.com/carllerche">
+    <img src="https://secure.gravatar.com/avatar/da5274b27cc6c0f505495bf5d504575d?s=32" title="Carl Lerche">
+  </a>
+  <a href="https://github.com/segiddins">
+    <img src="https://secure.gravatar.com/avatar/4d6be90af74894fd132fb06dacec04d7?s=32" title="Samuel Giddins">
+  </a>
+  <a href="https://github.com/hsbt">
+    <img src="https://secure.gravatar.com/avatar/f2748d34b03ed11330f2a2218904eb2d?s=32" title="Hiroshi SHIBATA">
+  </a>
+</p>
+
 <a class="project__name" href="https://github.com/rubygems/rubygems.org">RubyGems.org</a>
 
 The Ruby community's gem hosting service. Provides a better API for accessing,
@@ -215,39 +248,7 @@ to improve it.
 
 These projects are outside of the RubyGems core, but work closely with RubyGems to improve the gem experience for everyone.
 
-<a class="project__name is-first" href="https://github.com/bundler/bundler">Bundler</a>
-
-Bundler manages an application's dependencies through its entire life across
-many machines systematically and repeatably.
-
-<div class="project__links">
-  <a class="project__link t-link" href="https://bundler.io/">Site</a>
-  <a class="project__link t-link" href="https://github.com/bundler/bundler/issues">Issues</a>
-  <a class="project__link t-link" href="https://groups.google.com/forum/#!forum/ruby-bundler">Mailing List</a>
-</div>
-
-<p class="avatars">
-  <a href="https://github.com/indirect">
-    <img src="https://secure.gravatar.com/avatar/fb389f1e8b98d5d03be29e9dd309b3be?s=32" title="Andre Arko">
-  </a>
-  <a href="https://github.com/hone">
-    <img src="https://secure.gravatar.com/avatar/efb7c66871043330ce1310a9bdd0aaf6?s=32" title="Terence Lee">
-  </a>
-  <a href="https://github.com/wycats">
-    <img src="https://secure.gravatar.com/avatar/428167a3ec72235ba971162924492609?s=32" title="Yehuda Katz">
-  </a>
-  <a href="https://github.com/carllerche">
-    <img src="https://secure.gravatar.com/avatar/da5274b27cc6c0f505495bf5d504575d?s=32" title="Carl Lerche">
-  </a>
-  <a href="https://github.com/segiddins">
-    <img src="https://secure.gravatar.com/avatar/4d6be90af74894fd132fb06dacec04d7?s=32" title="Samuel Giddins">
-  </a>
-  <a href="https://github.com/hsbt">
-    <img src="https://secure.gravatar.com/avatar/f2748d34b03ed11330f2a2218904eb2d?s=32" title="Hiroshi SHIBATA">
-  </a>
-</p>
-
-<a class="project__name" href="https://github.com/docmeta/rubydoc.info">RubyDoc.info</a>
+<a class="project__name is-first" href="https://github.com/docmeta/rubydoc.info">RubyDoc.info</a>
 
 A fantastic provider of [YARD](http://yardoc.org) documentation for every
 RubyGem available. Push a gem, and you get docs created instantly!
