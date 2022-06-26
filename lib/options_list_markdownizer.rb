@@ -50,6 +50,6 @@ class OptionsListMarkdownizer
   private
 
   def markdownize_inline_options(line)
-    line.gsub(/(?<=\s)(--[^\s]+|-[^\s])/, '`\1`')
+    line.gsub(/(?<=[\s\/])(--[\w\[\]\-]+|-\w)/, '`\1`')
   end
 end
