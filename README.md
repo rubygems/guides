@@ -16,8 +16,7 @@ Want to help?
 If a guide is empty, start filling it out! Or, make a new one! Pull requests
 are gladly accepted!
 
-* Port content from docs.rubygems.org
-* Port content from rubygems.org/pages/docs
+* Pick one from [the repo issues](https://github.com/rubygems/guides/issues)
 * Port content from help.rubygems.org knowledge base
 * Find lots of StackOverflow/ruby-talk questions and get their common answers in here
 * Fill out more guides!
