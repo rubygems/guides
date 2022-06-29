@@ -24,8 +24,8 @@ You can opt-in a gem you are managing by releasing a version that has
 
 The version being released with `rubygems_mfa_required` set and all the following version
 will require that you provide an OTP for all privileged operations.
-Once enabled, the gem page will show `REQUIRES MFA ACCOUNTS: Since <version>` in the sidebar:
-    ![REQUIRES MFA ACCOUNTS](/images/mfa-required-since.png){:class="t-img t-img--small"}
+Once enabled, the gem page will show `NEW VERSIONS REQUIRE MFA` in the sidebar, and all versions published with `rubygems_mfa_required` set will also show `VERSION PUBLISHED WITH MFA`:
+    ![MFA status indicators](/images/mfa-required-since.png){:class="t-img t-img--small"}
 
 You will see the following error message if you have not enabled MFA and you are trying to release
 a new version for a gem that requires MFA:
