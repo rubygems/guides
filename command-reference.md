@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.3.16.
+This reference was automatically generated from RubyGems version 3.3.17.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -356,8 +356,9 @@ Display information about the RubyGems environment
 
 ### Arguments
 
-* *gemdir* -           display the path where gems are installed
-* *gempath* -          display path used to search for gems
+* *home* -             display the path where gems are installed. Aliases: gemhome, gemdir, GEM_HOME
+* *path* -             display path used to search for gems. Aliases: gempath, GEM_PATH
+* *user_gemhome* -     display the path where gems are installed when `--user-install` is given. Aliases: user_gemdir
 * *version* -          display the gem format version
 * *remotesources* -    display the remote gem servers
 * *platform* -         display the supported gem platforms
