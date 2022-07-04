@@ -1,9 +1,9 @@
 ---
 layout: default
 title: What is a gem?
-url: /what-is-a-gem
-previous: /rubygems-basics
-next: /make-your-own-gem
+url: /what-is-a-gem/
+previous: /rubygems-basics/
+next: /make-your-own-gem/
 ---
 
 <em class="t-gray">Unpack the mystery behind what's in a RubyGem.</em>
@@ -12,8 +12,8 @@ Structure of a Gem
 ------------------
 
 Each gem has a name, version, and platform. For example, the
-[rake](https://rubygems.org/gems/rake) gem has a `0.8.7` version (from May,
-2009).  Rake's platform is `ruby`, which means it works on any platform Ruby
+[rake](https://rubygems.org/gems/rake) gem has a `13.0.6` version (from Jul
+2021).  Rake's platform is `ruby`, which means it works on any platform Ruby
 runs on.
 
 Platforms are based on the CPU architecture, operating system type and
@@ -72,7 +72,7 @@ The gemspec specifies the information about a gem such as its name, version,
 description, authors and homepage.
 
 Here's an example of a gemspec file. You can learn more in [how to make a
-gem](/make-your-own-gem).
+gem](/make-your-own-gem/).
 
     % cat freewill.gemspec
     Gem::Specification.new do |s|
@@ -87,12 +87,12 @@ gem](/make-your-own-gem).
     end
 
 For more information on the gemspec, please check out the full [Specification
-Reference](/specification-reference) which goes over each metadata field in
+Reference](/specification-reference/) which goes over each metadata field in
 detail.
 
 Credits
 -------
 
 This guide was adapted from [Gonçalo
-Silva](https://twitter.com/#!/goncalossilva)'s original tutorial on
+Silva](https://twitter.com/goncalossilva)'s original tutorial on
 docs.rubygems.org and from Gem Sawyer, Modern Day Ruby Warrior.
