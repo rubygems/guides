@@ -26,7 +26,7 @@ will see a dropdown menu with these options:
 - **UI and gem signin**: UI operations and `gem signin` will require OTP code.
 - **UI and API**: UI operations, `gem signin`, `push`, `owner --add` and `owner --remove` will require OTP code.
 
-UI Only was previously a valid MFA level, however, it has been removed and only accounts that were previously at that level will still see it in the dropdown.
+**UI only** was previously a valid MFA level. However, it has been removed, and only accounts that are currently at that level will still see it in the dropdown.
 
 Note: If you are on the **UI and gem signin** authentication level,
 you can selectively enable MFA on specific API keys (see [API key scopes](https://guides.rubygems.org/api-key-scopes/#enable-mfa-on-specific-api-keys)).
