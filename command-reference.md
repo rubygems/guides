@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.3.23.
+This reference was automatically generated from RubyGems version 3.3.24.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
