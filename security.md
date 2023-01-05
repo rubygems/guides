@@ -152,12 +152,10 @@ offering an indication of how it might be fixed.
 
 ### Reporting a security vulnerability with your own gem
 
-First, request a [CVE
-identifier](https://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures)
-by emailing [one of these
-places](https://github.com/RedHatProductSecurity/CVE-HOWTO#how-do-i-request-a-cve).
-This identifier will make it easy to uniquely identify the vulnerability when
-talking about it.
+First, request a [CVE identifier](https://www.cve.org/ResourcesSupport/FAQs)
+by emailing [one of these places](https://github.com/RedHatProductSecurity/CVE-HOWTO#how-do-i-request-a-cve)
+or from GitHub by creating a [Security Advisory](https://docs.github.com/en/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories#cve-identification-numbers).
+This identifier will make it easy to uniquely identify the vulnerability when talking about it.
 
 Second, work out what people who depend on your gem should do to resolve the
 vulnerability. This may involve releasing a patched version of your gem that
