@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.4.2.
+This reference was automatically generated from RubyGems version 3.4.3.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -978,7 +978,7 @@ The owner command lets you add and remove owners of a gem on a push
 server (the default is https://rubygems.org). Multiple owners can be
 added or removed at the same time, if the flag is given multiple times.
 
-The supported user identifiers are dependant on the push server.
+The supported user identifiers are dependent on the push server.
 For rubygems.org, both e-mail and handle are supported, even though the
 user identifier field is called "email".
 
