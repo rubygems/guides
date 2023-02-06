@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.4.6.
+This reference was automatically generated from RubyGems version 3.2.34.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -356,9 +356,8 @@ Display information about the RubyGems environment
 
 ### Arguments
 
-* *home* -             display the path where gems are installed. Aliases: gemhome, gemdir, GEM_HOME
-* *path* -             display path used to search for gems. Aliases: gempath, GEM_PATH
-* *user_gemhome* -     display the path where gems are installed when `--user-install` is given. Aliases: user_gemdir
+* *gemdir* -           display the path where gems are installed
+* *gempath* -          display path used to search for gems
 * *version* -          display the gem format version
 * *remotesources* -    display the remote gem servers
 * *platform* -         display the supported gem platforms
@@ -422,7 +421,6 @@ Download a gem and place it in the current directory
 * `-v, --version VERSION`           - Specify version of gem to fetch
 * `--platform PLATFORM`         - Specify the platform of gem to fetch
 * `--[no-]prerelease`           - Allow prerelease versions of a gem
-* `--[no-]suggestions`          - Suggest alternates when gems are not found
 
 ### Local/Remote Options
 
@@ -949,8 +947,8 @@ Manage gem owners of a gem on the push server
 
 * `-k, --key KEYNAME`               - Use the given API key from ~/.local/share/gem/credentials
 * `--otp CODE`                  - Digit code for multifactor authentication You can also use the environment variable GEM_HOST_OTP_CODE
-* `-a, --add NEW_OWNER`             - Add an owner by user identifier
-* `-r, --remove OLD_OWNER`          - Remove an owner by user identifier
+* `-a, --add EMAIL`                 - Add an owner
+* `-r, --remove EMAIL`              - Remove an owner
 * `--host HOST`                 - Use another gemcutter-compatible host (e.g. https://rubygems.org)
 
 ### Local/Remote Options
@@ -975,12 +973,7 @@ Manage gem owners of a gem on the push server
 ### Description
 
 The owner command lets you add and remove owners of a gem on a push
-server (the default is https://rubygems.org). Multiple owners can be
-added or removed at the same time, if the flag is given multiple times.
-
-The supported user identifiers are dependent on the push server.
-For rubygems.org, both e-mail and handle are supported, even though the
-user identifier field is called "email".
+server (the default is https://rubygems.org).
 
 The owner of a gem has the permission to push new versions, yank existing
 versions or edit the HTML page of the gem.  Be careful of who you give push
@@ -1235,11 +1228,19 @@ To list local gems use the list command.
 
 ## gem server
 
-Starts up a web server that hosts the RDoc (requires rubygems-server)
+Documentation and gem repository HTTP server
 
 ### Usage
 
     gem server [options]
+
+### Options
+
+* `-p, --port=PORT`                 - port to listen on
+* `-d, --dir=GEMDIR`                - directories from which to serve gems multiple directories may be provided
+* `--[no-]daemon`               - run as a daemon
+* `-b, --bind=HOST,HOST`            - addresses to bind
+* `-l, --launch[=COMMAND]`          - launches a browser window COMMAND defaults to 'start' on Windows and 'open' on all other platforms
 
 ### Common Options
 
@@ -1254,7 +1255,20 @@ Starts up a web server that hosts the RDoc (requires rubygems-server)
 
 ### Description
 
-The server command has been moved to the rubygems-server gem.
+The server command starts up a web server that hosts the RDoc for your
+installed gems and can operate as a server for installation of gems on other
+machines.
+
+The cache files for installed gems must exist to use the server as a source
+for gem installation.
+
+To install gems from a running server, use `gem install GEMNAME --source
+http://gem_server_host:8808`
+
+You can set up a shortcut to gem server documentation using the URL:
+
+    http://localhost:8808/rdoc?q=%s - Firefox
+    http://localhost:8808/rdoc?q=* - LaunchBar
 
 ## gem signin
 
@@ -1362,8 +1376,8 @@ do not recognize you should remove them.
 RubyGems has been configured to serve gems via the following URLs through
 its history:
 
-* http://gems.rubyforge.org (RubyGems 1.3.5 and earlier)
-* http://rubygems.org       (RubyGems 1.3.6 through 1.8.30, and 2.0.0)
+* http://gems.rubyforge.org (RubyGems 1.3.6 and earlier)
+* https://rubygems.org/       (RubyGems 1.3.7 through 1.8.25)
 * https://rubygems.org      (RubyGems 2.0.1 and newer)
 
 Since all of these sources point to the same set of gems you only need one
