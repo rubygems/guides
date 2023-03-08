@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.4.7.
+This reference was automatically generated from RubyGems version 3.4.8.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -17,6 +17,7 @@ This reference was automatically generated from RubyGems version 3.4.7.
 * [gem contents](#gem-contents)
 * [gem dependency](#gem-dependency)
 * [gem environment](#gem-environment)
+* [gem exec](#gem-exec)
 * [gem fetch](#gem-fetch)
 * [gem generate_index](#gem-generate_index)
 * [gem help](#gem-help)
@@ -408,6 +409,53 @@ environment variable can be set to the URI for that server.
 If you are packaging RubyGems all of RubyGems' defaults are in
 lib/rubygems/defaults.rb.  You may override these in
 lib/rubygems/defaults/operating_system.rb
+
+## gem exec
+
+Run a command from a gem
+
+### Usage
+
+    gem exec [options --] COMMAND [args] [options]
+
+### Options
+
+* `-v, --version VERSION`           - Specify version of gem to exec
+* `--[no-]prerelease`           - Allow prerelease versions of a gem to be installed
+* `-g, --gem GEM`                   - run the executable from the given gem
+
+### Install/Update Options
+
+* `--conservative`               Prefer the most recent installed version, - rather than the latest version overall
+
+### Common Options
+
+* `-h, --help`                      - Get help on this command
+* `-V, --[no-]verbose`              - Set the verbose level of output
+* `-q, --quiet`                     - Silence command progress meter
+* `--silent`                    - Silence RubyGems output
+* `--config-file FILE`          - Use this config file instead of default
+* `--backtrace`                 - Show stack backtrace on errors
+* `--debug`                     - Turn on Ruby debugging
+* `--norc`                      - Avoid loading any .gemrc file
+
+### Arguments
+
+* *COMMAND* -   the executable command to run
+
+### Description
+
+The exec command handles installing (if necessary) and running an executable
+from a gem, regardless of whether that gem is currently installed.
+
+The exec command can be thought of as a shortcut to running `gem install` and
+then the executable from the installed gem.
+
+For example, `gem exec rails new .` will run `rails new .` in the current
+directory, without having to manually run `gem install rails`.
+Additionally, the exec command ensures the most recent version of the gem
+is used (unless run with `--conservative`), and that the gem is not installed
+to the same gem path as user-installed gems.
 
 ## gem fetch
 

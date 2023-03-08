@@ -224,7 +224,7 @@ next: /command-reference
 
 <p>This should just be the name of your license. The full text of the license should be inside of the gem (at the top level) when you build it.</p>
 
-<p>The simplest way is to specify the standard SPDX ID <a href="https://spdx.org/licenses">spdx.org/licenses</a>/ for the license. Ideally, you should pick one that is OSI (Open Source Initiative) <a href="http://opensource.org/licenses/alphabetical">opensource.org/licenses/alphabetical</a> approved.</p>
+<p>The simplest way is to specify the standard SPDX ID <a href="https://spdx.org/licenses">spdx.org/licenses</a>/ for the license. Ideally, you should pick one that is OSI (Open Source Initiative) <a href="https://opensource.org/licenses">opensource.org/licenses</a>/ approved.</p>
 
 <p>The most commonly used OSI-approved licenses are MIT and Apache-2.0. GitHub also provides a license picker at <a href="http://choosealicense.com">choosealicense.com</a>/.</p>
 
