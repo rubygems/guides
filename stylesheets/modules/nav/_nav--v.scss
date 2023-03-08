@@ -16,6 +16,19 @@
   }
 }
 
+ul.nav--v {
+  li {
+    padding-bottom: 0.35em;
+  }
+
+  ul.nav--v {
+    li {
+      padding-bottom: 0.1em;
+    }
+    padding-left: 8%;
+  }
+}
+
 .nav--v__link {
   padding-right: 32px;
   color: $black;

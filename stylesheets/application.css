@@ -1142,6 +1142,16 @@ a.page__heading:focus {
   color: #e9573f;
 }
 
+ul.nav--v li {
+  padding-bottom: 0.35em;
+}
+ul.nav--v ul.nav--v {
+  padding-left: 8%;
+}
+ul.nav--v ul.nav--v li {
+  padding-bottom: 0.1em;
+}
+
 .nav--v__link {
   padding-right: 32px;
   color: #141c22;
