@@ -118,7 +118,7 @@ desc "serve documentation on http://localhost:4000"
 task :server do
   pids = [
     spawn('jekyll', 'serve', '4000'),
-    spawn('scss', '--watch', 'stylesheets:stylesheets'),
+    spawn('sass', '--watch', 'stylesheets:stylesheets'),
   ]
 
   trap "INT" do
