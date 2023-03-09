@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Setting up multi-factor authentication
+title: Setting up OTP multi-factor authentication
 url: /setting-up-otp-mfa
-previous: /setting-up-multifactor-authentication
-next: /setting-up-webauthn-mfa
+previous: /setting-up-webauthn-mfa
+next: /using-mfa-in-command-line
 ---
 
 <em class="t-gray">Setting up one-time password multifactor authentication</em>
@@ -15,7 +15,7 @@ You should have an authenticator app (like [Google Authenticator](https://suppor
 supports time-based one-time password (TOTP) to scan the QR code and generate
 an access code. SMS-based authentication or recovery is **not** supported.
 
-## Enabling OTP multi-factor authentication
+## Enabling OTP multifactor authentication
 
 1. Login to rubygems.org using your existing account and go to the [edit settings](https://rubygems.org/settings/edit) page.
 Click **register a new device** in the _multifactor authentication_ section.
