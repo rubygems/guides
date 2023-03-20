@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.4.8.
+This reference was automatically generated from RubyGems version 3.4.9.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -1047,6 +1047,7 @@ Restores installed gems to pristine condition from files located in the gem cach
 * `--all`                       - Restore all installed gems to pristine condition
 * `--skip=gem_name`             - used on `--all`, skip if name == gem_name
 * `--[no-]extensions`           - Restore gems with extensions in addition to regular gems
+* `--only-missing-extensions`   - Only restore gems with missing extensions
 * `--only-executables`          - Only restore executables
 * `--only-plugins`              - Only restore plugins
 * `-E, --[no-]env-shebang`          - Rewrite executables with a shebang of /usr/bin/env
