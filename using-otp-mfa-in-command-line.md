@@ -2,8 +2,8 @@
 layout: default
 title: Using OTP multifactor authentication in command line
 url: /using-otp-mfa-in-command-line
-previous: /using-mfa-in-command-line
-next: /using-webauthn-mfa-in-command-line
+previous: /using-webauthn-mfa-in-command-line
+next: /mfa-requirement-opt-in
 ---
 <em class="t-gray">How to use OTP MFA with gem CLI.</em>
 
