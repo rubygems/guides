@@ -3,7 +3,7 @@ layout: default
 title: Setting up multi-factor authentication
 url: /setting-up-multifactor-authentication
 previous: /run-your-own-gem-server
-next: /setting-up-otp-mfa
+next: /setting-up-webauthn-mfa
 ---
 
 <em class="t-gray">Want to better protect your rubygems.org account?</em>
