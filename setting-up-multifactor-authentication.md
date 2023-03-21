@@ -13,4 +13,4 @@ can lead to irrevocable damage to your gem's reputation. We highly recommend
 that you enable MFA for both UI and API.
 
 You may enable MFA using [WebAuthn/Passkey](/setting-up-webauthn-mfa) or by
-using [one-time passwords (OTP)](/setting-up-otp-mfa)
+using [one-time passwords (OTP)](/setting-up-otp-mfa).
