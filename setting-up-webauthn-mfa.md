@@ -18,6 +18,7 @@ To use WebAuthn, you will need at least _one_ of the following:
 
 * A hardware security token (sometimes called a security key), such as a
   YubiKey or Google Titan Key.
+* A built-in hardware device, such as TouchID, FaceID or Windows Hello.
 * A browser that supports the "Passkey" standard. Up-to-date versions of
   Chrome, Safari, Firefox and Edge all support this standard.
 
