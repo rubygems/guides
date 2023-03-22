@@ -13,8 +13,8 @@ computer. This is distinct from MFA based on typing or copying a code generated 
 an authentication app or password manager, called OTP. For OTP MFA see "[Using OTP multifactor authentication in command line](/using-otp-mfa-in-command-line)".
 
 When you have enabled WebAuthn MFA, and your MFA level is _UI and API_, we will ask
-you to perform authentication for `gem signin`, `gem push`, `gem owner --add` and
-`gem owner --remove`. Check "[Setting up WebAuthn/Passkey multifactor authentication](/setting-up-webauthn-multifactor-authentication)"
+you to perform authentication for `gem signin`, `gem push`, `gem owner --add`,
+`gem owner --remove` and `gem yank`. Check "[Setting up WebAuthn/Passkey multifactor authentication](/setting-up-webauthn-multifactor-authentication)"
 for guidance on setting up WebAuthn MFA.
 
     Enter your RubyGems.org credentials.
