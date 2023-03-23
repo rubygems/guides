@@ -14,5 +14,5 @@ that you enable MFA for both UI and API. When enabled, this will mean that
 you need to use MFA for signing into rubygems.org and when running `gem signin`,
 `push`, `owner --add`, `owner --remove` and `yank`.
 
-You may enable MFA using [WebAuthn/Passkey](/setting-up-webauthn-mfa) or by
+You may enable MFA using [WebAuthn](/setting-up-webauthn-mfa) or by
 using [one-time passwords (OTP)](/setting-up-otp-mfa).
