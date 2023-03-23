@@ -6,11 +6,11 @@ previous: /setting-up-multifactor-authentication
 next: /setting-up-otp-mfa
 ---
 
-<em class="t-gray">Setting up WebAuthn / Passkey multifactor authentication</em>
+<em class="t-gray">Setting up WebAuthn multifactor authentication</em>
 
-Using WebAuthn, also called Passkey, for multifactor authentication (MFA) is
-the best way to protect your account from takeover. It's stronger and easier
-to use than [OTP codes](/setting-up-otp-mfa).
+Using WebAuthn for multifactor authentication (MFA) is the best way to
+protect your account from takeover. It's stronger and easier to use than
+[OTP codes](/setting-up-otp-mfa).
 
 ## Prerequisite
 
@@ -22,19 +22,11 @@ To use WebAuthn, you will need at least _one_ of the following:
 * A browser that supports the "Passkey" standard. Up-to-date versions of
   Chrome, Safari, Firefox and Edge all support this standard.
 
-"Passkey" is really just WebAuthn, but fully managed by the browser in
-cooperation with your operating system. Its underlying implementation works
-the same way as the hardware tokens do (ie, it's WebAuthn). The only
-difference is that a hardware token is a physical, removable device that
-plugs into your computer which is activated by touch. Passkey is instead
-activated by some operating system capability like facial recognition,
-fingerprint recognition or simply by providing your system password.
-
 Unfortunately implementations of these experiences vary, so we can't show
 the exact details, but we will point out the steps that are specific to
 using rubygems.org.
 
-## Enabling WebAuthn / Passkey multifactor authentication
+## Enabling WebAuthn multifactor authentication
 
 1. Login to rubygems.org using your existing account and go to the
 [edit settings](https://rubygems.org/settings/edit) page.
@@ -56,9 +48,9 @@ field.
 
 ## Dealing with lost devices
 
-WebAuthn / Passkey often depends on a connection with the physical device
+WebAuthn often depends on a connection with the physical device
 you used as your security device. If you lose the device, you will be
-unable to login. There is no recovery code for WebAuthn / Passkey MFA.
+unable to login. There is no recovery code for WebAuthn MFA.
 
 To manage the risk of losing a single device, you should enable multiple
 security devices. For example, you might enable your phone as well as a
