@@ -351,7 +351,7 @@ list can be requested with both user handle or user id.
 
     [
       {
-        "name": "factory_girl",
+        "name": "factory_bot",
     ...
       },
     ...

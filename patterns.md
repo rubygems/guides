@@ -348,15 +348,15 @@ Other prerelease version numbers might include `2.0.0.rc1`, or `1.5.0.beta.3`.
 It just has to have a letter in it, and you're set. These gems can then be
 installed with the `--pre` flag, like so:
 
-    % gem list factory_girl -r --pre
+    % gem list factory_bot -r --pre
 
     *** REMOTE GEMS ***
 
-    factory_girl (2.0.0.beta2, 2.0.0.beta1)
-    factory_girl_rails (1.1.beta1)
+    factory_bot (2.0.0.beta2, 2.0.0.beta1)
+    factory_bot_rails (1.1.beta1)
 
-    % gem install factory_girl --pre
-    Successfully installed factory_girl-2.0.0.beta2
+    % gem install factory_bot --pre
+    Successfully installed factory_bot-2.0.0.beta2
     1 gem installed
 
 Credits
