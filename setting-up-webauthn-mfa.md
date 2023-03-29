@@ -26,7 +26,7 @@ Unfortunately implementations of these experiences vary, so we can't show
 the exact details, but we will point out the steps that are specific to
 using rubygems.org.
 
-## Enabling WebAuthn multifactor authentication
+## Enabling WebAuthn multi-factor authentication
 
 1. Login to rubygems.org using your existing account and go to the
 [edit settings](https://rubygems.org/settings/edit) page.
