@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Setting up OTP multi-factor authentication
+title: Setting up OTP (auth app) multi-factor authentication
 url: /setting-up-otp-mfa
 previous: /setting-up-webauthn-mfa
 next: /using-mfa-in-command-line
 ---
 
-<em class="t-gray">Setting up one-time password multifactor authentication</em>
+<em class="t-gray">Setting up one-time password (OTP) multifactor authentication</em>
 
 ## Prerequisite
 
