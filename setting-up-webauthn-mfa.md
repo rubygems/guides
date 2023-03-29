@@ -30,7 +30,7 @@ using rubygems.org.
 
 1. Login to rubygems.org using your existing account and go to the
 [edit settings](https://rubygems.org/settings/edit) page.
-2. In the _multifactor authentication_ section you will see two options:
+2. In the _Multi-factor Authentication_ section you will see two options:
 "Authentication App" and "Security Device". Under "Security Device" you
 will see a field for Nickname.
   ![Nickname for security device on the edit settings page](/images/enabling_webauthn_nickname.png){:class="t-img"}
