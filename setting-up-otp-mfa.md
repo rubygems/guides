@@ -18,16 +18,16 @@ an access code. SMS-based authentication or recovery is **not** supported.
 ## Enabling OTP multifactor authentication
 
 1. Login to rubygems.org using your existing account and go to the [edit settings](https://rubygems.org/settings/edit) page.
-Click **register a new device** in the _multifactor authentication_ section.
+Click **register a new device** in the "Multifactor Authentication" section.
     ![Multifactor authentication section on the edit settings page](/images/enabling_mfa_step1.png){:class="t-img"}
 2. You will be redirected to a page with a QR code and a text box for verifying OTP
 code. Please use your authenticator to scan the QR code. A new account for rubygems.org will be
 added to your authenticator app as soon as the scan completes.
-You can also add a new account manually using _Account_ and _Key_ shown next to the QR code.
-Please make sure you choose the option _time based_ as MFA type.
+You can also add a new account manually using "Account" and "Key" shown next to the QR code.
+Please make sure you choose the option "time based" as MFA type.
 On successful registration, you will see a 6-digit access code (30
 seconds expiry) in your authenticator app for your rubygems.org account.
-Enter the shown access code in the _OTP Code_ text field and click **Enable**.
+Enter the shown access code in the "OTP Code" text field and click **Enable**.
     ![Registering a new device](/images/enabling_mfa_step2.png){:class="t-img"}
 3. If the code is correct and the QR code has not expired, on next page you will see a list of recovery
 codes. Please copy and store these codes in a safe place. You can use these recovery
@@ -42,7 +42,7 @@ login to rubygems.org (see [Using recovery codes and re-setup a previously enabl
 ## Authentication levels
 
 When you register a new device or enable MFA for the first time, we will enable
-MFA for both the UI and the API. If you go to the _edit settings_ page again, in the _multifactor authentication_ section, you
+MFA for both the UI and the API. If you go to the "Edit Settings" page again, in the "Multifactor Authentication" section, you
 will see a dropdown menu with three options:
 
 - **Disabled**: disables MFA. Please delete rubygems.org account from your authenticator app after disabling.
@@ -50,14 +50,14 @@ will see a dropdown menu with three options:
 - **UI and gem signin**: UI operations and `gem signin` will require OTP code.
 - **UI and API**: UI operations, `gem signin`, `push`, `owner --add` and `owner --remove` will require OTP code.
 
-Note: If you are on the **UI only** or **UI and gem signin** authentication level,
+Note: If you are on the "UI only" or "UI and gem signin" authentication level,
 you can selectively enable MFA on specific API keys (see [API key scopes](http://guides.rubygems.org/api-key-scopes/#/#enable-mfa-on-specific-api-keys)).
-This is different from the **UI and API** level as MFA is enabled on all API keys by default and cannot be selectively enabled.
+This is different from the "UI and API" level as MFA is enabled on all API keys by default and cannot be selectively enabled.
 
 Steps to change your MFA level:
 
 1. Sign in and go to the _edit settings_ page. If you have enabled MFA for your account,
-in the _multifactor authentication_ section, you will see a dropdown menu.
+in the "Multifactor Authentication" section, you will see a dropdown menu.
     ![Multifactor section on the edit settings page](/images/changing_mfa_step1.png){:class="t-img"}
 2. Select your intended option, enter OTP access code from your authenticator app and click **Update**
 
