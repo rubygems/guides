@@ -25,8 +25,10 @@ for guidance on setting up WebAuthn MFA.
     [snip of API key setup]
 
     You have enabled multi-factor authentication.
-    Please visit http://localhost:3000/webauthn_verification/<random>?port=49385
-    to authenticate via security device.
+    Please visit http://localhost:3000/webauthn_verification/<random>?port=<port>
+    to authenticate via security device. If you can't verify using WebAuthn but
+    have OTP enabled, you can re-run the gem signin command with the `--otp [your_code]`
+    option.
 
 Depending on your terminal program, you may be able to click, command-click or
 control-click on the link to open it in your default browser. Otherwise you will
