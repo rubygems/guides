@@ -38,6 +38,10 @@ A webpage titled "Authenticate with Security Device" appears. Click "Authenticat
 Your browser will show a popup asking you to use a Passkey or other authentication
 device (the exact popup will vary according to the browser).
 
+**Note**: currently, [Safari does not implement a feature](https://bugs.webkit.org/show_bug.cgi?id=171934)
+required for the WebAuthn CLI to work. You must use another browser for WebAuthn CLI
+authentication. If you try to use Safari you will see a warning on this page.
+
 Once you have authenticated using your WebAuthn device device, you will see a
 "Success" page. At this point you can close your browser tab and return to the
 command line, which will say:
