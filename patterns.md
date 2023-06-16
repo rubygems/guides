@@ -204,15 +204,6 @@ by using `~>` instead of `>=` if at all possible.
 > [Isolate](https://github.com/jbarnette/isolate) which do a great job of
 > managing a complex version manifest for many gems.
 
-If you want to allow prereleases and regular releases use a compound
-requirement:
-
-    # gemspec
-    spec.add_runtime_dependency 'library', '>= 2.0.0.a', '< 3'
-
-Using `~>` with prerelease versions will restrict you to prerelease versions
-only.
-
 It's also important to know that if you specify a major version only, like this:
 
     # gemspec
@@ -224,8 +215,19 @@ You can also exclude specific versions using `!=`. Let's say version 2.2.1 has a
 
     # gemspec
     spec.add_runtime_dependency 'library', '~> 2', '!= 2.2.1'
-    
+
 You can append additional versions by adding them as an additional argument to `add_runtime_dependency` - after all, its last argument is just an array.
+
+### Prerelease dependency
+
+When using stable requirements, Bundler will "prefer" using stable gems, only using prerelease gems if necessary.
+
+However, if you want to use prerelease gems, then you can declare a prerelease requirement using non-numerical characters:
+
+    # gemspec
+    spec.add_runtime_dependency 'library', '>= 2.0.0.a', '< 2.0.0'
+
+When a prerelease requirement is given, Bundler will respect the actual semantic versioning precedence for that gem.
 
 ### Requiring RubyGems
 
