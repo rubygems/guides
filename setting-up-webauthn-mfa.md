@@ -46,10 +46,6 @@ click "Other Options" to use a hardware token. Other browsers may vary.
 6. You will now see your security device on the screen above the Nickname
 field.
 
-**Note**: While Safari can be used for logging into the web UI using WebAuthn,
-it does not work for logging in with the CLI. This is due to Safari
-[failing to implement a necessary feature](https://bugs.webkit.org/show_bug.cgi?id=171934).
-
 ## Dealing with lost devices
 
 WebAuthn often depends on a connection with the physical device
