@@ -45,19 +45,3 @@ hardware token. Safari asks you to enable iCloud Keychain, but you can
 click "Other Options" to use a hardware token. Other browsers may vary.
 6. You will now see your security device on the screen above the Nickname
 field.
-
-## Dealing with lost devices
-
-WebAuthn often depends on a connection with the physical device
-you used as your security device. If you lose the device, you will be
-unable to login. There is no recovery code for WebAuthn MFA.
-
-To manage the risk of losing a single device, you should enable multiple
-security devices. For example, you might enable your phone as well as a
-hardware token. Or you might use two hardware tokens and store the second
-token in a safe place that is separated from your computer (e.g. a fireproof
-safe or even a safe deposit box).
-
-The process for enabling additional devices is the same as the process
-for enabling the first device. Choose a nickname, click **Register device**
-under the "Security Device" heading and follow the prompts.
