@@ -20,7 +20,7 @@ using [one-time passwords (OTP)](/setting-up-otp-mfa).
 ## Authentication levels
 
 When you register a new device or enable MFA for the first time, we will enable
-MFA for both the UI and the API. If you go to the "Edit Settings" page again, in the "Multifactor Authentication" section, you
+MFA for both the UI and the API. If you go to the "Edit Settings" page again, in the "Multi-factor Authentication" section, you
 will see a dropdown menu with these options:
 
 - **UI only (Deprecated)**: sign in from browser, updating MFA levels and resetting password will require OTP code. These are referred to as UI operations.

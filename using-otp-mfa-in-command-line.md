@@ -1,20 +1,20 @@
 ---
 layout: default
-title: Using OTP multifactor authentication in command line
+title: Using OTP multi-factor authentication in command line
 url: /using-otp-mfa-in-command-line
 previous: /using-webauthn-mfa-in-command-line
 next: /mfa-requirement-opt-in
 ---
 <em class="t-gray">How to use OTP MFA with gem CLI.</em>
 
-Multifactor authentication (MFA) using OTP works by using an authenticator app on your phone
+Multi-factor authentication (MFA) using OTP works by using an authenticator app on your phone
 to generate a one-time password (OTP) that you then enter at the command line. This
-documentation explains how to use OTP multifactor authentication (MFA) if you have configured
-it. For WebAuthn instructions, see "[Using WebAuthn multifactor authentication in command line](/using-webauthn-mfa-in-command-line)".
+documentation explains how to use OTP multi-factor authentication (MFA) if you have configured
+it. For WebAuthn instructions, see "[Using WebAuthn multi-factor authentication in command line](/using-webauthn-mfa-in-command-line)".
 
 When you have only enabled OTP MFA, and your MFA level is _UI and API_, we will ask to you
 to provide an OTP for `gem signin`, `gem push`, `gem owner --add` and `gem owner --remove`.
-Check [setting up multifactor authentication](/setting-up-multifactor-authentication)
+Check [setting up multi-factor authentication](/setting-up-multifactor-authentication)
 for enabling MFA.
 
 This level requires a recent enough `gem` command as shipped with Ruby 2.6+,

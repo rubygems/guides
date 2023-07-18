@@ -6,9 +6,9 @@ previous: /setting-up-multifactor-authentication
 next: /setting-up-otp-mfa
 ---
 
-<em class="t-gray">Setting up WebAuthn multifactor authentication</em>
+<em class="t-gray">Setting up WebAuthn multi-factor authentication</em>
 
-Using WebAuthn for multifactor authentication (MFA) is the best way to
+Using WebAuthn for multi-factor authentication (MFA) is the best way to
 protect your account from takeover. It's stronger and easier to use than
 [OTP codes](/setting-up-otp-mfa).
 
@@ -30,7 +30,7 @@ using RubyGems.org.
 
 1. Login to rubygems.org using your existing account and go to the
 [edit settings](https://rubygems.org/settings/edit) page.
-2. In the "Multifactor Authentication" section you will see two options:
+2. In the "Multi-factor Authentication" section you will see two options:
 "Authentication App" and "Security Device". Under "Security Device" you
 will see a field for "Nickname".
   ![Nickname for security device on the edit settings page](/images/enabling_webauthn_nickname.png){:class="t-img"}
