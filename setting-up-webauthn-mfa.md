@@ -24,7 +24,7 @@ To use WebAuthn, you will need at least _one_ of the following:
 
 Unfortunately implementations of these experiences vary, so we can't show
 the exact details, but we will point out the steps that are specific to
-using rubygems.org.
+using RubyGems.org.
 
 ## Enabling WebAuthn multi-factor authentication
 
