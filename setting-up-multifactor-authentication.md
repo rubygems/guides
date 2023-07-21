@@ -38,7 +38,7 @@ Steps to change your MFA level:
 2. You will be prompted to use your MFA device to authorize the MFA level change.
     ![Multi-factor authentication prompt to update MFA level](/images/changing_mfa_step2.png){:class="t-img"}
 
-## Using recovery codes and re-setup a previously enabled MFA
+## Using recovery codes to reconfigure previously enabled MFA
 
 You might be in a situation where you no longer have access to your MFA device.
 
@@ -47,4 +47,4 @@ Each recovery code can *only be used once* and you may need up to *2 recovery co
 a previously enabled MFA RubyGems.org account on a new device.
 
 1. To login into your account, enter an unused recovery code as the OTP code when prompted.
-2. To re-setup an [authenticator app](https://rubygems.org/settings/edit#authenticator-app), you'll need to use a recovery code to remove the current authenticator app. Then, you are able to enable and re-configure your authenticator app. For security devices, you are able to associate a new security device to your account in the [security devices section](https://rubygems.org/settings/edit#security-device).
+2. To reconfigure an [authenticator app](https://rubygems.org/settings/edit#authenticator-app), you'll need to use a recovery code to remove the current authenticator app. Then, you are able to enable and configure your authenticator app again. For security devices, you are able to associate a new security device to your account in the [security devices section](https://rubygems.org/settings/edit#security-device).
