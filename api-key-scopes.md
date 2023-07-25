@@ -37,6 +37,15 @@ The *Age* column shows how old is the key. The *Last access* column shows the la
 Usage with gem CLI
 ------------------
 
+An API key created as outlined above can be used in the `gem` CLI directly by setting it in an environment variable called `GEM_HOST_API_KEY`, e.g.
+
+    $ GEM_HOST_API_KEY=rubygems_123456 gem push example-1.2.3.gem
+
+This approach is suitable for non-interactive situations, e.g. for CI/CD-based gem publishing processes. On a personal development machine that you can directly access, the interactive sign-in using `gem signin` (see below) is usually preferrable.
+
+Creating from gem CLI
+---------------------
+
 **Note:** You need rubygems 3.2.0 or newer if you like to create API keys with scopes from the gem CLI.
 
 Running `gem signin` will prompt you for your RubyGems.org credentials, key name, and scopes to enable for the key. The default choice for all scopes is not to enable them.
@@ -85,7 +94,7 @@ Enable MFA on specific API keys
 
 If your account has MFA enabled on the **UI only** or **UI and gem signin** [authentication level](https://guides.rubygems.org/setting-up-multifactor-authentication/#authentication-levels), you have the option to enable MFA on a specific API key. This will require an OTP code for `gem push`, `yank`, `owner --add/--remove` commands.
 
-You can toggle this option when creating or editing an API key on the UI. 
+You can toggle this option when creating or editing an API key on the UI.
 ![New API key with MFA enabled](/images/new-mfa-api-key.png){:class="t-img"}
 
 Migration from legacy-api key
