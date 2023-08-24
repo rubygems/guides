@@ -62,7 +62,7 @@ Install with a trust policy.
 Verify the checksum, if available
 
     gem fetch gemname -v version
-    ruby -rdigest/sha2 -e "puts Digest::SHA512.new.hexdigest(File.read('gemname-version.gem'))
+    ruby -rdigest/sha2 -e "puts Digest::SHA512.new.hexdigest(File.read('gemname-version.gem'))"
 
 Know the risks of being pwned, as described by [Benjamin Smith's Hacking with Gems talk](https://youtu.be/zEBReauO-vg)
 
