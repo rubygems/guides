@@ -344,11 +344,11 @@ next: /command-reference
 
 ## bindir
 
-<p>The path in the gem for executable scripts.  Usually ‘bin’</p>
+<p>The path in the gem for executable scripts.  Usually ‘exe’</p>
 
 <p>Usage:</p>
 
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">bindir</span> = <span class="ruby-string">&#39;bin&#39;</span>
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">bindir</span> = <span class="ruby-string">&#39;exe&#39;</span>
 </pre>
 
 <a id="cert_chain"> </a>
