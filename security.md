@@ -72,50 +72,50 @@ Building Gems
 ### Sign with: `gem cert`
 
 1) Create self-signed gem cert
-
+    ```shell
     cd ~/.ssh
     gem cert --build your@email.com
     chmod 600 gem-p*
-
-- use the email address you specify in your gemspecs
-
+    ```
+   - use the email address you specify in your gemspecs
 2) Configure gemspec with cert
-
-Add cert public key to your repository
-
+   - Add cert public key to your repository
+    ```shell
     cd /path/to/your/gem
     mkdir certs
     cp ~/.ssh/gem-public_cert.pem certs/yourhandle.pem
     git add certs/yourhandle.pem
-
-Add cert paths to your gemspec
-
-    s.cert_chain  = ['certs/yourhandle.pem']
-    s.signing_key = File.expand_path("~/.ssh/gem-private_key.pem") if $0 =~ /gem\z/
-
+    ```
+    - Add cert paths to your gemspec
+    ```ruby
+    Gem::Specification.new do |spec|
+      # ... other config
+      spec.cert_chain  = ['certs/yourhandle.pem']
+      spec.signing_key = File.expand_path("~/.ssh/gem-private_key.pem") if $PROGRAM_NAME.end_with?("gem")
+    end
+    ```
 3) Add your own cert to your approved list, just like anyone else
-
+    ```shell
     gem cert --add certs/yourhandle.pem
-
+    ```
 4) Build gem and test that you can install it
-
+    ```shell
     gem build gemname.gemspec
     gem install gemname-version.gem -P HighSecurity
     # or -P MediumSecurity if your gem depends on unsigned gems
-
+    ```
 5) Example text for installation documentation
-
-> MetricFu is cryptographically signed. To be sure the gem you install hasn't been tampered with:
->
-> Add my public key (if you haven't already) as a trusted certificate
->
-> `gem cert --add <(curl -Ls https://raw.github.com/metricfu/metric_fu/master/certs/bf4.pem)`
->
-> `gem install metric_fu -P MediumSecurity`
->
-> The MediumSecurity trust profile will verify signed gems, but allow the installation of unsigned dependencies.
->
-> This is necessary because not all of MetricFu's dependencies are signed, so we cannot use HighSecurity.
+    > MetricFu is cryptographically signed. To be sure the gem you install hasn't been tampered with:
+    >
+    > Add my public key (if you haven't already) as a trusted certificate
+    >
+    > `gem cert --add <(curl -Ls https://raw.github.com/metricfu/metric_fu/master/certs/bf4.pem)`
+    >
+    > `gem install metric_fu -P MediumSecurity`
+    >
+    > The MediumSecurity trust profile will verify signed gems, but allow the installation of unsigned dependencies.
+    >
+    > This is necessary because not all of MetricFu's dependencies are signed, so we cannot use HighSecurity.
 
 -------
 
@@ -125,7 +125,9 @@ Checksums can be created when you are ready to release a gem.
 
 Currently the rake task only creates an SHA-256 checksum. Run:
 
-    rake build:checksum
+```shell
+rake build:checksum
+```
 
 The checksum will be placed in the `checksums/` directory.  If you track the
 checksums in your source repository, others will be able to verify the 
@@ -215,7 +217,7 @@ Reporting Security vulnerabilities
 
 ### Reporting a security vulnerability with someone else's gem
 
-If you spot a security vulnerability in someone else's gem, then you
+If you spot a security vulnerability in someone else's gem, then your
 first step should be to check whether this is a known vulnerability.
 One way is by searching for an advisory on [RubySec](http://rubysec.com).
 
