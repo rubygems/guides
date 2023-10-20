@@ -123,18 +123,22 @@ Building Gems
 
 Checksums can be created when you are ready to release a gem. 
 
-Currently the rake task only creates an SHA-256 checksum. Run:
-
-```shell
-rake build:checksum
-```
+Below is a script that will create both SHA-256 and SHA-512
+checksums.
 
 The checksum will be placed in the `checksums/` directory.  If you track the
-checksums in your source repository, others will be able to verify the 
+checksums in your source repository, others will be able to verify the
 authenticity of a release.
 
-Alternatively, if you'd like a script that will create both SHA-256 and SHA-512
-checksums you might use something like the following:
+Note that you can only run the script after you have run `rake release`,
+because the package that is released must be the exact one that the checksums
+run against.
+
+In other words, every time the gem is built the checksum would change.
+
+Also note, there is a rake task `build:checksum` but, since the checksum'd
+package would not be the same as the package released via `rake release`,
+it isn't useful unless you manually push your gems via `gem push`.
 
 ```ruby
 #!/usr/bin/env ruby
@@ -182,19 +186,22 @@ File.write(checksum256_path, checksum256)
 version = gem_name[VERSION_REGEX]
 
 git_cmd = <<~GIT_MSG
-git add checksums/* && \
-git commit -m "🔒️ Checksums for v#{version}"
+  git add checksums/* && \
+  git commit -m "🔒️ Checksums for v#{version}"
 GIT_MSG
 
 puts <<~RESULTS
-[GEM: #{gem_name}]
-[VERSION: #{version}]
-[CHECKSUM SHA256 PATH: #{checksum256_path}]
-[CHECKSUM SHA512 PATH: #{checksum512_path}]
-
-... Running ...
-
-#{git_cmd}
+  [ GEM: #{gem_name} ]
+  [ VERSION: #{version} ]
+  [ GEM PKG LOCATION: #{gem_pkg} ]
+  [ CHECKSUM SHA-256: #{checksum256} ]
+  [ CHECKSUM SHA-512: #{checksum512} ]
+  [ CHECKSUM SHA-256 PATH: #{checksum256_path} ]
+  [ CHECKSUM SHA-512 PATH: #{checksum512_path} ]
+  
+  ... Running ...
+  
+  #{git_cmd}
 RESULTS
 
 # This will replace the current process with the git process, and exit.
