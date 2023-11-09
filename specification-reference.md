@@ -56,6 +56,12 @@ next: /command-reference
     
 * [required_ruby_version](#required_ruby_version)
     
+## Read-only attributes
+    
+* [extensions_dir](#extensions_dir)
+    
+* [rubygems_version](#rubygems_version)
+    
 ## Optional gemspec attributes
     
 * [add_development_dependency](#add_development_dependency)
@@ -89,8 +95,6 @@ next: /command-reference
 * [required_rubygems_version=](#required_rubygems_version=)
     
 * [requirements](#requirements)
-    
-* [rubygems_version](#rubygems_version)
     
 * [signing_key](#signing_key)
     
@@ -302,6 +306,21 @@ next: /command-reference
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">required_ruby_version</span> = <span class="ruby-string">&#39;&gt;= 2.7.0&#39;</span>
 </pre>
 
+# Read-only attributes
+
+
+<a id="extensions_dir"> </a>
+
+## extensions_dir
+
+<p>The path where this gem installs its extensions.</p>
+
+<a id="rubygems_version"> </a>
+
+## rubygems_version
+
+<p>The version of RubyGems used to create this gem.</p>
+
 # Optional gemspec attributes
 
 
@@ -505,14 +524,6 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">requirements</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;libmagick, v6.0&#39;</span>
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">requirements</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;A good graphics card&#39;</span>
 </pre>
-
-<a id="rubygems_version"> </a>
-
-## rubygems_version
-
-<p>The version of RubyGems used to create this gem.</p>
-
-<p>Do not set this, it is set automatically when the gem is packaged.</p>
 
 <a id="signing_key"> </a>
 
