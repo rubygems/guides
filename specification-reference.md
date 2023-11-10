@@ -56,12 +56,6 @@ next: /command-reference
     
 * [required_ruby_version](#required_ruby_version)
     
-## Read-only attributes
-    
-* [extensions_dir](#extensions_dir)
-    
-* [rubygems_version](#rubygems_version)
-    
 ## Optional gemspec attributes
     
 * [add_development_dependency](#add_development_dependency)
@@ -95,6 +89,8 @@ next: /command-reference
 * [required_rubygems_version=](#required_rubygems_version=)
     
 * [requirements](#requirements)
+    
+* [rubygems_version](#rubygems_version)
     
 * [signing_key](#signing_key)
     
@@ -228,7 +224,7 @@ next: /command-reference
 
 <p>This should just be the name of your license. The full text of the license should be inside of the gem (at the top level) when you build it.</p>
 
-<p>The simplest way is to specify the standard SPDX ID <a href="https://spdx.org/licenses">spdx.org/licenses</a>/ for the license. Ideally, you should pick one that is OSI (Open Source Initiative) <a href="https://opensource.org/licenses">opensource.org/licenses</a>/ approved.</p>
+<p>The simplest way is to specify the standard SPDX ID <a href="https://spdx.org/licenses">spdx.org/licenses</a>/ for the license. Ideally, you should pick one that is OSI (Open Source Initiative) <a href="http://opensource.org/licenses/alphabetical">opensource.org/licenses/alphabetical</a> approved.</p>
 
 <p>The most commonly used OSI-approved licenses are MIT and Apache-2.0. GitHub also provides a license picker at <a href="http://choosealicense.com">choosealicense.com</a>/.</p>
 
@@ -306,21 +302,6 @@ next: /command-reference
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">required_ruby_version</span> = <span class="ruby-string">&#39;&gt;= 2.7.0&#39;</span>
 </pre>
 
-# Read-only attributes
-
-
-<a id="extensions_dir"> </a>
-
-## extensions_dir
-
-<p>The path where this gem installs its extensions.</p>
-
-<a id="rubygems_version"> </a>
-
-## rubygems_version
-
-<p>The version of RubyGems used to create this gem.</p>
-
 # Optional gemspec attributes
 
 
@@ -363,11 +344,11 @@ next: /command-reference
 
 ## bindir
 
-<p>The path in the gem for executable scripts.  Usually ‘exe’</p>
+<p>The path in the gem for executable scripts.  Usually ‘bin’</p>
 
 <p>Usage:</p>
 
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">bindir</span> = <span class="ruby-string">&#39;exe&#39;</span>
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">bindir</span> = <span class="ruby-string">&#39;bin&#39;</span>
 </pre>
 
 <a id="cert_chain"> </a>
@@ -524,6 +505,14 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">requirements</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;libmagick, v6.0&#39;</span>
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">requirements</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;A good graphics card&#39;</span>
 </pre>
+
+<a id="rubygems_version"> </a>
+
+## rubygems_version
+
+<p>The version of RubyGems used to create this gem.</p>
+
+<p>Do not set this, it is set automatically when the gem is packaged.</p>
 
 <a id="signing_key"> </a>
 
