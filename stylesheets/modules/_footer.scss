@@ -9,6 +9,7 @@
   background-color: $black;
   box-shadow: 0 -4px 0 0 $black;
   z-index: 2;
+  width: 100%;
   @media (min-width: 780px) {
     min-height: 70vh;
   }
@@ -44,40 +45,25 @@
   }
 }
 
-.footer__sponsors-wrap {
-  margin-top: 60px;
-  padding-top: 45px;
-  border-top: 1px solid rgba($white, .1);
-  @media (min-width: 1040px) {
-    margin: {
-      right: auto;
-      left: auto;
-    }
-    max-width: 940px;
-  }
-}
-
 .footer__sponsors {
-  margin: {
-    right: auto;
-    left: auto;
-  }
-  @media (max-width: 579px) {
-    width: 78%;
-  }
-  @media (min-width: 580px) and (max-width: 1039px) {
-    width: 90%;
-  }
+  margin: 60px auto 0;
+  padding-top: 45px;
+  width: 90%;
+  max-width: 940px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer__sponsor {
-  margin-bottom: 36px;
-  float: left;
+  margin: 0 26px 36px;
+  display: inline-block;
   height: 100px;
+  width: 90px;
   background: {
     image: url(/images/sponsors.png);
     size: 100%;
   }
+  background-size: 100%;
   font: {
     style: italic;
     weight: 300;
@@ -94,66 +80,42 @@
   &:focus {
     outline: none;
   }
-  &:nth-child(1) {
-    background-position: 0 20px;
-  }
-  @media (max-width: 579px) {
-    &:nth-child(odd) {
-      margin-right: 18%;
-    }
-  }
-  @media (min-width: 580px) {
-    .footer__sponsor {
-      margin:0 30px 36px 30px; }
-  }
-  @media (max-width: 1039px) {
-    width: 100px;
-    &:nth-child(2) {
-      background-position: 0 -84px;
-    }
-    &:nth-child(3) {
-      background-position: 0 -174px;
-    }
-    &:nth-child(4) {
-      background-position: 0 -264px;
-    }
-    &:nth-child(5) {
-      background-position: 0 -355px;
-    }
-    &:nth-child(6) {
-      background-position: 0 108px;
-    }
-    &:nth-child(7) {
-      background-position: 0 -456px;
-    }
-    &:nth-child(8) {
-      background-position: 0 210px;
-    }
-  }
-  @media (min-width: 1040px) {
-    width: 90px;
-    &:nth-child(2) {
-      background-position: 0 -72px;
-    }
-    &:nth-child(3) {
-      background-position: 0 -153px;
-    }
-    &:nth-child(4) {
-      background-position: 0 -236px;
-    }
-    &:nth-child(5) {
-      background-position: 0 -314px;
-    }
-    &:nth-child(6) {
-      background-position: 0 100px;
-    }
-    &:nth-child(7) {
-      background-position: 0 -409px;
-    }
-    &:nth-child(8) {
-      background-position: 0 192px;
-    }
-  }
+}
+
+.footer__sponsor__ruby_central {
+  background-position: 0 4px;
+}
+
+.footer__sponsor__dockyard {
+  background-position: 0 -204px;
+}
+
+.footer__sponsor__dnsimple {
+  background-position: 0 -291px;
+}
+
+.footer__sponsor__datadog {
+  background-position: 0 -634px;
+}
+
+.footer__sponsor__runscope {
+  background-position: 0 -469px;
+}
+
+.footer__sponsor__fastly {
+  background-position: 0 -541px;
+}
+
+.footer__sponsor__honeybadger {
+  background-position: 0 -717px;
+}
+
+.footer__sponsor__domainr {
+  background-position: 0 -804px;
+}
+
+.footer__sponsor__whitesource {
+  background-position: 0 -885px;
 }
 
 .footer__sponsor__logo {
