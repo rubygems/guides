@@ -61,27 +61,21 @@ Or set AWS access id, secret and session token explicitly.
     - s3://bucket3/path_to_gems_dir/
     - s3://bucket4/
     - https://rubygems.org/
-    s3_source: {
-      bucket1: {
-        provider: "env",
-        # region defaults to us-east-1
-      },
-      bucket2: {
-        provider: "instance_profile",
-        region: "us-west-2"
-      }
-      bucket3: {
-        id: "AOUEAOEU123123AOEUAO",
-        secret: "aodnuhtdao/saeuhto+19283oaehu/asoeu+123h",
-        region: "us-east-2"
-      },
-      bucket4: {
-        id: "AOUEAOEU123123AOEUAO",
-        secret: "aodnuhtdao/saeuhto+19283oaehu/asoeu+123h",
-        security_token: "AQoDYXdzEJr",
-        region: "us-west-1"
-      }
-    }
+    :s3_source:
+      :bucket1:
+        :provider: env
+      :bucket2:
+        :provider: instance_profile
+        :region: us-west-2
+      :bucket3:
+        :id: AOUEAOEU123123AOEUAO
+        :secret: aodnuhtdao/saeuhto+19283oaehu/asoeu+123h
+        :region: us-east-2
+      :bucket4:
+        :id: AOUEAOEU123123AOEUAO
+        :secret: aodnuhtdao/saeuhto+19283oaehu/asoeu+123h
+        :security_token: AQoDYXdzEJr
+        :region: us-west-1
 
 #### Read more:
 
