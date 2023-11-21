@@ -12,7 +12,10 @@ Gem Version Methods
 
 ### GET - `/api/v2/rubygems/[GEM NAME]/versions/[VERSION NUMBER].(json|yaml)`
 
-Returns a dictionary with versions details for a specific gem version. Example:
+Returns a dictionary with versions details for a specific gem version.
+
+To return the version for a specific platform (e.g. "ruby", "java", "x86_64-linux"), use the `platform` query parameter. 
+
 
     $ curl https://rubygems.org/api/v2/rubygems/coulda/versions/0.7.1.json
 
