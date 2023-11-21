@@ -61,7 +61,7 @@ Or set AWS access id, secret and session token explicitly.
     - s3://bucket3/path_to_gems_dir/
     - s3://bucket4/
     - https://rubygems.org/
-    :s3_source:
+    s3_source:
       :bucket1:
         :provider: env
       :bucket2:
