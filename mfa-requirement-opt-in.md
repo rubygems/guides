@@ -7,8 +7,7 @@ next: /using-s3-source
 ---
 <em class="t-gray">How to opt-in for MFA requirement.</em>
 
-You can make your gems more secure by requiring that all privileged
-operations by any of the owners require OTP.
+You can make your gems more secure by requiring all owners to enable MFA on their account.
 
 ## Opt-in to MFA requirement
 
@@ -22,8 +21,8 @@ You can opt-in a gem you are managing by releasing a version that has
     ...
     end
 
-The version being released with `rubygems_mfa_required` set and all the following version
-will require that you provide an OTP for all privileged operations.
+The version being released with `rubygems_mfa_required` set and all the following versions
+will require you to have MFA enabled.
 Once enabled, the gem page will show `NEW VERSIONS REQUIRE MFA` in the sidebar, and all versions published with `rubygems_mfa_required` set will also show `VERSION PUBLISHED WITH MFA`:
     ![MFA status indicators](/images/mfa-required-since.png){:class="t-img t-img--small"}
 
@@ -33,17 +32,6 @@ a new version for a gem that requires MFA:
     $ gem push hola-1.0.0.gem
     Pushing gem to https://rubygems.org...
     Rubygem requires owners to enable MFA. You must enable MFA before pushing new version.
-
-
-## privileged operations
-
-Following operations will require OTP verification if you have MFA requirement
-set on the gem.
-
-- `gem push`
-- `gem yank`
-- `gem owner --add/remove`
-- **adding or removing owners using gem ownership page**
 
 ## Disabling MFA requirement
 
