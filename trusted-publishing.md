@@ -30,6 +30,6 @@ This mechanism has significant security & usability advantages compared to tradi
 
 ## Further reading
 
-We highly reccomend checking out the excellent docs written by our friends over at PyPi for some more in-depth information on how Trusted Publishing works:
+We highly reccomend checking out the excellent docs written by our friends over at PyPI for some more in-depth information on how Trusted Publishing works:
 
-- [PyPi: Security model and considerations](https://docs.pypi.org/trusted-publishers/security-model/)
+- [PyPI: Security model and considerations](https://docs.pypi.org/trusted-publishers/security-model/)
