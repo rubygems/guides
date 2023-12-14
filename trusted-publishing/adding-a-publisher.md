@@ -30,7 +30,7 @@ Once you click "Create Rubygem trusted publisher", your publisher will be regist
 
 Now, the `push.yml` workflow on `indirect/indirect-trusted-publishing` will be able to generate short-lived API tokens from RubyGems.org that are able to push to this gem.
 
-A publisher can be registered for multiple gems, and a gem can have multiple publishers.
+A repo and workflow can be registered to multiple gems. For example, the `release.yml` workflow from the  `rails/rails` repo can be registered for both the `rails` and `activerecord` gems. Each gem can likewise allow multiple publishers, for example a single gem could allow both workflows `release-linux.yml` and `release-mac.yml`.
 
 Now that you've created a Trusted Publisher, [create a GitHub Actions workflow](/trusted-publishing/releasing-gems) to publish your gem.
 You can use [rubygem-await's release workflow](https://github.com/segiddins/rubygems-await/blob/main/.github/workflows/push_gem.yml) as a starting point.
