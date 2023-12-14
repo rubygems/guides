@@ -34,3 +34,6 @@ Once you click "Create Pending trusted publisher", your publisher will be regist
 From this point, the "pending" publisher will act like a "normal" publisher.
 After its first successful push, it will be converted to a "normal" trusted publisher for the new gem,
 and you will be added as the owner of the gem.
+
+Now that you've created a Trusted Publisher, [create a GitHub Actions workflow](/trusted-publishing/releasing-gems) to publish your gem.
+You can use [rubygem-await's release workflow](https://github.com/segiddins/rubygems-await/blob/main/.github/workflows/push_gem.yml) as a starting point.

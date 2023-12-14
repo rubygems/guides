@@ -6,7 +6,7 @@ url: /trusted-publishing/adding-a-publisher
 
 Adding a trusted publisher to a gem only requires a single setup step.
 
-On [your profile page](https://rubygems.org/), click the link to any gem you'd like to configure.
+On [your profile page](https://rubygems.org/profile/me), click the link to any gem you'd like to configure.
 
 ![List of gems on a RubyGems.org profile](/images/trusted-publishing/profile-gem-list.png){:class="t-img"}
 
@@ -22,8 +22,7 @@ Click the "Create" button, which will take you to the publisher configuration pa
 
 ![Gem trusted publisher creation form](/images/trusted-publishing/rubygem-trusted-publisher-form.png){:class="t-img"}
 
-To enable trusted publishing for this gem, you'll need to tell RubyGems.org how to trust it.
-GitHub Actions (the only currently supported trusted publisher) requires the repository owner's name, repository name, and the name of the workflow that will be pushing the gem.
+Providing the owner name, repository name, and GitHub Actions workflow name allows RubyGems to securely accept uploaded gems from the GitHub Actions infrastructure. If you have multiple workflows that push gems, you can create one Trusted Publisher for each workflow.
 
 Once you click "Create Rubygem trusted publisher", your publisher will be registered and will appear in the list of trusted publishers for this gem.
 
@@ -31,4 +30,7 @@ Once you click "Create Rubygem trusted publisher", your publisher will be regist
 
 Now, the `push.yml` workflow on `indirect/indirect-trusted-publishing` will be able to generate short-lived API tokens from RubyGems.org that are able to push to this gem.
 
-A publisher can be registered for multiple gems, and a gem can have multiple publishers.
+A repo and workflow can be registered to multiple gems. For example, the `release.yml` workflow from the  `rails/rails` repo can be registered for both the `rails` and `activerecord` gems. Each gem can likewise allow multiple publishers, for example a single gem could allow both workflows `release-linux.yml` and `release-mac.yml`.
+
+Now that you've created a Trusted Publisher, [create a GitHub Actions workflow](/trusted-publishing/releasing-gems) to publish your gem.
+You can use [rubygem-await's release workflow](https://github.com/segiddins/rubygems-await/blob/main/.github/workflows/push_gem.yml) as a starting point.

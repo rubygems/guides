@@ -9,12 +9,12 @@ This allows obtaining short-lived API tokens in an automated environment (such a
 
 For a quickstart guide, see:
 
-- [Adding a trusted publisher to an existing gem]()
-- [Pushing a new gem with a trusted publisher]()
+- [Adding a trusted publisher to an existing gem](/trusted-publishing/adding-a-publisher)
+- [Pushing a new gem with a trusted publisher](/trusted-publishing/pushing-a-new-gem)
 
 ## How it works
 
-Trusted publishing is a mechanism for uploading gems to PyPi without using long-lived secret credentials.
+Trusted publishing is a mechanism for uploading gems to RubyGems.org without using long-lived secret credentials.
 
 You don't need to be an OIDC expert to use trusted publishing, but it's helpful to understand the basics of how it works.
 
@@ -33,4 +33,3 @@ This mechanism has significant security & usability advantages compared to tradi
 We highly reccomend checking out the excellent docs written by our friends over at PyPi for some more in-depth information on how Trusted Publishing works:
 
 - [PyPi: Security model and considerations](https://docs.pypi.org/trusted-publishers/security-model/)
-- [PyPi: Internals and Technical Details](https://docs.pypi.org/trusted-publishers/internals/)
