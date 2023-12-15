@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.4.22.
+This reference was automatically generated from RubyGems version 3.5.0.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -504,17 +504,11 @@ then repackaging it.
 
 ## gem generate_index
 
-Generates the index files for a gem server directory
+Generates the index files for a gem server directory (requires rubygems-generate_index)
 
 ### Usage
 
     gem generate_index [options]
-
-### Options
-
-* `-d, --directory=DIRNAME`         - repository base dir containing gems subdir
-* `--[no-]modern`               - Generate indexes for RubyGems (always true)
-* `--update`                    - Update modern indexes with gems added since the last update
 
 ### Common Options
 
@@ -529,27 +523,7 @@ Generates the index files for a gem server directory
 
 ### Description
 
-The generate_index command creates a set of indexes for serving gems
-statically.  The command expects a 'gems' directory under the path given to
-the --directory option.  The given directory will be the directory you serve
-as the gem repository.
-
-For `gem generate_index --directory /path/to/repo`, expose /path/to/repo via
-your HTTP server configuration (not /path/to/repo/gems).
-
-When done, it will generate a set of files like this:
-
-    gems/*.gem                                   # .gem files you want to
-                                                 # index
-
-    specs.<version>.gz                           # specs index
-    latest_specs.<version>.gz                    # latest specs index
-    prerelease_specs.<version>.gz                # prerelease specs index
-    quick/Marshal.<version>/<gemname>.gemspec.rz # Marshal quick index file
-
-The .rz extension files are compressed with the inflate algorithm.
-The Marshal version number comes from ruby's Marshal::MAJOR_VERSION and
-Marshal::MINOR_VERSION constants.  It is used to ensure compatibility.
+The generate_index command has been moved to the rubygems-generate_index gem.
 
 ## gem help
 
