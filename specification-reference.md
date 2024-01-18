@@ -189,7 +189,7 @@ next: /command-reference
 
 <p>Usage:</p>
 
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">description</span> = <span class="ruby-identifier">&lt;&lt;-EOF</span>
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">description</span> = <span class="ruby-identifier">&lt;&lt;~EOF</span>
 <span class="ruby-value">  Rake is a Make-like program implemented in Ruby. Tasks and
   dependencies are specified in standard Ruby syntax.
 </span><span class="ruby-identifier">EOF</span>
