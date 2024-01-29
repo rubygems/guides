@@ -77,7 +77,7 @@ Ruby's premier packaging system. Bundled with Ruby 1.9+ and available for Ruby 1
 [slack]: https://slack.bundler.io/
 [1]: https://github.com/rubygems/rubygems/issues
 
-<a class="project__name" href="https://github.com/bundler/bundler">Bundler</a>
+<a class="project__name" href="https://github.com/rubygems/rubygems/blob/master/bundler/README.md">Bundler</a>
 
 Bundler manages an application's dependencies through its entire life across
 many machines systematically and repeatably.
