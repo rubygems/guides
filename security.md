@@ -72,61 +72,144 @@ Building Gems
 ### Sign with: `gem cert`
 
 1) Create self-signed gem cert
-
+    ```shell
     cd ~/.ssh
     gem cert --build your@email.com
     chmod 600 gem-p*
-
-- use the email address you specify in your gemspecs
-
+    ```
+   - use the email address you specify in your gemspecs
 2) Configure gemspec with cert
-
-Add cert public key to your repository
-
+   - Add cert public key to your repository
+    ```shell
     cd /path/to/your/gem
     mkdir certs
     cp ~/.ssh/gem-public_cert.pem certs/yourhandle.pem
     git add certs/yourhandle.pem
-
-Add cert paths to your gemspec
-
-    s.cert_chain  = ['certs/yourhandle.pem']
-    s.signing_key = File.expand_path("~/.ssh/gem-private_key.pem") if $0 =~ /gem\z/
-
+    ```
+    - Add cert paths to your gemspec
+    ```ruby
+    Gem::Specification.new do |spec|
+      # ... other config
+      spec.cert_chain  = ['certs/yourhandle.pem']
+      spec.signing_key = File.expand_path("~/.ssh/gem-private_key.pem") if $PROGRAM_NAME.end_with?("gem")
+    end
+    ```
 3) Add your own cert to your approved list, just like anyone else
-
+    ```shell
     gem cert --add certs/yourhandle.pem
-
+    ```
 4) Build gem and test that you can install it
-
+    ```shell
     gem build gemname.gemspec
     gem install gemname-version.gem -P HighSecurity
     # or -P MediumSecurity if your gem depends on unsigned gems
-
+    ```
 5) Example text for installation documentation
-
-> MetricFu is cryptographically signed. To be sure the gem you install hasn't been tampered with:
->
-> Add my public key (if you haven't already) as a trusted certificate
->
-> `gem cert --add <(curl -Ls https://raw.github.com/metricfu/metric_fu/master/certs/bf4.pem)`
->
-> `gem install metric_fu -P MediumSecurity`
->
-> The MediumSecurity trust profile will verify signed gems, but allow the installation of unsigned dependencies.
->
-> This is necessary because not all of MetricFu's dependencies are signed, so we cannot use HighSecurity.
+    > MetricFu is cryptographically signed. To be sure the gem you install hasn't been tampered with:
+    >
+    > Add my public key (if you haven't already) as a trusted certificate
+    >
+    > `gem cert --add <(curl -Ls https://raw.github.com/metricfu/metric_fu/master/certs/bf4.pem)`
+    >
+    > `gem install metric_fu -P MediumSecurity`
+    >
+    > The MediumSecurity trust profile will verify signed gems, but allow the installation of unsigned dependencies.
+    >
+    > This is necessary because not all of MetricFu's dependencies are signed, so we cannot use HighSecurity.
 
 -------
 
-### Include checksum of released gems in your repository
+### Include SHA-256 and SHA-512 checksums of released gems in your repository
 
-    require 'digest/sha2'
-    built_gem_path = 'pkg/gemname-version.gem'
-    checksum = Digest::SHA512.new.hexdigest(File.read(built_gem_path))
-    checksum_path = 'checksum/gemname-version.gem.sha512'
-    File.open(checksum_path, 'w' ) {|f| f.write(checksum) }
-    # add and commit 'checksum_path'
+Checksums can be created when you are ready to release a gem. 
+
+Below is a script that will create both SHA-256 and SHA-512
+checksums.
+
+The checksum will be placed in the `checksums/` directory.  If you track the
+checksums in your source repository, others will be able to verify the
+authenticity of a release.
+
+Note that you can only run the script after you have run `rake release`,
+because the package that is released must be the exact one that the checksums
+run against.
+
+In other words, every time the gem is built the checksum would change.
+
+Also note, there is a rake task `build:checksum` but, since the checksum'd
+package would not be the same as the package released via `rake release`,
+it isn't useful unless you manually push your gems via `gem push`.
+
+```ruby
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "digest/sha2"
+
+# Final clause of Regex `(?=\.gem)` is a positive lookahead assertion
+# See: https://learnbyexample.github.io/Ruby_Regexp/lookarounds.html#positive-lookarounds
+# Used to pattern match against a gem package name, which always ends with .gem.
+# The positive lookahead ensures it is present, and prevents it from being captured.
+VERSION_REGEX = /((\d+\.\d+\.\d+)([-.][0-9A-Za-z-]+)*)(?=\.gem)/.freeze
+
+gem_path_parts = ARGV.first&.split("/")
+
+if gem_path_parts&.any?
+  gem_name = gem_path_parts.last
+  gem_pkg = File.join(gem_path_parts)
+  puts "Looking for: #{gem_pkg.inspect}"
+  gems = Dir[gem_pkg]
+  puts "Found: #{gems.inspect}"
+else
+  gem_pkgs = File.join("pkg", "*.gem")
+  puts "Looking for: #{gem_pkgs.inspect}"
+  gems = Dir[gem_pkgs]
+  raise "Unable to find gems #{gem_pkgs}" if gems.empty?
+
+  # Sort by newest last
+  # [ "my_gem-2.3.9.gem", "my_gem-2.3.11.pre.alpha.4.gem", "my_gem-2.3.15.gem", ... ]
+  gems.sort_by! { |gem| Gem::Version.new(gem[VERSION_REGEX]) }
+  gem_pkg = gems.last
+  gem_path_parts = gem_pkg.split("/")
+  gem_name = gem_path_parts.last
+  puts "Found: #{gems.length} gems; latest is #{gem_name}"
+end
+
+checksum512 = Digest::SHA512.new.hexdigest(File.read(gem_pkg))
+checksum512_path = "checksums/#{gem_name}.sha512"
+File.write(checksum512_path, checksum512)
+
+checksum256 = Digest::SHA256.new.hexdigest(File.read(gem_pkg))
+checksum256_path = "checksums/#{gem_name}.sha256"
+File.write(checksum256_path, checksum256)
+
+version = gem_name[VERSION_REGEX]
+
+git_cmd = <<~GIT_MSG
+  git add checksums/* && \
+  git commit -m "🔒️ Checksums for v#{version}"
+GIT_MSG
+
+puts <<~RESULTS
+  [ GEM: #{gem_name} ]
+  [ VERSION: #{version} ]
+  [ GEM PKG LOCATION: #{gem_pkg} ]
+  [ CHECKSUM SHA-256: #{checksum256} ]
+  [ CHECKSUM SHA-512: #{checksum512} ]
+  [ CHECKSUM SHA-256 PATH: #{checksum256_path} ]
+  [ CHECKSUM SHA-512 PATH: #{checksum512_path} ]
+  
+  ... Running ...
+  
+  #{git_cmd}
+RESULTS
+
+# This will replace the current process with the git process, and exit.
+# Any command placed after this will not be run:
+#   See: https://www.akshaykhot.com/call-shell-commands-in-ruby
+exec(git_cmd)
+
+```
 
 -------
 
@@ -141,7 +224,7 @@ Reporting Security vulnerabilities
 
 ### Reporting a security vulnerability with someone else's gem
 
-If you spot a security vulnerability in someone else's gem, then you
+If you spot a security vulnerability in someone else's gem, then your
 first step should be to check whether this is a known vulnerability.
 One way is by searching for an advisory on [RubySec](http://rubysec.com).
 
