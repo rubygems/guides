@@ -17,6 +17,9 @@ jobs:
       contents: write
       id-token: write
 
+    # If you configured a GitHub environment on RubyGems, you must use it here.
+    environment: release
+
     steps:
       # Set up
       - uses: actions/checkout@v4
@@ -30,4 +33,4 @@ jobs:
       - uses: rubygems/release-gem@v1
 ```
 
-Note the `id-token: write`` permission: you **must** provide this permission at either the job level (strongly recommended) or workflow level (discouraged). Without it, the publishing action won't have sufficient permissions to identify itself to RubyGems.org.
+Note the `id-token: write` permission: you **must** provide this permission at either the job level (strongly recommended) or workflow level (discouraged). Without it, the publishing action won't have sufficient permissions to identify itself to RubyGems.org.
