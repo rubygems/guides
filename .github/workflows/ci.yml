@@ -15,7 +15,7 @@ jobs:
         with:
           repository: rubygems/rubygems
           path: rubygems
-          ref: 3.4
+          ref: 3.5
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
