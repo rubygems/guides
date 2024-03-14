@@ -296,7 +296,7 @@ Adding an executable
 In addition to providing libraries of Ruby code, gems can also expose one or
 many executable files to your shell's `PATH`. Probably the best known example
 of this is `rake`. Another very useful one is `nokogiri` from [Nokogiri
-](https://rubygems.org/gems/Nokogiri) gem, which parse HTML/XML documents.
+](https://rubygems.org/gems/nokogiri) gem, which parse HTML/XML documents.
 Here's an example:
 
     $ gem install -N nokogiri
