@@ -3,7 +3,7 @@ layout: default
 title: RubyGems.org API V2
 url: /rubygems-org-api-v2
 previous: /rubygems-org-api
-next: /rubygems-org-rate-limits
+next: /rubygems-org-compact-index-api
 ---
 <em class="t-gray">Get twice more info with API v2</em>
 
