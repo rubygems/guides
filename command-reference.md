@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.5.7.
+This reference was automatically generated from RubyGems version 3.5.8.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -33,6 +33,7 @@ This reference was automatically generated from RubyGems version 3.5.7.
 * [gem push](#gem-push)
 * [gem query](#gem-query)
 * [gem rdoc](#gem-rdoc)
+* [gem rebuild](#gem-rebuild)
 * [gem search](#gem-search)
 * [gem server](#gem-server)
 * [gem signin](#gem-signin)
@@ -1196,6 +1197,56 @@ documentation may be built through rubygems plugins and the
 Gem.post_installs hook.
 
 Use --overwrite to force rebuilding of documentation.
+
+## gem rebuild
+
+Attempt to reproduce a build of a gem.
+
+### Usage
+
+    gem rebuild GEM_NAME GEM_VERSION [options]
+
+### Options
+
+* `--diff`                      - If the files don't match, compare them using diffoscope.
+* `--force`                     - Skip validation of the spec.
+* `--strict`                    - Consider warnings as errors when validating the spec.
+* `--source GEM_SOURCE`         - Specify the source to download the gem from.
+* `--original GEM_FILE`         - Specify a local file to compare against (instead of downloading it).
+* `--gemspec GEMSPEC_FILE`      - Specify the name of the gemspec file.
+* `-C PATH`                         - Run as if gem build was started in <PATH> instead of the current working directory.
+
+### Common Options
+
+* `-h, --help`                      - Get help on this command
+* `-V, --[no-]verbose`              - Set the verbose level of output
+* `-q, --quiet`                     - Silence command progress meter
+* `--silent`                    - Silence RubyGems output
+* `--config-file FILE`          - Use this config file instead of default
+* `--backtrace`                 - Show stack backtrace on errors
+* `--debug`                     - Turn on Ruby debugging
+* `--norc`                      - Avoid loading any .gemrc file
+
+### Arguments
+
+* *GEM_NAME* -       gem name on gem server
+* *GEM_VERSION* -    gem version you are attempting to rebuild
+
+### Description
+
+The rebuild command allows you to (attempt to) reproduce a build of a gem
+from a ruby gemspec.
+
+This command assumes the gemspec can be built with the `gem build` command.
+If you use any of `gem build`, `rake build`, or`rake release` in the
+build/release process for a gem, it is a potential candidate.
+
+You will need to match the RubyGems version used, since this is included in
+the Gem metadata.
+
+If the gem includes lockfiles (e.g. Gemfile.lock) and similar, it will
+require more effort to reproduce a build. For example, it might require
+more precisely matched versions of Ruby and/or Bundler to be used.
 
 ## gem search
 
