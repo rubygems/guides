@@ -272,7 +272,7 @@ Further Reading
   and [part 2](http://tenderlovemaking.com/2010/12/11/writing-ruby-c-extensions-part-2.html))
   by Aaron Patterson
 * Interfaces to C libraries can be written using ruby and
-  [fiddle](https://ruby-doc.org/stdlib/libdoc/fiddle/rdoc/Fiddle.html) (part
+  [fiddle](https://docs.ruby-lang.org/en/master/Fiddle.html) (part
   of the standard library) or [ruby-ffi](https://github.com/ffi/ffi)
 * [Extending Ruby](http://ruby-doc.com/docs/ProgrammingRuby/html/ext_ruby.html)
   is a [Programming Ruby](http://docs.ruby-doc.com/docs/ProgrammingRuby/)

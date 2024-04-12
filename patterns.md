@@ -273,8 +273,8 @@ For example, let's say we have a `foo` gem with the following structure:
 This might seem harmless since your custom `erb` and `set` files are within
 your gem.  However, this is not harmless, anyone who requires this gem will not
 be able to bring in the
-[ERB](http://ruby-doc.org/stdlib/libdoc/erb/rdoc/classes/ERB.html) or
-[Set](http://www.ruby-doc.org/stdlib/libdoc/set/rdoc/classes/Set.html) classes
+[ERB](https://docs.ruby-lang.org/en/master/ERB.html) or
+[Set](https://docs.ruby-lang.org/en/master/Set.html) classes
 provided by Ruby's standard library.
 
 The best way to get around this is to keep files in a different directory
