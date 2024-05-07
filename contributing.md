@@ -187,7 +187,7 @@ User-contributed guides are more than welcome and encouraged!
 <a class="project__name" href="https://github.com/rubygems/gemwhisperer">Gem Whisperer</a>
 
 An example of how to use [RubyGems.org's
-webhooks](http://guides.rubygems.org/rubygems-org-api/#webhook) to listen to every gem being
+webhooks](http://guides.rubygems.org/rubygems-org-api/#webhook-methods) to listen to every gem being
 pushed.
 
 <div class="project__links">
@@ -253,7 +253,7 @@ These projects are outside of the RubyGems core, but work closely with RubyGems 
 A fantastic provider of [YARD](http://yardoc.org) documentation for every
 RubyGem available. Push a gem, and you get docs created instantly!
 RubyGems.org links to this site and it uses [RubyGems.org's
-webhooks](http://guides.rubygems.org/rubygems-org-api/#webhook) as well.
+webhooks](http://guides.rubygems.org/rubygems-org-api/#webhook-methods) as well.
 
 <div class="project__links">
   <a class="project__link t-link" href="http://rubydoc.info">Site</a>
