@@ -13,10 +13,10 @@ Many gems use extensions to wrap libraries that are written in C with a ruby
 wrapper.  Examples include [nokogiri][nokogiri] which
 wraps [libxml2 and libxslt](http://www.xmlsoft.org),
 [pg](https://rubygems.org/gems/pg) which is an interface to the [PostgreSQL
-database](http://www.postgresql.org) and the
+database](https://www.postgresql.org) and the
 [mysql](https://rubygems.org/gems/mysql) and
 [mysql2](https://rubygems.org/gems/mysql2) gems which provide an interface to
-the [MySQL database](http://www.mysql.com).
+the [MySQL database](https://www.mysql.com).
 
 Creating a gem that uses an extension involves several steps.  This guide will
 focus on what you should put in your gem specification to make this as easy and
@@ -268,13 +268,13 @@ Further Reading
 * [rake-compiler][rake-compiler] integrates building C and Java extensions into
   your Rakefile in a smooth manner.
 * [Writing C extensions part
-  1](http://tenderlovemaking.com/2009/12/18/writing-ruby-c-extensions-part-1.html)
-  and [part 2](http://tenderlovemaking.com/2010/12/11/writing-ruby-c-extensions-part-2.html))
+  1](https://tenderlovemaking.com/2009/12/18/writing-ruby-c-extensions-part-1.html)
+  and [part 2](https://tenderlovemaking.com/2010/12/11/writing-ruby-c-extensions-part-2.html))
   by Aaron Patterson
 * Interfaces to C libraries can be written using ruby and
   [fiddle](https://docs.ruby-lang.org/en/master/Fiddle.html) (part
   of the standard library) or [ruby-ffi](https://github.com/ffi/ffi)
-* [Extending Ruby](http://ruby-doc.com/docs/ProgrammingRuby/html/ext_ruby.html)
+* [Extending Ruby](https://ruby-doc.com/docs/ProgrammingRuby/html/ext_ruby.html)
   is a [Programming Ruby](http://docs.ruby-doc.com/docs/ProgrammingRuby/)
   book chapter about building C extensions. _Please note_: this content is somewhat
   older and some C extension APIs have changed.

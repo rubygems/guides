@@ -30,7 +30,7 @@ API Authorization
 -----------------
 
 Some API calls require an Authorization header. To create or view existing API keys, click on
-your username when logged in to [RubyGems.org](http://rubygems.org), 'Settings', and then 'API Keys'. Here's an example of
+your username when logged in to [RubyGems.org](https://rubygems.org), 'Settings', and then 'API Keys'. Here's an example of
 using an API key:
 
     $ curl -H 'Authorization:YOUR_API_KEY' \

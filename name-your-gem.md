@@ -26,7 +26,7 @@ is objectionable, violates intellectual property or the contents of the gem meet
 these criteria.  You can report such a gem to [support@rubygems.org](mailto:support@rubygems.org)
 via email.
 
-[rubygems]: http://rubygems.org
+[rubygems]: https://rubygems.org
 
 Use underscores for multiple words
 ----------------------------------
@@ -53,7 +53,7 @@ The user will `require 'net/http/digest_auth'` to use the extension
 (in class `Net::HTTP::DigestAuth`).
 
 [digest-gem]: https://rubygems.org/gems/net-http-digest_auth
-[digest-standard]: http://tools.ietf.org/html/rfc2617
+[digest-standard]: https://tools.ietf.org/html/rfc2617
 
 Don't use UPPERCASE letters
 ---------------------------
@@ -69,4 +69,4 @@ Credits
 
 This guide was expanded from [How to Name Gems][how-to-name-gems] by Eric Hodel.
 
-[how-to-name-gems]: https://web.archive.org/web/20130821183311/http://blog.segment7.net/2010/11/15/how-to-name-gems
+[how-to-name-gems]: https://web.archive.org/web/20130821183311/https://blog.segment7.net/2010/11/15/how-to-name-gems

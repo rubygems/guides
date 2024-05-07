@@ -168,7 +168,7 @@ The central home for RubyGems documentation, including tutorials and reference m
 User-contributed guides are more than welcome and encouraged!
 
 <div class="project__links">
-  <a class="project__link t-link" href="http://guides.rubygems.org">Site</a>
+  <a class="project__link t-link" href="https://guides.rubygems.org">Site</a>
   <a class="project__link t-link" href="https://github.com/rubygems/guides/issues">Issues</a>
 </div>
 
@@ -187,7 +187,7 @@ User-contributed guides are more than welcome and encouraged!
 <a class="project__name" href="https://github.com/rubygems/gemwhisperer">Gem Whisperer</a>
 
 An example of how to use [RubyGems.org's
-webhooks](http://guides.rubygems.org/rubygems-org-api/#webhook-methods) to listen to every gem being
+webhooks](https://guides.rubygems.org/rubygems-org-api/#webhook-methods) to listen to every gem being
 pushed.
 
 <div class="project__links">
@@ -250,13 +250,13 @@ These projects are outside of the RubyGems core, but work closely with RubyGems 
 
 <a class="project__name is-first" href="https://github.com/docmeta/rubydoc.info">RubyDoc.info</a>
 
-A fantastic provider of [YARD](http://yardoc.org) documentation for every
+A fantastic provider of [YARD](https://yardoc.org) documentation for every
 RubyGem available. Push a gem, and you get docs created instantly!
 RubyGems.org links to this site and it uses [RubyGems.org's
-webhooks](http://guides.rubygems.org/rubygems-org-api/#webhook-methods) as well.
+webhooks](https://guides.rubygems.org/rubygems-org-api/#webhook-methods) as well.
 
 <div class="project__links">
-  <a class="project__link t-link" href="http://rubydoc.info">Site</a>
+  <a class="project__link t-link" href="https://rubydoc.info">Site</a>
   <a class="project__link t-link" href="https://github.com/docmeta/rubydoc.info/issues">Issues</a>
   <a class="project__link t-link" href="https://groups.google.com/forum/#!forum/yardoc">Mailing List</a>
 </div>
