@@ -25,7 +25,7 @@ by the gem's author. Because of this, the security of gem code is a topic of
 active discussion within the Ruby community.
 
 RubyGems has had the ability to [cryptographically sign
-gems](http://docs.seattlerb.org/rubygems/Gem/Security.html) since version
+gems](https://docs.seattlerb.org/rubygems/Gem/Security.html) since version
 0.8.11. This signing works by using the `gem cert` command to create a key
 pair, and then packaging signing data inside the gem itself. The `gem install`
 command optionally lets you set a security policy, and you can verify the
@@ -130,7 +130,7 @@ Add cert paths to your gemspec
 
 -------
 
-### OpenPGP signing is [not recommended due to lack of support (archive)](https://web.archive.org/web/20131125012205/http://www.rubygems-openpgp-ca.org/blog/nobody-cares-about-signed-gems.html).
+### OpenPGP signing is [not recommended due to lack of support (archive)](https://web.archive.org/web/20131125012205/https://www.rubygems-openpgp-ca.org/blog/nobody-cares-about-signed-gems.html).
 
 For details, see discussion [with Yorick
 Peterse](https://github.com/rubygems/guides/pull/70#issuecomment-29007487).
@@ -143,7 +143,7 @@ Reporting Security vulnerabilities
 
 If you spot a security vulnerability in someone else's gem, then you
 first step should be to check whether this is a known vulnerability.
-One way is by searching for an advisory on [RubySec](http://rubysec.com).
+One way is by searching for an advisory on [RubySec](https://rubysec.com).
 
 If this looks like a newly discovered vulnerability, then you should
 contact the author(s) privately (i.e., not via a pull request or issue on a
@@ -182,10 +182,10 @@ Credits
 
 Several sources were used for content for this guide:
 
-* [How to cryptographically sign your RubyGem](http://www.benjaminfleischer.com/2013/11/08/how-to-sign-your-rubygem-cert/) - Step-by-step guide
+* [How to cryptographically sign your RubyGem](https://www.benjaminfleischer.com/2013/11/08/how-to-sign-your-rubygem-cert/) - Step-by-step guide
 * [Signing rubygems - Pasteable instructions (archive)](https://web.archive.org/web/20130218074304/https://developer.zendesk.com/blog/2013/02/03/signing-gems/)
 * [metric_fu gem gemspec](https://github.com/metricfu/metric_fu/blob/master/metric_fu.gemspec)
 * [RubyGems Trust Model Overview](https://github.com/rubygems-trust/rubygems.org/wiki/Overview), [doc](https://goo.gl/ybFIO)
 * [Let's figure out a way to start signing RubyGems](https://tonyarcieri.com/lets-figure-out-a-way-to-start-signing-rubygems)
-* [A Practical Guide to Using Signed Ruby Gems - Part 3: Signing your Own (archive)](https://web.archive.org/web/20131125020053/http://blog.meldium.com/home/2013/3/6/signing-gems-how-to)
+* [A Practical Guide to Using Signed Ruby Gems - Part 3: Signing your Own (archive)](https://web.archive.org/web/20131125020053/https://blog.meldium.com/home/2013/3/6/signing-gems-how-to)
 * Also see the [Resources](/resources) page.

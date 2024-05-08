@@ -28,7 +28,7 @@ will see a dropdown menu with these options:
 - **UI and API**: UI operations, `gem signin`, `push`, `owner --add` and `owner --remove` will require OTP code.
 
 Note: If you are on the "UI only" or "UI and gem signin" authentication level,
-you can selectively enable MFA on specific API keys (see [API key scopes](http://guides.rubygems.org/api-key-scopes/#enable-mfa-on-specific-api-keys)).
+you can selectively enable MFA on specific API keys (see [API key scopes](https://guides.rubygems.org/api-key-scopes/#enable-mfa-on-specific-api-keys)).
 This is different from the "UI and API" level as MFA is enabled on all API keys by default and cannot be selectively enabled.
 
 Steps to change your MFA level:

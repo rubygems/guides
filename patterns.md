@@ -18,7 +18,7 @@ Consistent naming
 -----------------
 
 > There are only two hard things in Computer Science: cache invalidation and naming things.
-> -[Phil Karlton](http://martinfowler.com/bliki/TwoHardThings.html)
+> -[Phil Karlton](https://martinfowler.com/bliki/TwoHardThings.html)
 
 ### File names
 
@@ -45,7 +45,7 @@ can easily jump in and call `require 'hola'` with no problems.
 ### Naming your gem
 
 Naming your gem is important.  Before you pick a name for your gem, do a
-quick search on [RubyGems.org](http://rubygems.org) and
+quick search on [RubyGems.org](https://rubygems.org) and
 [GitHub](https://github.com/search) to see if someone else has taken it.  Every
 published gem must have a unique name.  Be sure to read our [naming
 recommendations](/name-your-gem) when you've found a name you like.
@@ -60,7 +60,7 @@ it can be really strange (Knuth’s TeX project had version numbers: 3,
 3.1, 3.14, 3.141, 3.1415; each successive version added another digit to PI).
 
 The RubyGems team urges gem developers to follow the
-[Semantic Versioning](http://semver.org) standard for their gem's versions. The
+[Semantic Versioning](https://semver.org) standard for their gem's versions. The
 RubyGems library itself does not enforce a strict versioning policy, but using
 an "irrational" policy will only be a disservice to those in the community who
 use your gems.
@@ -99,8 +99,8 @@ other.
 
 RubyGems provides two main "types" of dependencies: runtime and development.
 Runtime dependencies are what your gem needs to work (such as
-[rails](http://rubygems.org/gems/rails) needing
-[activesupport](http://rubygems.org/gems/activesupport)).
+[rails](https://rubygems.org/gems/rails) needing
+[activesupport](https://rubygems.org/gems/activesupport)).
 
 Development dependencies are useful for when someone wants to make
 modifications to your gem. When you specify development dependencies, another
@@ -134,7 +134,7 @@ RubyGems can handle loading the dependency instead of the user.
 
 ### Pessimistic version constraint
 
-If your gem properly follows [semantic versioning](http://semver.org) with its
+If your gem properly follows [semantic versioning](https://semver.org) with its
 versioning scheme, then other Ruby developers can take advantage of this when
 choosing a version constraint to lock down your gem in their application.
 
@@ -174,7 +174,7 @@ excludes the versions that might break your code:
     gem 'library', '>= 2.2.0', '< 3.0'
 
 RubyGems provides a shortcut for this, commonly known as the
-[twiddle-wakka](http://robots.thoughtbot.com/post/2508037841/twiddle-wakka):
+[twiddle-wakka](https://robots.thoughtbot.com/post/2508037841/twiddle-wakka):
 
     # gemspec
     spec.add_runtime_dependency 'library',
@@ -243,7 +243,7 @@ means that the gem can be easily used without needing the RubyGems client to
 run.
 
 For more information please check out [Ryan
-Tomayko's](http://tomayko.com/writings/require-rubygems-antipattern) original
+Tomayko's](https://tomayko.com/writings/require-rubygems-antipattern) original
 post about the subject.
 
 Loading code
@@ -366,5 +366,5 @@ Credits
 
 Several sources were used for content for this guide:
 
-* [Rubygems Good Practice](http://yehudakatz.com/2009/07/24/rubygems-good-practice/)
-* [Gem Packaging: Best Practices](http://weblog.rubyonrails.org/2009/9/1/gem-packaging-best-practices)
+* [Rubygems Good Practice](https://yehudakatz.com/2009/07/24/rubygems-good-practice/)
+* [Gem Packaging: Best Practices](https://weblog.rubyonrails.org/2009/9/1/gem-packaging-best-practices)
