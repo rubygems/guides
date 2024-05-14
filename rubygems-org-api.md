@@ -545,6 +545,24 @@ Retrieve your API key using HTTP basic auth.
       "rubygems_api_key": "701243f217cdf23b1370c7b66b65ca97"
     }
 
+### POST - `/api/v1/oidc/trusted_publisher/exchange_token`
+
+Exchange an OIDC ID token for a RubyGems API key. This endpoint is intended to be used by the
+[`release-gem`](github.com/rubygems/release-gem) GitHub Action for [trusted publishing](/trusted-publishing/releasing-gems).
+
+The request body must be a JSON object with a single key, `jwt`, whose value is the ID token (as a string).
+
+    $ curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" \
+           -d '{"jwt": $ID_TOKEN}' \
+           https://rubygems.org/api/v1/oidc/trusted_publisher/exchange_token"
+
+    {
+      "rubygems_api_key": "rubygems_701243f217cdf23b1370c7b66b65ca97",
+      "name": "GitHub Actions rubygems/configure-rubygems-credentials @ .github/workflows/token.yml",
+      "scopes": ["push_rubygem"],
+      "expires_at": "2021-01-01T00:00:00Z"
+    }
+
 ### GET - `/api/v1/dependencies?gems=[COMMA DELIMITED GEM NAMES]`
 
 Returns a marshalled array of hashes for all versions of given gems. Each hash
