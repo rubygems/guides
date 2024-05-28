@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.5.10.
+This reference was automatically generated from RubyGems version 3.5.11.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -1026,7 +1026,7 @@ Restores installed gems to pristine condition from files located in the gem cach
 * `--only-executables`          - Only restore executables
 * `--only-plugins`              - Only restore plugins
 * `-E, --[no-]env-shebang`          - Rewrite executables with a shebang of /usr/bin/env
-* `-i, --install-dir DIR`           - Gem repository to get binstubs and plugins installed
+* `-i, --install-dir DIR`           - Gem repository to get gems restored
 * `-n, --bindir DIR`                - Directory where executables are located
 * `-v, --version VERSION`           - Specify version of gem to restore to pristine condition
 
