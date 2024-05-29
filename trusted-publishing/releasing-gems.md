@@ -2,6 +2,7 @@
 layout: default
 title: Releasing gems with a trusted publisher
 url: /trusted-publishing/releasing-gems
+next: /credits
 ---
 
 Once you have a trusted publisher configured, you can use RubyGems' [`release-gem`](https://github.com/rubygems/release-gem) GitHub Action to set up your workflow to push gems to RubyGems.org.

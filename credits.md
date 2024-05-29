@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Credits
-previous: /plugins
+previous: /trusted-publishing/releasing-gems
 next: /
 ---
 
