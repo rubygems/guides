@@ -2,6 +2,8 @@
 layout: default
 title: Trusted Publishing
 url: /trusted-publishing
+previous: /releasing-rubygems
+next: /trusted-publishing/adding-a-publisher
 ---
 
 Trusted Publishing is a term for using OpenID Connect (OIDC) to exchange short-lived identity tokens between a trusted third-party service and RubyGems.org.

@@ -3,7 +3,7 @@ layout: default
 title: Plugins
 url: /plugins
 previous: /faqs
-next: /credits
+next: /cve
 ---
 
 Plugins

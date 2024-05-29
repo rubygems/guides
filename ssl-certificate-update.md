@@ -2,7 +2,7 @@
 layout: default
 title: SSL Certificate Update
 url: /ssl-certificate-update
-previous: /security
+previous: /removing-a-published-gem
 next: /patterns
 ---
 

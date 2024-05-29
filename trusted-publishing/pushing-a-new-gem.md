@@ -2,6 +2,8 @@
 layout: default
 title: Pushing a new gem with a trusted publisher
 url: /trusted-publishing/pushing-a-new-gem
+previous: /trusted-publishing/adding-a-publisher
+next: /trusted-publishing/releasing-gems
 ---
 
 Trusted publishers are not just for existing gems, they can also be used to push new gems!

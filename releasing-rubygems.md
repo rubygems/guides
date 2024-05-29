@@ -2,6 +2,8 @@
 layout: default
 title: Releasing Rubygems
 url: /releasing-rubygems
+previous: /cve
+next: /trusted-publishing
 ---
 
 <em class="t-gray">A runbook for making RubyGems releases.</em>
