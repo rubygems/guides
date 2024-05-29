@@ -2,6 +2,8 @@
 layout: default
 title: Adding a trusted publisher to an existing gem
 url: /trusted-publishing/adding-a-publisher
+previous: /trusted-publishing
+next: /trusted-publishing/pushing-a-new-gem
 ---
 
 Adding a trusted publisher to a gem only requires a single setup step.

@@ -2,6 +2,7 @@
 layout: default
 title: Releasing gems with a trusted publisher
 url: /trusted-publishing/releasing-gems
+previous: /trusted-publishing/pushing-a-new-gem
 next: /credits
 ---
 

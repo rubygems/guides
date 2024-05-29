@@ -2,6 +2,8 @@
 layout: default
 title: RubyGems Common Vulnerabilities and Exposures
 url: /cve
+previous: /credits
+next: /releasing-rubygems
 ---
 
 # RubyGems Common Vulnerabilities and Exposures
