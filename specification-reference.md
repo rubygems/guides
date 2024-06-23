@@ -347,6 +347,7 @@ next: /command-reference
 
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_runtime_dependency</span> <span class="ruby-string">&#39;example&#39;</span>, <span class="ruby-string">&#39;~&gt; 1.1&#39;</span>, <span class="ruby-string">&#39;&gt;= 1.1.4&#39;</span>
 </pre>
+Also known as: **add_dependency**
 
 <a id="author="> </a>
 
