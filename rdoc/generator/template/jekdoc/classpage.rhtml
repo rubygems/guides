@@ -67,6 +67,9 @@ next: /command-reference
    description.gsub! %r%<a\shref=(["'])Specification\.html\1>Specification</a>%,
                      'Specification' %>
 <%= description %>
+<% if method.aliases.any? -%>
+Also known as: **<%= method.aliases.map(&:name).join(", ") %>**
+<% end -%>
 <% end -%>
 <% end -%>
 
