@@ -64,9 +64,9 @@ next: /command-reference
     
 ## Optional gemspec attributes
     
-* [add_development_dependency](#add_development_dependency)
+* [add_dependency](#add_dependency)
     
-* [add_runtime_dependency](#add_runtime_dependency)
+* [add_development_dependency](#add_development_dependency)
     
 * [author=](#author=)
     
@@ -324,6 +324,18 @@ next: /command-reference
 # Optional gemspec attributes
 
 
+<a id="add_dependency"> </a>
+
+## add_dependency(`gem`, `*requirements`)
+
+<p>Adds a runtime dependency named <code>gem</code> with <code>requirements</code> to this gem.</p>
+
+<p>Usage:</p>
+
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_dependency</span> <span class="ruby-string">&#39;example&#39;</span>, <span class="ruby-string">&#39;~&gt; 1.1&#39;</span>, <span class="ruby-string">&#39;&gt;= 1.1.4&#39;</span>
+</pre>
+Also known as: **add_runtime_dependency**
+
 <a id="add_development_dependency"> </a>
 
 ## add_development_dependency(`gem`, `*requirements`)
@@ -336,18 +348,6 @@ next: /command-reference
 </pre>
 
 <p>Development dependencies aren’t installed by default and aren’t activated when a gem is required.</p>
-
-<a id="add_runtime_dependency"> </a>
-
-## add_runtime_dependency(`gem`, `*requirements`)
-
-<p>Adds a runtime dependency named <code>gem</code> with <code>requirements</code> to this gem.</p>
-
-<p>Usage:</p>
-
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_runtime_dependency</span> <span class="ruby-string">&#39;example&#39;</span>, <span class="ruby-string">&#39;~&gt; 1.1&#39;</span>, <span class="ruby-string">&#39;&gt;= 1.1.4&#39;</span>
-</pre>
-Also known as: **add_dependency**
 
 <a id="author="> </a>
 
