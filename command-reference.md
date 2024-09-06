@@ -970,7 +970,7 @@ Manage gem owners of a gem on the push server
 
 ### Options
 
-* `-k, --key KEYNAME`               - Use the given API key from ~/.local/share/gem/credentials
+* `-k, --key KEYNAME`               - Use the given API key from ~/.gem/credentials
 * `--otp CODE`                  - Digit code for multifactor authentication You can also use the environment variable GEM_HOST_OTP_CODE
 * `-a, --add NEW_OWNER`             - Add an owner by user identifier
 * `-r, --remove OLD_OWNER`          - Remove an owner by user identifier
@@ -1073,7 +1073,7 @@ Push a gem up to the gem server
 
 ### Options
 
-* `-k, --key KEYNAME`               - Use the given API key from ~/.local/share/gem/credentials
+* `-k, --key KEYNAME`               - Use the given API key from ~/.gem/credentials
 * `--otp CODE`                  - Digit code for multifactor authentication You can also use the environment variable GEM_HOST_OTP_CODE
 * `--host HOST`                 - Push to another gemcutter-compatible host (e.g. https://rubygems.org)
 
@@ -1769,7 +1769,7 @@ Remove a pushed gem from the index
 * `--platform PLATFORM`         - Specify the platform of gem to remove
 * `--otp CODE`                  - Digit code for multifactor authentication You can also use the environment variable GEM_HOST_OTP_CODE
 * `--host HOST`                 - Yank from another gemcutter-compatible host (e.g. https://rubygems.org)
-* `-k, --key KEYNAME`               - Use the given API key from ~/.local/share/gem/credentials
+* `-k, --key KEYNAME`               - Use the given API key from ~/.gem/credentials
 
 ### Common Options
 
