@@ -14,24 +14,26 @@ GEM
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
     eventmachine (1.2.7-java)
-    ffi (1.16.3)
-    ffi (1.16.3-java)
+    ffi (1.17.0)
+    ffi (1.17.0-arm64-darwin)
+    ffi (1.17.0-java)
+    ffi (1.17.0-x86_64-linux-gnu)
     ffi-compiler (1.3.2)
       ffi (>= 1.15.5)
       rake
     forwardable-extended (2.6.0)
-    google-protobuf (4.27.0)
+    google-protobuf (4.27.5)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.27.0-arm64-darwin)
+    google-protobuf (4.27.5-arm64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.27.0-java)
+    google-protobuf (4.27.5-java)
       bigdecimal
       ffi (~> 1)
       ffi-compiler (~> 1)
       rake (>= 13)
-    google-protobuf (4.27.0-x86_64-linux)
+    google-protobuf (4.27.5-x86_64-linux)
       bigdecimal
       rake (>= 13)
     http_parser.rb (0.8.0)
