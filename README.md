@@ -24,11 +24,7 @@ are gladly accepted!
 Setup
 -----
 
-First, install the `sass` command line tool. On MacOS you can use Homebrew:
-
-    $ brew install sass/sass/sass
-
-Then run `bundle install` and `bundle exec rake`. This will launch both Jekyll and
+First, run `bundle install` and `bundle exec rake`. This will launch both Jekyll and
 Sass in "watch" mode.
 
 The pages will be available at http://localhost:4000/
