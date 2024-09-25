@@ -15,6 +15,7 @@ GEM
     eventmachine (1.2.7)
     eventmachine (1.2.7-java)
     ffi (1.17.0)
+    ffi (1.17.0-arm-linux-gnu)
     ffi (1.17.0-arm64-darwin)
     ffi (1.17.0-java)
     ffi (1.17.0-x86_64-linux-gnu)
@@ -100,6 +101,8 @@ GEM
     sass-embedded (1.77.2)
       google-protobuf (>= 3.25, < 5.0)
       rake (>= 13.0.0)
+    sass-embedded (1.77.2-arm-linux-gnueabihf)
+      google-protobuf (>= 3.25, < 5.0)
     sass-embedded (1.77.2-arm64-darwin)
       google-protobuf (>= 3.25, < 5.0)
     sass-embedded (1.77.2-x86_64-linux-gnu)
@@ -128,4 +131,4 @@ DEPENDENCIES
   webrick (~> 1.7)
 
 BUNDLED WITH
-   2.5.11
+   2.5.20
