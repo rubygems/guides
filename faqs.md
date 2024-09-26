@@ -25,6 +25,7 @@ Some of the information you can find on the support site includes:
 * [RubyGems Upgrade Issues](https://help.rubygems.org/kb/rubygems/rubygems-upgrade-issues)
 
 [slack]: https://slack.bundler.io/
+
 I installed gems with `--user-install` and their commands are not available
 ---------------------------------------------------------------------------
 
