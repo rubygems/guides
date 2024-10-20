@@ -286,7 +286,7 @@ next: /command-reference
   &quot;homepage_uri&quot;      =&gt; &quot;https://bestgemever.example.io&quot;,
   &quot;mailing_list_uri&quot;  =&gt; &quot;https://groups.example.com/bestgemever&quot;,
   &quot;source_code_uri&quot;   =&gt; &quot;https://example.com/user/bestgemever&quot;,
-  &quot;wiki_uri&quot;          =&gt; &quot;https://example.com/user/bestgemever/wiki&quot;
+  &quot;wiki_uri&quot;          =&gt; &quot;https://example.com/user/bestgemever/wiki&quot;,
   &quot;funding_uri&quot;       =&gt; &quot;https://example.com/donate&quot;
 }</pre>
 
