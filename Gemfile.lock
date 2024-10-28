@@ -93,8 +93,7 @@ GEM
       ffi (~> 1.0)
     rdoc (6.4.1.1)
       psych (>= 4.0.0)
-    rexml (3.3.6)
-      strscan
+    rexml (3.3.9)
     rouge (4.2.1)
     safe_yaml (1.0.5)
     sass-embedded (1.77.2)
@@ -105,8 +104,6 @@ GEM
     sass-embedded (1.77.2-x86_64-linux-gnu)
       google-protobuf (>= 3.25, < 5.0)
     stringio (3.1.0)
-    strscan (3.1.0)
-    strscan (3.1.0-java)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
     tomlrb (2.0.1)
