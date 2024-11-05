@@ -279,16 +279,17 @@ next: /command-reference
 
 <p>You can use metadata to specify links to your gem’s homepage, codebase, documentation, wiki, mailing list, issue tracker and changelog.</p>
 
-<pre>s.metadata = {
-  &quot;bug_tracker_uri&quot;   =&gt; &quot;https://example.com/user/bestgemever/issues&quot;,
-  &quot;changelog_uri&quot;     =&gt; &quot;https://example.com/user/bestgemever/CHANGELOG.md&quot;,
-  &quot;documentation_uri&quot; =&gt; &quot;https://www.example.info/gems/bestgemever/0.0.1&quot;,
-  &quot;homepage_uri&quot;      =&gt; &quot;https://bestgemever.example.io&quot;,
-  &quot;mailing_list_uri&quot;  =&gt; &quot;https://groups.example.com/bestgemever&quot;,
-  &quot;source_code_uri&quot;   =&gt; &quot;https://example.com/user/bestgemever&quot;,
-  &quot;wiki_uri&quot;          =&gt; &quot;https://example.com/user/bestgemever/wiki&quot;,
-  &quot;funding_uri&quot;       =&gt; &quot;https://example.com/donate&quot;
-}</pre>
+<pre class="ruby"><span class="ruby-identifier">s</span>.<span class="ruby-identifier">metadata</span> = {
+  <span class="ruby-string">&quot;bug_tracker_uri&quot;</span>   <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever/issues&quot;</span>,
+  <span class="ruby-string">&quot;changelog_uri&quot;</span>     <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever/CHANGELOG.md&quot;</span>,
+  <span class="ruby-string">&quot;documentation_uri&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://www.example.info/gems/bestgemever/0.0.1&quot;</span>,
+  <span class="ruby-string">&quot;homepage_uri&quot;</span>      <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://bestgemever.example.io&quot;</span>,
+  <span class="ruby-string">&quot;mailing_list_uri&quot;</span>  <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://groups.example.com/bestgemever&quot;</span>,
+  <span class="ruby-string">&quot;source_code_uri&quot;</span>   <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever&quot;</span>,
+  <span class="ruby-string">&quot;wiki_uri&quot;</span>          <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever/wiki&quot;</span>,
+  <span class="ruby-string">&quot;funding_uri&quot;</span>       <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://example.com/donate&quot;</span>
+}
+</pre>
 
 <p>These links will be used on your gem’s page on rubygems.org and must pass validation against following regex.</p>
 
