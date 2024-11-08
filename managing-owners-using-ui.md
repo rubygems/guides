@@ -40,7 +40,7 @@ On confirmation, all the existing owners will be notified about the owner additi
 
 Owner & Maintainer Roles
 ------------------------
-When managing owners, you have the option to select a role, either Owner or Maintainer. Owners have full control over the gem, including the ability to add or remove owners. Maintainers, have the ability to publish and yank gem versions, but cannot manager users, or configure gem security settings.
+When managing owners, you have the option to select a role, either Owner or Maintainer. Owners have full control over the gem, including the ability to add or remove owners. Maintainers, have the ability to publish and yank gem versions, but cannot manage users, or configure gem security settings.
 
 Owners & Maintainers have access to the following permissions:
 
