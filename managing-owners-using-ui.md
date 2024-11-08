@@ -27,7 +27,9 @@ You will be able to see the confirmation status, MFA level and the user who auth
 Adding user as an owner to your gem
 --------------------------------
 Step: 1
-Enter the email or handle of the user in the text field labels *Email/Handle* and click *Add Owner*.
+Enter the email or handle of the user in the text field labels *Email/Handle*
+Select the role that best suits the user, see [Owner & Maintainer Roles](#owner--maintainer-roles) for more details.
+Finally, click *Add Owner*.
 
 Step: 2
 The user added as an owner will be sent an email with a link to confirm the ownership.
@@ -35,6 +37,26 @@ The ownership will be confirmed after the user clicks on the confirmation link w
 On confirmation, all the existing owners will be notified about the owner addition.
 
 `Note that` the user won't have access to the gem until they confirm the ownership addition.
+
+Owner & Maintainer Roles
+------------------------
+When managing owners, you have the option to select a role, either Owner or Maintainer. Owners have full control over the gem, including the ability to add or remove owners. Maintainers, have the ability to publish and yank gem versions, but cannot manager users, or configure gem security settings.
+
+Owners & Maintainers have access to the following permissions:
+
+| Permission                             | Owner | Maintainer |
+|:--------------------------------------:|:-----:|:----------:|
+| Can publish new gem versions           |   ✅   |     ✅      |
+| Can yank gem versions                  |   ✅   |     ✅      |
+| Can add or remove owners               |   ✅   |     ❌      |
+| Configure OIDC and Trusted Publishing  |   ✅   |     ❌      |
+| Manage gem adoptions                   |   ✅   |     ❌      |
+
+
+Updating an owner role
+----------------------
+To update the role of an owner, visit `https://rubygems.org/gems/<gem-name>/owners` and click on the *Edit* button of the
+corresponding user. You can select the role of the user edit page and click on *Update Owner*.
 
 Resend ownership confirmation link
 ----------------------------------
