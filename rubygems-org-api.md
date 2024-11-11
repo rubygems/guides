@@ -50,7 +50,7 @@ You can also interact with RubyGems.org using Ruby.
 
 The [gems](https://rubygems.org/gems/gems) client provides a Ruby interface to
 all the resources listed below. This library has
-[full documentation](http://rdoc.info/gems/gems) that includes some basic usage
+[full documentation](https://rubydoc.info/gems/gems) that includes some basic usage
 examples in the README. You can install the library with the command:
 
     gem install gems
