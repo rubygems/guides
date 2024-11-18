@@ -3,22 +3,25 @@ name: ci
 
 on: [pull_request]
 
+permissions:
+  contents: read
+
 jobs:
   ci:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.4.2
         with:
           path: guides
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.4.2 
         with:
           repository: rubygems/rubygems
           path: rubygems
           ref: 3.5
 
       - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@a2bbe5b1b236842c1cb7dd11e8e3b51e0a616acc #v1.202.0
         with:
           ruby-version: 3.2.2
           bundler-cache: true
