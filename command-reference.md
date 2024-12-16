@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.5.23.
+This reference was automatically generated from RubyGems version 3.6.0.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -640,6 +640,7 @@ Install a gem into the local repository
 * `--explain`                   - Rather than install the gems, indicate which would be installed
 * `--[no-]lock`                 - Create a lock file (when used with `-g`/`--file`)
 * `--[no-]suggestions`          - Suggest alternates when gems are not found
+* `--target-rbconfig [FILE]`    - rbconfig.rb for the deployment target platform
 
 ### Local/Remote Options
 
@@ -1076,6 +1077,7 @@ Push a gem up to the gem server
 * `-k, --key KEYNAME`               - Use the given API key from ~/.local/share/gem/credentials
 * `--otp CODE`                  - Digit code for multifactor authentication You can also use the environment variable GEM_HOST_OTP_CODE
 * `--host HOST`                 - Push to another gemcutter-compatible host (e.g. https://rubygems.org)
+* `--attestation FILE`          - Push with sigstore attestations
 
 ### Local/Remote Options
 
@@ -1685,6 +1687,7 @@ Update installed gems to the latest version
 * `--explain`                   - Rather than install the gems, indicate which would be installed
 * `--[no-]lock`                 - Create a lock file (when used with `-g`/`--file`)
 * `--[no-]suggestions`          - Suggest alternates when gems are not found
+* `--target-rbconfig [FILE]`    - rbconfig.rb for the deployment target platform
 
 ### Local/Remote Options
 
