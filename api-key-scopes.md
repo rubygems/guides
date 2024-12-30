@@ -89,6 +89,17 @@ API key scopes
 * [Access webhooks](https://guides.rubygems.org/rubygems-org-api/#webhook-methods): List, create, delete or fire webhooks associated with your account
 * [Show dashboard](https://rubygems.org/dashboard): Access to atom feed of your RubyGems.org dashboard. It is an exclusive scope and can't be enabled with any other scope.
 
+Scope an API key to a gem
+-------------------------
+Enabling one or more of the key scopes related to creating or updating a gem ([Push rubygems](https://guides.rubygems.org/rubygems-org-api/#post---apiv1gems), [Yank rubygems](https://guides.rubygems.org/rubygems-org-api/#delete---apiv1gemsyank), [Add owner](https://guides.rubygems.org/rubygems-org-api/#post---apiv1gemsgem-nameowners), and [Remove owner](https://guides.rubygems.org/rubygems-org-api/#delete---apiv1gemsgem-nameowners)) will allow you to scope one of your gems to the API key.
+The operations corresponding to these scopes will only be valid on the selected gem.
+
+![New API key with gem scope](/images/new-api-key-gem-scope.png){:class="t-img"}
+
+If you are using a key to modify only one of your gems, please consider gem scoping your keys.
+
+**Note:** When your ownership to a gem is removed, API keys scoped to that gem will become invalid and cannot be used.
+
 Enable MFA on specific API keys
 -----------------------------
 
