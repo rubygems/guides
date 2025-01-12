@@ -50,7 +50,6 @@ Owners & Maintainers have access to the following permissions:
 | Can yank gem versions                  |   ✅   |     ✅      |
 | Can add or remove owners               |   ✅   |     ❌      |
 | Configure OIDC and Trusted Publishing  |   ✅   |     ❌      |
-| Manage gem adoptions                   |   ✅   |     ❌      |
 
 
 Updating an owner role
