@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.6.2.
+This reference was automatically generated from RubyGems version 3.6.3.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -364,6 +364,7 @@ Display information about the RubyGems environment
 * *version* -          display the gem format version
 * *remotesources* -    display the remote gem servers
 * *platform* -         display the supported gem platforms
+* *credentials* -      display the path where credentials are stored
 * *&lt;omitted&gt;* -        display everything
 
 ### Description
