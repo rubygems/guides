@@ -24,7 +24,11 @@ Click the "Create" button, which will take you to the publisher configuration pa
 
 ![Gem trusted publisher creation form](/images/trusted-publishing/rubygem-trusted-publisher-form.png){:class="t-img"}
 
-Providing the owner name, repository name, and GitHub Actions workflow name allows RubyGems to securely accept uploaded gems from the GitHub Actions infrastructure. If you have multiple workflows that push gems, you can create one Trusted Publisher for each workflow.
+Providing the owner name, repository name, and GitHub Actions workflow name allows RubyGems to securely accept uploaded gems from the GitHub Actions infrastructure.
+If you have multiple workflows that push gems, you can create one Trusted Publisher for each workflow.
+
+The environment allows GitHub to constrain who can publish your gem if many people have access to the repository.
+We suggest using the [GitHub Action Environment](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-environments-for-deploymentenvironment) name "release", which we will use in our workflow examples on the next page.
 
 Once you click "Create Rubygem trusted publisher", your publisher will be registered and will appear in the list of trusted publishers for this gem.
 

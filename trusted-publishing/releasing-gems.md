@@ -36,3 +36,5 @@ jobs:
 ```
 
 Note the `id-token: write` permission: you **must** provide this permission at either the job level (strongly recommended) or workflow level (discouraged). Without it, the publishing action won't have sufficient permissions to identify itself to RubyGems.org.
+
+For more about `environment` setting, see: [Using Environment for your deployment (GitHub.com)](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-environments-for-deployment)
