@@ -104,6 +104,20 @@ If you have multiple maintainers for your gem you can give your fellow
 maintainers permission to push the gem to rubygems.org through the [gem
 owner command](/command-reference/#gem-owner).
 
+"Access Denied" Error When Pushing to RubyGems.org
+--------------------------------------------------
+
+In certain situations, you may get this error:
+
+    Pushing gem to https://rubygems.org...
+    Access Denied. Please sign up for an account at https://rubygems.org
+
+If you encounter this error and aren't sure why, try running `gem signout`
+and then `gem signin`.
+
+There is [an open issue about improving how this is
+handled](https://github.com/rubygems/rubygems/issues/7595).
+
 Gem Security
 ------------
 
