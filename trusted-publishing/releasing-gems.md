@@ -25,6 +25,8 @@ jobs:
     steps:
       # Set up
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
