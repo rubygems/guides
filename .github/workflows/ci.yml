@@ -13,12 +13,14 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.4.2
         with:
           path: guides
+          persist-credentials: false
 
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.4.2 
         with:
           repository: rubygems/rubygems
           path: rubygems
           ref: 3.6
+          persist-credentials: false
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@a2bbe5b1b236842c1cb7dd11e8e3b51e0a616acc #v1.202.0
