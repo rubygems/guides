@@ -1,0 +1,16 @@
+{
+  "name: RubyGems Guides",
+  "dockerFile": "Dockerfile",
+  "forwardPorts": [
+    4000
+  ],
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "postCreateCommand": "bin/setup",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Shopify.ruby-lsp"
+      ]
+    }
+  }
+}
