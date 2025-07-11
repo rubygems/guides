@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require "fileutils"
+
+APP_ROOT = File.expand_path("..", __dir__)
+
+def system!(*args)
+  system(*args, exception: true)
+end
+
+FileUtils.chdir APP_ROOT do
+  puts "=== Installing dependencies ==="
+  system("bundle check") || system!("bundle install")
+end
