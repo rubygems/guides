@@ -1,212 +1,236 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <title>{{ page.title }} - RubyGems Guides</title>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.icns">
-    <meta http-equiv="Description" name="Description" content="Tutorials, guides, FAQs for RubyGems package management" />
-    <meta http-equiv="Keywords" name="Keywords" content="rubygems, gems, programming, ruby, packages" />
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" name="viewport">
-    <link href="/stylesheets/application.css" rel="stylesheet" type="text/css" />
-    <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/javascripts/mobile-nav.js" type="text/javascript"></script>
-    <script src="//use.typekit.net/omu5dik.js" type="text/javascript"></script>
-    <script>
-      try{Typekit.load();}catch(e){}
-    </script>
-    <script>
-      $(function() {
-        var path = window.location.pathname;
-        $('a.nav--v__link[href="'+path.substring(0, path.length -1)+'"]').addClass('is-active');
-        var header_link = $('a.header__nav-link[href="'+path.substring(0, path.length -1)+'"]');
-        if(header_link.length > 0) {
-          $('.header__nav-links a').removeClass('is-active');
-          header_link.addClass('is-active');
-        }
-      });
-    </script>
 
-    <!--[if !IE]>-->
-      <meta name="viewport" content="width=device-width">
-      <script type="text/javascript">
-        window.scrollTo(0, 1);
-      </script>
-    <!--<![endif]-->
+<head>
+  <title>{{ page.title }} - RubyGems Guides</title>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.icns">
+  <meta http-equiv="Description" name="Description" content="Tutorials, guides, FAQs for RubyGems package management" />
+  <meta http-equiv="Keywords" name="Keywords" content="rubygems, gems, programming, ruby, packages" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" name="viewport">
+  <link href="/stylesheets/application.css" rel="stylesheet" type="text/css" />
+  <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/javascripts/mobile-nav.js" type="text/javascript"></script>
+  <script src="//use.typekit.net/omu5dik.js" type="text/javascript"></script>
+  <script>
+    try { Typekit.load(); } catch (e) { }
+  </script>
+  <script>
+    $(function () {
+      var path = window.location.pathname;
+      $('a.nav--v__link[href="' + path.substring(0, path.length - 1) + '"]').addClass('is-active');
+      var header_link = $('a.header__nav-link[href="' + path.substring(0, path.length - 1) + '"]');
+      if (header_link.length > 0) {
+        $('.header__nav-links a').removeClass('is-active');
+        header_link.addClass('is-active');
+      }
+    });
+  </script>
 
-    <!--[if lt IE 9]>
+  <!--[if !IE]>-->
+  <meta name="viewport" content="width=device-width">
+  <script type="text/javascript">
+    window.scrollTo(0, 1);
+  </script>
+  <!--<![endif]-->
+
+  <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body class="default">
-    <header class="header header--interior">
-      <div class="l-wrap--header">
-        <a class="header__logo-wrap" href="https://rubygems.org/">
-          <span class="header__logo" data-icon="⬡">⬢</span>
-          <span class="t-hidden">RubyGems</span>
-        </a>
-        <a class="header__club-sandwich" href="#">
-          <span class="t-hidden">Navigation menu</span>
-        </a>
+<body class="default">
+  <header class="header header--interior">
+    <div class="l-wrap--header">
+      <a class="header__logo-wrap" href="https://rubygems.org/">
+        <span class="header__logo" data-icon="⬡">⬢</span>
+        <span class="t-hidden">RubyGems</span>
+      </a>
+      <a class="header__club-sandwich" href="#">
+        <span class="t-hidden">Navigation menu</span>
+      </a>
 
-        <div class="header__nav-links-wrap">
-          <form accept-charset="UTF-8" action="https://rubygems.org/search" class="header__search-wrap" id="main-search" method="get">
-            <input class="header__search" id="query" name="query" placeholder="Search Gems&hellip;" type="search" />
-            <label for="query">
-              <span class="t-hidden">Search gems</span>
-            </label>
-            <input class="header__search__icon" id="search_submit" type="submit" value="⌕" />
-          </form>
+      <div class="header__nav-links-wrap">
+        <form accept-charset="UTF-8" action="https://rubygems.org/search" class="header__search-wrap" id="main-search"
+          method="get">
+          <input class="header__search" id="query" name="query" placeholder="Search Gems&hellip;" type="search" />
+          <label for="query">
+            <span class="t-hidden">Search gems</span>
+          </label>
+          <input class="header__search__icon" id="search_submit" type="submit" value="⌕" />
+        </form>
 
-          <nav class="header__nav-links">
-            <a class="header__nav-link" href="https://rubygems.org/releases">Releases</a>
-            <a class="header__nav-link" href="https://blog.rubygems.org">Blog</a>
-            <a class="header__nav-link" href="https://rubygems.org/gems">Gems</a>
-            <a class="header__nav-link is-active" href="/">Guides</a>
-            <a class="header__nav-link" href="/contributing">Contribute</a>
-          </nav>
-        </div>
+        <nav class="header__nav-links">
+          <a class="header__nav-link" href="https://rubygems.org/releases">Releases</a>
+          <a class="header__nav-link" href="https://blog.rubygems.org">Blog</a>
+          <a class="header__nav-link" href="https://rubygems.org/gems">Gems</a>
+          <a class="header__nav-link is-active" href="/">Guides</a>
+          <a class="header__nav-link" href="/contributing">Contribute</a>
+        </nav>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <main class="main--interior">
-      <div class="l-wrap--b">
-        <a class="t-display page__heading" href="/">Guides</a>
-        <div class="l-overflow">
-          <div class="l-col--l">
+  <main class="main--interior">
+    <div class="l-wrap--b">
+      <a class="t-display page__heading" href="/">Guides</a>
+      <div class="l-overflow">
+        <div class="l-col--l">
+          <ul class="nav--v">
+            <li><a class="nav--v__link" href="/rubygems-basics">RubyGems Basics</a></li>
+            <li><a class="nav--v__link" href="/what-is-a-gem">What is a gem?</a></li>
+            <li><a class="nav--v__link" href="/make-your-own-gem">Make your own gem</a></li>
+            <li><a class="nav--v__link" href="/gems-with-extensions">Gems with Extensions</a></li>
+            <li><a class="nav--v__link" href="/name-your-gem">Name your gem</a></li>
+            <li><a class="nav--v__link" href="/publishing">Publishing your gem</a></li>
+            <li><a class="nav--v__link" href="/security">Security Practices</a></li>
+            <li><a class="nav--v__link" href="/managing-owners-using-ui">Managing owners using UI</a></li>
+            <li><a class="nav--v__link" href="/removing-a-published-gem">Removing a Published gem</a></li>
+            <li><a class="nav--v__link" href="/ssl-certificate-update">SSL Certificate Update</a></li>
+            <li><a class="nav--v__link" href="/patterns">Patterns</a></li>
+            <li><a class="nav--v__link" href="/specification-reference">Specification Reference</a></li>
+            <li><a class="nav--v__link" href="/command-reference">Command Reference</a></li>
+            <li><a class="nav--v__link" href="/rubygems-org-api">RubyGems.org API</a></li>
+            <li><a class="nav--v__link" href="/rubygems-org-api-v2">RubyGems.org API V2.0</a></li>
+            <li><a class="nav--v__link" href="/rubygems-org-compact-index-api">RubyGems.org Compact Index API</a></li>
+            <li><a class="nav--v__link" href="/rubygems-org-rate-limits">RubyGems.org rate limits</a></li>
+            <li><a class="nav--v__link" href="/api-key-scopes">API key scopes</a></li>
+            <li><a class="nav--v__link" href="/run-your-own-gem-server">Run your own gem server</a></li>
+            <li><a class="nav--v__link" href="/setting-up-multifactor-authentication">Setting up multi-factor
+                authentication</a></li>
             <ul class="nav--v">
-              <li><a class="nav--v__link" href="/rubygems-basics">RubyGems Basics</a></li>
-              <li><a class="nav--v__link" href="/what-is-a-gem">What is a gem?</a></li>
-              <li><a class="nav--v__link" href="/make-your-own-gem">Make your own gem</a></li>
-              <li><a class="nav--v__link" href="/gems-with-extensions">Gems with Extensions</a></li>
-              <li><a class="nav--v__link" href="/name-your-gem">Name your gem</a></li>
-              <li><a class="nav--v__link" href="/publishing">Publishing your gem</a></li>
-              <li><a class="nav--v__link" href="/security">Security Practices</a></li>
-              <li><a class="nav--v__link" href="/managing-owners-using-ui">Managing owners using UI</a></li>
-              <li><a class="nav--v__link" href="/removing-a-published-gem">Removing a Published gem</a></li>
-              <li><a class="nav--v__link" href="/ssl-certificate-update">SSL Certificate Update</a></li>
-              <li><a class="nav--v__link" href="/patterns">Patterns</a></li>
-              <li><a class="nav--v__link" href="/specification-reference">Specification Reference</a></li>
-              <li><a class="nav--v__link" href="/command-reference">Command Reference</a></li>
-              <li><a class="nav--v__link" href="/rubygems-org-api">RubyGems.org API</a></li>
-              <li><a class="nav--v__link" href="/rubygems-org-api-v2">RubyGems.org API V2.0</a></li>
-              <li><a class="nav--v__link" href="/rubygems-org-compact-index-api">RubyGems.org Compact Index API</a></li>
-              <li><a class="nav--v__link" href="/rubygems-org-rate-limits">RubyGems.org rate limits</a></li>
-              <li><a class="nav--v__link" href="/api-key-scopes">API key scopes</a></li>
-              <li><a class="nav--v__link" href="/run-your-own-gem-server">Run your own gem server</a></li>
-              <li><a class="nav--v__link" href="/setting-up-multifactor-authentication">Setting up multi-factor authentication</a></li>
-              <ul class="nav--v">
-                <li><a class="nav--v__link" href="/setting-up-webauthn-mfa">Setting up WebAuthn MFA</a></li>
-                <li><a class="nav--v__link" href="/setting-up-otp-mfa">Setting up OTP MFA</a></li>
-              </ul>
-              <li><a class="nav--v__link" href="/using-mfa-in-command-line">Using multi-factor authentication in command line</a></li>
-              <ul class="nav--v">
-                <li><a class="nav--v__link" href="/using-webauthn-mfa-in-command-line">Using WebAuthn for MFA</a></li>
-                <li><a class="nav--v__link" href="/using-otp-mfa-in-command-line">Using OTP for MFA</a></li>
-              </ul>
-              <li><a class="nav--v__link" href="/mfa-requirement-opt-in">MFA requirement opt in</a></li>
-              <li><a class="nav--v__link" href="/using-s3-source">Using S3 as gem source</a></li>
-              <li><a class="nav--v__link" href="/resources">Resources</a></li>
-              <li><a class="nav--v__link" href="/contributing">Contributing to RubyGems</a></li>
-              <li><a class="nav--v__link" href="/faqs">Frequently Asked Questions</a></li>
-              <li><a class="nav--v__link" href="/plugins">Plugins</a></li>
-              <li><a class="nav--v__link" href="/cve">Common Vulnerabilities and Exposures</a></li>
-              <li><a class="nav--v__link" href="/releasing-rubygems">Releasing RubyGems</a></li>
-              <li><a class="nav--v__link" href="/trusted-publishing">Trusted Publishing</a></li>
-              <ul class="nav--v">
-                <li><a class="nav--v__link" href="/trusted-publishing/adding-a-publisher">Adding to an existing gem</a></li>
-                <li><a class="nav--v__link" href="/trusted-publishing/pushing-a-new-gem">Pushing a new gem</a></li>
-                <li><a class="nav--v__link" href="/trusted-publishing/releasing-gems">Releasing gems</a></li>
-              </ul>
-              <li><a class="nav--v__link" href="/credits">Credits</a></li>
-
+              <li><a class="nav--v__link" href="/setting-up-webauthn-mfa">Setting up WebAuthn MFA</a></li>
+              <li><a class="nav--v__link" href="/setting-up-otp-mfa">Setting up OTP MFA</a></li>
             </ul>
-          </div>
-          <div class="l-colspan--r">
-            <div class="t-body">
-              {{ content }}
-            </div>
-          </div>
-        </div>
+            <li><a class="nav--v__link" href="/using-mfa-in-command-line">Using multi-factor authentication in command
+                line</a></li>
+            <ul class="nav--v">
+              <li><a class="nav--v__link" href="/using-webauthn-mfa-in-command-line">Using WebAuthn for MFA</a></li>
+              <li><a class="nav--v__link" href="/using-otp-mfa-in-command-line">Using OTP for MFA</a></li>
+            </ul>
+            <li><a class="nav--v__link" href="/mfa-requirement-opt-in">MFA requirement opt in</a></li>
+            <li><a class="nav--v__link" href="/using-s3-source">Using S3 as gem source</a></li>
+            <li><a class="nav--v__link" href="/resources">Resources</a></li>
+            <li><a class="nav--v__link" href="/contributing">Contributing to RubyGems</a></li>
+            <li><a class="nav--v__link" href="/faqs">Frequently Asked Questions</a></li>
+            <li><a class="nav--v__link" href="/plugins">Plugins</a></li>
+            <li><a class="nav--v__link" href="/cve">Common Vulnerabilities and Exposures</a></li>
+            <li><a class="nav--v__link" href="/releasing-rubygems">Releasing RubyGems</a></li>
+            <li><a class="nav--v__link" href="/trusted-publishing">Trusted Publishing</a></li>
+            <ul class="nav--v">
+              <li><a class="nav--v__link" href="/trusted-publishing/adding-a-publisher">Adding to an existing gem</a>
+              </li>
+              <li><a class="nav--v__link" href="/trusted-publishing/pushing-a-new-gem">Pushing a new gem</a></li>
+              <li><a class="nav--v__link" href="/trusted-publishing/releasing-gems">Releasing gems</a></li>
+            </ul>
+            <li><a class="nav--v__link" href="/organizations">Organizations</a></li>
+            <ul class="nav--v">
+              <li><a class="nav--v__link" href="/organizations/getting-started">Getting Started</a></li>
+              <li><a class="nav--v__link" href="/organizations/managing-members">Managing Members</a></li>
+              <li><a class="nav--v__link" href="/organizations/roles-and-permissions">Roles & Permissions</a></li>
+              <li><a class="nav--v__link" href="/organizations/transferring-gems">Transferring Gems</a></li>
+            </ul>
+            <li><a class="nav--v__link" href="/credits">Credits</a></li>
 
-        <div class="paginated-nav-links">
-          <a class="paginated-nav-link--prev" data-icon="&lt;" href="{{ page.previous }}">
-            <span>Previous</span>
-          </a>
-          <a class="paginated-nav-link--next" data-icon="&gt;" href="{{ page.next }}">
-            <span>Next</span>
-          </a>
+          </ul>
         </div>
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="l-wrap--footer">
-        <div class="l-overflow">
-          <div class="nav--v l-col--r--pad">
-            <a class="nav--v__link--footer" href="https://status.rubygems.org/">Status</a>
-            <a class="nav--v__link--footer" href="http://uptime.rubygems.org/">Uptime</a>
-            <a class="nav--v__link--footer" href="https://github.com/rubygems/rubygems.org" target='_blank'>Code</a>
-            <a class="nav--v__link--footer" href="https://groups.google.com/forum/#!forum/rubygems-org" target='_blank'>Discuss</a>
-            <a class="nav--v__link--footer" href="https://rubygems.org/stats">Stats</a>
-            <a class="nav--v__link--footer" href="https://blog.rubygems.org/">Blog</a>
-            <a class="nav--v__link--footer" href="https://rubygems.org/pages/about">About</a>
-            <a class="nav--v__link--footer" href="mailto:support@rubygems.org">Help</a>
+        <div class="l-colspan--r">
+          <div class="t-body">
+            {{ content }}
           </div>
-          <div class="l-colspan--l colspan--l--has-border">
-            <p class="footer__about">RubyGems.org is the Ruby community&rsquo;s gem hosting service. Instantly publish your gems and install them. Use the API to interact and find out more information about available gems. Become a contributor and enhance the site with your own changes.</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer__sponsors-wrap">
-        <div class="footer__sponsors">
-          <a class="footer__sponsor footer__sponsor__ruby_central" href="https://rubycentral.org/" target="_blank" rel="noreferrer">
-            Supported by
-            <span class="t-hidden">Ruby Central</span>
-          </a>
-          <a class="footer__sponsor footer__sponsor__dockyard" href="https://dockyard.com/ruby-on-rails-consulting" target="_blank" rel="noreferrer">
-            Designed by
-            <span class="t-hidden">DockYard</span>
-          </a>
-          <a class="footer__sponsor footer__sponsor__dnsimple" href="https://dnsimple.link/resolving-rubygems" target="_blank" rel="noreferrer">
-            Resolved with
-            <span class="t-hidden">DNSimple</span>
-          </a>
-          <a class="footer__sponsor footer__sponsor__datadog" href="https://www.datadoghq.com/" target="_blank" rel="noreferrer">
-            Monitored by
-            <span class="t-hidden">Datadog</span>
-          </a>
-          <a class="footer__sponsor footer__sponsor__fastly" href="https://www.fastly.com/" target="_blank" rel="noreferrer">
-            Gems served by
-            <span class="t-hidden">Fastly</span>
-          </a>
-          <a class="footer__sponsor footer__sponsor__honeybadger" href="https://www.honeybadger.io/" target="_blank" rel="noreferrer">
-            Monitored by
-            <span class="t-hidden">Honeybadger</span>
-          </a>
-          <a class="footer__sponsor footer__sponsor__domainr" href="https://domainr.com/" target="_blank" rel="noreferrer">
-            Verified by
-            <span class="t-hidden">Domainr</span>
-          </a>
-          <a class="footer__sponsor footer__sponsor__whitesource" href="https://www.whitesourcesoftware.com/" target="_blank" rel="noreferrer">
-            Secured by
-            <span class="t-hidden">Whitesource</span>
-          </a>
         </div>
       </div>
-    </footer>
 
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-10315684-2']);
-      _gaq.push(['_trackPageview']);
+      <div class="paginated-nav-links">
+        <a class="paginated-nav-link--prev" data-icon="&lt;" href="{{ page.previous }}">
+          <span>Previous</span>
+        </a>
+        <a class="paginated-nav-link--next" data-icon="&gt;" href="{{ page.next }}">
+          <span>Next</span>
+        </a>
+      </div>
+    </div>
+  </main>
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
-  </body>
+  <footer class="footer">
+    <div class="l-wrap--footer">
+      <div class="l-overflow">
+        <div class="nav--v l-col--r--pad">
+          <a class="nav--v__link--footer" href="https://status.rubygems.org/">Status</a>
+          <a class="nav--v__link--footer" href="http://uptime.rubygems.org/">Uptime</a>
+          <a class="nav--v__link--footer" href="https://github.com/rubygems/rubygems.org" target='_blank'>Code</a>
+          <a class="nav--v__link--footer" href="https://groups.google.com/forum/#!forum/rubygems-org"
+            target='_blank'>Discuss</a>
+          <a class="nav--v__link--footer" href="https://rubygems.org/stats">Stats</a>
+          <a class="nav--v__link--footer" href="https://blog.rubygems.org/">Blog</a>
+          <a class="nav--v__link--footer" href="https://rubygems.org/pages/about">About</a>
+          <a class="nav--v__link--footer" href="mailto:support@rubygems.org">Help</a>
+        </div>
+        <div class="l-colspan--l colspan--l--has-border">
+          <p class="footer__about">RubyGems.org is the Ruby community&rsquo;s gem hosting service. Instantly publish
+            your gems and install them. Use the API to interact and find out more information about available gems.
+            Become a contributor and enhance the site with your own changes.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer__sponsors-wrap">
+      <div class="footer__sponsors">
+        <a class="footer__sponsor footer__sponsor__ruby_central" href="https://rubycentral.org/" target="_blank"
+          rel="noreferrer">
+          Supported by
+          <span class="t-hidden">Ruby Central</span>
+        </a>
+        <a class="footer__sponsor footer__sponsor__dockyard" href="https://dockyard.com/ruby-on-rails-consulting"
+          target="_blank" rel="noreferrer">
+          Designed by
+          <span class="t-hidden">DockYard</span>
+        </a>
+        <a class="footer__sponsor footer__sponsor__dnsimple" href="https://dnsimple.link/resolving-rubygems"
+          target="_blank" rel="noreferrer">
+          Resolved with
+          <span class="t-hidden">DNSimple</span>
+        </a>
+        <a class="footer__sponsor footer__sponsor__datadog" href="https://www.datadoghq.com/" target="_blank"
+          rel="noreferrer">
+          Monitored by
+          <span class="t-hidden">Datadog</span>
+        </a>
+        <a class="footer__sponsor footer__sponsor__fastly" href="https://www.fastly.com/" target="_blank"
+          rel="noreferrer">
+          Gems served by
+          <span class="t-hidden">Fastly</span>
+        </a>
+        <a class="footer__sponsor footer__sponsor__honeybadger" href="https://www.honeybadger.io/" target="_blank"
+          rel="noreferrer">
+          Monitored by
+          <span class="t-hidden">Honeybadger</span>
+        </a>
+        <a class="footer__sponsor footer__sponsor__domainr" href="https://domainr.com/" target="_blank"
+          rel="noreferrer">
+          Verified by
+          <span class="t-hidden">Domainr</span>
+        </a>
+        <a class="footer__sponsor footer__sponsor__whitesource" href="https://www.whitesourcesoftware.com/"
+          target="_blank" rel="noreferrer">
+          Secured by
+          <span class="t-hidden">Whitesource</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-10315684-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</body>
+
 </html>

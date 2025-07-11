@@ -452,6 +452,7 @@ pre code {
   width: 90px;
   background-image: url(/images/sponsors.png);
   background-size: 100%;
+  background-size: 100%;
   font-style: italic;
   font-weight: 300;
   font-size: 12px;
@@ -1025,6 +1026,56 @@ a.page__heading:focus {
 
 .t-body .t-img--small {
   width: 70%;
+}
+
+.beta-banner {
+  background-color: #FFF3CD;
+  border: 1px solid #FFE69C;
+  border-radius: 8px;
+  color: #856404;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 1.5em;
+  padding: 1em 1.25em;
+}
+.beta-banner__icon {
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 0.5em;
+}
+.beta-banner__title {
+  display: inline;
+  font-weight: bold;
+  margin-right: 0.5em;
+}
+.beta-banner__text {
+  display: inline;
+}
+.beta-banner a {
+  color: #856404;
+  text-decoration: underline;
+}
+.beta-banner a:hover {
+  color: #533f03;
+}
+.beta-banner strong {
+  font-weight: bold;
+  color: #533f03;
+}
+
+.beta-banner--info {
+  background-color: #D1ECF1;
+  border-color: #BEE5EB;
+  color: #0C5460;
+}
+.beta-banner--info a {
+  color: #0C5460;
+}
+.beta-banner--info a:hover {
+  color: #062E34;
+}
+.beta-banner--info strong {
+  color: #062E34;
 }
 
 .paginated-nav-links {
