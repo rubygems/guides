@@ -375,10 +375,10 @@ View all owners of a gem. These users can all push to this gem.
 
 ### POST - `/api/v1/gems/[GEM NAME]/owners`
 
-Add an owner to a RubyGem you own, giving that user permission to manage it.
+Add an owner to a RubyGem you own, giving that user permission to manage it. See [Owner & Maintainer Roles](/managing-owners-using-ui#owner--maintainer-roles) for more details on roles.
 
     $ curl -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
-           -F 'email=josh@technicalpickles.com' \
+           -F 'email=josh@technicalpickles.com&role=owner' \
            https://rubygems.org/api/v1/gems/gemcutter/owners
 
     Owner added successfully.
@@ -392,6 +392,17 @@ Remove a user's permission to manage a RubyGem you own.
             https://rubygems.org/api/v1/gems/gemcutter/owners
 
     Owner removed successfully.
+
+
+### PATCH - `/api/v1/gems/[GEM NAME]/owners`
+
+Update an existing owner's role for a RubyGem you own. See [Owner & Maintainer Roles](/managing-owners-using-ui/#owner--maintainer-roles) for more details on roles.
+
+    $ curl -X PATCH -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
+            -d "email=josh@technicalpickles.com&role=maintainer" \
+            https://rubygems.org/api/v1/gems/gemcutter/owners
+      
+    Owner updated successfully.
 
 Profile Methods
 -------------
