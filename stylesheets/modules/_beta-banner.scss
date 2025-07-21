@@ -1,0 +1,61 @@
+// Beta banner styles for limited beta features
+.beta-banner {
+  background-color: #FFF3CD;
+  border: 1px solid #FFE69C;
+  border-radius: 8px;
+  color: #856404;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 1.5em;
+  padding: 1em 1.25em;
+  
+  &__icon {
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 0.5em;
+  }
+  
+  &__title {
+    display: inline;
+    font-weight: bold;
+    margin-right: 0.5em;
+  }
+  
+  &__text {
+    display: inline;
+  }
+  
+  a {
+    color: #856404;
+    text-decoration: underline;
+    
+    &:hover {
+      color: #533f03;
+    }
+  }
+  
+  // Ensure good contrast and readability
+  strong {
+    font-weight: bold;
+    color: #533f03;
+  }
+}
+
+// Alternative info style beta banner
+.beta-banner--info {
+  background-color: #D1ECF1;
+  border-color: #BEE5EB;
+  color: #0C5460;
+  
+  a {
+    color: #0C5460;
+    
+    &:hover {
+      color: #062E34;
+    }
+  }
+  
+  strong {
+    color: #062E34;
+  }
+}
