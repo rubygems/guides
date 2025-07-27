@@ -277,13 +277,12 @@ next: /command-reference
 <p>All strings must be UTF-8, no binary data is allowed</p>
 </li></ul>
 
-<p>You can use metadata to specify links to your gem’s homepage, codebase, documentation, wiki, mailing list, issue tracker and changelog.</p>
+<p>You can use metadata to specify links to your gem’s codebase, documentation, wiki, mailing list, issue tracker and changelog.</p>
 
 <pre class="ruby"><span class="ruby-identifier">s</span>.<span class="ruby-identifier">metadata</span> = {
   <span class="ruby-string">&quot;bug_tracker_uri&quot;</span>   <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever/issues&quot;</span>,
   <span class="ruby-string">&quot;changelog_uri&quot;</span>     <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever/CHANGELOG.md&quot;</span>,
   <span class="ruby-string">&quot;documentation_uri&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://www.example.info/gems/bestgemever/0.0.1&quot;</span>,
-  <span class="ruby-string">&quot;homepage_uri&quot;</span>      <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://bestgemever.example.io&quot;</span>,
   <span class="ruby-string">&quot;mailing_list_uri&quot;</span>  <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://groups.example.com/bestgemever&quot;</span>,
   <span class="ruby-string">&quot;source_code_uri&quot;</span>   <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever&quot;</span>,
   <span class="ruby-string">&quot;wiki_uri&quot;</span>          <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;https://example.com/user/bestgemever/wiki&quot;</span>,
