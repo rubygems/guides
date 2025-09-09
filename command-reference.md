@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.7.1.
+This reference was automatically generated from RubyGems version 3.7.2.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -1395,6 +1395,8 @@ Manage the sources and cache file RubyGems uses to search for gems
 ### Options
 
 * `-a, --add SOURCE_URI`            - Add source
+* `--append SOURCE_URI`         - Append source (can be used multiple times)
+* `--prepend SOURCE_URI`        - Prepend source (can be used multiple times)
 * `-l, --list`                      - List sources
 * `-r, --remove SOURCE_URI`         - Remove source
 * `-c, --clear-all`                 - Remove all sources (clear the cache)
@@ -1428,7 +1430,7 @@ yourself to use your own gem server.
 Without any arguments the sources lists your currently configured sources:
 
     $ gem sources
-    *** CURRENT SOURCES ***
+    *** NO CONFIGURED SOURCES, DEFAULT SOURCES LISTED BELOW ***
 
     https://rubygems.org
 
@@ -1447,18 +1449,24 @@ Since all of these sources point to the same set of gems you only need one
 of them in your list.  https://rubygems.org is recommended as it brings the
 protections of an SSL connection to gem downloads.
 
-To add a source use the --add argument:
+To add a private gem source use the --prepend argument to insert it before
+the default source. This is usually the best place for private gem sources:
 
-      $ gem sources --add https://rubygems.org
-      https://rubygems.org added to sources
+      $ gem sources --prepend https://my.private.source
+      https://my.private.source added to sources
 
 RubyGems will check to see if gems can be installed from the source given
 before it is added.
 
+To add or move a source after all other sources, use --append:
+
+      $ gem sources --append https://rubygems.org
+      https://rubygems.org moved to end of sources
+
 To remove a source use the --remove argument:
 
-      $ gem sources --remove https://rubygems.org/
-      https://rubygems.org/ removed from sources
+      $ gem sources --remove https://my.private.source/
+      https://my.private.source/ removed from sources
 
 ## gem specification
 
