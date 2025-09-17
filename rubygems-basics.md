@@ -183,10 +183,10 @@ The `list` command shows your locally installed gems:
     english (default: 0.7.1)
     [...]
 
-The list includes defaults gems and bundled gems both of which were shipped
+The list includes default gems and bundled gems, both of which were shipped
 with Ruby by default. In Ruby 3.1, the default gems are 70 gems in total
-including bigdecimal, bundler, csv, did_you_mean etc. and the bundled gems are
-debug, rake etc.
+including bigdecimal, bundler, csv, did_you_mean, etc., and the bundled gems are
+debug, rake, etc.
 
 Uninstalling Gems
 -----------------
