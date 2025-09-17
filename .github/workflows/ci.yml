@@ -19,7 +19,7 @@ jobs:
         with:
           repository: rubygems/rubygems
           path: rubygems
-          ref: 3.6
+          ref: 3.7
           persist-credentials: false
 
       - name: Set up Ruby
