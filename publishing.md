@@ -38,7 +38,7 @@ install it with [Bundler's git functionality](https://bundler.io/v2.0/man/gemfil
 For example, you can install the latest code for the wicked_pdf gem in a
 project by including this line in your Gemfile:
 
-    gem "wicked_pdf", :git => "git://github.com/mileszs/wicked_pdf.git"
+    gem "wicked_pdf", :git => "https://github.com/mileszs/wicked_pdf.git"
 
 > Installing a gem directly from a git repository is a feature of Bundler, not
 > a feature of RubyGems. Gems installed this way will not show up when you run
