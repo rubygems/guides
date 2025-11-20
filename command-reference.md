@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 3.7.2.
+This reference was automatically generated from RubyGems version 4.0.0.beta1.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -31,7 +31,6 @@ This reference was automatically generated from RubyGems version 3.7.2.
 * [gem owner](#gem-owner)
 * [gem pristine](#gem-pristine)
 * [gem push](#gem-push)
-* [gem query](#gem-query)
 * [gem rdoc](#gem-rdoc)
 * [gem rebuild](#gem-rebuild)
 * [gem search](#gem-search)
@@ -61,7 +60,6 @@ Build a gem from a gemspec
 * `--force`                     - skip validation of the spec
 * `--strict`                    - consider warnings as errors when validating the spec
 * `-o, --output FILE`               - output gem with the given filename
-* `-C PATH`                         - Run as if gem build was started in <PATH> instead of the current working directory.
 
 ### Common Options
 
@@ -613,6 +611,7 @@ Install a gem into the local repository
 
 ### Deprecated Options
 
+* `--default`                   - Add the gem's full specification to specifications/default and extract only its bin
 * `-u, --[no-]update-sources`       - Update local source cache
 
 ### Install/Update Options
@@ -637,7 +636,6 @@ Install a gem into the local repository
 * `--[no-]post-install-message` - Print post install message
 * `-g, --file [FILE]`               - Read from a gem dependencies API file and install the listed gems
 * `--without GROUPS`            - Omit the named groups (comma separated) when installing from a gem dependencies file
-* `--default`                   - Add the gem's full specification to specifications/default and extract only its bin
 * `--explain`                   - Rather than install the gems, indicate which would be installed
 * `--[no-]lock`                 - Create a lock file (when used with `-g`/`--file`)
 * `--[no-]suggestions`          - Suggest alternates when gems are not found
@@ -1108,58 +1106,6 @@ The gem can be removed from the index and deleted from the server using the yank
 command.  For further discussion see the help for the yank command.
 
 The push command will use ~/.gem/credentials to authenticate to a server, but you can use the RubyGems environment variable GEM_HOST_API_KEY to set the api key to authenticate.
-
-## gem query
-
-Query gem information in local or remote repositories
-
-### Usage
-
-    gem query [options]
-
-### Options
-
-* `-n, --name-matches REGEXP`       - Name of gem(s) to query on matches the provided REGEXP
-* `-i, --[no-]installed`            - Check for installed gem
-* `-I`                              - Equivalent to `--no-installed`
-* `-v, --version VERSION`           - Specify version of gem to query for use with `--installed`
-* `-d, --[no-]details`              - Display detailed information of gem(s)
-* `--[no-]versions`             - Display only gem names
-* `-a, --all`                       - Display all gem versions
-* `-e, --exact`                     - Name of gem(s) to query on matches the provided STRING
-* `--[no-]prerelease`           - Display prerelease versions
-
-### Deprecated Options
-
-* `-u, --[no-]update-sources`       - Update local source cache
-
-### Local/Remote Options
-
-* `-l, --local`                     - Restrict operations to the LOCAL domain
-* `-r, --remote`                    - Restrict operations to the REMOTE domain
-* `-b, --both`                      - Allow LOCAL and REMOTE operations
-* `-B, --bulk-threshold COUNT`      - Threshold for switching to bulk synchronization (default 1000)
-* `--clear-sources`             - Clear the gem sources
-* `-s, --source URL`                - Append URL to list of remote gem sources
-* `-p, --[no-]http-proxy [URL]`     - Use HTTP proxy for remote operations
-
-### Common Options
-
-* `-h, --help`                      - Get help on this command
-* `-V, --[no-]verbose`              - Set the verbose level of output
-* `-q, --quiet`                     - Silence command progress meter
-* `--silent`                    - Silence RubyGems output
-* `--config-file FILE`          - Use this config file instead of default
-* `--backtrace`                 - Show stack backtrace on errors
-* `--debug`                     - Turn on Ruby debugging
-* `--norc`                      - Avoid loading any .gemrc file
-
-### Description
-
-The query command is the basis for the list and search commands.
-
-You should really use the list and search commands instead.  This command
-is too hard to use.
 
 ## gem rdoc
 
@@ -1668,6 +1614,7 @@ Update installed gems to the latest version
 
 ### Deprecated Options
 
+* `--default`                   - Add the gem's full specification to specifications/default and extract only its bin
 * `-u, --[no-]update-sources`       - Update local source cache
 
 ### Install/Update Options
@@ -1692,7 +1639,6 @@ Update installed gems to the latest version
 * `--[no-]post-install-message` - Print post install message
 * `-g, --file [FILE]`               - Read from a gem dependencies API file and install the listed gems
 * `--without GROUPS`            - Omit the named groups (comma separated) when installing from a gem dependencies file
-* `--default`                   - Add the gem's full specification to specifications/default and extract only its bin
 * `--explain`                   - Rather than install the gems, indicate which would be installed
 * `--[no-]lock`                 - Create a lock file (when used with `-g`/`--file`)
 * `--[no-]suggestions`          - Suggest alternates when gems are not found
