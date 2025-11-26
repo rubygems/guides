@@ -8,7 +8,7 @@ require_relative 'lib/options_list_markdownizer'
 
 $:.unshift '.', '../rubygems/lib'
 
-ENV['RUBYGEMS_DIR'] ||= File.expand_path '../../rubygems', __FILE__
+ENV['RUBYGEMS_DIR'] ||= File.expand_path '../../..', __FILE__
 
 task :RUBYGEMS_DIR_exists do
   message = <<-NO_RUBYGEMS_DIR
@@ -138,4 +138,3 @@ end
 
 desc 'build documentation and display it on http://localhost:4000'
 task default: %w[spec_guide command_guide server]
-
