@@ -32,102 +32,86 @@ Please use this opportunity to use `bundle install` explicitly in your scripts a
 
 ### Flags passed to `bundle install` that relied on being remembered across invocations will be removed
 
-In particular, the `--clean`, `--deployment`, `--frozen`, `--no-prune`,
-`--path`, `--shebang`, `--system`, `--without`, and `--with` options to `bundle
-install`.
+In particular, the `--clean`, `--deployment`, `--frozen`, `--no-prune`, `--path`, `--shebang`, `--system`, `--without`, and `--with` options to `bundle install`.
 
-Remembering CLI options has been a source of historical confusion and bug
-reports, not only for beginners but also for experienced users. A CLI tool
-should not behave differently across exactly the same invocations _unless_
-explicitly configured to do so. This is what configuration is about after all,
-and things should never be silently configured without the user knowing about
-it.
+Remembering CLI options has been a source of historical confusion and bug reports, not only for beginners but also for experienced users.
 
-The problem with changing this behavior is that very common workflows are
-relying on it. For example, when you run `bundle install --without
-development:test` in production, those flags are persisted in the app's
-configuration file and further `bundle` invocations will happily ignore
-development and test gems.  This magic will disappear from bundler 4, and you
-will explicitly need to configure it, either through environment variables,
-application configuration, or machine configuration. For example, with `bundle
-config set --local without development test`.
+A CLI tool should not behave differently across exactly the same invocations _unless_ explicitly configured to do so. This is what configuration is about after all, and things should never be silently configured without the user knowing about it.
+
+The problem with changing this behavior is that very common workflows are relying on it. For example, when you run `bundle install --without development:test` in production, those flags are persisted in the app's configuration file and further `bundle` invocations will happily ignore development and test gems.
+
+This magic will disappear from bundler 4, and you will explicitly need to configure it, either through environment variables, application configuration, or machine configuration. For example, with `bundle config set --local without development test`.
 
 ### Bundler will include checksums in new lockfiles by default
 
-We shipped this security feature recently and we believe it's time to turn it on
-by default, so that everyone benefits from the extra security assurances. So
-whenever you create a new lockfile, Bundler will include a CHECKSUMS section.
-Bundler will not automatically add a CHECKSUMS section to existing
-lockfiles, though, unless explicitly requested through `bundle lock
---add-checksums`.
+We shipped this security feature recently and we believe it's time to turn it on by default, so that everyone benefits from the extra security assurances. So whenever you create a new lockfile, Bundler will include a CHECKSUMS section.
+
+Bundler will not automatically add a CHECKSUMS section to existing lockfiles, though, unless explicitly requested through `bundle lock --add-checksums`.
 
 ### Strict source pinning in Gemfile is enforced by default
 
-In bundler 4, the source for every dependency will be unambiguously defined, and
-Bundler will refuse to run otherwise.
+In bundler 4, the source for every dependency will be unambiguously defined, and Bundler will refuse to run otherwise.
 
-* Multiple global Gemfile sources will no longer be supported.
+#### Multiple global Gemfile sources will no longer be supported.
 
-  Instead of something like this:
+Instead of something like this:
 
-  ```ruby
-  source "https://main_source"
-  source "https://another_source"
+```ruby
+source "https://main_source"
+source "https://another_source"
 
-  gem "dependency1"
+gem "dependency1"
+gem "dependency2"
+```
+
+do something like this:
+
+```ruby
+source "https://main_source"
+
+gem "dependency1"
+
+source "https://another_source" do
   gem "dependency2"
-  ```
+end
+```
 
-  do something like this:
+#### Global `path` and `git` sources will no longer be supported.
 
-  ```ruby
-  source "https://main_source"
+Instead of something like this:
 
-  gem "dependency1"
+```ruby
+path "/my/path/with/gems"
+git "https://my_git_repo_with_gems"
 
-  source "https://another_source" do
-    gem "dependency2"
-  end
-  ```
+gem "dependency1"
+gem "dependency2"
+```
 
-* Global `path` and `git` sources will no longer be supported.
+do something like this:
 
-  Instead of something like this:
+```ruby
+gem "dependency1", path: "/my/path/with/gems"
+gem "dependency2", git: "https://my_git_repo_with_gems"
+```
 
-  ```ruby
-  path "/my/path/with/gems"
-  git "https://my_git_repo_with_gems"
+or use the block forms if you have multiple gems for each source and you want to be a bit DRYer:
 
-  gem "dependency1"
-  gem "dependency2"
-  ```
+```ruby
+path "/my/path/with/gems" do
+  # gem "dependency1"
+  # ...
+  # gem "dependencyn"
+end
 
-  do something like this:
+git "https://my_git_repo_with_gems" do
+  # gem "dependency1"
+  # ...
+  # gem "dependencyn"
+end
+```
 
-  ```ruby
-  gem "dependency1", path: "/my/path/with/gems"
-  gem "dependency2", git: "https://my_git_repo_with_gems"
-  ```
-
-  or use the block forms if you have multiple gems for each source and you want
-  to be a bit DRYer:
-
-
-  ```ruby
-  path "/my/path/with/gems" do
-    # gem "dependency1"
-    # ...
-    # gem "dependencyn"
-  end
-
-  git "https://my_git_repo_with_gems" do
-    # gem "dependency1"
-    # ...
-    # gem "dependencyn"
-  end
-  ```
-
-#### Notable CLI changes
+### Notable CLI changes
 
 * `bundle viz` will be removed and extracted to a plugin.
 
