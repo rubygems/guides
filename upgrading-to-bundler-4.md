@@ -12,16 +12,23 @@ From now on in this document we will assume that all three of these configuratio
 
 The following is a summary of the changes that we plan to introduce in Bundler 4, and why we will be making those changes. Some of them should be well known already by existing users, because we have been printing deprecation messages for years, but some of them are defaults that will be switched in Bundler 4 and needs some heads up.
 
-### Running just `bundle`  will print help usage
+### Running just `bundle` is not recommended to mean `bundle install` anymore
 
-We're changing this default to make Bundler more friendly for new users. We do
-understand that long time users already know how Bundler works and find useful
-that just `bundle` defaults to `bundle install`. Those users can keep the
-existing default by configuring
+We have a plan to change this default to make Bundler more friendly for new users. We do understand that long time users already know how Bundler works and find useful that just `bundle` defaults to `bundle install`.
 
+Those users can keep the existing default by configuring:
+
+```sh
+bundle config set default_cli_command install_or_cli_help --global
 ```
-bundle config default_cli_command install
+
+However, new users will benefit from a more explicit behavior where running:
+
+```sh
+bundle config set default_cli_command cli_help --global
 ```
+
+Please use this opportunity to use `bundle install` explicitly in your scripts and documentation, so that everyone is clear about what is going to happen.
 
 ### Flags passed to `bundle install` that relied on being remembered across invocations will be removed
 
