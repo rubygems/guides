@@ -113,9 +113,9 @@ end
 
 ### `bundle viz` will be removed and extracted to a plugin.
 
-This is the only bundler command requiring external dependencies, both an OS dependency (the `graphviz` package) and a gem dependency (the `ruby-graphviz` gem).
+This is the only bundler command requiring external dependencies, both an OS dependency (the `graphviz` package) and a gem dependency (the `ruby-graphviz` gem). Removing these dependencies will make development easier and it was also seen by the bundler team as an opportunity to develop a bundler plugin that it's officially maintained by the RubyGems team, and that users can take as a reference to develop their own plugins.
 
-Removing these dependencies will make development easier and it was also seen by the bundler team as an opportunity to develop a bundler plugin that it's officially maintained by the bundler team, and that users can take as a reference to develop their own plugins.
+The new plugin will be called `bundler-graph` and it is available at https://github.com/rubygems/bundler-grap now.
 
 The plugin will contain the same code as the old core command, the only difference being that the command is now implemented as `bundle graph` which is much easier to understand. However, the details of the plugin are under discussion. See [#3333](https://github.com/ruby/rubygems/issues/3333).
 
@@ -123,9 +123,13 @@ The plugin will contain the same code as the old core command, the only differen
 
 The `--binstubs` option has been removed from `bundle install` and replaced with the `bundle binstubs` command.
 
-The `--binstubs` flag would create binstubs for all executables present inside the gems in the project. This was hardly useful since most users will only use a subset of all the binstubs available to them. Also, it would force the introduction of a bunch of most likely unused files into source control. 
+The `--binstubs` flag would create binstubs for all executables present inside the gems in the project. This was hardly useful since most users will only use a subset of all the binstubs available to them. Also, it would force the introduction of a bunch of most likely unused files into source control. Because of this, binstubs now must be created and checked into version control individually.
 
-Because of this, binstubs now must be created and checked into version control individually.
+If you still want to create binstubs for all gems, you can run:
+
+```sh
+bundle binstubs --all
+```
 
 ### The `bundle inject` command will be replaced with `bundle add`
 
