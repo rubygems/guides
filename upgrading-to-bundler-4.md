@@ -111,87 +111,52 @@ git "https://my_git_repo_with_gems" do
 end
 ```
 
-### Notable CLI changes
+### `bundle viz` will be removed and extracted to a plugin.
 
-* `bundle viz` will be removed and extracted to a plugin.
+This is the only bundler command requiring external dependencies, both an OS dependency (the `graphviz` package) and a gem dependency (the `ruby-graphviz` gem).
 
-  This is the only bundler command requiring external dependencies, both an OS
-  dependency (the `graphviz` package) and a gem dependency (the `ruby-graphviz`
-  gem). Removing these dependencies will make development easier and it was also
-  seen by the bundler team as an opportunity to develop a bundler plugin that
-  it's officially maintained by the bundler team, and that users can take as a
-  reference to develop their own plugins. The plugin will contain the same code
-  as the old core command, the only difference being that the command is now
-  implemented as `bundle graph` which is much easier to understand. However, the
-  details of the plugin are under discussion. See [#3333](https://github.com/ruby/rubygems/issues/3333).
+Removing these dependencies will make development easier and it was also seen by the bundler team as an opportunity to develop a bundler plugin that it's officially maintained by the bundler team, and that users can take as a reference to develop their own plugins.
 
-* The `bundle install` command will no longer accept a `--binstubs` flag.
+The plugin will contain the same code as the old core command, the only difference being that the command is now implemented as `bundle graph` which is much easier to understand. However, the details of the plugin are under discussion. See [#3333](https://github.com/ruby/rubygems/issues/3333).
 
-  The `--binstubs` option has been removed from `bundle install` and replaced
-  with the `bundle binstubs` command. The `--binstubs` flag would create
-  binstubs for all executables present inside the gems in the project. This was
-  hardly useful since most users will only use a subset of all the binstubs
-  available to them. Also, it would force the introduction of a bunch of most
-  likely unused files into source control. Because of this, binstubs now must
-  be created and checked into version control individually.
+### The `bundle install` command will no longer accept a `--binstubs` flag.
 
-* The `bundle inject` command will be replaced with `bundle add`
+The `--binstubs` option has been removed from `bundle install` and replaced with the `bundle binstubs` command.
 
-  We believe the new command fits the user's mental model better and it supports
-  a wider set of use cases. The interface supported by `bundle inject` works
-  exactly the same in `bundle add`, so it should be easy to migrate to the new
-  command.
+The `--binstubs` flag would create binstubs for all executables present inside the gems in the project. This was hardly useful since most users will only use a subset of all the binstubs available to them. Also, it would force the introduction of a bunch of most likely unused files into source control. 
 
-### Other notable changes
+Because of this, binstubs now must be created and checked into version control individually.
 
-* Git and Path gems will be included in `vendor/cache` by default
+### The `bundle inject` command will be replaced with `bundle add`
 
-  If you have a `vendor/cache` directory (to support offline scenarios, for
-  example), Bundler will start including gems from `path` and `git` sources in
-  there. We're unsure why these gems were treated specially so we'll start
-  caching them normally.
+We believe the new command fits the user's mental model better and it supports a wider set of use cases.
 
-* Bundler will use cached local data if available when network issues are found
-  during resolution.
+The interface supported by `bundle inject` works exactly the same in `bundle add`, so it should be easy to migrate to the new command.
 
-  Just trying to provide a more resilient behavior here.
+### Git and Path gems will be included in `vendor/cache` by default
 
-* `Bundler.clean_env`, `Bundler.with_clean_env`, `Bundler.clean_system`, and `Bundler.clean_exec` will be removed
+If you have a `vendor/cache` directory (to support offline scenarios, for example), Bundler will start including gems from `path` and `git` sources in there.
 
-  All of these helpers ultimately use `Bundler.clean_env` under the hood, which
-  makes sure all bundler-related environment are removed inside the block it
-  yields.
+We're unsure why these gems were treated specially so we'll start caching them normally.
 
-  After quite a lot user reports, we noticed that users don't usually want this
-  but instead want the bundler environment as it was before the current process
-  was started. Thus, `Bundler.with_original_env`, `Bundler.original_system`, and
-  `Bundler.original_exec` were born. They all use the new `Bundler.original_env`
-  under the hood.
+### Bundler will use cached local data if available when network issues are found during resolution.
 
-  There's however some specific cases where the good old `Bundler.clean_env`
-  behavior can be useful. For example, when testing Rails generators, you really
-  want an environment where `bundler` is out of the picture. This is why we
-  decided to keep the old behavior under a new more clear name, because we
-  figured the word "clean" was too ambiguous. So we have introduced
-  `Bundler.unbundled_env`, `Bundler.with_unbundled_env`,
-  `Bundler.unbundled_system`, and `Bundler.unbundled_exec`.
+Just trying to provide a more resilient behavior here.
 
-* `Bundler.environment` is deprecated in favor of `Bundler.load`.
+### `Bundler.clean_env`, `Bundler.with_clean_env`, `Bundler.clean_system`, and `Bundler.clean_exec` will be removed
 
-  We're not sure how people might be using this directly but we have removed the
-  `Bundler::Environment` class which was instantiated by `Bundler.environment`
-  since we realized the `Bundler::Runtime` class was the same thing. During the
-  transition `Bundler.environment` will delegate to `Bundler.load`, which holds
-  the reference to the `Bundler::Environment`.
+All of these helpers ultimately use `Bundler.clean_env` under the hood, which makes sure all bundler-related environment are removed inside the block it yields.
 
-* Deployment helpers for `vlad` and `capistrano` are being removed.
+After quite a lot user reports, we noticed that users don't usually want this but instead want the bundler environment as it was before the current process was started. Thus, `Bundler.with_original_env`, `Bundler.original_system`, and `Bundler.original_exec` were born. They all use the new `Bundler.original_env` under the hood.
 
-  These are natural deprecations since the `vlad` tool has had no activity for
-  years whereas `capistrano` 3 has built-in Bundler integration in the form of
-  the `capistrano-bundler` gem, and everyone using Capistrano 3 should be
-  already using that instead. If for some reason, you are still using Capistrano
-  2, feel free to copy the Capistrano tasks out of the Bundler 2 file
-  `lib/bundler/deployment.rb` and put them into your app.
+There's however some specific cases where the good old `Bundler.clean_env` behavior can be useful. For example, when testing Rails generators, you really want an environment where `bundler` is out of the picture. This is why we decided to keep the old behavior under a new more clear name, because we figured the word "clean" was too ambiguous. So we have introduced `Bundler.unbundled_env`, `Bundler.with_unbundled_env`, `Bundler.unbundled_system`, and `Bundler.unbundled_exec`.
 
-  In general, we don't want to maintain integrations for every deployment system
-  out there, so that's why we are removing these.
+### `Bundler.environment` is deprecated in favor of `Bundler.load`.
+
+We're not sure how people might be using this directly but we have removed the `Bundler::Environment` class which was instantiated by `Bundler.environment` since we realized the `Bundler::Runtime` class was the same thing. During the transition `Bundler.environment` will delegate to `Bundler.load`, which holds the reference to the `Bundler::Environment`.
+
+### Deployment helpers for `vlad` and `capistrano` are being removed.
+
+These are natural deprecations since the `vlad` tool has had no activity for years whereas `capistrano` 3 has built-in Bundler integration in the form of the `capistrano-bundler` gem, and everyone using Capistrano 3 should be already using that instead. If for some reason, you are still using Capistrano 2, feel free to copy the Capistrano tasks out of the Bundler 2 file `lib/bundler/deployment.rb` and put them into your app.
+
+In general, we don't want to maintain integrations for every deployment system out there, so that's why we are removing these.
