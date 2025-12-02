@@ -143,7 +143,7 @@ If you have a `vendor/cache` directory (to support offline scenarios, for exampl
 
 We're unsure why these gems were treated specially so we'll start caching them normally.
 
-### Bundler will use cached local data if available when network issues are found during resolution.
+### Bundler will use cached local data if available when network issues are found during resolution
 
 Just trying to provide a more resilient behavior here.
 
@@ -154,6 +154,25 @@ All of these helpers ultimately use `Bundler.clean_env` under the hood, which ma
 After quite a lot user reports, we noticed that users don't usually want this but instead want the bundler environment as it was before the current process was started. Thus, `Bundler.with_original_env`, `Bundler.original_system`, and `Bundler.original_exec` were born. They all use the new `Bundler.original_env` under the hood.
 
 There's however some specific cases where the good old `Bundler.clean_env` behavior can be useful. For example, when testing Rails generators, you really want an environment where `bundler` is out of the picture. This is why we decided to keep the old behavior under a new more clear name, because we figured the word "clean" was too ambiguous. So we have introduced `Bundler.unbundled_env`, `Bundler.with_unbundled_env`, `Bundler.unbundled_system`, and `Bundler.unbundled_exec`.
+
+### Removed public methods of `Bundler::SpecSet`
+
+The following public methods of `Bundler::SpecSet` have been removed with no replacement:
+
+* `SpecSet#-`
+* `SpecSet#<<`
+
+### `SpecSet#for` always implicitly performs validation
+
+`SpecSet#for` received a `check` parameter, but that's no longer used and deprecated. Please remove this parameter.
+
+### `CurrentRuby#maglev?` was removed with no replacement.
+
+Please use the built-in Ruby `RUBY_ENGINE` constant to check the Ruby implementation you are running on.
+
+### `Bundler.rubygems.all_specs` has been removed
+
+Please use `Bundler.rubygems.installed_specs` instead.
 
 ### `Bundler.environment` is deprecated in favor of `Bundler.load`.
 
