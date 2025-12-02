@@ -1,21 +1,16 @@
-# Upgrading
+# Upgrading to Bundler 4
 
-## Bundler 4
+## Bundler 4 simulation mode
 
-In order to prepare for Bundler 4, you can easily configure Bundler 2.7 to
-behave exactly like Bundler 4 will behave. To do so, set the environment
-variable `BUNDLE_SIMULATE_VERSION` to `4`. Alternatively, you can use `bundle
-config` and enable "Bundler 4 mode" either globally through `bundle config set
---global simulate_version 4`, or locally through `bundle config set --local
-simulate_version 4`. From now on in this document we will assume that all three
-of these configuration options are available, but will only mention `bundle
-config set <option> <value>`.
+In order to prepare for Bundler 4, you can easily configure Bundler 2.7 to behave exactly like Bundler 4 will behave.  To do so, you have three options:
 
-The following is a summary of the changes that we plan to introduce in Bundler
-4, and why we will be making those changes. Some of them should be well known
-already by existing users, because we have been printing deprecation messages
-for years, but some of them are defaults that will be switched in Bundler 4 and
-needs some heads up.
+* Set the environment variable `BUNDLE_SIMULATE_VERSION` to `4`.
+* Run `bundle config set --global simulate_version 4`.
+* Run `bundle config set --local simulate_version 4`.
+
+From now on in this document we will assume that all three of these configuration options are available, but will only mention `bundle config set <option> <value>`.
+
+The following is a summary of the changes that we plan to introduce in Bundler 4, and why we will be making those changes. Some of them should be well known already by existing users, because we have been printing deprecation messages for years, but some of them are defaults that will be switched in Bundler 4 and needs some heads up.
 
 ### Running just `bundle`  will print help usage
 
