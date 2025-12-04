@@ -8,25 +8,25 @@ permissions:
 
 jobs:
   ci:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           path: guides
           persist-credentials: false
 
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
-          repository: rubygems/rubygems
+          repository: ruby/rubygems
           path: rubygems
-          ref: 3.7
+          ref: "4.0"
           persist-credentials: false
 
       - name: Set up Ruby
-        uses: ruby/setup-ruby@0481980f17b760ef6bca5e8c55809102a0af1e5a # v1.263.0
+        uses: ruby/setup-ruby@8aeb6ff8030dd539317f8e1769a044873b56ea71 # v1.268.0
         with:
-          ruby-version: 3.4.6
-          rubygems: 3.7.2
+          ruby-version: 3.4.7
+          rubygems: 4.0.0
           bundler-cache: true
           working-directory: guides
 
@@ -35,7 +35,7 @@ jobs:
         working-directory: guides
 
       - name: Generate command guide
-        run: RUBYOPT="--disable-gems -I../rubygems/lib" bundle exec rake command_guide && git diff --exit-code
+        run: RUBYOPT="--disable-gems -I../rubygems/lib" RUBYGEMS_DIR="../rubygems" bundle exec rake command_guide && git diff --exit-code
         working-directory: guides
 
       - name: Lint generated markdown
