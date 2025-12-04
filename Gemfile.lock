@@ -21,14 +21,28 @@ GEM
     eventmachine (1.2.7)
     eventmachine (1.2.7-java)
     ffi (1.17.2)
+    ffi (1.17.2-aarch64-linux-gnu)
+    ffi (1.17.2-aarch64-linux-musl)
+    ffi (1.17.2-arm-linux-gnu)
+    ffi (1.17.2-arm-linux-musl)
     ffi (1.17.2-arm64-darwin)
     ffi (1.17.2-java)
+    ffi (1.17.2-x86-linux-gnu)
+    ffi (1.17.2-x86-linux-musl)
+    ffi (1.17.2-x86_64-darwin)
     ffi (1.17.2-x86_64-linux-gnu)
+    ffi (1.17.2-x86_64-linux-musl)
     ffi-compiler (1.3.2)
       ffi (>= 1.15.5)
       rake
     forwardable-extended (2.6.0)
     google-protobuf (4.33.1)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.33.1-aarch64-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.33.1-aarch64-linux-musl)
       bigdecimal
       rake (>= 13)
     google-protobuf (4.33.1-arm64-darwin)
@@ -39,7 +53,19 @@ GEM
       ffi (~> 1)
       ffi-compiler (~> 1)
       rake (>= 13)
+    google-protobuf (4.33.1-x86-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.33.1-x86-linux-musl)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.33.1-x86_64-darwin)
+      bigdecimal
+      rake (>= 13)
     google-protobuf (4.33.1-x86_64-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.33.1-x86_64-linux-musl)
       bigdecimal
       rake (>= 13)
     http_parser.rb (0.8.0)
@@ -115,9 +141,33 @@ GEM
     sass-embedded (1.94.2)
       google-protobuf (~> 4.31)
       rake (>= 13)
+    sass-embedded (1.94.2-aarch64-linux-android)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.94.2-aarch64-linux-gnu)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.94.2-aarch64-linux-musl)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.94.2-arm-linux-androideabi)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.94.2-arm-linux-gnueabihf)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.94.2-arm-linux-musleabihf)
+      google-protobuf (~> 4.31)
     sass-embedded (1.94.2-arm64-darwin)
       google-protobuf (~> 4.31)
+    sass-embedded (1.94.2-riscv64-linux-android)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.94.2-riscv64-linux-gnu)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.94.2-riscv64-linux-musl)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.94.2-x86_64-darwin)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.94.2-x86_64-linux-android)
+      google-protobuf (~> 4.31)
     sass-embedded (1.94.2-x86_64-linux-gnu)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.94.2-x86_64-linux-musl)
       google-protobuf (~> 4.31)
     stringio (3.1.9)
     terminal-table (3.0.2)
@@ -128,11 +178,28 @@ GEM
     webrick (1.9.2)
 
 PLATFORMS
+  aarch64-linux-android
+  aarch64-linux-gnu
+  aarch64-linux-musl
+  arm-linux-androideabi
+  arm-linux-gnu
+  arm-linux-gnueabihf
+  arm-linux-musl
+  arm-linux-musleabihf
   arm64-darwin
   arm64-linux
   java
+  riscv64-linux-android
+  riscv64-linux-gnu
+  riscv64-linux-musl
   ruby
+  x86-linux-gnu
+  x86-linux-musl
+  x86_64-darwin
   x86_64-linux
+  x86_64-linux-android
+  x86_64-linux-gnu
+  x86_64-linux-musl
 
 DEPENDENCIES
   base64 (~> 0.3)
@@ -161,15 +228,29 @@ CHECKSUMS
   eventmachine (1.2.7) sha256=994016e42aa041477ba9cff45cbe50de2047f25dd418eba003e84f0d16560972
   eventmachine (1.2.7-java) sha256=11ab7af3505f53ed7565d6a13fe73568fe0d6fac647c8816430e9c3171c8c58f
   ffi (1.17.2) sha256=297235842e5947cc3036ebe64077584bff583cd7a4e94e9a02fdec399ef46da6
+  ffi (1.17.2-aarch64-linux-gnu) sha256=c910bd3cae70b76690418cce4572b7f6c208d271f323d692a067d59116211a1a
+  ffi (1.17.2-aarch64-linux-musl) sha256=69e6556b091d45df83e6c3b19d3c54177c206910965155a6ec98de5e893c7b7c
+  ffi (1.17.2-arm-linux-gnu) sha256=d4a438f2b40224ae42ec72f293b3ebe0ba2159f7d1bd47f8417e6af2f68dbaa5
+  ffi (1.17.2-arm-linux-musl) sha256=977dfb7f3a6381206dbda9bc441d9e1f9366bf189a634559c3b7c182c497aaa3
   ffi (1.17.2-arm64-darwin) sha256=54dd9789be1d30157782b8de42d8f887a3c3c345293b57ffb6b45b4d1165f813
   ffi (1.17.2-java) sha256=94c8516d7c97b21915497b994e41f69e7e8e21d5fc085c498b68e52044e191ec
+  ffi (1.17.2-x86-linux-gnu) sha256=95d8f9ebea23c39888e2ab85a02c98f54acb2f4e79b829250d7267ce741dc7b0
+  ffi (1.17.2-x86-linux-musl) sha256=41741449bab2b9530f42a47baa5c26263925306fad0ac2d60887f51af2e3b24c
+  ffi (1.17.2-x86_64-darwin) sha256=981f2d4e32ea03712beb26e55e972797c2c5a7b0257955d8667ba58f2da6440e
   ffi (1.17.2-x86_64-linux-gnu) sha256=05d2026fc9dbb7cfd21a5934559f16293815b7ce0314846fee2ac8efbdb823ea
+  ffi (1.17.2-x86_64-linux-musl) sha256=97c0eb3981414309285a64dc4d466bd149e981c279a56371ef811395d68cb95c
   ffi-compiler (1.3.2) sha256=a94f3d81d12caf5c5d4ecf13980a70d0aeaa72268f3b9cc13358bcc6509184a0
   forwardable-extended (2.6.0) sha256=1bec948c469bbddfadeb3bd90eb8c85f6e627a412a3e852acfd7eaedbac3ec97
   google-protobuf (4.33.1) sha256=81d9bcab7a00b30a3fd042e78fcb113a0a0f564b474c64eddc378bf0558c44ec
+  google-protobuf (4.33.1-aarch64-linux-gnu) sha256=b06101ce690ac0072b424d014f708f86c6dc0b55046b4a9462be56738476bff2
+  google-protobuf (4.33.1-aarch64-linux-musl) sha256=e3997ef84030af7d24e9f6015fc38bccc0bebe137cbf705b74b0ccd3e2e59e4a
   google-protobuf (4.33.1-arm64-darwin) sha256=1d86489ed6b21d51b9eb66ca41ab26c243e01193d44bba2be4963e2ad0992103
   google-protobuf (4.33.1-java) sha256=754b6bd75c1da602d344f9b89a743e02633463ea539cca41378a26de3bd29801
+  google-protobuf (4.33.1-x86-linux-gnu) sha256=bfd4a7fd32b84b639f1aa0346e5689ad671ab8c11b3aab5dcf565df26de6063d
+  google-protobuf (4.33.1-x86-linux-musl) sha256=3adf85756d9556d8d885f04853a520b0560fddc6cf7e63fdb8382eb145991c89
+  google-protobuf (4.33.1-x86_64-darwin) sha256=7df6d94315bbf5fdd60d8c3122308e42f4d5c9736417bdc31f3e62f29042f102
   google-protobuf (4.33.1-x86_64-linux-gnu) sha256=8205efe9313f19b5106a912b3c2146d6da5681a2a3427d361613a8f20f3e3750
+  google-protobuf (4.33.1-x86_64-linux-musl) sha256=6c6d6dc2cc560f00d912176db2788bf945f83dff5f5751d3245a97f55ddf0b1d
   http_parser.rb (0.8.0) sha256=5a0932f1fa82ce08a8516a2685d5a86031c000560f89946913c555a0697544be
   i18n (1.14.7) sha256=ceba573f8138ff2c0915427f1fc5bdf4aa3ab8ae88c8ce255eb3ecf0a11a5d0f
   jar-dependencies (0.5.5) sha256=2972b9fcba4b014e6446a84b5c09674a3e8648b95b71768e729f0e8e40568059
@@ -200,8 +281,20 @@ CHECKSUMS
   rouge (4.6.1) sha256=5075346d5797d6864be93f7adc75a16047a7dbfa572c63c502419ffa582c77de
   safe_yaml (1.0.5) sha256=a6ac2d64b7eb027bdeeca1851fe7e7af0d668e133e8a88066a0c6f7087d9f848
   sass-embedded (1.94.2) sha256=c5061699ec35fe34b182eab3df4fbe97729e90a8e0d9c247457ccb64ee0d99e6
+  sass-embedded (1.94.2-aarch64-linux-android) sha256=7a1e8ee80b0f0b0930e76792b67fae4777996463072e27cff48b7305034f4ede
+  sass-embedded (1.94.2-aarch64-linux-gnu) sha256=069d9dd446b7dda28c7b64a4be1f05cc03d14666abe5c053a8369a8ea62d59ef
+  sass-embedded (1.94.2-aarch64-linux-musl) sha256=cbdbf626b6f22d3885bacfd1b7cd67d2e2b3fe31c288d26d343b456f45eef1b9
+  sass-embedded (1.94.2-arm-linux-androideabi) sha256=da51a992ebae218c6555730198e73ad8c9afdecddd29b8cacc2655e4d2f3772e
+  sass-embedded (1.94.2-arm-linux-gnueabihf) sha256=9359f4816f4f400023bb8bbf3db92f5b1fdc64eca49e00d8e13d8d3a39bc42df
+  sass-embedded (1.94.2-arm-linux-musleabihf) sha256=e34b652a577d040686de396863a2f8da88541260b999349f746665fefa03429d
   sass-embedded (1.94.2-arm64-darwin) sha256=77e15d467f1708fa4352987df2f496a664d320c5d47eade6e8f7a87617241331
+  sass-embedded (1.94.2-riscv64-linux-android) sha256=b09bbf3bc2e26a91b0434c9d641d52b5ad7ee56907d70abaced0232a3e21baaf
+  sass-embedded (1.94.2-riscv64-linux-gnu) sha256=9d13d789eb3c315dda7edda23d45438e9710e389ba18f45271696b14aa8ad329
+  sass-embedded (1.94.2-riscv64-linux-musl) sha256=987693e190c1f033ebefd726cf46291d30d5a43d5d9ffbba44a85d667287455e
+  sass-embedded (1.94.2-x86_64-darwin) sha256=414909c8e050ed44d22c003cffe03f607c538833509b532ecbb40c434e088d1d
+  sass-embedded (1.94.2-x86_64-linux-android) sha256=c71f5ea46d12af3f790743b1877f8a7da44e80e57f700bfea37dbe7ff27e4fdb
   sass-embedded (1.94.2-x86_64-linux-gnu) sha256=64d2fd651277ed316dee1e7896ae2f2f0914cc55ef419357814b9aed1b9cc0ad
+  sass-embedded (1.94.2-x86_64-linux-musl) sha256=866c61051224ea4ff6cd51430c7933476b7945d07563d64ec9659d796bc61161
   stringio (3.1.9) sha256=c111af13d3a73eab96a3bc2655ecf93788d13d28cb8e25c1dcbff89ace885121
   terminal-table (3.0.2) sha256=f951b6af5f3e00203fb290a669e0a85c5dd5b051b3b023392ccfd67ba5abae91
   tomlrb (2.0.3) sha256=c2736acf24919f793334023a4ff396c0647d93fce702a73c9d348deaa815d4f7
