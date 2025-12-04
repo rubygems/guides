@@ -35,7 +35,7 @@ jobs:
         working-directory: guides
 
       - name: Generate command guide
-        run: RUBYOPT="--disable-gems -I../rubygems/lib" bundle exec rake command_guide && git diff --exit-code
+        run: RUBYOPT="--disable-gems -I../rubygems/lib" RUBYGEMS_DIR="../rubygems" bundle exec rake command_guide && git diff --exit-code
         working-directory: guides
 
       - name: Lint generated markdown
