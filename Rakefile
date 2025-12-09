@@ -69,7 +69,6 @@ file 'command-reference.md' =>
   require 'rubygems/command_manager'
   require 'rdoc/erbio'
 
-  rubygems_version = Gem.rubygems_version.version
   names    = Gem::CommandManager.instance.command_names
   commands = {}
   names.each do |name|
