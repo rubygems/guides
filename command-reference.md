@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 4.0.1.
+This reference was automatically generated from RubyGems version 4.0.2.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -618,6 +618,7 @@ Install a gem into the local repository
 
 * `-i, --install-dir DIR`           - Gem repository directory to get installed gems
 * `-n, --bindir DIR`                - Directory where executables will be placed when the gem is installed
+* `-j, --build-jobs VALUE`          - Specify the number of jobs to pass to `make` when installing gems with native extensions. Defaults to the number of processors. This option is ignored on the mswin platform or if the MAKEFLAGS environment variable is set.
 * `--document [TYPES]`          - Generate documentation for installed gems List the documentation types you wish to generate.  For example: rdoc,ri
 * `--build-root DIR`            - Temporary installation root. Useful for building packages. Do not use this when installing remote gems.
 * `--vendor`                    - Install gem into the vendor directory. Only for use by gem repackagers.
@@ -1621,6 +1622,7 @@ Update installed gems to the latest version
 
 * `-i, --install-dir DIR`           - Gem repository directory to get installed gems
 * `-n, --bindir DIR`                - Directory where executables will be placed when the gem is installed
+* `-j, --build-jobs VALUE`          - Specify the number of jobs to pass to `make` when installing gems with native extensions. Defaults to the number of processors. This option is ignored on the mswin platform or if the MAKEFLAGS environment variable is set.
 * `--document [TYPES]`          - Generate documentation for installed gems List the documentation types you wish to generate.  For example: rdoc,ri
 * `--build-root DIR`            - Temporary installation root. Useful for building packages. Do not use this when installing remote gems.
 * `--vendor`                    - Install gem into the vendor directory. Only for use by gem repackagers.
