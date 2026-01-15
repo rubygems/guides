@@ -50,41 +50,41 @@
 </script>
 
 <script
-  src="../js/theme-toggle.js?v=7.0.1"
+  src="../js/theme-toggle.js?v=7.1.0"
 ></script>
 
 <script
-  src="../js/search_navigation.js?v=7.0.1"
+  src="../js/search_navigation.js?v=7.1.0"
   defer
 ></script>
 
 <script
-  src="../js/search_data.js?v=7.0.1"
+  src="../js/search_data.js?v=7.1.0"
   defer
 ></script>
 
 <script
-  src="../js/search_ranker.js?v=7.0.1"
+  src="../js/search_ranker.js?v=7.1.0"
   defer
 ></script>
 
 <script
-  src="../js/search_controller.js?v=7.0.1"
+  src="../js/search_controller.js?v=7.1.0"
   defer
 ></script>
 
 <script
-  src="../js/c_highlighter.js?v=7.0.1"
+  src="../js/c_highlighter.js?v=7.1.0"
   defer
 ></script>
 
 <script
-  src="../js/aliki.js?v=7.0.1"
+  src="../js/aliki.js?v=7.1.0"
   defer
 ></script>
 
 <link
-  href="../css/rdoc.css?v=7.0.1"
+  href="../css/rdoc.css?v=7.1.0"
   rel="stylesheet"
 >
 
@@ -363,7 +363,7 @@
 </div>
 
 
-<nav id="navigation" role="navigation">
+<nav id="navigation" role="navigation" hidden>
   
 
 
@@ -385,17 +385,17 @@
 
     <ul class="nav-list" role="directory">
 
-        <li><a href="#5Buntitled-5D"></a></li>
+        <li><a href="#untitled"></a></li>
 
-        <li><a href="#Optional+gemspec+attributes">Optional gemspec attributes</a></li>
+        <li><a href="#optional-gemspec-attributes">Optional gemspec attributes</a></li>
 
-        <li><a href="#Read-only+attributes">Read-only attributes</a></li>
+        <li><a href="#read-only-attributes">Read-only attributes</a></li>
 
-        <li><a href="#Recommended+gemspec+attributes">Recommended gemspec attributes</a></li>
+        <li><a href="#recommended-gemspec-attributes">Recommended gemspec attributes</a></li>
 
-        <li><a href="#Required+gemspec+attributes">Required gemspec attributes</a></li>
+        <li><a href="#required-gemspec-attributes">Required gemspec attributes</a></li>
 
-        <li><a href="#Specification+internals">Specification internals</a></li>
+        <li><a href="#specification-internals">Specification internals</a></li>
 
     </ul>
   </details>
@@ -751,7 +751,7 @@
 
 </nav>
 
-<main role="main" aria-labelledby="class-Gem::Specification">
+<main role="main" aria-labelledby="class-gem-specification">
   
   
     <ol role="navigation" aria-label="Breadcrumb navigation" class="breadcrumb">
@@ -771,7 +771,8 @@
     </ol>
   
 
-  <h1 id="class-Gem::Specification" class="anchor-link class">
+  <span id="class-Gem::Specification" class="legacy-anchor"></span>
+  <h1 id="class-gem-specification" class="anchor-link class">
     class Gem::Specification
   </h1>
 
@@ -798,7 +799,8 @@
   </section>
 
 
-  <section id="5Buntitled-5D" class="documentation-section anchor-link">
+  <span id="5Buntitled-5D" class="legacy-anchor"></span>
+  <section id="untitled" class="documentation-section anchor-link">
 
 
 
@@ -825,7 +827,16 @@
 
 
 
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section anchor-link">
+
+
+
+
+
+
+
+
+
+     <section id="public-instance-untitled-method-details" class="method-section anchor-link">
        <header>
          <h3 id="public-instance-methods"><a href="#public-instance-methods">Public Instance Methods</a></h3>
        </header>
@@ -850,7 +861,7 @@
             </details>
           </div>
           <div class="method-source-code" id="removed_method_calls-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 186</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 186</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">removed_method_calls</span>
   <span class="ruby-ivar">@removed_method_calls</span> <span class="ruby-operator">||=</span> []
 <span class="ruby-keyword">end</span></pre>
@@ -875,13 +886,17 @@
 
     </section>
 
+
+
+
   </section>
 
-  <section id="Optional+gemspec+attributes" class="documentation-section anchor-link">
+  <span id="Optional+gemspec+attributes" class="legacy-anchor"></span>
+  <section id="optional-gemspec-attributes" class="documentation-section anchor-link">
 
     <header class="documentation-section-title">
       <h2>
-        <a href="#Optional+gemspec+attributes">Optional gemspec attributes</a>
+        <a href="#optional-gemspec-attributes">Optional gemspec attributes</a>
       </h2>
     </header>
 
@@ -1008,7 +1023,16 @@
 
 
 
-     <section id="public-instance-Optional+gemspec+attributes-method-details" class="method-section anchor-link">
+
+
+
+
+
+
+
+
+
+     <section id="public-instance-optional-gemspec-attributes-method-details" class="method-section anchor-link">
        <header>
          <h3 id="public-instance-methods"><a href="#public-instance-methods">Public Instance Methods</a></h3>
        </header>
@@ -1033,7 +1057,7 @@
             </details>
           </div>
           <div class="method-source-code" id="add_dependency-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 543</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 543</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_dependency</span>(<span class="ruby-identifier">gem</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">requirements</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">requirements</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">requirements</span>.<span class="ruby-identifier">size</span>
     <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;WARNING: duplicated #{gem} dependency #{requirements}&quot;</span>
@@ -1088,7 +1112,7 @@
             </details>
           </div>
           <div class="method-source-code" id="add_development_dependency-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 532</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 532</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_development_dependency</span>(<span class="ruby-identifier">gem</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">requirements</span>)
   <span class="ruby-identifier">add_dependency_with_type</span>(<span class="ruby-identifier">gem</span>, <span class="ruby-value">:development</span>, <span class="ruby-identifier">requirements</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1137,7 +1161,7 @@
             </details>
           </div>
           <div class="method-source-code" id="author-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 412</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 412</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">author=</span>(<span class="ruby-identifier">o</span>)
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">authors</span> = [<span class="ruby-identifier">o</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -1184,7 +1208,7 @@
             </details>
           </div>
           <div class="method-source-code" id="executables-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 566</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 566</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">executables</span>
   <span class="ruby-ivar">@executables</span> <span class="ruby-operator">||=</span> []
 <span class="ruby-keyword">end</span></pre>
@@ -1235,7 +1259,7 @@
             </details>
           </div>
           <div class="method-source-code" id="extensions-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 583</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 583</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extensions</span>
   <span class="ruby-ivar">@extensions</span> <span class="ruby-operator">||=</span> []
 <span class="ruby-keyword">end</span></pre>
@@ -1286,7 +1310,7 @@
             </details>
           </div>
           <div class="method-source-code" id="extra_rdoc_files-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 599</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 599</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extra_rdoc_files</span>
   <span class="ruby-ivar">@extra_rdoc_files</span> <span class="ruby-operator">||=</span> []
 <span class="ruby-keyword">end</span></pre>
@@ -1335,7 +1359,7 @@
             </details>
           </div>
           <div class="method-source-code" id="platform-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 463</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 463</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">platform=</span>(<span class="ruby-identifier">platform</span>)
   <span class="ruby-ivar">@original_platform</span> = <span class="ruby-identifier">platform</span>
 
@@ -1411,7 +1435,7 @@
             </details>
           </div>
           <div class="method-source-code" id="rdoc_options-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 629</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 629</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">rdoc_options</span>
   <span class="ruby-ivar">@rdoc_options</span> <span class="ruby-operator">||=</span> []
 <span class="ruby-keyword">end</span></pre>
@@ -1460,7 +1484,7 @@
             </details>
           </div>
           <div class="method-source-code" id="require_paths-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 507</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 507</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">require_paths=</span>(<span class="ruby-identifier">val</span>)
   <span class="ruby-ivar">@require_paths</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">val</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1510,7 +1534,7 @@
             </details>
           </div>
           <div class="method-source-code" id="required_ruby_version-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 659</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 659</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">required_ruby_version=</span>(<span class="ruby-identifier">req</span>)
   <span class="ruby-ivar">@required_ruby_version</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Requirement</span>.<span class="ruby-identifier">create</span> <span class="ruby-identifier">req</span>
 
@@ -1581,7 +1605,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="required_rubygems_version-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 674</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 674</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">required_rubygems_version=</span>(<span class="ruby-identifier">req</span>)
   <span class="ruby-ivar">@required_rubygems_version</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Requirement</span>.<span class="ruby-identifier">create</span> <span class="ruby-identifier">req</span>
 <span class="ruby-keyword">end</span></pre>
@@ -1623,7 +1647,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="requirements-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 687</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 687</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">requirements</span>
   <span class="ruby-ivar">@requirements</span> <span class="ruby-operator">||=</span> []
 <span class="ruby-keyword">end</span></pre>
@@ -1654,13 +1678,17 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 
     </section>
 
+
+
+
   </section>
 
-  <section id="Read-only+attributes" class="documentation-section anchor-link">
+  <span id="Read-only+attributes" class="legacy-anchor"></span>
+  <section id="read-only-attributes" class="documentation-section anchor-link">
 
     <header class="documentation-section-title">
       <h2>
-        <a href="#Read-only+attributes">Read-only attributes</a>
+        <a href="#read-only-attributes">Read-only attributes</a>
       </h2>
     </header>
 
@@ -1696,7 +1724,16 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 
 
 
-     <section id="public-instance-Read-only+attributes-method-details" class="method-section anchor-link">
+
+
+
+
+
+
+
+
+
+     <section id="public-instance-read-only-attributes-method-details" class="method-section anchor-link">
        <header>
          <h3 id="public-instance-methods"><a href="#public-instance-methods">Public Instance Methods</a></h3>
        </header>
@@ -1721,7 +1758,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="extensions_dir-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 714</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 714</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extensions_dir</span>
   <span class="ruby-ivar">@extensions_dir</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">super</span>
 <span class="ruby-keyword">end</span></pre>
@@ -1751,13 +1788,17 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 
     </section>
 
+
+
+
   </section>
 
-  <section id="Recommended+gemspec+attributes" class="documentation-section anchor-link">
+  <span id="Recommended+gemspec+attributes" class="legacy-anchor"></span>
+  <section id="recommended-gemspec-attributes" class="documentation-section anchor-link">
 
     <header class="documentation-section-title">
       <h2>
-        <a href="#Recommended+gemspec+attributes">Recommended gemspec attributes</a>
+        <a href="#recommended-gemspec-attributes">Recommended gemspec attributes</a>
       </h2>
     </header>
 
@@ -1792,8 +1833,8 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">description</span> = <span class="ruby-identifier">&lt;&lt;~EOF</span>
 <span class="ruby-value">  Rake is a Make-like program implemented in Ruby. Tasks and
-  dependencies are specified in standard Ruby syntax.
-</span><span class="ruby-identifier">EOF</span>
+  dependencies are specified in standard Ruby syntax.</span>
+<span class="ruby-identifier">EOF</span>
 </pre>
 
         </div>
@@ -1913,7 +1954,16 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 
 
 
-     <section id="public-instance-Recommended+gemspec+attributes-method-details" class="method-section anchor-link">
+
+
+
+
+
+
+
+
+
+     <section id="public-instance-recommended-gemspec-attributes-method-details" class="method-section anchor-link">
        <header>
          <h3 id="public-instance-methods"><a href="#public-instance-methods">Public Instance Methods</a></h3>
        </header>
@@ -1938,7 +1988,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="license-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 348</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 348</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">license=</span>(<span class="ruby-identifier">o</span>)
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">licenses</span> = [<span class="ruby-identifier">o</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -1999,7 +2049,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="licenses-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 365</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 365</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">licenses=</span>(<span class="ruby-identifier">licenses</span>)
   <span class="ruby-ivar">@licenses</span> = <span class="ruby-constant">Array</span> <span class="ruby-identifier">licenses</span>
 <span class="ruby-keyword">end</span></pre>
@@ -2035,13 +2085,17 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 
     </section>
 
+
+
+
   </section>
 
-  <section id="Required+gemspec+attributes" class="documentation-section anchor-link">
+  <span id="Required+gemspec+attributes" class="legacy-anchor"></span>
+  <section id="required-gemspec-attributes" class="documentation-section anchor-link">
 
     <header class="documentation-section-title">
       <h2>
-        <a href="#Required+gemspec+attributes">Required gemspec attributes</a>
+        <a href="#required-gemspec-attributes">Required gemspec attributes</a>
       </h2>
     </header>
 
@@ -2128,7 +2182,16 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 
 
 
-     <section id="public-instance-Required+gemspec+attributes-method-details" class="method-section anchor-link">
+
+
+
+
+
+
+
+
+
+     <section id="public-instance-required-gemspec-attributes-method-details" class="method-section anchor-link">
        <header>
          <h3 id="public-instance-methods"><a href="#public-instance-methods">Public Instance Methods</a></h3>
        </header>
@@ -2153,7 +2216,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="authors-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 267</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 267</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">authors=</span>(<span class="ruby-identifier">value</span>)
   <span class="ruby-ivar">@authors</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">value</span>).<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-constant">String</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -2202,7 +2265,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="files-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 247</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 247</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">files</span>
   <span class="ruby-comment"># DO NOT CHANGE TO ||= ! This is not a normal accessor. (yes, it sucks)</span>
   <span class="ruby-comment"># DOC: Why isn&#39;t it normal? Why does it suck? How can we fix this?</span>
@@ -2250,13 +2313,17 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 
     </section>
 
+
+
+
   </section>
 
-  <section id="Specification+internals" class="documentation-section anchor-link">
+  <span id="Specification+internals" class="legacy-anchor"></span>
+  <section id="specification-internals" class="documentation-section anchor-link">
 
     <header class="documentation-section-title">
       <h2>
-        <a href="#Specification+internals">Specification internals</a>
+        <a href="#specification-internals">Specification internals</a>
       </h2>
     </header>
 
@@ -2326,7 +2393,10 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 
 
 
-     <section id="public-class-Specification+internals-method-details" class="method-section anchor-link">
+
+
+
+     <section id="public-class-specification-internals-method-details" class="method-section anchor-link">
        <header>
          <h3 id="public-class-methods"><a href="#public-class-methods">Public Class Methods</a></h3>
        </header>
@@ -2351,7 +2421,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="_load-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1232</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1232</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">_load</span>(<span class="ruby-identifier">str</span>)
   <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">load_yaml</span>
   <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">load_safe_marshal</span>
@@ -2477,7 +2547,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="add_spec-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 845</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 845</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">add_spec</span>(<span class="ruby-identifier">spec</span>)
   <span class="ruby-identifier">specification_record</span>.<span class="ruby-identifier">add_spec</span>(<span class="ruby-identifier">spec</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -2519,7 +2589,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="all-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 860</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 860</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">all</span>
   <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;NOTE: Specification.all called from #{caller(1, 1).first}&quot;</span> <span class="ruby-keyword">unless</span>
     <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Deprecate</span>.<span class="ruby-identifier">skip</span>
@@ -2563,7 +2633,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="all-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 869</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 869</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">all=</span>(<span class="ruby-identifier">specs</span>)
   <span class="ruby-identifier">specification_record</span>.<span class="ruby-identifier">all</span> = <span class="ruby-identifier">specs</span>
 <span class="ruby-keyword">end</span></pre>
@@ -2605,7 +2675,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="all_names-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 876</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 876</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">all_names</span>
   <span class="ruby-identifier">specification_record</span>.<span class="ruby-identifier">all_names</span>
 <span class="ruby-keyword">end</span></pre>
@@ -2647,7 +2717,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="array_attributes-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 885</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 885</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">array_attributes</span>
   <span class="ruby-identifier">@@array_attributes</span>.<span class="ruby-identifier">dup</span>
 <span class="ruby-keyword">end</span></pre>
@@ -2689,7 +2759,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="attribute_names-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 894</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 894</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">attribute_names</span>
   <span class="ruby-identifier">@@attributes</span>.<span class="ruby-identifier">dup</span>
 <span class="ruby-keyword">end</span></pre>
@@ -2731,7 +2801,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="default_stubs-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 792</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 792</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">default_stubs</span>(<span class="ruby-identifier">pattern</span> = <span class="ruby-string">&quot;*.gemspec&quot;</span>)
   <span class="ruby-identifier">base_dir</span> = <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">default_dir</span>
   <span class="ruby-identifier">gems_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">base_dir</span>, <span class="ruby-string">&quot;gems&quot;</span>
@@ -2777,7 +2847,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="dirs-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 901</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 901</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">dirs</span>
   <span class="ruby-identifier">@@dirs</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">SpecificationRecord</span>.<span class="ruby-identifier">dirs_from</span>(<span class="ruby-identifier">gem_path</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -2819,7 +2889,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="dirs-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 909</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 909</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">dirs=</span>(<span class="ruby-identifier">dirs</span>)
   <span class="ruby-identifier">reset</span>
 
@@ -2863,7 +2933,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="each-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 921</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 921</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">specification_record</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -2905,7 +2975,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="find_active_stub_by_path-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 974</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 974</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">find_active_stub_by_path</span>(<span class="ruby-identifier">path</span>)
   <span class="ruby-identifier">specification_record</span>.<span class="ruby-identifier">find_active_stub_by_path</span>(<span class="ruby-identifier">path</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -2947,7 +3017,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="find_all_by_full_name-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 935</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 935</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">find_all_by_full_name</span>(<span class="ruby-identifier">full_name</span>)
   <span class="ruby-identifier">stubs</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">full_name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">full_name</span> }.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_spec</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -2989,7 +3059,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="find_all_by_name-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 928</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 928</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">find_all_by_name</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">requirements</span>)
   <span class="ruby-identifier">specification_record</span>.<span class="ruby-identifier">find_all_by_name</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">requirements</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -3031,7 +3101,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="find_by_full_name-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 951</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 951</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">find_by_full_name</span>(<span class="ruby-identifier">full_name</span>)
   <span class="ruby-identifier">stubs</span>.<span class="ruby-identifier">find</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">full_name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">full_name</span> }&amp;.<span class="ruby-identifier">to_spec</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3073,7 +3143,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="find_by_name-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 943</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 943</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">find_by_name</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">requirements</span>)
   <span class="ruby-identifier">requirements</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Requirement</span>.<span class="ruby-identifier">default</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">requirements</span>.<span class="ruby-identifier">empty?</span>
 
@@ -3117,7 +3187,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="find_by_path-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 958</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 958</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">find_by_path</span>(<span class="ruby-identifier">path</span>)
   <span class="ruby-identifier">specification_record</span>.<span class="ruby-identifier">find_by_path</span>(<span class="ruby-identifier">path</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -3159,7 +3229,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="find_in_unresolved-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 981</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 981</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">find_in_unresolved</span>(<span class="ruby-identifier">path</span>)
   <span class="ruby-identifier">unresolved_specs</span>.<span class="ruby-identifier">find_all</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span> <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">contains_requirable_file?</span> <span class="ruby-identifier">path</span> }
 <span class="ruby-keyword">end</span></pre>
@@ -3201,7 +3271,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="find_in_unresolved_tree-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 989</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 989</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">find_in_unresolved_tree</span>(<span class="ruby-identifier">path</span>)
   <span class="ruby-identifier">unresolved_specs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">traverse</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">_from_spec</span>, <span class="ruby-identifier">_dep</span>, <span class="ruby-identifier">to_spec</span>, <span class="ruby-identifier">trail</span><span class="ruby-operator">|</span>
@@ -3253,7 +3323,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="find_inactive_by_path-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 966</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 966</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">find_inactive_by_path</span>(<span class="ruby-identifier">path</span>)
   <span class="ruby-identifier">specification_record</span>.<span class="ruby-identifier">find_inactive_by_path</span>(<span class="ruby-identifier">path</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -3295,7 +3365,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="from_yaml-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1016</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1016</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">from_yaml</span>(<span class="ruby-identifier">input</span>)
   <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">load_yaml</span>
 
@@ -3356,7 +3426,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="latest_spec_for-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1048</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1048</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">latest_spec_for</span>(<span class="ruby-identifier">name</span>)
   <span class="ruby-identifier">specification_record</span>.<span class="ruby-identifier">latest_spec_for</span>(<span class="ruby-identifier">name</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -3398,7 +3468,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="latest_specs-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1041</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1041</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">latest_specs</span>(<span class="ruby-identifier">prerelease</span> = <span class="ruby-keyword">false</span>)
   <span class="ruby-identifier">specification_record</span>.<span class="ruby-identifier">latest_specs</span>(<span class="ruby-identifier">prerelease</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -3440,7 +3510,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="load-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1069</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1069</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">load</span>(<span class="ruby-identifier">file</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">file</span>
 
@@ -3514,7 +3584,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="load_defaults-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 833</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 833</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">load_defaults</span>
   <span class="ruby-identifier">each_spec</span>([<span class="ruby-constant">Gem</span>.<span class="ruby-identifier">default_specifications_dir</span>]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span>
     <span class="ruby-comment"># #load returns nil if the spec is bad, so we just ignore</span>
@@ -3560,7 +3630,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="new-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1926</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1926</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">name</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">version</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-keyword">super</span>()
   <span class="ruby-ivar">@gems_dir</span>              = <span class="ruby-keyword">nil</span>
@@ -3628,7 +3698,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="non_nil_attributes-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1108</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1108</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">non_nil_attributes</span>
   <span class="ruby-identifier">@@non_nil_attributes</span>.<span class="ruby-identifier">dup</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3670,7 +3740,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="normalize_yaml_input-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1115</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1115</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">normalize_yaml_input</span>(<span class="ruby-identifier">input</span>)
   <span class="ruby-identifier">result</span> = <span class="ruby-identifier">input</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:read</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">input</span>.<span class="ruby-identifier">read</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">input</span>
   <span class="ruby-identifier">result</span> = <span class="ruby-string">&quot;--- &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">result</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&quot;--- &quot;</span>)
@@ -3719,7 +3789,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="outdated-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1133</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1133</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">outdated</span>
   <span class="ruby-identifier">outdated_and_latest_version</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">local</span>, <span class="ruby-identifier">_</span><span class="ruby-operator">|</span> <span class="ruby-identifier">local</span>.<span class="ruby-identifier">name</span> }
 <span class="ruby-keyword">end</span></pre>
@@ -3763,7 +3833,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="outdated_and_latest_version-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1144</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1144</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">outdated_and_latest_version</span>
   <span class="ruby-keyword">return</span> <span class="ruby-identifier">enum_for</span> <span class="ruby-identifier">__method__</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
 
@@ -3825,7 +3895,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="remove_spec-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 852</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 852</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">remove_spec</span>(<span class="ruby-identifier">spec</span>)
   <span class="ruby-identifier">specification_record</span>.<span class="ruby-identifier">remove_spec</span>(<span class="ruby-identifier">spec</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -3867,7 +3937,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="required_attribute-3F-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1169</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1169</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">required_attribute?</span>(<span class="ruby-identifier">name</span>)
   <span class="ruby-identifier">@@required_attributes</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3909,7 +3979,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="required_attributes-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1176</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1176</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">required_attributes</span>
   <span class="ruby-identifier">@@required_attributes</span>.<span class="ruby-identifier">dup</span>
 <span class="ruby-keyword">end</span></pre>
@@ -3951,7 +4021,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="reset-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1184</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1184</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">reset</span>
   <span class="ruby-identifier">@@dirs</span> = <span class="ruby-keyword">nil</span>
   <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">pre_reset_hooks</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:call</span>)
@@ -4022,7 +4092,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="specification_record-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1220</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1220</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">specification_record</span>
   <span class="ruby-ivar">@specification_record</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">SpecificationRecord</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">dirs</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -4064,7 +4134,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="stubs-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 785</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 785</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">stubs</span>
   <span class="ruby-identifier">specification_record</span>.<span class="ruby-identifier">stubs</span>
 <span class="ruby-keyword">end</span></pre>
@@ -4106,7 +4176,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="stubs_for-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 804</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 804</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">stubs_for</span>(<span class="ruby-identifier">name</span>)
   <span class="ruby-identifier">specification_record</span>.<span class="ruby-identifier">stubs_for</span>(<span class="ruby-identifier">name</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -4148,7 +4218,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="unresolved_deps-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1225</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1225</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">unresolved_deps</span>
   <span class="ruby-ivar">@unresolved_deps</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">h</span>, <span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">n</span>] = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Dependency</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">n</span> }
 <span class="ruby-keyword">end</span></pre>
@@ -4173,7 +4243,13 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 
     </section>
 
-     <section id="public-instance-Specification+internals-method-details" class="method-section anchor-link">
+
+
+
+
+
+
+     <section id="public-instance-specification-internals-method-details" class="method-section anchor-link">
        <header>
          <h3 id="public-instance-methods"><a href="#public-instance-methods">Public Instance Methods</a></h3>
        </header>
@@ -4198,7 +4274,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="_dump-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1337</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1337</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">_dump</span>(<span class="ruby-identifier">limit</span>)
   <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span> [
     <span class="ruby-ivar">@rubygems_version</span>,
@@ -4260,7 +4336,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="abbreviate-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1426</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1426</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">abbreviate</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">files</span> = []
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">test_files</span> = []
@@ -4306,7 +4382,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="activate-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1367</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1367</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">activate</span>
   <span class="ruby-identifier">other</span> = <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">loaded_specs</span>[<span class="ruby-identifier">name</span>]
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">other</span>
@@ -4363,7 +4439,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="activate_dependencies-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1391</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1391</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">activate_dependencies</span>
   <span class="ruby-identifier">unresolved</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">unresolved_deps</span>
 
@@ -4430,7 +4506,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="add_bindir-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1462</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1462</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_bindir</span>(<span class="ruby-identifier">executables</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">executables</span>.<span class="ruby-identifier">nil?</span>
 
@@ -4514,7 +4590,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="add_self_to_load_path-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1501</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1501</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_self_to_load_path</span>
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">default_gem?</span>
 
@@ -4560,7 +4636,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="author-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1512</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1512</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">author</span>
   (<span class="ruby-identifier">val</span> = <span class="ruby-identifier">authors</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">first</span>
 <span class="ruby-keyword">end</span></pre>
@@ -4602,7 +4678,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="authors-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1521</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1521</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">authors</span>
   <span class="ruby-ivar">@authors</span> <span class="ruby-operator">||=</span> []
 <span class="ruby-keyword">end</span></pre>
@@ -4647,7 +4723,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="base_dir-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1980</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1980</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">base_dir</span>
   <span class="ruby-keyword">return</span> <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">dir</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">loaded_from</span>
   <span class="ruby-ivar">@base_dir</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">default_gem?</span>
@@ -4694,7 +4770,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="bin_dir-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1531</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1531</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bin_dir</span>
   <span class="ruby-ivar">@bin_dir</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">gem_dir</span>, <span class="ruby-identifier">bindir</span>
 <span class="ruby-keyword">end</span></pre>
@@ -4738,7 +4814,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="bin_file-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1538</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1538</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bin_file</span>(<span class="ruby-identifier">name</span>)
   <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">bin_dir</span>, <span class="ruby-identifier">name</span>
 <span class="ruby-keyword">end</span></pre>
@@ -4780,7 +4856,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="build_args-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1545</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1545</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">build_args</span>
   <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">build_info_file</span>
     <span class="ruby-identifier">build_info</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">readlines</span> <span class="ruby-identifier">build_info_file</span>
@@ -4829,7 +4905,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="build_info_dir-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1593</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1593</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">build_info_dir</span>
   <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">base_dir</span>, <span class="ruby-string">&quot;build_info&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -4871,7 +4947,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="build_info_file-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1601</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1601</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">build_info_file</span>
   <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">build_info_dir</span>, <span class="ruby-node">&quot;#{full_name}.info&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -4913,7 +4989,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="cache_dir-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1609</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1609</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cache_dir</span>
   <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">base_dir</span>, <span class="ruby-string">&quot;cache&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -4955,7 +5031,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="cache_file-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1616</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1616</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cache_file</span>
   <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">cache_dir</span>, <span class="ruby-node">&quot;#{full_name}.gem&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -4997,7 +5073,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="conflicts-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1623</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1623</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">conflicts</span>
   <span class="ruby-identifier">conflicts</span> = {}
   <span class="ruby-identifier">runtime_dependencies</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">dep</span><span class="ruby-operator">|</span>
@@ -5048,7 +5124,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="date-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1667</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1667</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">date</span>
   <span class="ruby-ivar">@date</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-operator">*</span><span class="ruby-constant">Gem</span>.<span class="ruby-identifier">source_date_epoch</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_a</span>[<span class="ruby-value">3</span><span class="ruby-operator">..</span><span class="ruby-value">5</span>].<span class="ruby-identifier">reverse</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -5094,7 +5170,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="date-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1687</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1687</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">date=</span>(<span class="ruby-identifier">date</span>)
   <span class="ruby-comment"># We want to end up with a Time object with one-day resolution.</span>
   <span class="ruby-comment"># This is the cleanest, most-readable, faster-than-using-Date</span>
@@ -5153,7 +5229,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="default_value-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1709</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1709</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">default_value</span>(<span class="ruby-identifier">name</span>)
   <span class="ruby-identifier">@@default_value</span>[<span class="ruby-identifier">name</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -5195,7 +5271,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="dependencies-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1719</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1719</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dependencies</span>
   <span class="ruby-ivar">@dependencies</span> <span class="ruby-operator">||=</span> []
 <span class="ruby-keyword">end</span></pre>
@@ -5239,7 +5315,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="dependent_gems-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1729</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1729</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dependent_gems</span>(<span class="ruby-identifier">check_dev</span> = <span class="ruby-keyword">true</span>)
   <span class="ruby-identifier">out</span> = []
   <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span>
@@ -5296,7 +5372,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="dependent_specs-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1748</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1748</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dependent_specs</span>
   <span class="ruby-identifier">runtime_dependencies</span>.<span class="ruby-identifier">flat_map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_specs</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -5338,7 +5414,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="description-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1755</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1755</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">description=</span>(<span class="ruby-identifier">str</span>)
   <span class="ruby-ivar">@description</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">to_s</span>
 <span class="ruby-keyword">end</span></pre>
@@ -5380,7 +5456,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="development_dependencies-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1762</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1762</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">development_dependencies</span>
   <span class="ruby-identifier">dependencies</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:development</span> }
 <span class="ruby-keyword">end</span></pre>
@@ -5422,7 +5498,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="doc_dir-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1774</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1774</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">doc_dir</span>(<span class="ruby-identifier">type</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-ivar">@doc_dir</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">base_dir</span>, <span class="ruby-string">&quot;doc&quot;</span>, <span class="ruby-identifier">full_name</span>
 
@@ -5475,7 +5551,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="executable-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1804</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1804</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">executable</span>
   (<span class="ruby-identifier">val</span> = <span class="ruby-identifier">executables</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">first</span>
 <span class="ruby-keyword">end</span></pre>
@@ -5517,7 +5593,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="executable-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1811</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1811</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">executable=</span>(<span class="ruby-identifier">o</span>)
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">executables</span> = [<span class="ruby-identifier">o</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -5559,7 +5635,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="executables-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1818</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1818</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">executables=</span>(<span class="ruby-identifier">value</span>)
   <span class="ruby-ivar">@executables</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">value</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -5601,7 +5677,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="extensions-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1825</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1825</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extensions=</span>(<span class="ruby-identifier">extensions</span>)
   <span class="ruby-ivar">@extensions</span> = <span class="ruby-constant">Array</span> <span class="ruby-identifier">extensions</span>
 <span class="ruby-keyword">end</span></pre>
@@ -5643,7 +5719,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="extra_rdoc_files-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1832</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1832</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extra_rdoc_files=</span>(<span class="ruby-identifier">files</span>)
   <span class="ruby-ivar">@extra_rdoc_files</span> = <span class="ruby-constant">Array</span> <span class="ruby-identifier">files</span>
 <span class="ruby-keyword">end</span></pre>
@@ -5685,7 +5761,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="file_name-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1841</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1841</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">file_name</span>
   <span class="ruby-node">&quot;#{full_name}.gem&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -5730,7 +5806,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="files-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1848</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1848</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">files=</span>(<span class="ruby-identifier">files</span>)
   <span class="ruby-ivar">@files</span> = <span class="ruby-constant">Array</span> <span class="ruby-identifier">files</span>
 <span class="ruby-keyword">end</span></pre>
@@ -5772,7 +5848,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="for_cache-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1866</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1866</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">for_cache</span>
   <span class="ruby-identifier">spec</span> = <span class="ruby-identifier">dup</span>
 
@@ -5819,7 +5895,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="gems_dir-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1883</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1883</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">gems_dir</span>
   <span class="ruby-ivar">@gems_dir</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">base_dir</span>, <span class="ruby-string">&quot;gems&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -5861,7 +5937,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="has_conflicts-3F-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1649</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1649</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">has_conflicts?</span>
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">env_requirement</span>(<span class="ruby-identifier">name</span>).<span class="ruby-identifier">satisfied_by?</span>(<span class="ruby-identifier">version</span>)
   <span class="ruby-identifier">runtime_dependencies</span>.<span class="ruby-identifier">any?</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">dep</span><span class="ruby-operator">|</span>
@@ -5909,7 +5985,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="initialize_copy-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1955</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1955</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize_copy</span>(<span class="ruby-identifier">other_spec</span>)
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">array_attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">name</span> = <span class="ruby-value">:&quot;@#{name}&quot;</span>
@@ -5972,7 +6048,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="keep_only_files_and_directories-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2504</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2504</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">keep_only_files_and_directories</span>
   <span class="ruby-ivar">@executables</span>.<span class="ruby-identifier">delete_if</span>      {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@bindir</span>, <span class="ruby-identifier">x</span>)) }
   <span class="ruby-ivar">@extensions</span>.<span class="ruby-identifier">delete_if</span>       {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">x</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">symlink?</span>(<span class="ruby-identifier">x</span>) }
@@ -6018,7 +6094,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="lib_files-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2000</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2000</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">lib_files</span>
   <span class="ruby-ivar">@files</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">require_paths</span>.<span class="ruby-identifier">any?</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
@@ -6064,7 +6140,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="license-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2011</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2011</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">license</span>
   <span class="ruby-identifier">licenses</span>.<span class="ruby-identifier">first</span>
 <span class="ruby-keyword">end</span></pre>
@@ -6106,7 +6182,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="licenses-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2020</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2020</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">licenses</span>
   <span class="ruby-ivar">@licenses</span> <span class="ruby-operator">||=</span> []
 <span class="ruby-keyword">end</span></pre>
@@ -6150,7 +6226,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="missing_extensions-3F-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2055</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2055</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">missing_extensions?</span>
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">extensions</span>.<span class="ruby-identifier">empty?</span>
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">default_gem?</span>
@@ -6196,7 +6272,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="name_tuple-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2086</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2086</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">name_tuple</span>
   <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">NameTuple</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">version</span>, <span class="ruby-identifier">original_platform</span>
 <span class="ruby-keyword">end</span></pre>
@@ -6238,7 +6314,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="normalize-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2069</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2069</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">normalize</span>
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-ivar">@extra_rdoc_files</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@extra_rdoc_files</span>
     <span class="ruby-ivar">@extra_rdoc_files</span>.<span class="ruby-identifier">uniq!</span>
@@ -6295,7 +6371,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="platform-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2112</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2112</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">platform</span>
   <span class="ruby-ivar">@new_platform</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Platform</span><span class="ruby-operator">::</span><span class="ruby-constant">RUBY</span> <span class="ruby-comment"># rubocop:disable Naming/MemoizedInstanceVariableName</span>
 <span class="ruby-keyword">end</span></pre>
@@ -6337,7 +6413,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="rdoc_options-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2178</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2178</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">rdoc_options=</span>(<span class="ruby-identifier">options</span>)
   <span class="ruby-ivar">@rdoc_options</span> = <span class="ruby-constant">Array</span> <span class="ruby-identifier">options</span>
 <span class="ruby-keyword">end</span></pre>
@@ -6379,7 +6455,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="require_path-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2185</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2185</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">require_path</span>
   (<span class="ruby-identifier">val</span> = <span class="ruby-identifier">require_paths</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">first</span>
 <span class="ruby-keyword">end</span></pre>
@@ -6421,7 +6497,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="require_path-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2192</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2192</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">require_path=</span>(<span class="ruby-identifier">path</span>)
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">require_paths</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">path</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -6463,7 +6539,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="requirements-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2199</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2199</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">requirements=</span>(<span class="ruby-identifier">req</span>)
   <span class="ruby-ivar">@requirements</span> = <span class="ruby-constant">Array</span> <span class="ruby-identifier">req</span>
 <span class="ruby-keyword">end</span></pre>
@@ -6505,7 +6581,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="reset_nil_attributes_to_default-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2544</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2544</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reset_nil_attributes_to_default</span>
   <span class="ruby-identifier">nil_attributes</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">non_nil_attributes</span>.<span class="ruby-identifier">find_all</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
     <span class="ruby-operator">!</span><span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-node">&quot;@#{name}&quot;</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-node">&quot;@#{name}&quot;</span>).<span class="ruby-identifier">nil?</span>
@@ -6564,7 +6640,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="ri_dir-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2210</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2210</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ri_dir</span>
   <span class="ruby-ivar">@ri_dir</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">base_dir</span>, <span class="ruby-string">&quot;ri&quot;</span>, <span class="ruby-identifier">full_name</span>
 <span class="ruby-keyword">end</span></pre>
@@ -6606,7 +6682,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="runtime_dependencies-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2243</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2243</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">runtime_dependencies</span>
   <span class="ruby-identifier">dependencies</span>.<span class="ruby-identifier">select</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:runtime?</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -6648,7 +6724,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="sanitize-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1439</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1439</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sanitize</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">summary</span>              = <span class="ruby-identifier">sanitize_string</span>(<span class="ruby-identifier">summary</span>)
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">description</span>          = <span class="ruby-identifier">sanitize_string</span>(<span class="ruby-identifier">description</span>)
@@ -6693,7 +6769,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="sanitize_string-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1449</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 1449</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sanitize_string</span>(<span class="ruby-identifier">string</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-identifier">string</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">string</span>
 
@@ -6740,7 +6816,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="satisfies_requirement-3F-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2259</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2259</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">satisfies_requirement?</span>(<span class="ruby-identifier">dependency</span>)
   <span class="ruby-ivar">@name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">dependency</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">&amp;&amp;</span>
     <span class="ruby-identifier">dependency</span>.<span class="ruby-identifier">requirement</span>.<span class="ruby-identifier">satisfied_by?</span>(<span class="ruby-ivar">@version</span>)
@@ -6783,7 +6859,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="sort_obj-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2267</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2267</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sort_obj</span>
   [<span class="ruby-ivar">@name</span>, <span class="ruby-ivar">@version</span>, <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Platform</span>.<span class="ruby-identifier">sort_priority</span>(<span class="ruby-ivar">@new_platform</span>)]
 <span class="ruby-keyword">end</span></pre>
@@ -6825,7 +6901,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="spec_dir-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2282</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2282</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spec_dir</span>
   <span class="ruby-ivar">@spec_dir</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">base_dir</span>, <span class="ruby-string">&quot;specifications&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -6867,7 +6943,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="spec_file-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2290</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2290</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spec_file</span>
   <span class="ruby-ivar">@spec_file</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">spec_dir</span>, <span class="ruby-node">&quot;#{full_name}.gemspec&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -6909,7 +6985,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="spec_name-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2299</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2299</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spec_name</span>
   <span class="ruby-node">&quot;#{full_name}.gemspec&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -6954,7 +7030,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="stubbed-3F-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2523</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2523</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">stubbed?</span>
   <span class="ruby-keyword">false</span>
 <span class="ruby-keyword">end</span></pre>
@@ -6996,7 +7072,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="summary-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2306</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2306</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">summary=</span>(<span class="ruby-identifier">str</span>)
   <span class="ruby-ivar">@summary</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">strip</span>.
     <span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/(\w-)\n[ \t]*(\w)/</span>, <span class="ruby-string">&#39;\1\2&#39;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\n[ \t]*/</span>, <span class="ruby-string">&quot; &quot;</span>) <span class="ruby-comment"># so. weird.</span>
@@ -7039,7 +7115,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="to_ruby-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2349</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2349</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_ruby</span>
   <span class="ruby-identifier">result</span> = []
   <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;# -*- encoding: utf-8 -*-&quot;</span>
@@ -7145,7 +7221,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="to_ruby_for_cache-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2423</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2423</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_ruby_for_cache</span>
   <span class="ruby-identifier">for_cache</span>.<span class="ruby-identifier">to_ruby</span>
 <span class="ruby-keyword">end</span></pre>
@@ -7189,7 +7265,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="to_spec-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2434</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2434</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_spec</span>
   <span class="ruby-keyword">self</span>
 <span class="ruby-keyword">end</span></pre>
@@ -7231,7 +7307,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="traverse-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2465</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2465</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">traverse</span>(<span class="ruby-identifier">trail</span> = [], <span class="ruby-identifier">visited</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">trail</span>.<span class="ruby-identifier">push</span>(<span class="ruby-keyword">self</span>)
   <span class="ruby-keyword">begin</span>
@@ -7293,7 +7369,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="validate-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2496</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2496</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validate</span>(<span class="ruby-identifier">packaging</span> = <span class="ruby-keyword">true</span>, <span class="ruby-identifier">strict</span> = <span class="ruby-keyword">false</span>)
   <span class="ruby-identifier">normalize</span>
 
@@ -7341,7 +7417,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="validate_for_resolution-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2512</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2512</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validate_for_resolution</span>
   <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">SpecificationPolicy</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>).<span class="ruby-identifier">validate_for_resolution</span>
 <span class="ruby-keyword">end</span></pre>
@@ -7383,7 +7459,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
             </details>
           </div>
           <div class="method-source-code" id="version-3D-source">
-            <pre class="ruby" data-language="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2519</span>
+            <pre class="ruby"><span class="ruby-comment"># File ../../lib/rubygems/specification.rb, line 2519</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">version=</span>(<span class="ruby-identifier">version</span>)
   <span class="ruby-ivar">@version</span> = <span class="ruby-identifier">version</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">version</span> <span class="ruby-operator">:</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">version</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -7408,6 +7484,9 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 
     </section>
 
+
+
+
   </section>
 
 </main>
@@ -7427,7 +7506,7 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 
   <div class="footer-bottom">
     <p>
-      Generated by <a href="https://ruby.github.io/rdoc/">RDoc 7.0.1</a>
+      Generated by <a href="https://ruby.github.io/rdoc/">RDoc 7.1.0</a>
       using the Aliki theme by <a href="http://st0012.dev">Stan Lo</a>
     </p>
   </div>
