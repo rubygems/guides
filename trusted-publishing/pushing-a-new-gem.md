@@ -29,6 +29,8 @@ For example, if you have a repository at `https://github.com/rubygems/sample-gem
 
 ![Pending trusted publisher creation form with values filled in](/images/trusted-publishing/pending-trusted-publisher-form-filled.png){:class="t-img"}
 
+If your workflow uses a reusable workflow from another repository, you'll also need to fill in the optional "Workflow Repository Owner" and "Workflow Repository Name" fields. See [Using reusable workflows](/trusted-publishing/adding-a-publisher#using-reusable-workflows) for details.
+
 Once you click "Create Pending trusted publisher", your publisher will be registered and will appear in the list of pending publishers for your account.
 
 ![List of configured pending trusted publishers](/images/trusted-publishing/pending-trusted-publishers-index.png){:class="t-img"}
