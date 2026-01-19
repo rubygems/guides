@@ -1,4 +1,4 @@
-gem "rdoc"
+gem "rdoc", "~> 6.4"
 
 require 'rdoc/rdoc'
 require 'rdoc/task'
