@@ -16,6 +16,7 @@ frequently pop up.
 * [How can I trust Gem code that's automatically downloaded?](#how-can-i-trust-gem-code-thats-automatically-downloaded)
 * [Why does `require 'some-gem'` fail?](#why-does-require-some-gem-fail)
 * [Why does require return false when loading a file from a gem?](#why-does-require-return-false-when-loading-a-file-from-a-gem)
+* [How can I use a different gem version on the command line?](#how-can-i-use-a-different-gem-version-on-the-command-line)
 
 We also answer questions on [Bundler.io Slack][slack].
 Some of the information you can find on the support site includes:
@@ -126,3 +127,16 @@ During that activation, any autoloaded files will be loaded for you.
 So, by the time your require statement actually does the work of loading
 the file, it has already been autoloaded via the gem activation, and
 therefore the statement returns false.
+
+How can I use a different gem version on the command line?
+----------------------------------------------------------
+
+If you have multiple versions of a gem installed, you can specify which version
+to use on the command line by using an underscore syntax. For example, if you
+have both Rails 3.2.17 and 4.0.4 installed, you can run:
+
+    $ rails _3.2.17_ new app
+
+The underscore syntax lets you specify the exact version of the gem's command you want
+to run. This is useful when you need to use an older version of a gem while having
+newer versions also installed on your system.
