@@ -18,14 +18,11 @@ frequently pop up.
 * [Why does require return false when loading a file from a gem?](#why-does-require-return-false-when-loading-a-file-from-a-gem)
 * [How can I use a different gem version on the command line?](#how-can-i-use-a-different-gem-version-on-the-command-line)
 
-We also answer questions on [Bundler.io Slack][slack].
 Some of the information you can find on the support site includes:
 
 * [Installing gems with no network](https://help.rubygems.org/kb/rubygems/installing-gems-with-no-network)
 * [Why do I get HTTP Response 302 or 301 when installing a gem?](https://help.rubygems.org/kb/rubygems/why-do-i-get-http-response-302-or-301-when-installing-a-gem)
 * [RubyGems Upgrade Issues](https://help.rubygems.org/kb/rubygems/rubygems-upgrade-issues)
-
-[slack]: https://slack.bundler.io/
 
 I installed gems with `--user-install` and their commands are not available
 ---------------------------------------------------------------------------

@@ -72,9 +72,8 @@ Ruby's premier packaging system. Bundled with Ruby 1.9+ and available for Ruby 1
 * New features should be coupled with tests.
 * Ensure that your code blends well with ours (eg, no trailing whitespace, match indentation and coding style).
 * Don’t modify the history file or version number.
-* If you have any questions, just ask us on [Bundler.io Slack][slack] or file [an issue][1].
+* If you have any questions, just file [an issue][1].
 
-[slack]: https://slack.bundler.io/
 [1]: https://github.com/rubygems/rubygems/issues
 
 <a class="project__name" href="https://github.com/rubygems/rubygems/blob/master/bundler/README.md">Bundler</a>
@@ -86,7 +85,6 @@ many machines systematically and repeatably.
   <a class="project__link t-link" href="https://bundler.io/">Site</a>
   <a class="project__link t-link" href="https://github.com/rubygems/rubygems/labels/Bundler">Issues</a>
   <a class="project__link t-link" href="https://groups.google.com/forum/#!forum/ruby-bundler">Mailing List</a>
-  <a class="project__link t-link" href="https://bundler.slack.com/archives/C08V1RPAP">Slack channel</a>
 </div>
 
 <p class="avatars">
@@ -119,7 +117,6 @@ deploying, and managing gems along with clear and accessible project pages.
   <a class="project__link t-link" href="https://rubygems.org">Site</a>
   <a class="project__link t-link" href="https://github.com/rubygems/rubygems.org/issues">Issues</a>
   <a class="project__link t-link" href="https://github.com/rubygems/rubygems.org/discussions/">Discussions</a>
-  <a class="project__link t-link" href="http://slack.bundler.io/">Slack</a>
   <a class="project__link t-link" href="https://github.com/rubygems/rubygems.org">Source code</a>
 </div>
 
