@@ -30,6 +30,30 @@ If you have multiple workflows that push gems, you can create one Trusted Publis
 The environment allows GitHub to constrain who can publish your gem if many people have access to the repository.
 We suggest using the [GitHub Action Environment](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-environments-for-deploymentenvironment) name "release", which we will use in our workflow examples on the next page.
 
+### Using reusable workflows
+
+If your release workflow uses a [reusable workflow](https://docs.github.com/en/actions/sharing-automations/reusing-workflows) from a different repository, you'll need to configure the optional "Workflow Repository" fields.
+
+When a workflow calls a reusable workflow from another repository, the OIDC token's `job_workflow_ref` claim points to the reusable workflow's location, not the calling repository's workflow. The "Workflow Repository Owner" and "Workflow Repository Name" fields tell RubyGems.org where the actual workflow file lives.
+
+For example, if your gem's repository (`my-org/my-gem`) calls a shared release workflow from `shared-org/shared-workflows`:
+
+```yaml
+# In my-org/my-gem/.github/workflows/release.yml
+jobs:
+  release:
+    uses: shared-org/shared-workflows/.github/workflows/ruby-gem-release.yml@main
+```
+
+You would configure the trusted publisher with:
+- **Repository owner**: `my-org`
+- **Repository name**: `my-gem`
+- **Workflow filename**: `ruby-gem-release.yml`
+- **Workflow Repository Owner**: `shared-org`
+- **Workflow Repository Name**: `shared-workflows`
+
+Leave the Workflow Repository fields blank if your workflow file is in the same repository as your gem.
+
 Once you click "Create Rubygem trusted publisher", your publisher will be registered and will appear in the list of trusted publishers for this gem.
 
 ![List of configured gem trusted publishers](/images/trusted-publishing/rubygem-trusted-publishers-index.png){:class="t-img"}
