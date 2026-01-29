@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 4.0.4.
+This reference was automatically generated from RubyGems version 4.0.5.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -1055,6 +1055,10 @@ copy.
 If you have made modifications to an installed gem, the pristine command
 will revert them.  All extensions are rebuilt and all bin stubs for the gem
 are regenerated after checking for modifications.
+
+Rebuilding extensions also refreshes C-extension gems against updated system
+libraries (for example after OS or package upgrades) to avoid mismatches like
+outdated library version warnings.
 
 If the cached gem cannot be found it will be downloaded.
 
