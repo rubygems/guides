@@ -26,6 +26,14 @@ next: /command-reference
 
 <p>Starting in RubyGems 2.0, a Specification can hold arbitrary metadata.  See <code>metadata</code> for restrictions on the format and size of metadata items you may add to a specification.</p>
 
+<p>Specifications must be deterministic, as in the example above. For instance, you cannot define attributes conditionally:</p>
+
+<pre class="ruby"><span class="ruby-comment"># INVALID: do not do this.</span>
+<span class="ruby-keyword">unless</span> <span class="ruby-constant">RUBY_ENGINE</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;jruby&quot;</span>
+  <span class="ruby-identifier">s</span>.<span class="ruby-identifier">extensions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;ext/example/extconf.rb&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
 
 
 ## Required gemspec attributes
