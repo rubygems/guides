@@ -1,0 +1,13 @@
+---
+title: Known Plugins
+---
+
+
+.container
+  .row
+    .col
+      - data.known_plugins.each do |c|
+        %li.contributor
+          = link_to c[:name], c[:uri], title: c[:name]
+          = " - "
+          = c[:summary]
