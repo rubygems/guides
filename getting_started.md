@@ -14,7 +14,7 @@ Bundler is an exit from dependency hell, and ensures that the gems
 you need are present in development, staging, and production.
 Starting work on a project is as simple as `bundle install`.
 
-<a href="../whats_new.html" class="btn btn-primary">What's new in Bundler</a>
+<a href="https://bundler.io/whats_new.html" class="btn btn-primary">What's new in Bundler</a>
 <a href="./rationale.html" class="btn btn-primary">Why Bundler exists</a>
 
 ## Getting Started
@@ -43,7 +43,7 @@ $ bundle install
 $ git add Gemfile Gemfile.lock
 ~~~
 
-<a href="../man/bundle-install.1.html" class="btn btn-primary">Learn More: bundle install</a>
+<a href="https://bundler.io/man/bundle-install.1.html" class="btn btn-primary">Learn More: bundle install</a>
 
 The second command adds the Gemfile and Gemfile.lock to your repository. This ensures
 that other developers on your app, as well as your deployment environment, will all use
@@ -84,7 +84,7 @@ $ bin/rspec spec/models
 The executables installed into `bin` are scoped to the
 bundle, and will always work.
 
-<a href="../man/bundle-exec.1.html" class="btn btn-primary">Learn More: Executables</a>
+<a href="https://bundler.io/man/bundle-exec.1.html" class="btn btn-primary">Learn More: Executables</a>
 
 ## Create a rubygem with Bundler
 <a name="create-gem"></a>
@@ -113,7 +113,7 @@ Creating gem 'my_gem'...
 Initializing git repo in ./my_gem
 ~~~
 
-<a href="../man/bundle-gem.1.html" class="btn btn-primary">Learn More: bundle gem</a>
+<a href="https://bundler.io/man/bundle-gem.1.html" class="btn btn-primary">Learn More: bundle gem</a>
 
 ## Use Bundler with
 <a name="use-bundler"></a>
@@ -132,10 +132,10 @@ or [mailing list](http://groups.google.com/group/ruby-bundler).
 If you're interested in contributing to the project (no programming skills needed),
 read [the contributing guide](https://guides.rubygems.org/contributing)
 or [the development guide](https://github.com/rubygems/rubygems/blob/master/bundler/doc/development/README.md).
-While participating in the Bundler project, please keep the [code of conduct](/conduct.html)
+While participating in the Bundler project, please keep the [code of conduct](https://bundler.io/conduct.html)
 in mind, and be inclusive and friendly towards everyone. If you have sponsorship or security questions, please contact the core team directly.
 
-<a href="/conduct.html" class="btn btn-primary">Code of Conduct</a>
+<a href="https://bundler.io/conduct.html" class="btn btn-primary">Code of Conduct</a>
 <a href="http://webchat.freenode.net/?channels=bundler" class="btn btn-primary">#bundler on IRC</a>
 <a href="http://groups.google.com/group/ruby-bundler" class="btn btn-primary">Mailing list</a>
 <a href="https://guides.rubygems.org/contributing" class="btn btn-primary">Contributing</a>

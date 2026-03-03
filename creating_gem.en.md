@@ -146,7 +146,7 @@ have gem version conflicts.
 
 By running `bundle install`, Bundler will generate the **extremely important** _Gemfile.lock_
 file. For more information on this file [read "THE GEMFILE.LOCK" section of the
-`bundle install` manpage](/man/bundle-install.1.html#THE-GEMFILE-LOCK).
+`bundle install` manpage](https://bundler.io/man/bundle-install.1.html#THE-GEMFILE-LOCK).
 
 Additionally in the `bundle install` output, we will see this line:
 

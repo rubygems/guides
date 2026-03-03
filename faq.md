@@ -160,7 +160,7 @@ The `Gemfile` inside your gem is only to make it easy for developers
 (like you) to install the dependencies needed to do development work
 on your gem. The `Gemfile` also provides an easy way to track and
 install development-only or test-only gems.
-Read about Gemfiles in gems from the [Bundler in gems](../rubygems.html)
+Read about Gemfiles in gems from the [Bundler in gems](/rubygems)
 page and the [How to create a gem with Bundler](./creating_gem.html)
 guide.
 

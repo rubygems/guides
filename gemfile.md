@@ -11,7 +11,7 @@ next: /getting_started
 Read the manual for an in-depth discussion of all of the options available in the
 `Gemfile` and how to use them.
 
-<a href="/man/gemfile.5.html" class="btn btn-primary">Gemfile manual</a>
+<a href="https://bundler.io/man/gemfile.5.html" class="btn btn-primary">Gemfile manual</a>
 
 ## Gemfiles
 

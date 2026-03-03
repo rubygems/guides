@@ -58,7 +58,7 @@ Using the `platform` command with the `--ruby` flag, you can see what `ruby` dir
 ruby 3.1.4p0 (jruby 9.4.10.0)
 ~~~
 
-<a href="/man/bundle-platform.1.html" class="btn btn-primary">Learn More: bundle platform</a>
+<a href="https://bundler.io/man/bundle-platform.1.html" class="btn btn-primary">Learn More: bundle platform</a>
 
 In the `ruby` directive, `:patchlevel` is optional, as patchlevel releases are usually compatible and include important security fixes.
 The patchlevel option checks the `RUBY_PATCHLEVEL` constant, and if not specified then bundler will simply ignore it.

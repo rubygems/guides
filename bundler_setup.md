@@ -31,7 +31,7 @@ require 'nokogiri'
 
 Ruby 2.0 and RubyGems 2.0 both require Bundler 1.3 or later. If you have questions about compatibility between Bundler and your system, please check the compatibility list.
 
-<a href="/compatibility.html" class="btn btn-primary">Learn More: Compatibility</a>
+<a href="https://bundler.io/compatibility.html" class="btn btn-primary">Learn More: Compatibility</a>
 
 ## Setting Up Your Application to Use Bundler
 <a name="setting-up-your-application-to-use-bundler"></a>
