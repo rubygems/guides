@@ -1,5 +1,9 @@
 ---
+layout: default
 title: Ruby Directive
+url: /gemfile_ruby
+previous: /bundler_workflow
+next: /rationale
 ---
 
 ## Specifying a Ruby Version

@@ -1,5 +1,9 @@
 ---
+layout: default
 title: Getting Started
+url: /getting_started
+previous: /gemfile
+next: /bundler_2_upgrade
 ---
 ## What is Bundler?
 

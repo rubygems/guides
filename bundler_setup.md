@@ -1,5 +1,9 @@
 ---
+layout: default
 title: How to use Bundler with Ruby
+url: /bundler_setup
+previous: /rails
+next: /rubymotion
 ---
 ## How to use Bundler with Ruby
 

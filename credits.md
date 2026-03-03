@@ -2,7 +2,7 @@
 layout: default
 title: Credits
 previous: /organizations/transferring-gems
-next: /
+next: /rubygems
 ---
 
 <em class="t-gray">This site is [open source](https://github.com/rubygems/guides) and its content is

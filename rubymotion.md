@@ -1,5 +1,9 @@
 ---
+layout: default
 title: How to use Bundler with RubyMotion
+url: /rubymotion
+previous: /bundler_setup
+next: /sinatra
 ---
 
 ## How to use Bundler with RubyMotion

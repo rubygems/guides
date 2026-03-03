@@ -1,5 +1,9 @@
 ---
+layout: default
 title: Recommended Workflow with Version Control
+url: /bundler_workflow
+previous: /bundler_known_plugins
+next: /gemfile_ruby
 ---
 
 ## Recommended Workflow with Version Control

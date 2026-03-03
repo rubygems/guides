@@ -1,5 +1,9 @@
 ---
+layout: default
 title: How to use Bundler in a single-file Ruby script
+url: /bundler_in_a_single_file_ruby_script
+previous: /updating_gems
+next: /bundler_docker_guide
 ---
 
 # How to use Bundler in a single-file Ruby script

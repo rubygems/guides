@@ -1,5 +1,9 @@
 ---
+layout: default
 title: Why Bundler exists
+url: /rationale
+previous: /gemfile_ruby
+next: /
 ---
 
 If you just want to know our recommended workflow and don't care about the rationale, feel

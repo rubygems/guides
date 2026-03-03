@@ -1,5 +1,9 @@
 ---
+layout: default
 title: How to package and share code using a Gemfile
+url: /bundler_sharing
+previous: /groups
+next: /rubygems_tls_ssl_troubleshooting_guide
 ---
 ## How to package and share code using a Gemfile
 <a name="sharing"></a>

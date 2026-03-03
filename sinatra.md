@@ -1,5 +1,9 @@
 ---
+layout: default
 title: How to use Bundler with Sinatra
+url: /sinatra
+previous: /rubymotion
+next: /git_bisect
 ---
 
 ## How to use Bundler with Sinatra

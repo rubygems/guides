@@ -1,5 +1,9 @@
 ---
+layout: default
 title: How to use Bundler with Rails
+url: /rails
+previous: /bundler_docker_guide
+next: /bundler_setup
 ---
 
 Rails comes with baked in support with bundler.

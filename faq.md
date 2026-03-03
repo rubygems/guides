@@ -1,5 +1,9 @@
 ---
+layout: default
 title: Frequently Asked Questions
+url: /faq
+previous: /rubygems
+next: /gemfile
 ---
 
 ## Frequently Asked Questions

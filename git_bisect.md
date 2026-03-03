@@ -1,5 +1,9 @@
 ---
+layout: default
 title: How to use git bisect with Bundler
+url: /git_bisect
+previous: /sinatra
+next: /bundler_plugins
 ---
 
 ## How to use git bisect

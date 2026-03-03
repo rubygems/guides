@@ -1,5 +1,9 @@
 ---
+layout: default
 title: Gemfiles
+url: /gemfile
+previous: /faq
+next: /getting_started
 ---
 
 ## In Depth

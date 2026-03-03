@@ -1,5 +1,9 @@
 ---
+layout: default
 title: How to install gems from git repositories
+url: /git
+previous: /deploying
+next: /using_bundler_in_applications.en
 ---
 ## How to install gems from git repositories
 

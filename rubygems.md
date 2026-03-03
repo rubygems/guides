@@ -1,5 +1,9 @@
 ---
+layout: default
 title: Bundler in gems
+url: /rubygems
+previous: /credits
+next: /faq
 ---
 
 ## Using Bundler while developing a gem

@@ -1,5 +1,9 @@
 ---
+layout: default
 title: Known Plugins
+url: /bundler_known_plugins
+previous: /bundler_plugins
+next: /bundler_workflow
 ---
 
 Known Plugins
