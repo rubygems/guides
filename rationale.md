@@ -248,7 +248,7 @@ to boot, and bundler will print out an error instructing you to run `bundle
 install`.
 
 ## Updating a Gem Without Modifying the Gemfile
-<a name="updating-a-gem-without-modyfying-the-gemfile"></a>
+<a name="updating-a-gem-without-modifying-the-gemfile"></a>
 
 Sometimes, you want to update a dependency without modifying the Gemfile. For example,
 you might want to update to the latest version of `rack-cache`. Because you
