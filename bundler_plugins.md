@@ -195,4 +195,4 @@ Here are a few plugins that you can use as examples and inspiration:
 and
 [the path source](https://github.com/rubygems/rubygems/blob/master/bundler/lib/bundler/source/path.rb)
 
-You can also look at the [full list of bundler plugins](./plugins.html).
+You can also look at the [full list of bundler plugins](/bundler_known_plugins).
