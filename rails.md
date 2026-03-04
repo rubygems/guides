@@ -6,7 +6,7 @@ previous: /bundler_docker_guide
 next: /bundler_setup
 ---
 
-Rails comes with baked in support with bundler.
+Rails comes with baked-in support for Bundler.
 
 ## How to use Bundler with Rails
 
