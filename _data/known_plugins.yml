@@ -1,0 +1,74 @@
+---
+- name: bootboot
+  summary: Dualbooting your ruby app made easy.
+  uri: https://github.com/shopify/bootboot
+- name: bundler-as_of
+  summary: Resolve gem dependencies as-of a date in the past.
+  uri: https://github.com/flavorjones/bundler-as_of
+- name: bundler-changelogs
+  summary: A bundler plugin that shows changelogs of your gem dependencies that specify
+    changelog urls [not yet filtered to git version updates].
+  uri: https://github.com/jdar/bundler-changelogs
+- name: bundler-commentate
+  summary: Bundler plugin to add gem summaries to a Gemfile
+  uri: https://gitlab.com/fjc/bundler-commentate
+- name: bundler-console
+  summary: A bundler plugin that starts a console session with your gem dependencies.
+  uri: https://github.com/kddnewton/bundler-console
+- name: bundler-ctags_generator
+  summary: Provides a hook after gem installation to generate ctags
+  uri: https://github.com/okuramasafumi/bundler-ctags_generator
+- name: bundler-dependency_graph
+  summary: Generate a visual representation of your gem dependencies.
+  uri: https://github.com/kerrizor/bundler-dependency_graph
+- name: bundler-download
+  summary: bundler-download is a Bundler plugin for auto-downloading specified extra
+    files on `bundle install`
+  uri: http://github.com/AndyObtiva/bundler-download
+- name: bundler-ecology
+  summary: Bundler plugin to avoid installing unwanted gems
+  uri: https://github.com/eco-rb/bundler-ecology
+- name: bundler-graph
+  summary: Generates a visual dependency graph for your Gemfile
+  uri: https://github.com/rubygems/bundler-graph
+- name: bundler-inject
+  summary: A bundler plugin that allows extension of a project with personal and
+    overridden gems
+  uri: https://github.com/ManageIQ/bundler-inject
+- name: bundler-install_dash_docs
+  summary: Bundler plugin to install gem documentation into the macOS documentation
+    browser Dash https://kapeli.com/dash
+  uri: https://github.com/e28eta/bundler-install_dash_docs
+- name: bundler-licensed
+  summary: A bundler hook for https://github.com/github/licensed
+  uri: https://github.com/sergey-alekseev/bundler-licensed
+- name: bundler-mac
+  summary: exclude your bundle from Time Machine and Spotlight on macOS
+  uri: https://github.com/indirect/bundler-mac
+- name: bundler-multilock
+  summary: Support Multiple Lockfiles
+  uri: https://github.com/instructure/bundler-multilock
+- name: bundler-override
+  summary: This bundler plugin allows to change dependencies for a gem. It can be
+    helpful in situation when a developer needs to use some other dependency than
+    default for the gem.
+  uri: https://github.com/tarnowsc/bundler-override
+- name: bundler-private_install
+  summary: A Bundler plugin that installs gems in an additional private Gemfile after
+    bundle install.
+  uri: https://github.com/fphilipe/bundler-private_install
+- name: bundler-source-aws-s3
+  summary: Add aws-s3 source to bundler via plugin.
+  uri: https://github.com/eki/bundler-source-aws-s3
+- name: bundler-symlink
+  summary: Post-install hook for bundler to symlink to all gems from a local directory
+  uri: https://github.com/petekinnecom/bundler-symlink
+- name: bundler-versions_report
+  summary: At the end of `bundle update` report all updated major and minor versions
+  uri: https://github.com/igneus/bundler-versions_report
+- name: bundler-why
+  summary: Explains the presence of a dependency.
+  uri: https://github.com/jaredbeck/bundler-why
+- name: extended_bundler-errors
+  summary: Extended Errors for Bundler
+  uri: http://github.com/jules2689/extended_bundler-errors
