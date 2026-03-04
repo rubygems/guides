@@ -8,8 +8,8 @@ next: /groups
 
 # How to manage application dependencies with Bundler
 
-This guide is originally written for Bundler v1.12. If you are using different version keep in mind that output can differ.
-To check Bundler version simply run `bundle -v`.
+This guide was originally written for Bundler v1.12. If you are using a different version, keep in mind that the output can differ.
+To check your Bundler version, simply run `bundle -v`.
 
 ## What's Inside?
 
