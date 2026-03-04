@@ -1,7 +1,7 @@
 ---
 layout: default
 title: How to manage application dependencies with Bundler
-url: /using_bundler_in_applications.en
+url: /using_bundler_in_applications
 previous: /git
 next: /groups
 ---
