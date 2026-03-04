@@ -50,7 +50,7 @@ You can also specify a plugin in your Gemfile:
 ~~~ruby
 plugin 'my_plugin' # Installs from Rubygems
 plugin 'my_plugin', path: '/path/to/plugin' # Installs from a path
-plugin 'my_plugin', git: 'https://github.com:repo/my_plugin.git' # Installs from Git
+plugin 'my_plugin', git: 'https://github.com/repo/my_plugin.git' # Installs from Git
 ~~~
 
 ## Getting started with development
