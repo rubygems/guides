@@ -126,7 +126,7 @@ The `:github` shortcut used above is one of Bundler's built in git sources. Bund
 with shortcuts for `:github`, `:gist`, and `:bitbucket`, but you can
 also add your own.
 
-If you're using Github Enterprise, Stash, or just have a custom git setup, create your own shortcuts
+If you're using GitHub Enterprise, Stash, or just have a custom git setup, create your own shortcuts
 by calling `git_source` before you use your custom option. Here's an example for Stash:
 
 ~~~ruby
