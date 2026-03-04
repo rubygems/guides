@@ -60,7 +60,7 @@ Bundler.require(:default, Rails.env)
 
 Restrict the groups of gems that you
 want to add to the load path. Only gems
-in these groups will be require'able.
+in these groups will be requireable.
 Note though that `Bundler.setup` can be
 called only once, all subsequent calls are
 no-op. In particular, since running a
