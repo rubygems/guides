@@ -1,7 +1,7 @@
 ---
 layout: default
 title: How to create a Ruby gem with Bundler
-url: /creating_gem.en
+url: /creating_gem
 previous: /bundler_2_upgrade
 next: /deploying
 ---
