@@ -433,6 +433,36 @@ without much hassle.
   </a>
 </p>
 
+<a class="project__name" href="https://github.com/rubysec/bundler-audit">bundler-audit</a>
+
+Patch-level verification for Bundler. Checks for known vulnerabilities
+in gems listed in Gemfile.lock.
+
+<div class="project__links">
+  <a class="project__link t-link" href="https://github.com/rubysec/bundler-audit/issues">Issues</a>
+</div>
+
+<p class="avatars">
+  <a href="https://github.com/postmodern">
+    <img src="https://github.com/postmodern.png?size=32" title="Postmodern">
+  </a>
+</p>
+
+<a class="project__name" href="https://github.com/rubysec/ruby-advisory-db">ruby-advisory-db</a>
+
+A community-maintained database of security advisories for Ruby gems.
+Used by bundler-audit and other tools to check for vulnerable dependencies.
+
+<div class="project__links">
+  <a class="project__link t-link" href="https://github.com/rubysec/ruby-advisory-db/issues">Issues</a>
+</div>
+
+<p class="avatars">
+  <a href="https://github.com/postmodern">
+    <img src="https://github.com/postmodern.png?size=32" title="Postmodern">
+  </a>
+</p>
+
 Add Your Own Idea
 -----------------
 
