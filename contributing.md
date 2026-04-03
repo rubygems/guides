@@ -22,14 +22,13 @@ Core Projects
 
 These projects are under the wing of the core [RubyGems team](https://github.com/rubygems/).
 
-<a class="project__name is-first" href="https://github.com/rubygems/rubygems">RubyGems</a>
+<a class="project__name is-first" href="https://github.com/ruby/rubygems">RubyGems</a>
 
 Ruby's premier packaging system. Bundled with Ruby 1.9+ and available for Ruby 1.8. Any time you run
 `gem` at the command line, you're using this project.
 
 <div class="project__links">
-  <a class="project__link t-link" href="https://github.com/rubygems/rubygems/issues">Issues</a>
-  <a class="project__link t-link" href="https://groups.google.com/forum/#!forum/rubygems-developers">Mailing List</a>
+  <a class="project__link t-link" href="https://github.com/ruby/rubygems/issues">Issues</a>
 </div>
 
 <p class="avatars">
@@ -74,17 +73,16 @@ Ruby's premier packaging system. Bundled with Ruby 1.9+ and available for Ruby 1
 * Don’t modify the history file or version number.
 * If you have any questions, just file [an issue][1].
 
-[1]: https://github.com/rubygems/rubygems/issues
+[1]: https://github.com/ruby/rubygems/issues
 
-<a class="project__name" href="https://github.com/rubygems/rubygems/blob/master/bundler/README.md">Bundler</a>
+<a class="project__name" href="https://github.com/ruby/rubygems/blob/master/bundler/README.md">Bundler</a>
 
 Bundler manages an application's dependencies through its entire life across
 many machines systematically and repeatably.
 
 <div class="project__links">
   <a class="project__link t-link" href="https://bundler.io/">Site</a>
-  <a class="project__link t-link" href="https://github.com/rubygems/rubygems/labels/Bundler">Issues</a>
-  <a class="project__link t-link" href="https://groups.google.com/forum/#!forum/ruby-bundler">Mailing List</a>
+  <a class="project__link t-link" href="https://github.com/ruby/rubygems/labels/Bundler">Issues</a>
 </div>
 
 <p class="avatars">
