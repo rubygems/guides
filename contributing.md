@@ -23,7 +23,7 @@ Core Projects
 
 These projects are maintained by the core RubyGems team across the [ruby](https://github.com/ruby/) and [rubygems](https://github.com/rubygems/) organizations.
 
-<a class="project__name is-first" href="https://github.com/ruby/rubygems">RubyGems & Bundler</a>
+<a class="project__name is-first" href="https://github.com/ruby/rubygems">RubyGems &amp; Bundler</a>
 
 Ruby’s package management system. This monorepo contains two CLI tools:
 `gem` for installing and managing individual gems, and `bundle` for managing
@@ -391,7 +391,8 @@ A CLI tool to automate the process of configuring a trusted publisher for a gem.
   </a>
 </p>
 
-## 3rd Party Projects
+3rd Party Projects
+------------------
 
 These projects are outside of the RubyGems organization, but work closely with RubyGems to improve the gem experience for everyone.
 
