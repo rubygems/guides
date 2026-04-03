@@ -120,20 +120,37 @@ deploying, and managing gems along with clear and accessible project pages.
 </div>
 
 <p class="avatars">
-  <a href="https://github.com/qrush">
-    <img src="https://secure.gravatar.com/avatar/eb8975af8e49e19e3dd6b6b84a542e26?s=32" title="Nick Quaranto">
+  <a href="https://github.com/colby-swandale">
+    <img src="https://github.com/colby-swandale.png?size=32" title="Colby Swandale">
   </a>
-  <a href="https://github.com/sferik">
-    <img src="https://secure.gravatar.com/avatar/1f74b13f1e5c6c69cb5d7fbaabb1e2cb?s=32" title="Erik Michaels-Ober">
+  <a href="https://github.com/jenshenny">
+    <img src="https://github.com/jenshenny.png?size=32" title="Jenny Shen">
+  </a>
+  <a href="https://github.com/hsbt">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
   </a>
   <a href="https://github.com/dwradcliffe">
-    <img src="https://secure.gravatar.com/avatar/013fd4dfb0e29744d5f37cf9068ba930?s=32" title="David Radcliffe">
+    <img src="https://github.com/dwradcliffe.png?size=32" title="David Radcliffe">
+  </a>
+</p>
+
+<em class="t-gray t-uppercase">Alumni:</em>
+
+<p class="avatars">
+  <a href="https://github.com/qrush">
+    <img src="https://github.com/qrush.png?size=32" title="Nick Quaranto">
+  </a>
+  <a href="https://github.com/sferik">
+    <img src="https://github.com/sferik.png?size=32" title="Erik Michaels-Ober">
   </a>
   <a href="https://github.com/evanphx">
-    <img src="https://secure.gravatar.com/avatar/540cb3b3712ffe045113cb03bab616a2?s=32" title="Evan Phoenix">
+    <img src="https://github.com/evanphx.png?size=32" title="Evan Phoenix">
   </a>
   <a href="https://github.com/arthurnn">
-    <img src="https://secure.gravatar.com/avatar/bd33b5aaf0eb48d67a8145732d8f61a9?s=32" title="Arthur Nogueira Neves">
+    <img src="https://github.com/arthurnn.png?size=32" title="Arthur Nogueira Neves">
+  </a>
+  <a href="https://github.com/skottler">
+    <img src="https://github.com/skottler.png?size=32" title="Sam Kottler">
   </a>
 </p>
 
