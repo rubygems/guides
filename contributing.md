@@ -137,27 +137,6 @@ deploying, and managing gems along with clear and accessible project pages.
   </a>
 </p>
 
-<a class="project__name" href="https://github.com/rubygems/rubygems-infrastructure">RubyGems Infrastructure</a>
-
-Chef cookbooks and bootstrap scripts to configure and manage Rubygems.org on AWS.
-
-<div class="project__links">
-  <a class="project__link t-link" href="https://github.com/rubygems/rubygems-infrastructure/wiki">Wiki</a>
-  <a class="project__link t-link" href="https://trello.com/b/cd2HqKnE/infrastructure">Trello</a>
-</div>
-
-<p class="avatars">
-  <a href="https://github.com/skottler">
-    <img src="https://secure.gravatar.com/avatar/ee9182ab4e45d446dfa05c20c341371f?s=32" title="Sam Kottler">
-  </a>
-  <a href="https://github.com/dwradcliffe">
-    <img src="https://secure.gravatar.com/avatar/013fd4dfb0e29744d5f37cf9068ba930?s=32" title="David Radcliffe">
-  </a>
-  <a href="https://github.com/evanphx">
-    <img src="https://secure.gravatar.com/avatar/540cb3b3712ffe045113cb03bab616a2?s=32" title="Evan Phoenix">
-  </a>
-</p>
-
 <a class="project__name" href="https://github.com/rubygems/guides">RubyGems Guides</a>
 
 The central home for RubyGems documentation, including tutorials and reference material.
