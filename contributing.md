@@ -15,154 +15,153 @@ project maintainers.
 
 * [Core Projects](#core-projects)
 * [Ecosystem Projects](#ecosystem-projects)
+* [3rd Party Projects](#3rd-party-projects)
 * [Add Your Own Idea](#add-your-own-idea)
 
 Core Projects
 -------------
 
-These projects are under the wing of the core [RubyGems team](https://github.com/rubygems/).
+These projects are maintained by the core RubyGems team across the [ruby](https://github.com/ruby/) and [rubygems](https://github.com/rubygems/) organizations.
 
-<a class="project__name is-first" href="https://github.com/rubygems/rubygems">RubyGems</a>
+<a class="project__name is-first" href="https://github.com/ruby/rubygems">RubyGems &amp; Bundler</a>
 
-Ruby's premier packaging system. Bundled with Ruby 1.9+ and available for Ruby 1.8. Any time you run
-`gem` at the command line, you're using this project.
+Ruby’s package management system. This monorepo contains two CLI tools:
+`gem` for installing and managing individual gems, and `bundle` for managing
+application dependencies. Both are bundled with Ruby.
 
 <div class="project__links">
-  <a class="project__link t-link" href="https://github.com/rubygems/rubygems/issues">Issues</a>
-  <a class="project__link t-link" href="https://groups.google.com/forum/#!forum/rubygems-developers">Mailing List</a>
+  <a class="project__link t-link" href="https://github.com/ruby/rubygems">Source Code</a>
+  <a class="project__link t-link" href="https://github.com/ruby/rubygems/issues">Issues</a>
+  <a class="project__link t-link" href="https://github.com/ruby/rubygems/discussions">Discussions</a>
+  <a class="project__link t-link" href="https://github.com/ruby/rubygems/blob/master/CONTRIBUTING.md">Contributing Guide</a>
 </div>
 
 <p class="avatars">
-  <a href="https://github.com/drbrain">
-    <img src="https://secure.gravatar.com/avatar/58479f76374a3ba3c69b9804163f39f4?s=32" title="Eric Hodel">
-  </a>
-  <a href="https://github.com/evanphx">
-    <img src="https://secure.gravatar.com/avatar/540cb3b3712ffe045113cb03bab616a2?s=32" title="Evan Phoenix">
+  <a href="https://github.com/hsbt">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
   </a>
   <a href="https://github.com/tenderlove">
-    <img src="https://secure.gravatar.com/avatar/f29327647a9cff5c69618bae420792ea?s=32" title="Aaron Patterson">
+    <img src="https://github.com/tenderlove.png?size=32" title="Aaron Patterson">
   </a>
-  <a href="https://github.com/luislavena">
-    <img src="https://secure.gravatar.com/avatar/e7cff3cfd41c495e1012227d7dc24202?s=32" title="Luis Lavena">
+  <a href="https://github.com/kou">
+    <img src="https://github.com/kou.png?size=32" title="Sutou Kouhei">
   </a>
-  <a href="https://github.com/indirect">
-    <img src="https://secure.gravatar.com/avatar/4c3ed917e59156a36212d48155831482?s=32" title="André Arko">
+  <a href="https://github.com/colby-swandale">
+    <img src="https://github.com/colby-swandale.png?size=32" title="Colby Swandale">
   </a>
-  <a href="https://github.com/segiddins">
-    <img src="https://secure.gravatar.com/avatar/4d6be90af74894fd132fb06dacec04d7?s=32" title="Samuel Giddins">
+  <a href="https://github.com/eileencodes">
+    <img src="https://github.com/eileencodes.png?size=32" title="Eileen Uchitelle">
   </a>
-  <a href="https://github.com/hsbt">
-    <img src="https://secure.gravatar.com/avatar/f2748d34b03ed11330f2a2218904eb2d?s=32" title="Hiroshi SHIBATA">
+  <a href="https://github.com/flavorjones">
+    <img src="https://github.com/flavorjones.png?size=32" title="Mike Dalessio">
+  </a>
+  <a href="https://github.com/Edouard-chin">
+    <img src="https://github.com/Edouard-chin.png?size=32" title="Edouard Chin">
   </a>
 </p>
 
 <em class="t-gray t-uppercase">Alumni:</em>
 
 <p class="avatars">
-  <a href="https://github.com/zenspider">
-    <img src="https://secure.gravatar.com/avatar/16c4b19d8670085a428787f8b2438223?s=32" title="Ryan Davis">
+  <a href="https://github.com/drbrain">
+    <img src="https://github.com/drbrain.png?size=32" title="Eric Hodel">
   </a>
-  <a href="https://github.com/jbarnette">
-    <img src="https://secure.gravatar.com/avatar/c237cf537a06b60921c97804679e3b15?s=32" title="John Barnette">
-  </a>
-</p>
-
-<em class="t-gray t-uppercase">Code Guidelines:</em>
-
-* New features should be coupled with tests.
-* Ensure that your code blends well with ours (eg, no trailing whitespace, match indentation and coding style).
-* Don’t modify the history file or version number.
-* If you have any questions, just file [an issue][1].
-
-[1]: https://github.com/rubygems/rubygems/issues
-
-<a class="project__name" href="https://github.com/rubygems/rubygems/blob/master/bundler/README.md">Bundler</a>
-
-Bundler manages an application's dependencies through its entire life across
-many machines systematically and repeatably.
-
-<div class="project__links">
-  <a class="project__link t-link" href="https://bundler.io/">Site</a>
-  <a class="project__link t-link" href="https://github.com/rubygems/rubygems/labels/Bundler">Issues</a>
-  <a class="project__link t-link" href="https://groups.google.com/forum/#!forum/ruby-bundler">Mailing List</a>
-</div>
-
-<p class="avatars">
-  <a href="https://github.com/indirect">
-    <img src="https://secure.gravatar.com/avatar/fb389f1e8b98d5d03be29e9dd309b3be?s=32" title="Andre Arko">
-  </a>
-  <a href="https://github.com/hone">
-    <img src="https://secure.gravatar.com/avatar/efb7c66871043330ce1310a9bdd0aaf6?s=32" title="Terence Lee">
-  </a>
-  <a href="https://github.com/wycats">
-    <img src="https://secure.gravatar.com/avatar/428167a3ec72235ba971162924492609?s=32" title="Yehuda Katz">
-  </a>
-  <a href="https://github.com/carllerche">
-    <img src="https://secure.gravatar.com/avatar/da5274b27cc6c0f505495bf5d504575d?s=32" title="Carl Lerche">
+  <a href="https://github.com/evanphx">
+    <img src="https://github.com/evanphx.png?size=32" title="Evan Phoenix">
   </a>
   <a href="https://github.com/segiddins">
-    <img src="https://secure.gravatar.com/avatar/4d6be90af74894fd132fb06dacec04d7?s=32" title="Samuel Giddins">
+    <img src="https://github.com/segiddins.png?size=32" title="Samuel Giddins">
   </a>
-  <a href="https://github.com/hsbt">
-    <img src="https://secure.gravatar.com/avatar/f2748d34b03ed11330f2a2218904eb2d?s=32" title="Hiroshi SHIBATA">
+  <a href="https://github.com/indirect">
+    <img src="https://github.com/indirect.png?size=32" title="André Arko">
+  </a>
+  <a href="https://github.com/luislavena">
+    <img src="https://github.com/luislavena.png?size=32" title="Luis Lavena">
+  </a>
+  <a href="https://github.com/wycats">
+    <img src="https://github.com/wycats.png?size=32" title="Yehuda Katz">
+  </a>
+  <a href="https://github.com/carllerche">
+    <img src="https://github.com/carllerche.png?size=32" title="Carl Lerche">
+  </a>
+  <a href="https://github.com/zenspider">
+    <img src="https://github.com/zenspider.png?size=32" title="Ryan Davis">
+  </a>
+  <a href="https://github.com/jbarnette">
+    <img src="https://github.com/jbarnette.png?size=32" title="John Barnette">
+  </a>
+  <a href="https://github.com/hone">
+    <img src="https://github.com/hone.png?size=32" title="Terence Lee">
+  </a>
+  <a href="https://github.com/deivid-rodriguez">
+    <img src="https://github.com/deivid-rodriguez.png?size=32" title="David Rodríguez">
+  </a>
+  <a href="https://github.com/bronzdoc">
+    <img src="https://github.com/bronzdoc.png?size=32" title="Luis Sagastume">
+  </a>
+  <a href="https://github.com/djberg96">
+    <img src="https://github.com/djberg96.png?size=32" title="Daniel Berger">
+  </a>
+  <a href="https://github.com/duckinator">
+    <img src="https://github.com/duckinator.png?size=32" title="Ellen Marie Dash">
   </a>
 </p>
 
 <a class="project__name" href="https://github.com/rubygems/rubygems.org">RubyGems.org</a>
 
-The Ruby community's gem hosting service. Provides a better API for accessing,
-deploying, and managing gems along with clear and accessible project pages.
+The Ruby community's gem hosting service and registry.
 
 <div class="project__links">
   <a class="project__link t-link" href="https://rubygems.org">Site</a>
   <a class="project__link t-link" href="https://github.com/rubygems/rubygems.org/issues">Issues</a>
-  <a class="project__link t-link" href="https://github.com/rubygems/rubygems.org/discussions/">Discussions</a>
-  <a class="project__link t-link" href="https://github.com/rubygems/rubygems.org">Source code</a>
+  <a class="project__link t-link" href="https://github.com/rubygems/rubygems.org/discussions">Discussions</a>
+  <a class="project__link t-link" href="https://github.com/rubygems/rubygems.org">Source Code</a>
 </div>
+
+<p class="avatars">
+  <a href="https://github.com/colby-swandale">
+    <img src="https://github.com/colby-swandale.png?size=32" title="Colby Swandale">
+  </a>
+  <a href="https://github.com/jenshenny">
+    <img src="https://github.com/jenshenny.png?size=32" title="Jenny Shen">
+  </a>
+  <a href="https://github.com/hsbt">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
+  </a>
+  <a href="https://github.com/dwradcliffe">
+    <img src="https://github.com/dwradcliffe.png?size=32" title="David Radcliffe">
+  </a>
+</p>
+
+<em class="t-gray t-uppercase">Alumni:</em>
 
 <p class="avatars">
   <a href="https://github.com/qrush">
-    <img src="https://secure.gravatar.com/avatar/eb8975af8e49e19e3dd6b6b84a542e26?s=32" title="Nick Quaranto">
+    <img src="https://github.com/qrush.png?size=32" title="Nick Quaranto">
   </a>
   <a href="https://github.com/sferik">
-    <img src="https://secure.gravatar.com/avatar/1f74b13f1e5c6c69cb5d7fbaabb1e2cb?s=32" title="Erik Michaels-Ober">
-  </a>
-  <a href="https://github.com/dwradcliffe">
-    <img src="https://secure.gravatar.com/avatar/013fd4dfb0e29744d5f37cf9068ba930?s=32" title="David Radcliffe">
+    <img src="https://github.com/sferik.png?size=32" title="Erik Michaels-Ober">
   </a>
   <a href="https://github.com/evanphx">
-    <img src="https://secure.gravatar.com/avatar/540cb3b3712ffe045113cb03bab616a2?s=32" title="Evan Phoenix">
+    <img src="https://github.com/evanphx.png?size=32" title="Evan Phoenix">
   </a>
   <a href="https://github.com/arthurnn">
-    <img src="https://secure.gravatar.com/avatar/bd33b5aaf0eb48d67a8145732d8f61a9?s=32" title="Arthur Nogueira Neves">
+    <img src="https://github.com/arthurnn.png?size=32" title="Arthur Nogueira Neves">
   </a>
-</p>
-
-<a class="project__name" href="https://github.com/rubygems/rubygems-infrastructure">RubyGems Infrastructure</a>
-
-Chef cookbooks and bootstrap scripts to configure and manage Rubygems.org on AWS.
-
-<div class="project__links">
-  <a class="project__link t-link" href="https://github.com/rubygems/rubygems-infrastructure/wiki">Wiki</a>
-  <a class="project__link t-link" href="https://trello.com/b/cd2HqKnE/infrastructure">Trello</a>
-</div>
-
-<p class="avatars">
   <a href="https://github.com/skottler">
-    <img src="https://secure.gravatar.com/avatar/ee9182ab4e45d446dfa05c20c341371f?s=32" title="Sam Kottler">
-  </a>
-  <a href="https://github.com/dwradcliffe">
-    <img src="https://secure.gravatar.com/avatar/013fd4dfb0e29744d5f37cf9068ba930?s=32" title="David Radcliffe">
-  </a>
-  <a href="https://github.com/evanphx">
-    <img src="https://secure.gravatar.com/avatar/540cb3b3712ffe045113cb03bab616a2?s=32" title="Evan Phoenix">
+    <img src="https://github.com/skottler.png?size=32" title="Sam Kottler">
   </a>
 </p>
 
-<a class="project__name" href="https://github.com/rubygems/guides">RubyGems Guides</a>
+Ecosystem Projects
+------------------
+
+These projects are part of the [RubyGems organization](https://github.com/rubygems/) and support the core infrastructure.
+
+<a class="project__name is-first" href="https://github.com/rubygems/guides">RubyGems Guides</a>
 
 The central home for RubyGems documentation, including tutorials and reference material.
-User-contributed guides are more than welcome and encouraged!
+Contributions are welcome!
 
 <div class="project__links">
   <a class="project__link t-link" href="https://guides.rubygems.org">Site</a>
@@ -170,135 +169,290 @@ User-contributed guides are more than welcome and encouraged!
 </div>
 
 <p class="avatars">
-  <a href="https://github.com/qrush">
-    <img src="https://secure.gravatar.com/avatar/eb8975af8e49e19e3dd6b6b84a542e26?s=32" title="Nick Quaranto">
+  <a href="https://github.com/hsbt">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
   </a>
-  <a href="https://github.com/sandal">
-    <img src="https://secure.gravatar.com/avatar/31e038e4e9330f6c75ccfd1fca8010ee?s=32" title="Gregory Brown">
-  </a>
-  <a href="https://github.com/ffmike">
-    <img src="https://secure.gravatar.com/avatar/a54251b745d59735ea5e9f0656a5d58d?s=32" title="Mike Gunderloy">
+  <a href="https://github.com/colby-swandale">
+    <img src="https://github.com/colby-swandale.png?size=32" title="Colby Swandale">
   </a>
 </p>
 
-<a class="project__name" href="https://github.com/rubygems/gemwhisperer">Gem Whisperer</a>
-
-An example of how to use [RubyGems.org's
-webhooks](https://guides.rubygems.org/rubygems-org-api/#webhook-methods) to listen to every gem being
-pushed.
-
-<div class="project__links">
-  <a class="project__link t-link" href="http://m.rubygems.org/">Site</a>
-  <a class="project__link t-link" href="https://github.com/rubygems/gemwhisperer/issues">Issues</a>
-</div>
+<em class="t-gray t-uppercase">Alumni:</em>
 
 <p class="avatars">
   <a href="https://github.com/qrush">
-    <img src="https://secure.gravatar.com/avatar/eb8975af8e49e19e3dd6b6b84a542e26?s=32" title="Nick Quaranto">
+    <img src="https://github.com/qrush.png?size=32" title="Nick Quaranto">
   </a>
-  <a href="https://github.com/laserlemon">
-    <img src="https://secure.gravatar.com/avatar/0887991a8846577a6aa85433d6ab3ea2?s=32" title="Steve Richert">
+  <a href="https://github.com/sandal">
+    <img src="https://github.com/sandal.png?size=32" title="Gregory Brown">
+  </a>
+  <a href="https://github.com/ffmike">
+    <img src="https://github.com/ffmike.png?size=32" title="Mike Gunderloy">
   </a>
 </p>
 
 <a class="project__name" href="https://github.com/rubygems/gems">RubyGems.org API Library</a>
 
-A Ruby implementation of the various API endpoints available on RubyGems.org.
-If you're writing a service in Ruby to interact with gems available to the
-community, check this out!
+A Ruby client library for the RubyGems.org API.
 
 <div class="project__links">
   <a class="project__link t-link" href="https://github.com/rubygems/gems/issues">Issues</a>
 </div>
 
 <p class="avatars">
+  <a href="https://github.com/hsbt">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
+  </a>
+</p>
+
+<em class="t-gray t-uppercase">Alumni:</em>
+
+<p class="avatars">
   <a href="https://github.com/sferik">
-    <img src="https://secure.gravatar.com/avatar/1f74b13f1e5c6c69cb5d7fbaabb1e2cb?s=32" title="Erik Michaels-Ober">
+    <img src="https://github.com/sferik.png?size=32" title="Erik Michaels-Ober">
   </a>
   <a href="https://github.com/arthurnn">
-    <img src="https://secure.gravatar.com/avatar/bd33b5aaf0eb48d67a8145732d8f61a9?s=32" title="Arthur Nogueira Neves">
+    <img src="https://github.com/arthurnn.png?size=32" title="Arthur Nogueira Neves">
   </a>
 </p>
 
 <a class="project__name" href="https://github.com/rubygems/rubygems-mirror">RubyGems Mirror</a>
 
-The current state of mirroring RubyGems is frankly embarrassing. We need
-RubyGems to be highly available all over the world, no more excuses! Discussion
-is going on in the [rubygems-mirror
-wiki](https://github.com/rubygems/rubygems-mirror/wiki/Mirroring-2.0) on how
-to improve it.
+The `gem mirror` command for creating local mirrors of all gems from a remote
+gem source. Useful for running RubyGems behind a firewall or for availability.
 
 <div class="project__links">
   <a class="project__link t-link" href="https://github.com/rubygems/rubygems-mirror/issues">Issues</a>
 </div>
 
 <p class="avatars">
-  <a href="https://github.com/raggi">
-    <img src="https://secure.gravatar.com/avatar/b19b02a49b433c9e2e6e6c43785d2bfb?s=32" title="James Tucker">
-  </a>
   <a href="https://github.com/hsbt">
-    <img src="https://secure.gravatar.com/avatar/f2748d34b03ed11330f2a2218904eb2d?s=32" title="Hiroshi SHIBATA">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
   </a>
 </p>
 
-## Ecosystem Projects
+<em class="t-gray t-uppercase">Alumni:</em>
 
-These projects are outside of the RubyGems core, but work closely with RubyGems to improve the gem experience for everyone.
+<p class="avatars">
+  <a href="https://github.com/raggi">
+    <img src="https://github.com/raggi.png?size=32" title="James Tucker">
+  </a>
+</p>
+
+<a class="project__name" href="https://github.com/rubygems/gemstash">Gemstash</a>
+
+A RubyGems.org cache and private gem server.
+
+<div class="project__links">
+  <a class="project__link t-link" href="https://github.com/rubygems/gemstash/issues">Issues</a>
+</div>
+
+<p class="avatars">
+  <a href="https://github.com/hsbt">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
+  </a>
+  <a href="https://github.com/colby-swandale">
+    <img src="https://github.com/colby-swandale.png?size=32" title="Colby Swandale">
+  </a>
+</p>
+
+<em class="t-gray t-uppercase">Alumni:</em>
+
+<p class="avatars">
+  <a href="https://github.com/segiddins">
+    <img src="https://github.com/segiddins.png?size=32" title="Samuel Giddins">
+  </a>
+  <a href="https://github.com/martinemde">
+    <img src="https://github.com/martinemde.png?size=32" title="Martin Emde">
+  </a>
+  <a href="https://github.com/landongrindheim">
+    <img src="https://github.com/landongrindheim.png?size=32" title="Landon Grindheim">
+  </a>
+  <a href="https://github.com/technicalpickles">
+    <img src="https://github.com/technicalpickles.png?size=32" title="Josh Nichols">
+  </a>
+  <a href="https://github.com/caius">
+    <img src="https://github.com/caius.png?size=32" title="Caius Durling">
+  </a>
+  <a href="https://github.com/jrmhaig">
+    <img src="https://github.com/jrmhaig.png?size=32" title="Joseph Haig">
+  </a>
+  <a href="https://github.com/javier-menendez">
+    <img src="https://github.com/javier-menendez.png?size=32" title="Javier Menendez">
+  </a>
+  <a href="https://github.com/olleolleolle">
+    <img src="https://github.com/olleolleolle.png?size=32" title="Olle Jonsson">
+  </a>
+</p>
+
+<a class="project__name" href="https://github.com/rubygems/compact_index">Compact Index</a>
+
+Implements the response logic for the compact index format used by Bundler
+to resolve dependencies efficiently.
+
+<div class="project__links">
+  <a class="project__link t-link" href="https://github.com/rubygems/compact_index/issues">Issues</a>
+</div>
+
+<p class="avatars">
+  <a href="https://github.com/hsbt">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
+  </a>
+  <a href="https://github.com/colby-swandale">
+    <img src="https://github.com/colby-swandale.png?size=32" title="Colby Swandale">
+  </a>
+</p>
+
+<em class="t-gray t-uppercase">Alumni:</em>
+
+<p class="avatars">
+  <a href="https://github.com/segiddins">
+    <img src="https://github.com/segiddins.png?size=32" title="Samuel Giddins">
+  </a>
+</p>
+
+<a class="project__name" href="https://github.com/rubygems/release-gem">release-gem</a>
+
+The official GitHub Action for publishing gem files to RubyGems.org.
+
+<div class="project__links">
+  <a class="project__link t-link" href="https://github.com/rubygems/release-gem/issues">Issues</a>
+</div>
+
+<p class="avatars">
+  <a href="https://github.com/hsbt">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
+  </a>
+  <a href="https://github.com/colby-swandale">
+    <img src="https://github.com/colby-swandale.png?size=32" title="Colby Swandale">
+  </a>
+</p>
+
+<em class="t-gray t-uppercase">Alumni:</em>
+
+<p class="avatars">
+  <a href="https://github.com/landongrindheim">
+    <img src="https://github.com/landongrindheim.png?size=32" title="Landon Grindheim">
+  </a>
+  <a href="https://github.com/TonyCTHsu">
+    <img src="https://github.com/TonyCTHsu.png?size=32" title="Tony Hsu">
+  </a>
+  <a href="https://github.com/haines">
+    <img src="https://github.com/haines.png?size=32" title="Andrew Haines">
+  </a>
+  <a href="https://github.com/nicolasleger">
+    <img src="https://github.com/nicolasleger.png?size=32" title="Nicolas Léger">
+  </a>
+  <a href="https://github.com/ytkg">
+    <img src="https://github.com/ytkg.png?size=32" title="ytkg">
+  </a>
+</p>
+
+<a class="project__name" href="https://github.com/rubygems/configure-rubygems-credentials">configure-rubygems-credentials</a>
+
+A GitHub Action to configure RubyGems.org credential environment variables
+for use in CI/CD workflows.
+
+<div class="project__links">
+  <a class="project__link t-link" href="https://github.com/rubygems/configure-rubygems-credentials/issues">Issues</a>
+</div>
+
+<p class="avatars">
+  <a href="https://github.com/hsbt">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
+  </a>
+  <a href="https://github.com/colby-swandale">
+    <img src="https://github.com/colby-swandale.png?size=32" title="Colby Swandale">
+  </a>
+</p>
+
+<a class="project__name" href="https://github.com/rubygems/configure_trusted_publisher">configure_trusted_publisher</a>
+
+A CLI tool to automate the process of configuring a trusted publisher for a gem.
+
+<div class="project__links">
+  <a class="project__link t-link" href="https://github.com/rubygems/configure_trusted_publisher/issues">Issues</a>
+</div>
+
+<p class="avatars">
+  <a href="https://github.com/hsbt">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
+  </a>
+  <a href="https://github.com/colby-swandale">
+    <img src="https://github.com/colby-swandale.png?size=32" title="Colby Swandale">
+  </a>
+</p>
+
+<em class="t-gray t-uppercase">Alumni:</em>
+
+<p class="avatars">
+  <a href="https://github.com/landongrindheim">
+    <img src="https://github.com/landongrindheim.png?size=32" title="Landon Grindheim">
+  </a>
+</p>
+
+3rd Party Projects
+------------------
+
+These projects are outside of the RubyGems organization, but work closely with RubyGems to improve the gem experience for everyone.
 
 <a class="project__name is-first" href="https://github.com/docmeta/rubydoc.info">RubyDoc.info</a>
 
-A fantastic provider of [YARD](https://yardoc.org) documentation for every
-RubyGem available. Push a gem, and you get docs created instantly!
-RubyGems.org links to this site and it uses [RubyGems.org's
-webhooks](https://guides.rubygems.org/rubygems-org-api/#webhook-methods) as well.
+Provides [YARD](https://yardoc.org) documentation for every RubyGem available.
+Push a gem, and you get docs created instantly!
 
 <div class="project__links">
   <a class="project__link t-link" href="https://rubydoc.info">Site</a>
   <a class="project__link t-link" href="https://github.com/docmeta/rubydoc.info/issues">Issues</a>
-  <a class="project__link t-link" href="https://groups.google.com/forum/#!forum/yardoc">Mailing List</a>
 </div>
 
 <p class="avatars">
-  <a href="https://github.com/indirect">
-    <img src="https://secure.gravatar.com/avatar/fb389f1e8b98d5d03be29e9dd309b3be?s=32" title="Andre Arko">
-  </a>
-  <a href="https://github.com/hone">
-    <img src="https://secure.gravatar.com/avatar/efb7c66871043330ce1310a9bdd0aaf6?s=32" title="Terence Lee">
-  </a>
-</p>
-
-<a class="project__name" href="https://github.com/copiousfreetime/stickler">Stickler</a>
-
-Stickler is a great way to run and organize an internal gem server in your
-organization. It helps with mirroring gems and providing a gem source to add
-internal or proprietary code to.
-
-<div class="project__links">
-  <a class="project__link t-link" href="https://github.com/copiousfreetime/stickler/issues">Issues</a>
-</div>
-
-<p class="avatars">
-  <a href="https://github.com/copiousfreetime">
-    <img src="https://secure.gravatar.com/avatar/cff2d90ae70bbbb5d4865d8412159f85?s=32" title="Jeremy Hinegardner">
+  <a href="https://github.com/lsegal">
+    <img src="https://github.com/lsegal.png?size=32" title="Loren Segal">
   </a>
 </p>
 
 <a class="project__name" href="https://github.com/geminabox/geminabox">Geminabox</a>
 
-Need simple RubyGems hosting? Geminabox can do that! This project provides an
-easy to setup way to host RubyGems internally and allow uploading of gems
-without much hassle.
+A simple way to host RubyGems internally and allow uploading of private gems.
 
 <div class="project__links">
   <a class="project__link t-link" href="https://github.com/geminabox/geminabox/issues">Issues</a>
 </div>
 
 <p class="avatars">
-  <a href="https://github.com/tomlea">
-    <img src="https://secure.gravatar.com/avatar/f61c5838432c656ea88dd77a56a40f52?s=32" title="Tom Leal">
+  <a href="https://github.com/andynu">
+    <img src="https://github.com/andynu.png?size=32" title="Andy Nu">
   </a>
-  <a href="https://github.com/tnir">
-    <img src="https://secure.gravatar.com/avatar/8c5062689b241827e7532be41ff19e20?s=32" title="Takuya Noguchi">
+</p>
+
+<a class="project__name" href="https://github.com/rubysec/bundler-audit">bundler-audit</a>
+
+Patch-level verification for Bundler. Checks for known vulnerabilities
+in gems listed in Gemfile.lock.
+
+<div class="project__links">
+  <a class="project__link t-link" href="https://github.com/rubysec/bundler-audit/issues">Issues</a>
+</div>
+
+<p class="avatars">
+  <a href="https://github.com/postmodern">
+    <img src="https://github.com/postmodern.png?size=32" title="Postmodern">
+  </a>
+</p>
+
+<a class="project__name" href="https://github.com/rubysec/ruby-advisory-db">ruby-advisory-db</a>
+
+A community-maintained database of security advisories for Ruby gems.
+Used by bundler-audit and other tools to check for vulnerable dependencies.
+
+<div class="project__links">
+  <a class="project__link t-link" href="https://github.com/rubysec/ruby-advisory-db/issues">Issues</a>
+</div>
+
+<p class="avatars">
+  <a href="https://github.com/postmodern">
+    <img src="https://github.com/postmodern.png?size=32" title="Postmodern">
   </a>
 </p>
 
