@@ -204,11 +204,19 @@ community, check this out!
 </div>
 
 <p class="avatars">
+  <a href="https://github.com/hsbt">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
+  </a>
+</p>
+
+<em class="t-gray t-uppercase">Alumni:</em>
+
+<p class="avatars">
   <a href="https://github.com/sferik">
-    <img src="https://secure.gravatar.com/avatar/1f74b13f1e5c6c69cb5d7fbaabb1e2cb?s=32" title="Erik Michaels-Ober">
+    <img src="https://github.com/sferik.png?size=32" title="Erik Michaels-Ober">
   </a>
   <a href="https://github.com/arthurnn">
-    <img src="https://secure.gravatar.com/avatar/bd33b5aaf0eb48d67a8145732d8f61a9?s=32" title="Arthur Nogueira Neves">
+    <img src="https://github.com/arthurnn.png?size=32" title="Arthur Nogueira Neves">
   </a>
 </p>
 
@@ -225,11 +233,16 @@ to improve it.
 </div>
 
 <p class="avatars">
-  <a href="https://github.com/raggi">
-    <img src="https://secure.gravatar.com/avatar/b19b02a49b433c9e2e6e6c43785d2bfb?s=32" title="James Tucker">
-  </a>
   <a href="https://github.com/hsbt">
-    <img src="https://secure.gravatar.com/avatar/f2748d34b03ed11330f2a2218904eb2d?s=32" title="Hiroshi SHIBATA">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
+  </a>
+</p>
+
+<em class="t-gray t-uppercase">Alumni:</em>
+
+<p class="avatars">
+  <a href="https://github.com/raggi">
+    <img src="https://github.com/raggi.png?size=32" title="James Tucker">
   </a>
 </p>
 
