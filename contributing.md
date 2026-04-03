@@ -243,6 +243,158 @@ gem source. Useful for running RubyGems behind a firewall or for availability.
   </a>
 </p>
 
+<a class="project__name" href="https://github.com/rubygems/gemstash">Gemstash</a>
+
+A RubyGems.org cache and private gem server.
+
+<div class="project__links">
+  <a class="project__link t-link" href="https://github.com/rubygems/gemstash/issues">Issues</a>
+</div>
+
+<p class="avatars">
+  <a href="https://github.com/hsbt">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
+  </a>
+  <a href="https://github.com/colby-swandale">
+    <img src="https://github.com/colby-swandale.png?size=32" title="Colby Swandale">
+  </a>
+</p>
+
+<em class="t-gray t-uppercase">Alumni:</em>
+
+<p class="avatars">
+  <a href="https://github.com/segiddins">
+    <img src="https://github.com/segiddins.png?size=32" title="Samuel Giddins">
+  </a>
+  <a href="https://github.com/martinemde">
+    <img src="https://github.com/martinemde.png?size=32" title="Martin Emde">
+  </a>
+  <a href="https://github.com/landongrindheim">
+    <img src="https://github.com/landongrindheim.png?size=32" title="Landon Grindheim">
+  </a>
+  <a href="https://github.com/technicalpickles">
+    <img src="https://github.com/technicalpickles.png?size=32" title="Josh Nichols">
+  </a>
+  <a href="https://github.com/caius">
+    <img src="https://github.com/caius.png?size=32" title="Caius Durling">
+  </a>
+  <a href="https://github.com/jrmhaig">
+    <img src="https://github.com/jrmhaig.png?size=32" title="John Sherwood-Maynaird Haig">
+  </a>
+  <a href="https://github.com/javier-menendez">
+    <img src="https://github.com/javier-menendez.png?size=32" title="Javier Menendez">
+  </a>
+  <a href="https://github.com/olleolleolle">
+    <img src="https://github.com/olleolleolle.png?size=32" title="Olle Jonsson">
+  </a>
+</p>
+
+<a class="project__name" href="https://github.com/rubygems/compact_index">Compact Index</a>
+
+Implements the response logic for the compact index format used by Bundler
+to resolve dependencies efficiently.
+
+<div class="project__links">
+  <a class="project__link t-link" href="https://github.com/rubygems/compact_index/issues">Issues</a>
+</div>
+
+<p class="avatars">
+  <a href="https://github.com/hsbt">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
+  </a>
+  <a href="https://github.com/colby-swandale">
+    <img src="https://github.com/colby-swandale.png?size=32" title="Colby Swandale">
+  </a>
+</p>
+
+<em class="t-gray t-uppercase">Alumni:</em>
+
+<p class="avatars">
+  <a href="https://github.com/segiddins">
+    <img src="https://github.com/segiddins.png?size=32" title="Samuel Giddins">
+  </a>
+</p>
+
+<a class="project__name" href="https://github.com/rubygems/release-gem">release-gem</a>
+
+The official GitHub Action for publishing gem files to RubyGems.org.
+
+<div class="project__links">
+  <a class="project__link t-link" href="https://github.com/rubygems/release-gem/issues">Issues</a>
+</div>
+
+<p class="avatars">
+  <a href="https://github.com/hsbt">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
+  </a>
+  <a href="https://github.com/colby-swandale">
+    <img src="https://github.com/colby-swandale.png?size=32" title="Colby Swandale">
+  </a>
+</p>
+
+<em class="t-gray t-uppercase">Alumni:</em>
+
+<p class="avatars">
+  <a href="https://github.com/landongrindheim">
+    <img src="https://github.com/landongrindheim.png?size=32" title="Landon Grindheim">
+  </a>
+  <a href="https://github.com/TonyCTHsu">
+    <img src="https://github.com/TonyCTHsu.png?size=32" title="Tony Hsu">
+  </a>
+  <a href="https://github.com/haines">
+    <img src="https://github.com/haines.png?size=32" title="Andrew Haines">
+  </a>
+  <a href="https://github.com/nicolasleger">
+    <img src="https://github.com/nicolasleger.png?size=32" title="Nicolas Léger">
+  </a>
+  <a href="https://github.com/ytkg">
+    <img src="https://github.com/ytkg.png?size=32" title="ytkg">
+  </a>
+</p>
+
+<a class="project__name" href="https://github.com/rubygems/configure-rubygems-credentials">configure-rubygems-credentials</a>
+
+A GitHub Action to configure RubyGems.org credential environment variables
+for use in CI/CD workflows.
+
+<div class="project__links">
+  <a class="project__link t-link" href="https://github.com/rubygems/configure-rubygems-credentials/issues">Issues</a>
+</div>
+
+<p class="avatars">
+  <a href="https://github.com/hsbt">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
+  </a>
+  <a href="https://github.com/colby-swandale">
+    <img src="https://github.com/colby-swandale.png?size=32" title="Colby Swandale">
+  </a>
+</p>
+
+<a class="project__name" href="https://github.com/rubygems/configure_trusted_publisher">configure_trusted_publisher</a>
+
+A CLI tool to automate the process of configuring a trusted publisher for a gem.
+
+<div class="project__links">
+  <a class="project__link t-link" href="https://github.com/rubygems/configure_trusted_publisher/issues">Issues</a>
+</div>
+
+<p class="avatars">
+  <a href="https://github.com/hsbt">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
+  </a>
+  <a href="https://github.com/colby-swandale">
+    <img src="https://github.com/colby-swandale.png?size=32" title="Colby Swandale">
+  </a>
+</p>
+
+<em class="t-gray t-uppercase">Alumni:</em>
+
+<p class="avatars">
+  <a href="https://github.com/landongrindheim">
+    <img src="https://github.com/landongrindheim.png?size=32" title="Landon Grindheim">
+  </a>
+</p>
+
 ## 3rd Party Projects
 
 These projects are outside of the RubyGems organization, but work closely with RubyGems to improve the gem experience for everyone.
