@@ -268,22 +268,6 @@ webhooks](https://guides.rubygems.org/rubygems-org-api/#webhook-methods) as well
   </a>
 </p>
 
-<a class="project__name" href="https://github.com/copiousfreetime/stickler">Stickler</a>
-
-Stickler is a great way to run and organize an internal gem server in your
-organization. It helps with mirroring gems and providing a gem source to add
-internal or proprietary code to.
-
-<div class="project__links">
-  <a class="project__link t-link" href="https://github.com/copiousfreetime/stickler/issues">Issues</a>
-</div>
-
-<p class="avatars">
-  <a href="https://github.com/copiousfreetime">
-    <img src="https://secure.gravatar.com/avatar/cff2d90ae70bbbb5d4865d8412159f85?s=32" title="Jeremy Hinegardner">
-  </a>
-</p>
-
 <a class="project__name" href="https://github.com/geminabox/geminabox">Geminabox</a>
 
 Need simple RubyGems hosting? Geminabox can do that! This project provides an
