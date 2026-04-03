@@ -260,15 +260,11 @@ webhooks](https://guides.rubygems.org/rubygems-org-api/#webhook-methods) as well
 <div class="project__links">
   <a class="project__link t-link" href="https://rubydoc.info">Site</a>
   <a class="project__link t-link" href="https://github.com/docmeta/rubydoc.info/issues">Issues</a>
-  <a class="project__link t-link" href="https://groups.google.com/forum/#!forum/yardoc">Mailing List</a>
 </div>
 
 <p class="avatars">
-  <a href="https://github.com/indirect">
-    <img src="https://secure.gravatar.com/avatar/fb389f1e8b98d5d03be29e9dd309b3be?s=32" title="Andre Arko">
-  </a>
-  <a href="https://github.com/hone">
-    <img src="https://secure.gravatar.com/avatar/efb7c66871043330ce1310a9bdd0aaf6?s=32" title="Terence Lee">
+  <a href="https://github.com/lsegal">
+    <img src="https://github.com/lsegal.png?size=32" title="Loren Segal">
   </a>
 </p>
 
