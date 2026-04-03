@@ -22,89 +22,85 @@ Core Projects
 
 These projects are under the wing of the core [RubyGems team](https://github.com/rubygems/).
 
-<a class="project__name is-first" href="https://github.com/ruby/rubygems">RubyGems</a>
+<a class="project__name is-first" href="https://github.com/ruby/rubygems">RubyGems & Bundler</a>
 
-Ruby's premier packaging system. Bundled with Ruby 1.9+ and available for Ruby 1.8. Any time you run
-`gem` at the command line, you're using this project.
+Ruby’s package management system. This monorepo contains two CLI tools:
+`gem` for installing and managing individual gems, and `bundle` for managing
+application dependencies. Both are bundled with Ruby.
 
 <div class="project__links">
+  <a class="project__link t-link" href="https://bundler.io/">Bundler Site</a>
   <a class="project__link t-link" href="https://github.com/ruby/rubygems/issues">Issues</a>
+  <a class="project__link t-link" href="https://github.com/ruby/rubygems/blob/master/CONTRIBUTING.md">Contributing Guide</a>
 </div>
 
 <p class="avatars">
-  <a href="https://github.com/drbrain">
-    <img src="https://secure.gravatar.com/avatar/58479f76374a3ba3c69b9804163f39f4?s=32" title="Eric Hodel">
-  </a>
-  <a href="https://github.com/evanphx">
-    <img src="https://secure.gravatar.com/avatar/540cb3b3712ffe045113cb03bab616a2?s=32" title="Evan Phoenix">
+  <a href="https://github.com/hsbt">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
   </a>
   <a href="https://github.com/tenderlove">
-    <img src="https://secure.gravatar.com/avatar/f29327647a9cff5c69618bae420792ea?s=32" title="Aaron Patterson">
+    <img src="https://github.com/tenderlove.png?size=32" title="Aaron Patterson">
   </a>
-  <a href="https://github.com/luislavena">
-    <img src="https://secure.gravatar.com/avatar/e7cff3cfd41c495e1012227d7dc24202?s=32" title="Luis Lavena">
+  <a href="https://github.com/kou">
+    <img src="https://github.com/kou.png?size=32" title="Sutou Kouhei">
   </a>
-  <a href="https://github.com/indirect">
-    <img src="https://secure.gravatar.com/avatar/4c3ed917e59156a36212d48155831482?s=32" title="André Arko">
+  <a href="https://github.com/colby-swandale">
+    <img src="https://github.com/colby-swandale.png?size=32" title="Colby Swandale">
   </a>
-  <a href="https://github.com/segiddins">
-    <img src="https://secure.gravatar.com/avatar/4d6be90af74894fd132fb06dacec04d7?s=32" title="Samuel Giddins">
+  <a href="https://github.com/eileencodes">
+    <img src="https://github.com/eileencodes.png?size=32" title="Eileen Uchitelle">
   </a>
-  <a href="https://github.com/hsbt">
-    <img src="https://secure.gravatar.com/avatar/f2748d34b03ed11330f2a2218904eb2d?s=32" title="Hiroshi SHIBATA">
+  <a href="https://github.com/flavorjones">
+    <img src="https://github.com/flavorjones.png?size=32" title="Mike Dalessio">
+  </a>
+  <a href="https://github.com/Edouard-chin">
+    <img src="https://github.com/Edouard-chin.png?size=32" title="Edouard Chin">
   </a>
 </p>
 
 <em class="t-gray t-uppercase">Alumni:</em>
 
 <p class="avatars">
+  <a href="https://github.com/drbrain">
+    <img src="https://github.com/drbrain.png?size=32" title="Eric Hodel">
+  </a>
+  <a href="https://github.com/evanphx">
+    <img src="https://github.com/evanphx.png?size=32" title="Evan Phoenix">
+  </a>
+  <a href="https://github.com/segiddins">
+    <img src="https://github.com/segiddins.png?size=32" title="Samuel Giddins">
+  </a>
+  <a href="https://github.com/indirect">
+    <img src="https://github.com/indirect.png?size=32" title="André Arko">
+  </a>
+  <a href="https://github.com/luislavena">
+    <img src="https://github.com/luislavena.png?size=32" title="Luis Lavena">
+  </a>
+  <a href="https://github.com/wycats">
+    <img src="https://github.com/wycats.png?size=32" title="Yehuda Katz">
+  </a>
+  <a href="https://github.com/carllerche">
+    <img src="https://github.com/carllerche.png?size=32" title="Carl Lerche">
+  </a>
   <a href="https://github.com/zenspider">
-    <img src="https://secure.gravatar.com/avatar/16c4b19d8670085a428787f8b2438223?s=32" title="Ryan Davis">
+    <img src="https://github.com/zenspider.png?size=32" title="Ryan Davis">
   </a>
   <a href="https://github.com/jbarnette">
-    <img src="https://secure.gravatar.com/avatar/c237cf537a06b60921c97804679e3b15?s=32" title="John Barnette">
+    <img src="https://github.com/jbarnette.png?size=32" title="John Barnette">
+  </a>
+  <a href="https://github.com/hone">
+    <img src="https://github.com/hone.png?size=32" title="Terence Lee">
   </a>
 </p>
 
 <em class="t-gray t-uppercase">Code Guidelines:</em>
 
 * New features should be coupled with tests.
-* Ensure that your code blends well with ours (eg, no trailing whitespace, match indentation and coding style).
-* Don’t modify the history file or version number.
+* Use two-space indentation and run `bin/rake rubocop` to check style compliance.
+* Don’t modify version numbers or changelog files directly.
 * If you have any questions, just file [an issue][1].
 
 [1]: https://github.com/ruby/rubygems/issues
-
-<a class="project__name" href="https://github.com/ruby/rubygems/blob/master/bundler/README.md">Bundler</a>
-
-Bundler manages an application's dependencies through its entire life across
-many machines systematically and repeatably.
-
-<div class="project__links">
-  <a class="project__link t-link" href="https://bundler.io/">Site</a>
-  <a class="project__link t-link" href="https://github.com/ruby/rubygems/labels/Bundler">Issues</a>
-</div>
-
-<p class="avatars">
-  <a href="https://github.com/indirect">
-    <img src="https://secure.gravatar.com/avatar/fb389f1e8b98d5d03be29e9dd309b3be?s=32" title="Andre Arko">
-  </a>
-  <a href="https://github.com/hone">
-    <img src="https://secure.gravatar.com/avatar/efb7c66871043330ce1310a9bdd0aaf6?s=32" title="Terence Lee">
-  </a>
-  <a href="https://github.com/wycats">
-    <img src="https://secure.gravatar.com/avatar/428167a3ec72235ba971162924492609?s=32" title="Yehuda Katz">
-  </a>
-  <a href="https://github.com/carllerche">
-    <img src="https://secure.gravatar.com/avatar/da5274b27cc6c0f505495bf5d504575d?s=32" title="Carl Lerche">
-  </a>
-  <a href="https://github.com/segiddins">
-    <img src="https://secure.gravatar.com/avatar/4d6be90af74894fd132fb06dacec04d7?s=32" title="Samuel Giddins">
-  </a>
-  <a href="https://github.com/hsbt">
-    <img src="https://secure.gravatar.com/avatar/f2748d34b03ed11330f2a2218904eb2d?s=32" title="Hiroshi SHIBATA">
-  </a>
-</p>
 
 <a class="project__name" href="https://github.com/rubygems/rubygems.org">RubyGems.org</a>
 
