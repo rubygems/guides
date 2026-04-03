@@ -105,14 +105,6 @@ application dependencies. Both are bundled with Ruby.
   </a>
 </p>
 
-<em class="t-gray t-uppercase">Code Guidelines:</em>
-
-* New features should be coupled with tests.
-* Use two-space indentation and run `bin/rake rubocop` to check style compliance.
-* Don’t modify version numbers or changelog files directly.
-* If you have any questions, just file [an issue][1].
-
-[1]: https://github.com/ruby/rubygems/issues
 
 <a class="project__name" href="https://github.com/rubygems/rubygems.org">RubyGems.org</a>
 
