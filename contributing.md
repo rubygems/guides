@@ -107,17 +107,15 @@ application dependencies. Both are bundled with Ruby.
   </a>
 </p>
 
-
 <a class="project__name" href="https://github.com/rubygems/rubygems.org">RubyGems.org</a>
 
-The Ruby community's gem hosting service. Provides a better API for accessing,
-deploying, and managing gems along with clear and accessible project pages.
+The Ruby community's gem hosting service and registry.
 
 <div class="project__links">
   <a class="project__link t-link" href="https://rubygems.org">Site</a>
   <a class="project__link t-link" href="https://github.com/rubygems/rubygems.org/issues">Issues</a>
-  <a class="project__link t-link" href="https://github.com/rubygems/rubygems.org/discussions/">Discussions</a>
-  <a class="project__link t-link" href="https://github.com/rubygems/rubygems.org">Source code</a>
+  <a class="project__link t-link" href="https://github.com/rubygems/rubygems.org/discussions">Discussions</a>
+  <a class="project__link t-link" href="https://github.com/rubygems/rubygems.org">Source Code</a>
 </div>
 
 <p class="avatars">
@@ -163,7 +161,7 @@ These projects are part of the [RubyGems organization](https://github.com/rubyge
 <a class="project__name is-first" href="https://github.com/rubygems/guides">RubyGems Guides</a>
 
 The central home for RubyGems documentation, including tutorials and reference material.
-User-contributed guides are more than welcome and encouraged!
+Contributions are welcome!
 
 <div class="project__links">
   <a class="project__link t-link" href="https://guides.rubygems.org">Site</a>
@@ -195,9 +193,7 @@ User-contributed guides are more than welcome and encouraged!
 
 <a class="project__name" href="https://github.com/rubygems/gems">RubyGems.org API Library</a>
 
-A Ruby implementation of the various API endpoints available on RubyGems.org.
-If you're writing a service in Ruby to interact with gems available to the
-community, check this out!
+A Ruby client library for the RubyGems.org API.
 
 <div class="project__links">
   <a class="project__link t-link" href="https://github.com/rubygems/gems/issues">Issues</a>
@@ -279,7 +275,7 @@ A RubyGems.org cache and private gem server.
     <img src="https://github.com/caius.png?size=32" title="Caius Durling">
   </a>
   <a href="https://github.com/jrmhaig">
-    <img src="https://github.com/jrmhaig.png?size=32" title="John Sherwood-Maynaird Haig">
+    <img src="https://github.com/jrmhaig.png?size=32" title="Joseph Haig">
   </a>
   <a href="https://github.com/javier-menendez">
     <img src="https://github.com/javier-menendez.png?size=32" title="Javier Menendez">
@@ -401,10 +397,8 @@ These projects are outside of the RubyGems organization, but work closely with R
 
 <a class="project__name is-first" href="https://github.com/docmeta/rubydoc.info">RubyDoc.info</a>
 
-A fantastic provider of [YARD](https://yardoc.org) documentation for every
-RubyGem available. Push a gem, and you get docs created instantly!
-RubyGems.org links to this site and it uses [RubyGems.org's
-webhooks](https://guides.rubygems.org/rubygems-org-api/#webhook-methods) as well.
+Provides [YARD](https://yardoc.org) documentation for every RubyGem available.
+Push a gem, and you get docs created instantly!
 
 <div class="project__links">
   <a class="project__link t-link" href="https://rubydoc.info">Site</a>
@@ -419,9 +413,7 @@ webhooks](https://guides.rubygems.org/rubygems-org-api/#webhook-methods) as well
 
 <a class="project__name" href="https://github.com/geminabox/geminabox">Geminabox</a>
 
-Need simple RubyGems hosting? Geminabox can do that! This project provides an
-easy to setup way to host RubyGems internally and allow uploading of gems
-without much hassle.
+A simple way to host RubyGems internally and allow uploading of private gems.
 
 <div class="project__links">
   <a class="project__link t-link" href="https://github.com/geminabox/geminabox/issues">Issues</a>
