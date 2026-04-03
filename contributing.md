@@ -91,6 +91,18 @@ application dependencies. Both are bundled with Ruby.
   <a href="https://github.com/hone">
     <img src="https://github.com/hone.png?size=32" title="Terence Lee">
   </a>
+  <a href="https://github.com/deivid-rodriguez">
+    <img src="https://github.com/deivid-rodriguez.png?size=32" title="David Rodríguez">
+  </a>
+  <a href="https://github.com/bronzdoc">
+    <img src="https://github.com/bronzdoc.png?size=32" title="Luis Sagastume">
+  </a>
+  <a href="https://github.com/djberg96">
+    <img src="https://github.com/djberg96.png?size=32" title="Daniel Berger">
+  </a>
+  <a href="https://github.com/duckinator">
+    <img src="https://github.com/duckinator.png?size=32" title="Ellen Marie Dash">
+  </a>
 </p>
 
 <em class="t-gray t-uppercase">Code Guidelines:</em>
