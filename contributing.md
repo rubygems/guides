@@ -15,6 +15,7 @@ project maintainers.
 
 * [Core Projects](#core-projects)
 * [Ecosystem Projects](#ecosystem-projects)
+* [3rd Party Projects](#3rd-party-projects)
 * [Add Your Own Idea](#add-your-own-idea)
 
 Core Projects
@@ -154,7 +155,12 @@ deploying, and managing gems along with clear and accessible project pages.
   </a>
 </p>
 
-<a class="project__name" href="https://github.com/rubygems/guides">RubyGems Guides</a>
+Ecosystem Projects
+------------------
+
+These projects are part of the [RubyGems organization](https://github.com/rubygems/) and support the core infrastructure.
+
+<a class="project__name is-first" href="https://github.com/rubygems/guides">RubyGems Guides</a>
 
 The central home for RubyGems documentation, including tutorials and reference material.
 User-contributed guides are more than welcome and encouraged!
@@ -227,9 +233,9 @@ to improve it.
   </a>
 </p>
 
-## Ecosystem Projects
+## 3rd Party Projects
 
-These projects are outside of the RubyGems core, but work closely with RubyGems to improve the gem experience for everyone.
+These projects are outside of the RubyGems organization, but work closely with RubyGems to improve the gem experience for everyone.
 
 <a class="project__name is-first" href="https://github.com/docmeta/rubydoc.info">RubyDoc.info</a>
 
