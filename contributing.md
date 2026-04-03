@@ -279,11 +279,8 @@ without much hassle.
 </div>
 
 <p class="avatars">
-  <a href="https://github.com/tomlea">
-    <img src="https://secure.gravatar.com/avatar/f61c5838432c656ea88dd77a56a40f52?s=32" title="Tom Leal">
-  </a>
-  <a href="https://github.com/tnir">
-    <img src="https://secure.gravatar.com/avatar/8c5062689b241827e7532be41ff19e20?s=32" title="Takuya Noguchi">
+  <a href="https://github.com/andynu">
+    <img src="https://github.com/andynu.png?size=32" title="Andy Nu">
   </a>
 </p>
 
