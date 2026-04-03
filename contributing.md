@@ -176,26 +176,6 @@ User-contributed guides are more than welcome and encouraged!
   </a>
 </p>
 
-<a class="project__name" href="https://github.com/rubygems/gemwhisperer">Gem Whisperer</a>
-
-An example of how to use [RubyGems.org's
-webhooks](https://guides.rubygems.org/rubygems-org-api/#webhook-methods) to listen to every gem being
-pushed.
-
-<div class="project__links">
-  <a class="project__link t-link" href="http://m.rubygems.org/">Site</a>
-  <a class="project__link t-link" href="https://github.com/rubygems/gemwhisperer/issues">Issues</a>
-</div>
-
-<p class="avatars">
-  <a href="https://github.com/qrush">
-    <img src="https://secure.gravatar.com/avatar/eb8975af8e49e19e3dd6b6b84a542e26?s=32" title="Nick Quaranto">
-  </a>
-  <a href="https://github.com/laserlemon">
-    <img src="https://secure.gravatar.com/avatar/0887991a8846577a6aa85433d6ab3ea2?s=32" title="Steve Richert">
-  </a>
-</p>
-
 <a class="project__name" href="https://github.com/rubygems/gems">RubyGems.org API Library</a>
 
 A Ruby implementation of the various API endpoints available on RubyGems.org.
