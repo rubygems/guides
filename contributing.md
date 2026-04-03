@@ -165,14 +165,25 @@ User-contributed guides are more than welcome and encouraged!
 </div>
 
 <p class="avatars">
+  <a href="https://github.com/hsbt">
+    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
+  </a>
+  <a href="https://github.com/colby-swandale">
+    <img src="https://github.com/colby-swandale.png?size=32" title="Colby Swandale">
+  </a>
+</p>
+
+<em class="t-gray t-uppercase">Alumni:</em>
+
+<p class="avatars">
   <a href="https://github.com/qrush">
-    <img src="https://secure.gravatar.com/avatar/eb8975af8e49e19e3dd6b6b84a542e26?s=32" title="Nick Quaranto">
+    <img src="https://github.com/qrush.png?size=32" title="Nick Quaranto">
   </a>
   <a href="https://github.com/sandal">
-    <img src="https://secure.gravatar.com/avatar/31e038e4e9330f6c75ccfd1fca8010ee?s=32" title="Gregory Brown">
+    <img src="https://github.com/sandal.png?size=32" title="Gregory Brown">
   </a>
   <a href="https://github.com/ffmike">
-    <img src="https://secure.gravatar.com/avatar/a54251b745d59735ea5e9f0656a5d58d?s=32" title="Mike Gunderloy">
+    <img src="https://github.com/ffmike.png?size=32" title="Mike Gunderloy">
   </a>
 </p>
 
