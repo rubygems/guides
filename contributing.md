@@ -222,11 +222,8 @@ community, check this out!
 
 <a class="project__name" href="https://github.com/rubygems/rubygems-mirror">RubyGems Mirror</a>
 
-The current state of mirroring RubyGems is frankly embarrassing. We need
-RubyGems to be highly available all over the world, no more excuses! Discussion
-is going on in the [rubygems-mirror
-wiki](https://github.com/rubygems/rubygems-mirror/wiki/Mirroring-2.0) on how
-to improve it.
+The `gem mirror` command for creating local mirrors of all gems from a remote
+gem source. Useful for running RubyGems behind a firewall or for availability.
 
 <div class="project__links">
   <a class="project__link t-link" href="https://github.com/rubygems/rubygems-mirror/issues">Issues</a>
