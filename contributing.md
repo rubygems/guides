@@ -21,7 +21,7 @@ project maintainers.
 Core Projects
 -------------
 
-These projects are under the wing of the core [RubyGems team](https://github.com/rubygems/).
+These projects are maintained by the core RubyGems team across the [ruby](https://github.com/ruby/) and [rubygems](https://github.com/rubygems/) organizations.
 
 <a class="project__name is-first" href="https://github.com/ruby/rubygems">RubyGems & Bundler</a>
 
