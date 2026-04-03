@@ -29,7 +29,7 @@ Ruby’s package management system. This monorepo contains two CLI tools:
 application dependencies. Both are bundled with Ruby.
 
 <div class="project__links">
-  <a class="project__link t-link" href="https://bundler.io/">Bundler Site</a>
+  <a class="project__link t-link" href="https://github.com/ruby/rubygems">Source Code</a>
   <a class="project__link t-link" href="https://github.com/ruby/rubygems/issues">Issues</a>
   <a class="project__link t-link" href="https://github.com/ruby/rubygems/blob/master/CONTRIBUTING.md">Contributing Guide</a>
 </div>
