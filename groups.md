@@ -3,7 +3,7 @@ layout: default
 title: How to manage groups of gems
 url: /groups
 previous: /using_bundler_in_applications
-next: /bundler_sharing
+next: /dependency_management
 ---
 
 ## How to manage groups of gems

@@ -2,7 +2,7 @@
 layout: default
 title: How to troubleshoot RubyGems and Bundler TLS/SSL Issues
 url: /rubygems_tls_ssl_troubleshooting_guide
-previous: /bundler_sharing
+previous: /dependency_management
 next: /updating_gems
 ---
 

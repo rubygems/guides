@@ -3,7 +3,7 @@ layout: default
 title: Ruby Directive
 url: /gemfile_ruby
 previous: /bundler_workflow
-next: /rationale
+next: /
 ---
 
 ## Specifying a Ruby Version
