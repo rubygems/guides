@@ -1,12 +1,62 @@
 ---
 layout: default
-title: How to package and share code using a Gemfile
-url: /bundler_sharing
+title: How to manage dependencies with Bundler
+url: /dependency_management
 previous: /groups
 next: /rubygems_tls_ssl_troubleshooting_guide
+alias:
+  - /bundler_sharing
+  - /rationale
 ---
-## How to package and share code using a Gemfile
-<a name="sharing"></a>
+
+## How to manage dependencies with Bundler
+
+This guide explains how Bundler manages your application's dependencies, why
+`Gemfile.lock` matters, and how to share a consistent environment with other
+developers and deployment targets.
+
+### Declaring dependencies
+
+You declare your dependencies in a file at the root of your application called
+`Gemfile`. It looks something like this:
+
+~~~ruby
+source 'https://rubygems.org'
+gem 'rails', '4.1.0.rc2'
+gem 'rack-cache'
+gem 'nokogiri', '~> 1.6.1'
+~~~
+
+This `Gemfile` says a few things. First, it says that bundler should look for gems
+declared in the `Gemfile` at `https://rubygems.org` by default. If some
+of your gems need to be fetched from a private gem server, this default source can be overridden
+for those gems.
+
+Next, you declare a few dependencies:
+
+- on version `4.1.0.rc2` of `rails`
+- on any version of `rack-cache`
+- on a version of `nokogiri` that is `>= 1.6.1` but `< 1.7.0`
+
+<a href="./gemfile.html" class="btn btn-primary">Learn More: Gemfiles</a>
+
+### Installing dependencies
+
+After declaring your first set of dependencies, you tell bundler to go get them:
+
+~~~
+$ bundle install
+~~~
+
+Bundler will connect to `rubygems.org` (and any other sources that you declared)
+and find a list of all of the required gems that meet the requirements you specified.
+Because all of the gems in your `Gemfile` have dependencies of their own
+(and some of those have their own dependencies), running `bundle install` on the
+`Gemfile` above will install quite a few gems.
+
+If any of the needed gems are already installed, Bundler will use them. After installing
+any needed gems to your system, bundler writes a snapshot of all of the gems and
+versions that it installed to `Gemfile.lock`.
 
 ### Checking Your Code into Version Control
 <a name="checking-your-code-into-version-control"></a>
@@ -55,3 +105,14 @@ dependency on `rack >= 0.4`, we know for sure it works with `rack
 always install `1.5.2`, the exact version of the gem that we know works. This
 relieves a large maintenance burden from application developers because all machines
 always run the exact same third-party code.
+
+### Next Steps
+
+For the day-to-day workflow of managing dependencies with version control, see the
+[Recommended Workflow with Version Control](./bundler_workflow.html) guide.
+
+<div class="buttons">
+  <a href="./bundler_setup.html" class="btn btn-primary">Learn More: Bundler.setup</a>
+  <a href="./updating_gems.html" class="btn btn-primary">Learn More: Updating gems</a>
+  <a href="./deploying.html" class="btn btn-primary">Learn More: Deploying</a>
+</div>

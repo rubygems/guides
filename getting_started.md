@@ -15,7 +15,7 @@ you need are present in development, staging, and production.
 Starting work on a project is as simple as `bundle install`.
 
 <a href="https://bundler.io/whats_new.html" class="btn btn-primary">What's new in Bundler</a>
-<a href="./rationale.html" class="btn btn-primary">Why Bundler exists</a>
+<a href="./dependency_management.html" class="btn btn-primary">Managing dependencies</a>
 
 ## Getting Started
 <a name="getting-started"></a>

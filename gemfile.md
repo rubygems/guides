@@ -2,7 +2,7 @@
 layout: default
 title: Gemfiles
 url: /gemfile
-previous: /faq
+previous: /rubygems
 next: /getting_started
 ---
 

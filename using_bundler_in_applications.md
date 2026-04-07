@@ -289,61 +289,7 @@ To learn more about `bundle update` command click [here](https://bundler.io/man/
 
 ## Recommended Workflow
 
-In general, when working with an application managed with bundler, you should use the following workflow:
-
-* To init Bundler, run
-
-~~~
-$ bundle init
-~~~
-
-* After you create your `Gemfile` for the first time, run
-
-~~~
-$ bundle install
-~~~
-
-* Check the resulting `Gemfile.lock` into version control
-
-~~~
-$ git add Gemfile.lock
-~~~
- 
-* When checking out this repository on another development machine, run
- 
-~~~
-$ bundle install
-~~~
-
-* When checking out this repository on a deployment machine, run
-
-~~~
-$ bundle install --deployment
-~~~
-
-* After changing the `Gemfile` to reflect a new or update dependency, run
-
-~~~
-$ bundle install
-~~~
-
-* Make sure to check the updated Gemfile.lock into version control
-
-~~~
-$ git add Gemfile.lock
-~~~
-
-* If `bundle install` reports a conflict, manually update the specific gems that you changed in the `Gemfile`
-
-~~~
-$ bundle update rails thin
-~~~
-
-* If you want to update all the gems to the latest possible versions that still match the gems listed in the Gemfile(5), run
-
-~~~
-$ bundle update
-~~~
+For the recommended workflow when working with an application managed with Bundler, see the [Recommended Workflow with Version Control](./bundler_workflow.html) guide.
 
 ## Troubleshooting
 

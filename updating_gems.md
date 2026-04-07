@@ -107,3 +107,19 @@ you do this, keep `git reset --hard` and your test suite in your back pocket.
 Resolving all dependencies from scratch can have surprising results, especially if a
 number of the third-party packages you depend on have released new versions since you
 last did a full update.
+
+## Notes
+<a name="notes"></a>
+
+[1] For instance, if a new version of a gem depended on `rack 2.0`, that
+gem would still satisfy the requirement of `rack-cache`, which declares
+`>= 0.4` as a dependency. Of course, you could argue that
+`rack-cache` is silly for depending on open-ended versions, but these
+situations exist (extensively) in the wild, and projects often find themselves between a
+rock and a hard place when deciding what version to depend on. Constrain the dependency
+too much (`rack =1.5.1`) and you make it hard to use your project in other
+compatible projects. Constrain it too little (`rack >= 1.0`) and a new
+release of Rack may break your code. Using dependencies like `rack ~> 1.5.2`
+and versioning code in a SemVer compliant way mostly solves this problem, but it assumes
+universal compliance. Since RubyGems has over 100,000 packages, this assumption simply
+doesn't hold in practice.
