@@ -62,6 +62,13 @@ Once you have a trusted publisher configured, you can use RubyGems' [`release-ge
 This looks almost exactly the same as normal, except that you don't need any explicit usernames, passwords, or API tokens: GitHub's OIDC identity provider will take care of everything for you:
 
 ```yaml
+name: Push gem
+
+on:
+  push:
+    tags:
+      - "v*"
+
 jobs:
   push:
     runs-on: ubuntu-latest
