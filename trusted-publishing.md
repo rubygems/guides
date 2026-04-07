@@ -92,6 +92,12 @@ Note the `id-token: write` permission: you **must** provide this permission at e
 
 For more about `environment` setting, see: [Using Environment for your deployment (GitHub.com)](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-environments-for-deployment)
 
+That's it! With the trusted publisher configured and this workflow in your repository, you can release a new version of your gem by simply pushing a git tag. No API tokens, no manual `gem push` — just tag and push.
+
+---
+
+The sections below cover additional topics: publishing a brand-new gem, using reusable workflows, and the underlying OIDC mechanism. If you've already set up trusted publishing for an existing gem, you're all set.
+
 ## Pushing a new gem with a trusted publisher
 
 Trusted publishers are not just for existing gems, they can also be used to push new gems!
