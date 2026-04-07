@@ -574,24 +574,3 @@ The request body must be a JSON object with a single key, `jwt`, whose value is 
       "expires_at": "2021-01-01T00:00:00Z"
     }
 
-### GET - `/api/v1/dependencies?gems=[COMMA DELIMITED GEM NAMES]`
-
-Returns a marshalled array of hashes for all versions of given gems. Each hash
-contains a gem version with its dependencies making this useful for resolving dependencies.
-
-    $ ruby -ropen-uri -rpp -e \
-      'pp Marshal.load(open("https://rubygems.org/api/v1/dependencies?gems=rails,thor"))'
-
-    [{:platform=>"ruby",
-      :dependencies=>
-       [["bundler", "~> 1.0"],
-        ["railties", "= 3.0.3"],
-        ["actionmailer", "= 3.0.3"],
-        ["activeresource", "= 3.0.3"],
-        ["activerecord", "= 3.0.3"],
-        ["actionpack", "= 3.0.3"],
-        ["activesupport", "= 3.0.3"]],
-      :name=>"rails",
-      :number=>"3.0.3"},
-    ...
-    {:number=>"0.9.9", :platform=>"ruby", :dependencies=>[], :name=>"thor"}]
