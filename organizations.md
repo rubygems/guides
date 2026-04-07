@@ -2,7 +2,7 @@
 layout: default
 title: Organizations
 url: /organizations
-previous: /trusted-publishing/releasing-gems
+previous: /trusted-publishing
 next: /organizations/getting-started
 ---
 

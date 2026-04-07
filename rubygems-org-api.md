@@ -559,7 +559,7 @@ Retrieve your API key using HTTP basic auth.
 ### POST - `/api/v1/oidc/trusted_publisher/exchange_token`
 
 Exchange an OIDC ID token for a RubyGems API key. This endpoint is intended to be used by the
-[`release-gem`](github.com/rubygems/release-gem) GitHub Action for [trusted publishing](/trusted-publishing/releasing-gems).
+[`release-gem`](https://github.com/rubygems/release-gem) GitHub Action for [trusted publishing](/trusted-publishing#releasing-gems-with-a-trusted-publisher).
 
 The request body must be a JSON object with a single key, `jwt`, whose value is the ID token (as a string).
 
