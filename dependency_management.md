@@ -103,76 +103,10 @@ always install `1.5.2`, the exact version of the gem that we know works. This
 relieves a large maintenance burden from application developers because all machines
 always run the exact same third-party code.
 
-### Summary: A Simple Bundler Workflow
-<a name="summary"></a>
+### Next Steps
 
-- When you first create a Rails application, it already comes with a
-`Gemfile`.  For another kind of application (such as Sinatra), run:
-
-  ~~~
-  $ bundle init
-  ~~~
-
-  The `bundle init` command creates a simple `Gemfile` which you
-can edit.
-
-- Next, add any gems that your application depends on. If you care which version of a
-particular gem that you need, be sure to include an appropriate version restriction:
-
-  ~~~ruby
-  source 'https://rubygems.org'
-  gem 'sinatra', '~> 1.3.6'
-  gem 'rack-cache'
-  gem 'rack-bug'
-  ~~~
-
-- If you don't have the gems installed in your system yet, run:
-
-  ~~~
-  $ bundle install
-  ~~~
-
-- To update a gem's version requirements, first modify the Gemfile:
-
-  ~~~ruby
-  source 'https://rubygems.org'
-  gem 'sinatra', '~> 1.4.5'
-  gem 'rack-cache'
-  gem 'rack-bug'
-  ~~~
-
-  and then run:
-
-  ~~~
-  $ bundle install
-  ~~~
-
-- If `bundle install` reports a conflict between your `Gemfile`
-and `Gemfile.lock`, run:
-
-  ~~~
-  $ bundle update sinatra
-  ~~~
-
-  This will update just the Sinatra gem, as well as any of its dependencies.
-
-- To update all of the gems in your `Gemfile` to the latest possible
-versions, run:
-
-  ~~~
-  $ bundle update
-  ~~~
-
-- Whenever your `Gemfile.lock` changes, always check it in to version
-control. It keeps a history of the exact versions of all third-party code that you
-used to successfully run your application.
-- When deploying your code to a staging or production server, first run your tests (or
-boot your local development server), make sure you have checked in your
-`Gemfile.lock` to version control. On the remote server, run:
-
-  ~~~
-  $ bundle install --deployment
-  ~~~
+For the day-to-day workflow of managing dependencies with version control, see the
+[Recommended Workflow with Version Control](./bundler_workflow.html) guide.
 
 <div class="buttons">
   <a href="./bundler_setup.html" class="btn btn-primary">Learn More: Bundler.setup</a>
