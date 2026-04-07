@@ -4,6 +4,7 @@ title: Frequently Asked Questions
 url: /faqs
 previous: /contributing
 next: /plugins
+alias: /faq
 ---
 
 <em class="t-gray">More of the "why" and "wtf" than "how".</em>

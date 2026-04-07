@@ -4,6 +4,9 @@ title: Using multi-factor authentication in command line
 url: /using-mfa-in-command-line
 previous: /setting-up-otp-mfa
 next: /mfa-requirement-opt-in
+alias:
+  - /using-webauthn-mfa-in-command-line
+  - /using-otp-mfa-in-command-line
 ---
 <em class="t-gray">How to use multi-factor authentication with gem CLI.</em>
 
@@ -50,7 +53,7 @@ A webpage titled "Authenticate with Security Device" appears. Click "Authenticat
 Your browser will show a popup asking you to use a Passkey or other authentication
 device (the exact popup will vary according to the browser).
 
-Once you have authenticated using your WebAuthn device device, you will see a
+Once you have authenticated using your WebAuthn device, you will see a
 "Success" page. At this point you can close your browser tab and return to the
 command line, which will say:
 
@@ -64,7 +67,7 @@ Multi-factor authentication (MFA) using OTP works by using an authenticator app 
 to generate a one-time password (OTP) that you then enter at the command line. For
 WebAuthn instructions, see "[Using WebAuthn](#using-webauthn)" above.
 
-When you have only enabled OTP MFA, and your MFA level is _UI and API_, we will ask to you
+When you have only enabled OTP MFA, and your MFA level is _UI and API_, we will ask you
 to provide an OTP for `gem signin`, `gem push`, `gem owner --add` and `gem owner --remove`.
 Check [setting up multi-factor authentication](/setting-up-multifactor-authentication)
 for enabling MFA.
@@ -99,7 +102,7 @@ Note that `gem signin` only fetches and stores your rubygems.org api key. `gem s
 is not equivalent to creating a user session. We will check for OTP code every time you
 use any of the commands mentioned above.
 
-Publishing a gem after signing in from cli:
+Publishing a gem after signing in from CLI:
 
     $ gem push hello-0.0.1.gem
     Pushing gem to https://rubygems.org...
