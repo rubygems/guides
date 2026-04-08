@@ -12,9 +12,9 @@ next: /gems-with-extensions/
 * [Your first gem](#your-first-gem)
 * [Starting with bundle gem](#starting-with-bundle-gem)
 * [Requiring more files](#requiring-more-files)
-* [Adding an executable](#adding-an-executable)
 * [Using other gems](#using-other-gems)
 * [Writing tests](#writing-tests)
+* [Adding an executable](#adding-an-executable)
 * [Documenting your code](#documenting-your-code)
 * [Releasing your gem](#releasing-your-gem)
 * [Wrapup](#wrapup)
@@ -279,66 +279,6 @@ process. Split your Ruby files up when it makes sense! Making a sane order for
 your project will help you and your future maintainers from headaches down the
 line.
 
-Adding an executable
---------------------
-
-In addition to providing libraries of Ruby code, gems can also expose one or
-many executable files to your shell's `PATH`. Probably the best known example
-of this is `rake`. Another very useful one is `nokogiri` from [Nokogiri
-](https://rubygems.org/gems/nokogiri) gem, which parse HTML/XML documents.
-Here's an example:
-
-    $ gem install -N nokogiri
-    [...]
-    $ nokogiri https://www.ruby-lang.org/
-    Your document is stored in @doc...
-    3.1.2 :001 > @doc.title
-    => "Ruby Programming Language"
-
-Adding an executable to a gem is a simple process. You just need to place the file in
-your gem's `bin` directory, and then add it to the list of executables
-in the gemspec. Let's add one for the Hola gem. First create the file
-and make it executable:
-
-    $ mkdir bin
-    $ touch bin/hola
-    $ chmod a+x bin/hola
-
-The executable file itself just needs a
-[shebang](http://www.catb.org/jargon/html/S/shebang.html) in order to figure out
-what program to run it with. Here's what Hola's executable looks like:
-
-    $ cat bin/hola
-    #!/usr/bin/env ruby
-
-    require 'hola'
-    puts Hola.hi(ARGV[0])
-
-All it's doing is loading up the gem, and passing the first command line
-argument as the language to say hello with. Here's an example of running it:
-
-    $ ruby -Ilib ./bin/hola
-    hello world
-
-    $ ruby -Ilib ./bin/hola spanish
-    hola mundo
-
-Finally, to get Hola's executable included when you push the gem, you'll need
-to add it in the gemspec.
-
-    $ head -4 hola.gemspec
-    Gem::Specification.new do |s|
-      s.name        = "hola"
-      s.version     = "0.0.1"
-      s.executables << "hola"
-
-Push up that new gem, and you'll have your own command line utility published!
-You can add more executables as well in the `bin` directory if you need to,
-there's an `executables` array field on the gemspec.
-
-> Note that you should change the gem's version when pushing up a new release.
-> For more information on gem versioning, see the [Patterns Guide](/patterns/#semantic-versioning)
-
 Using other gems
 -----------------
 
@@ -497,6 +437,66 @@ Run the specs with:
 For more great examples, the best thing you can do is to hunt around [GitHub
 ](https://github.com/search?q=stars%3A%3E1000+forks%3A%3E100&type=Repositories&l=Ruby)
 and read some code.
+
+Adding an executable
+--------------------
+
+In addition to providing libraries of Ruby code, gems can also expose one or
+many executable files to your shell's `PATH`. Probably the best known example
+of this is `rake`. Another very useful one is `nokogiri` from [Nokogiri
+](https://rubygems.org/gems/nokogiri) gem, which parse HTML/XML documents.
+Here's an example:
+
+    $ gem install -N nokogiri
+    [...]
+    $ nokogiri https://www.ruby-lang.org/
+    Your document is stored in @doc...
+    3.1.2 :001 > @doc.title
+    => "Ruby Programming Language"
+
+Adding an executable to a gem is a simple process. You just need to place the file in
+your gem's `bin` directory, and then add it to the list of executables
+in the gemspec. Let's add one for the Hola gem. First create the file
+and make it executable:
+
+    $ mkdir bin
+    $ touch bin/hola
+    $ chmod a+x bin/hola
+
+The executable file itself just needs a
+[shebang](http://www.catb.org/jargon/html/S/shebang.html) in order to figure out
+what program to run it with. Here's what Hola's executable looks like:
+
+    $ cat bin/hola
+    #!/usr/bin/env ruby
+
+    require 'hola'
+    puts Hola.hi(ARGV[0])
+
+All it's doing is loading up the gem, and passing the first command line
+argument as the language to say hello with. Here's an example of running it:
+
+    $ ruby -Ilib ./bin/hola
+    hello world
+
+    $ ruby -Ilib ./bin/hola spanish
+    hola mundo
+
+Finally, to get Hola's executable included when you push the gem, you'll need
+to add it in the gemspec.
+
+    $ head -4 hola.gemspec
+    Gem::Specification.new do |s|
+      s.name        = "hola"
+      s.version     = "0.0.1"
+      s.executables << "hola"
+
+Push up that new gem, and you'll have your own command line utility published!
+You can add more executables as well in the `bin` directory if you need to,
+there's an `executables` array field on the gemspec.
+
+> Note that you should change the gem's version when pushing up a new release.
+> For more information on gem versioning, see the [Patterns Guide](/patterns/#semantic-versioning)
 
 Documenting your code
 ---------------------
