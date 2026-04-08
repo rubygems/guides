@@ -2,7 +2,7 @@
 layout: default
 title: How to deploy bundled applications
 url: /deploying
-previous: /creating_gem
+previous: /bundler_2_upgrade
 next: /git
 ---
 

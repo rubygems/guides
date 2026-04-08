@@ -2,30 +2,36 @@
 layout: default
 title: Make your own gem
 url: /make-your-own-gem/
+alias: /creating_gem
 previous: /what-is-a-gem/
 next: /gems-with-extensions/
 ---
 
 <p><em class="t-gray">From start to finish, learn how to package your Ruby code in a gem.</em></p>
-<p><em class="t-gray">Note: Many people use Bundler to create Gems. You can
-learn how to do that by reading the &ldquo;<a
-href="https://bundler.io/v2.3/guides/creating_gem.html">Developing a RubyGem
-using Bundler</a>&rdquo; guide on the Bundler website.</em></p>
 
 * [Introduction](#introduction)
 * [Your first gem](#your-first-gem)
+* [Starting with bundle gem](#starting-with-bundle-gem)
 * [Requiring more files](#requiring-more-files)
-* [Adding an executable](#adding-an-executable)
+* [Using other gems](#using-other-gems)
 * [Writing tests](#writing-tests)
+* [Adding an executable](#adding-an-executable)
 * [Documenting your code](#documenting-your-code)
+* [Releasing your gem](#releasing-your-gem)
 * [Wrapup](#wrapup)
 
 Introduction
 ------------
 
+Why create a gem? You could just throw some code into your other project and
+use it directly. But what if you want to use that code elsewhere, or share it
+with others? A gem lets you package your library separately and reuse it across
+projects with a simple `gem install` or a line in a Gemfile. When you need it
+in another project, it’s a tiny modification rather than a whole lot of copying.
+
 Creating and publishing your own gem is simple thanks to the tools baked right
 into RubyGems. Let’s make a simple “hello world” gem, and feel free to
-play along at home! The code for the gem we're going to make here is up
+play along at home! The code for the gem we’re going to make here is up
 [on GitHub](https://github.com/qrush/hola).
 
 Your first gem
@@ -113,62 +119,46 @@ gem and use it:
     Hello world!
     => nil
 
-Now you can share hola with the rest of the Ruby community. Publishing your
-gem out to RubyGems.org only takes one command, provided that you have an
-account on the site. To setup your computer with your RubyGems account, you can
-run below command (where you should replace with your own Email, Password, and
-OTP (if enabled)):
+Now you can share hola with the rest of the Ruby community. See the
+[Releasing your gem](#releasing-your-gem) section below to learn how to
+publish it to RubyGems.org.
 
-    $ gem signin
-    Enter your RubyGems.org credentials.
-    Don't have an account yet? Create one at https://rubygems.org/sign_up
-      Email:   (your-email-address@example.com)
-    Password:   (your password for RubyGems.org)
+Starting with bundle gem
+------------------------
 
-    API Key name [host-user-20220102030405]:
-    Please select scopes you want to enable for the API key (y/n)
-    index_rubygems [y/N]:   n
-    push_rubygem [y/N]:   y
-    yank_rubygem [y/N]:   n
-    add_owner [y/N]:   n
-    remove_owner [y/N]:   n
-    access_webhooks [y/N]:   n
-    show_dashboard [y/N]:   n
+While you can set up a gem manually as shown above, Bundler provides a convenient
+`bundle gem` command that generates a scaffold with everything you need. This is the
+recommended way to start a new gem:
 
-    You have enabled multi-factor authentication. Please enter OTP code.
-    Code:   123456
-    Signed in with API key: host-user-20220102030405.
+    $ bundle gem foodie
 
-> If you're having problems with curl, OpenSSL, or certificates, you might want to
-> simply try entering the above URL in your browser's address bar.  Your browser will
-> ask you to login to RubyGems.org.  Enter your username and password.  Your browser
-> will now try to download the file api_key.yaml.  Save it in ~/.gem and call it 'credentials'
+This creates a directory with the following structure:
 
-Once this has been setup, you can push out the gem:
+ * **Gemfile**: Manages gem dependencies for development. Contains a `gemspec` line
+meaning that Bundler will include dependencies specified in _foodie.gemspec_ too.
+It’s best practice to specify all dependencies in the _gemspec_.
 
-    $ gem push hola-0.0.0.gem
-    Pushing gem to RubyGems.org...
-    Successfully registered gem: hola (0.0.0)
+ * **Rakefile**: Includes Bundler’s `build`, `install` and `release` Rake tasks
+by way of calling `Bundler::GemHelper.install_tasks`.
 
-In just a short time (usually less than a minute), your gem will be available for
-installation by anyone. You can see it [on the RubyGems.org site](https://rubygems.org/gems/hola)
-or grab it from any computer with RubyGems installed:
+ * **foodie.gemspec**: The gem specification file, just like the one we wrote
+manually. Fields to complete include `description`, `homepage`,
+`metadata["source_code_uri"]`, and `metadata["changelog_uri"]`.
 
-    $ gem list -r hola
+ * **lib/foodie.rb**: The main file loaded when the gem is required.
 
-    *** REMOTE GEMS ***
+ * **lib/foodie/version.rb**: Defines a `VERSION` constant used by the gemspec.
 
-    hola (0.1.3)
+ * **.gitignore**: Ignores the _pkg_ directory, _.gem_ files, and _.bundle_ directory.
 
-    $ gem install hola
-    Fetching hola-0.1.3.gem
-    Successfully installed hola-0.1.3
-    Parsing documentation for hola-0.1.3
-    Installing ri documentation for hola-0.1.3
-    Done installing documentation for hola after 0 seconds
-    1 gem installed
+The command will also ask whether you want to include a `CODE_OF_CONDUCT.md` and
+`LICENSE.txt`. For information on gem naming conventions, see the
+[Name Your Gem](/name-your-gem/) guide.
 
-It’s really that easy to share code with Ruby and RubyGems.
+After running `bundle gem`, you can build and install the gem using Rake tasks:
+
+    $ rake build    # Build the gem into the pkg directory
+    $ rake install  # Build and install the gem to your system
 
 Requiring more files
 --------------------
@@ -290,65 +280,27 @@ process. Split your Ruby files up when it makes sense! Making a sane order for
 your project will help you and your future maintainers from headaches down the
 line.
 
-Adding an executable
---------------------
+Using other gems
+-----------------
 
-In addition to providing libraries of Ruby code, gems can also expose one or
-many executable files to your shell's `PATH`. Probably the best known example
-of this is `rake`. Another very useful one is `nokogiri` from [Nokogiri
-](https://rubygems.org/gems/nokogiri) gem, which parse HTML/XML documents.
-Here's an example:
+If your gem depends on another gem, you can specify it in your gemspec using
+`add_dependency`. For example, to depend on `activesupport`:
 
-    $ gem install -N nokogiri
-    [...]
-    $ nokogiri https://www.ruby-lang.org/
-    Your document is stored in @doc...
-    3.1.2 :001 > @doc.title
-    => "Ruby Programming Language"
-
-Adding an executable to a gem is a simple process. You just need to place the file in
-your gem's `bin` directory, and then add it to the list of executables
-in the gemspec. Let's add one for the Hola gem. First create the file
-and make it executable:
-
-    $ mkdir bin
-    $ touch bin/hola
-    $ chmod a+x bin/hola
-
-The executable file itself just needs a
-[shebang](http://www.catb.org/jargon/html/S/shebang.html) in order to figure out
-what program to run it with. Here's what Hola's executable looks like:
-
-    $ cat bin/hola
-    #!/usr/bin/env ruby
-
-    require 'hola'
-    puts Hola.hi(ARGV[0])
-
-All it's doing is loading up the gem, and passing the first command line
-argument as the language to say hello with. Here's an example of running it:
-
-    $ ruby -Ilib ./bin/hola
-    hello world
-
-    $ ruby -Ilib ./bin/hola spanish
-    hola mundo
-
-Finally, to get Hola's executable included when you push the gem, you'll need
-to add it in the gemspec.
-
-    $ head -4 hola.gemspec
     Gem::Specification.new do |s|
-      s.name        = "hola"
-      s.version     = "0.0.1"
-      s.executables << "hola"
+      ...
+      s.add_dependency "activesupport", "~> 7.0"
+    end
 
-Push up that new gem, and you'll have your own command line utility published!
-You can add more executables as well in the `bin` directory if you need to,
-there's an `executables` array field on the gemspec.
+Using `~>` (the pessimistic version constraint) is recommended to avoid
+compatibility issues with future major versions. You can also specify
+development-only dependencies that are needed for testing but not at runtime:
 
-> Note that you should change the gem's version when pushing up a new release.
-> For more information on gem versioning, see the [Patterns Guide](/patterns/#semantic-versioning)
+    s.add_development_dependency "minitest", "~> 5.0"
+
+When using Bundler, running `bundle install` will resolve and install all
+dependencies specified in the gemspec. Anyone who runs
+`gem install yourgemname --dev` will get the development dependencies installed
+too.
 
 Writing tests
 --------------
@@ -363,12 +315,14 @@ when a gem is downloaded.
 
 In short: *TEST YOUR GEM!* Please!
 
-`Minitest` is Ruby's built-in test framework. There are
-[lots](https://www.mikeperham.com/2012/09/25/minitest-ruby-1-9s-test-framework/) of
-[tutorials](https://github.com/minitest/minitest/blob/master/README.rdoc) for
-using it online. There are many other test frameworks available for Ruby as
-well. [RSpec](https://rspec.info/) is a popular choice. At the end of the day,
-it doesn't matter what you use, just *TEST*!
+There are two popular test frameworks in the Ruby community:
+[Minitest](https://github.com/minitest/minitest) and
+[RSpec](https://rspec.info/). Minitest is Ruby's built-in test framework and
+requires no additional setup. RSpec is a widely used alternative that provides
+an expressive DSL for writing specs. Either works great — pick whichever you
+prefer and see the corresponding section below.
+
+### Testing with Minitest
 
 Let's add some tests to Hola. This requires adding a few more files, namely a
 `Rakefile` and a brand new `test` directory:
@@ -435,10 +389,116 @@ Finally, to run the tests:
 
     3 runs, 3 assertions, 0 failures, 0 errors, 0 skips
 
-It's green! Well, depending on your shell colors. For more great examples, the
-best thing you can do is to hunt around [GitHub
-](https://github.com/search?q=stars%3A%3E1000+forks%3A%3E100&type=Repositories&l=Ruby)
+It's green! Well, depending on your shell colors.
+
+### Testing with RSpec
+
+[RSpec](https://rspec.info/) is another popular testing framework. To use it,
+first add it as a development dependency in your gemspec:
+
+    s.add_development_dependency "rspec", "~> 3.0"
+
+Then create a `spec` directory and a spec file:
+
+    $ tree
+    .
+    ├── hola.gemspec
+    ├── lib
+    │   ├── hola
+    │   │   └── translator.rb
+    │   └── hola.rb
+    └── spec
+        └── hola_spec.rb
+
+Write your specs in `spec/hola_spec.rb`:
+
+    $ cat spec/hola_spec.rb
+    require "hola"
+
+    describe Hola do
+      it "says hello world in english" do
+        expect(Hola.hi("english")).to eql("hello world")
+      end
+
+      it "says hello world by default" do
+        expect(Hola.hi("ruby")).to eql("hello world")
+      end
+
+      it "says hola mundo in spanish" do
+        expect(Hola.hi("spanish")).to eql("hola mundo")
+      end
+    end
+
+Run the specs with:
+
+    $ bundle exec rspec spec
+
+    3 examples, 0 failures
+
+For more great examples, the best thing you can do is to hunt around
+[GitHub](https://github.com/search?q=stars%3A%3E1000+forks%3A%3E100&type=Repositories&l=Ruby)
 and read some code.
+
+Adding an executable
+--------------------
+
+In addition to providing libraries of Ruby code, gems can also expose one or
+many executable files to your shell's `PATH`. Probably the best known example
+of this is `rake`. Another very useful one is the
+[Nokogiri](https://rubygems.org/gems/nokogiri) gem, which parses HTML/XML
+documents.
+Here's an example:
+
+    $ gem install -N nokogiri
+    [...]
+    $ nokogiri https://www.ruby-lang.org/
+    Your document is stored in @doc...
+    3.1.2 :001 > @doc.title
+    => "Ruby Programming Language"
+
+Adding an executable to a gem is a simple process. You just need to place the file in
+your gem's `bin` directory, and then add it to the list of executables
+in the gemspec. Let's add one for the Hola gem. First create the file
+and make it executable:
+
+    $ mkdir bin
+    $ touch bin/hola
+    $ chmod a+x bin/hola
+
+The executable file itself just needs a
+[shebang](http://www.catb.org/jargon/html/S/shebang.html) in order to figure out
+what program to run it with. Here's what Hola's executable looks like:
+
+    $ cat bin/hola
+    #!/usr/bin/env ruby
+
+    require 'hola'
+    puts Hola.hi(ARGV[0])
+
+All it's doing is loading up the gem, and passing the first command line
+argument as the language to say hello with. Here's an example of running it:
+
+    $ ruby -Ilib ./bin/hola
+    hello world
+
+    $ ruby -Ilib ./bin/hola spanish
+    hola mundo
+
+Finally, to get Hola's executable included when you push the gem, you'll need
+to add it in the gemspec.
+
+    $ head -4 hola.gemspec
+    Gem::Specification.new do |s|
+      s.name        = "hola"
+      s.version     = "0.0.1"
+      s.executables << "hola"
+
+Push up that new gem, and you'll have your own command line utility published!
+You can add more executables as well in the `bin` directory if you need to,
+there's an `executables` array field on the gemspec.
+
+> Note that you should change the gem's version when pushing up a new release.
+> For more information on gem versioning, see the [Patterns Guide](/patterns/#semantic-versioning)
 
 Documenting your code
 ---------------------
@@ -470,6 +530,85 @@ automatically from your gem. YARD is backwards compatible with RDoc, and it
 has a [good
 introduction](https://rubydoc.info/gems/yard/file/docs/GettingStarted.md) on
 what's different and how to use it.
+
+Releasing your gem
+------------------
+
+Publishing your gem to RubyGems.org requires an account on the site. To set up
+your computer with your RubyGems account, run the following command (replacing
+with your own Email, Password, and OTP if enabled):
+
+    $ gem signin
+    Enter your RubyGems.org credentials.
+    Don't have an account yet? Create one at https://rubygems.org/sign_up
+      Email:   (your-email-address@example.com)
+    Password:   (your password for RubyGems.org)
+
+    API Key name [host-user-20220102030405]:
+    Please select scopes you want to enable for the API key (y/n)
+    index_rubygems [y/N]:   n
+    push_rubygem [y/N]:   y
+    yank_rubygem [y/N]:   n
+    add_owner [y/N]:   n
+    remove_owner [y/N]:   n
+    access_webhooks [y/N]:   n
+    show_dashboard [y/N]:   n
+
+    You have enabled multi-factor authentication. Please enter OTP code.
+    Code:   123456
+    Signed in with API key: host-user-20220102030405.
+
+> If you're having problems with curl, OpenSSL, or certificates, you might want to
+> simply try entering the above URL in your browser's address bar.  Your browser will
+> ask you to login to RubyGems.org.  Enter your username and password.  Your browser
+> will now try to download the file api_key.yaml.  Save it in ~/.gem and call it 'credentials'
+
+### With gem push
+
+Once signed in, you can push the gem directly:
+
+    $ gem push hola-0.0.0.gem
+    Pushing gem to RubyGems.org...
+    Successfully registered gem: hola (0.0.0)
+
+In just a short time (usually less than a minute), your gem will be available for
+installation by anyone. You can see it [on the RubyGems.org site](https://rubygems.org/gems/hola)
+or grab it from any computer with RubyGems installed:
+
+    $ gem list -r hola
+
+    *** REMOTE GEMS ***
+
+    hola (0.1.3)
+
+    $ gem install hola
+    Fetching hola-0.1.3.gem
+    Successfully installed hola-0.1.3
+    Parsing documentation for hola-0.1.3
+    Installing ri documentation for hola-0.1.3
+    Done installing documentation for hola after 0 seconds
+    1 gem installed
+
+### With rake release
+
+If you created your gem with `bundle gem`, you can use the `rake release` command
+instead. This command:
+
+1. Builds the gem into the _pkg_ directory
+2. Creates a git tag for the current version
+3. Pushes the tag to the git remote
+4. Pushes the gem to RubyGems.org
+
+Before releasing, make sure to update the version number in your version file
+(e.g. `lib/hola/version.rb`) and commit all changes.
+
+To make version bumping easier, you can use the
+[gem-release](https://github.com/svenfuchs/gem-release) gem:
+
+    $ gem install gem-release
+    $ gem bump --version minor  # bumps to the next minor version
+    $ gem bump --version major  # bumps to the next major version
+    $ gem bump --version 1.1.1  # bumps to the specified version
 
 Wrapup
 ------

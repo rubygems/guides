@@ -300,7 +300,7 @@ The `Gemfile` inside your gem is only to make it easy for developers
 on your gem. The `Gemfile` also provides an easy way to track and
 install development-only or test-only gems.
 Read about Gemfiles in gems from the [Bundler in gems](/rubygems)
-page and the [How to create a gem with Bundler](./creating_gem.html)
+page and the [Make your own gem](/make-your-own-gem/)
 guide.
 
 **Q**: Should I commit my `Gemfile.lock` when writing a gem?
