@@ -2,6 +2,7 @@
 layout: default
 title: Make your own gem
 url: /make-your-own-gem/
+alias: /creating_gem
 previous: /what-is-a-gem/
 next: /gems-with-extensions/
 ---
@@ -434,8 +435,8 @@ Run the specs with:
 
     3 examples, 0 failures
 
-For more great examples, the best thing you can do is to hunt around [GitHub
-](https://github.com/search?q=stars%3A%3E1000+forks%3A%3E100&type=Repositories&l=Ruby)
+For more great examples, the best thing you can do is to hunt around
+[GitHub](https://github.com/search?q=stars%3A%3E1000+forks%3A%3E100&type=Repositories&l=Ruby)
 and read some code.
 
 Adding an executable
@@ -443,8 +444,9 @@ Adding an executable
 
 In addition to providing libraries of Ruby code, gems can also expose one or
 many executable files to your shell's `PATH`. Probably the best known example
-of this is `rake`. Another very useful one is `nokogiri` from [Nokogiri
-](https://rubygems.org/gems/nokogiri) gem, which parse HTML/XML documents.
+of this is `rake`. Another very useful one is the
+[Nokogiri](https://rubygems.org/gems/nokogiri) gem, which parses HTML/XML
+documents.
 Here's an example:
 
     $ gem install -N nokogiri
@@ -532,7 +534,7 @@ what's different and how to use it.
 Releasing your gem
 ------------------
 
-Publishing your gem to RubyGems.org requires an account on the site. To setup
+Publishing your gem to RubyGems.org requires an account on the site. To set up
 your computer with your RubyGems account, run the following command (replacing
 with your own Email, Password, and OTP if enabled):
 
