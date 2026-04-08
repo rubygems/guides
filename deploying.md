@@ -18,14 +18,8 @@ $ git add Gemfile Gemfile.lock .gitignore
 $ git commit -m "Add Bundler support"
 ~~~
 
-Once you have done that, there are two ways to deploy using Bundler:
-manually or automatically.
-
-### Manual deployment
-
-In your deploy script, after updating to the latest
-code, install your bundle to the `vendor/bundle`
-directory, ensuring all your dependencies are met.
+After updating to the latest code, install your bundle to the
+`vendor/bundle` directory, ensuring all your dependencies are met.
 
 ~~~
 $ bundle install --deployment
@@ -39,38 +33,6 @@ If you have run `bundle package`, the cached
 gems will be used automatically.
 
 <a href="https://bundler.io/man/bundle-cache.1.html" class="btn btn-primary">Learn More: Packing</a>
-
-### Automatic deployment with Capistrano
-
-To pull in the Bundler Cap task, just add this to your
-`deploy.rb` file:
-
-~~~ruby
-require 'bundler/capistrano'
-~~~
-
-That's it! Running `cap deploy` will now automatically run
-`bundle install` on the remote server with deployment-friendly
-options. A list of options that can be changed is available in the help
-for the cap task. To see it, run `cap -e bundle:install`.
-
-### Automatic deployment with Vlad
-
-There is a default Vlad task available. To make it available, add this line
-to the Vlad `deploy.rb`.
-
-~~~ruby
-require 'bundler/vlad'
-~~~
-
-Once you have done that, the `vlad:bundle:install` task will be
-available for use. Make sure it is run as part of your deploy. For example:
-
-~~~ruby
-task "vlad:deploy" => %w[
-  vlad:update vlad:bundle:install vlad:start_app vlad:cleanup
-]
-~~~
 
 ### After deploying
 
@@ -134,11 +96,6 @@ installing your bundle.
 provide one.
 - Bundler will not transparently update your `Gemfile.lock` if it is out of
 date with your `Gemfile`
-
-If you use Capistrano, you should symlink `vendor/bundle` to
-`shared/vendor_bundle` so that bundler will share your installed gems between
-deployments (making things zippy if you didn't make any changes), but still give you the
-benefits of isolation from other applications.
 
 By defaulting the bundle directory to `vendor/bundle`, and installing your
 bundle as part of your deployment process, you can be sure that the same Unix user that
