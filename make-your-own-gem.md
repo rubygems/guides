@@ -118,62 +118,9 @@ gem and use it:
     Hello world!
     => nil
 
-Now you can share hola with the rest of the Ruby community. Publishing your
-gem out to RubyGems.org only takes one command, provided that you have an
-account on the site. To setup your computer with your RubyGems account, you can
-run below command (where you should replace with your own Email, Password, and
-OTP (if enabled)):
-
-    $ gem signin
-    Enter your RubyGems.org credentials.
-    Don't have an account yet? Create one at https://rubygems.org/sign_up
-      Email:   (your-email-address@example.com)
-    Password:   (your password for RubyGems.org)
-
-    API Key name [host-user-20220102030405]:
-    Please select scopes you want to enable for the API key (y/n)
-    index_rubygems [y/N]:   n
-    push_rubygem [y/N]:   y
-    yank_rubygem [y/N]:   n
-    add_owner [y/N]:   n
-    remove_owner [y/N]:   n
-    access_webhooks [y/N]:   n
-    show_dashboard [y/N]:   n
-
-    You have enabled multi-factor authentication. Please enter OTP code.
-    Code:   123456
-    Signed in with API key: host-user-20220102030405.
-
-> If you're having problems with curl, OpenSSL, or certificates, you might want to
-> simply try entering the above URL in your browser's address bar.  Your browser will
-> ask you to login to RubyGems.org.  Enter your username and password.  Your browser
-> will now try to download the file api_key.yaml.  Save it in ~/.gem and call it 'credentials'
-
-Once this has been setup, you can push out the gem:
-
-    $ gem push hola-0.0.0.gem
-    Pushing gem to RubyGems.org...
-    Successfully registered gem: hola (0.0.0)
-
-In just a short time (usually less than a minute), your gem will be available for
-installation by anyone. You can see it [on the RubyGems.org site](https://rubygems.org/gems/hola)
-or grab it from any computer with RubyGems installed:
-
-    $ gem list -r hola
-
-    *** REMOTE GEMS ***
-
-    hola (0.1.3)
-
-    $ gem install hola
-    Fetching hola-0.1.3.gem
-    Successfully installed hola-0.1.3
-    Parsing documentation for hola-0.1.3
-    Installing ri documentation for hola-0.1.3
-    Done installing documentation for hola after 0 seconds
-    1 gem installed
-
-It’s really that easy to share code with Ruby and RubyGems.
+Now you can share hola with the rest of the Ruby community. See the
+[Releasing your gem](#releasing-your-gem) section below to learn how to
+publish it to RubyGems.org.
 
 Starting with bundle gem
 ------------------------
@@ -585,8 +532,65 @@ what's different and how to use it.
 Releasing your gem
 ------------------
 
+Publishing your gem to RubyGems.org requires an account on the site. To setup
+your computer with your RubyGems account, run the following command (replacing
+with your own Email, Password, and OTP if enabled):
+
+    $ gem signin
+    Enter your RubyGems.org credentials.
+    Don't have an account yet? Create one at https://rubygems.org/sign_up
+      Email:   (your-email-address@example.com)
+    Password:   (your password for RubyGems.org)
+
+    API Key name [host-user-20220102030405]:
+    Please select scopes you want to enable for the API key (y/n)
+    index_rubygems [y/N]:   n
+    push_rubygem [y/N]:   y
+    yank_rubygem [y/N]:   n
+    add_owner [y/N]:   n
+    remove_owner [y/N]:   n
+    access_webhooks [y/N]:   n
+    show_dashboard [y/N]:   n
+
+    You have enabled multi-factor authentication. Please enter OTP code.
+    Code:   123456
+    Signed in with API key: host-user-20220102030405.
+
+> If you're having problems with curl, OpenSSL, or certificates, you might want to
+> simply try entering the above URL in your browser's address bar.  Your browser will
+> ask you to login to RubyGems.org.  Enter your username and password.  Your browser
+> will now try to download the file api_key.yaml.  Save it in ~/.gem and call it 'credentials'
+
+### With gem push
+
+Once signed in, you can push the gem directly:
+
+    $ gem push hola-0.0.0.gem
+    Pushing gem to RubyGems.org...
+    Successfully registered gem: hola (0.0.0)
+
+In just a short time (usually less than a minute), your gem will be available for
+installation by anyone. You can see it [on the RubyGems.org site](https://rubygems.org/gems/hola)
+or grab it from any computer with RubyGems installed:
+
+    $ gem list -r hola
+
+    *** REMOTE GEMS ***
+
+    hola (0.1.3)
+
+    $ gem install hola
+    Fetching hola-0.1.3.gem
+    Successfully installed hola-0.1.3
+    Parsing documentation for hola-0.1.3
+    Installing ri documentation for hola-0.1.3
+    Done installing documentation for hola after 0 seconds
+    1 gem installed
+
+### With rake release
+
 If you created your gem with `bundle gem`, you can use the `rake release` command
-to release it. This command:
+instead. This command:
 
 1. Builds the gem into the _pkg_ directory
 2. Creates a git tag for the current version
