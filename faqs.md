@@ -335,3 +335,28 @@ your CI status, will be the first to know about any failures from
 dependency changes.
 Finally, when publishing your gem, consider deleting and regenerating your Gemfile.lock with the latest
 dependencies just before running your tests.
+
+### Why Don't Git Gems Show Up in `gem list`?
+
+**Q**: I added a gem with a `:git` source in my `Gemfile`, but it doesn't
+appear in `gem list` and its executables are not in my PATH. Where did it go?
+
+**A**: Bundler installs git gems into a separate internal directory, not into
+the same location as gems installed from RubyGems.org. This means they will
+not appear in `gem list` output, and their executables will not be available
+in the shell PATH directly.
+
+To run executables from git gems, use `bundle exec`. To check which git gems
+are installed in your bundle, run `bundle list`.
+
+### Why Can't I Use Different Versions of a Gem in Different Groups?
+
+**Q**: I want to use one version of a gem in development and a different
+version in production. Can I specify different versions in different groups?
+
+**A**: No. Bundler resolves a single version for each gem across all groups
+and all platforms. This is by design — `Gemfile.lock` must contain one
+resolved version per gem so that every environment uses the same dependency
+set. If Bundler allowed different versions per group, installing in one
+environment could silently change which version of a gem you get in another,
+defeating the purpose of the lockfile.
