@@ -3,7 +3,7 @@ layout: default
 title: How to Upgrade to Bundler 2
 url: /bundler_2_upgrade
 previous: /getting_started
-next: /creating_gem
+next: /deploying
 ---
 
 # How to Upgrade to Bundler 2

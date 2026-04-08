@@ -61,7 +61,7 @@ plugin 'my_plugin', git: 'https://github.com/repo/my_plugin.git' # Installs from
 
 You'll first need to create a specialized gem before you can make a Bundler plugin.
 
-[Create a gem using this guide.](./creating_gem.html)
+[Create a gem using this guide.](/make-your-own-gem/)
 When you're done, come back to this guide and move onto step two.
 
 ### 2. Create a plugins.rb file
@@ -176,7 +176,7 @@ To install and run your plugin locally, you can run `bundler plugin install --gi
 <a name="deploying-your-plugin" id="deploying_your_plugin"></a>
 
 Deploy your plugin to RubyGems so others can install it. For instructions on deploying to RubyGems, visit
-[this guide.](./creating_gem.html#releasing-the-gem)
+[this guide.](/make-your-own-gem/#releasing-your-gem)
 
 Although plugins can be installed from a git branch, it's recommended to install plugins directly from RubyGems.
 

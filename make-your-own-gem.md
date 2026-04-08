@@ -7,25 +7,30 @@ next: /gems-with-extensions/
 ---
 
 <p><em class="t-gray">From start to finish, learn how to package your Ruby code in a gem.</em></p>
-<p><em class="t-gray">Note: Many people use Bundler to create Gems. You can
-learn how to do that by reading the &ldquo;<a
-href="https://bundler.io/v2.3/guides/creating_gem.html">Developing a RubyGem
-using Bundler</a>&rdquo; guide on the Bundler website.</em></p>
 
 * [Introduction](#introduction)
 * [Your first gem](#your-first-gem)
+* [Starting with bundle gem](#starting-with-bundle-gem)
 * [Requiring more files](#requiring-more-files)
 * [Adding an executable](#adding-an-executable)
+* [Using other gems](#using-other-gems)
 * [Writing tests](#writing-tests)
 * [Documenting your code](#documenting-your-code)
+* [Releasing your gem](#releasing-your-gem)
 * [Wrapup](#wrapup)
 
 Introduction
 ------------
 
+Why create a gem? You could just throw some code into your other project and
+use it directly. But what if you want to use that code elsewhere, or share it
+with others? A gem lets you package your library separately and reuse it across
+projects with a simple `gem install` or a line in a Gemfile. When you need it
+in another project, it’s a tiny modification rather than a whole lot of copying.
+
 Creating and publishing your own gem is simple thanks to the tools baked right
 into RubyGems. Let’s make a simple “hello world” gem, and feel free to
-play along at home! The code for the gem we're going to make here is up
+play along at home! The code for the gem we’re going to make here is up
 [on GitHub](https://github.com/qrush/hola).
 
 Your first gem
@@ -169,6 +174,43 @@ or grab it from any computer with RubyGems installed:
     1 gem installed
 
 It’s really that easy to share code with Ruby and RubyGems.
+
+Starting with bundle gem
+------------------------
+
+While you can set up a gem manually as shown above, Bundler provides a convenient
+`bundle gem` command that generates a scaffold with everything you need. This is the
+recommended way to start a new gem:
+
+    $ bundle gem foodie
+
+This creates a directory with the following structure:
+
+ * **Gemfile**: Manages gem dependencies for development. Contains a `gemspec` line
+meaning that Bundler will include dependencies specified in _foodie.gemspec_ too.
+It’s best practice to specify all dependencies in the _gemspec_.
+
+ * **Rakefile**: Includes Bundler’s `build`, `install` and `release` Rake tasks
+by way of calling `Bundler::GemHelper.install_tasks`.
+
+ * **foodie.gemspec**: The gem specification file, just like the one we wrote
+manually. Fields to complete include `description`, `homepage`,
+`metadata["source_code_uri"]`, and `metadata["changelog_uri"]`.
+
+ * **lib/foodie.rb**: The main file loaded when the gem is required.
+
+ * **lib/foodie/version.rb**: Defines a `VERSION` constant used by the gemspec.
+
+ * **.gitignore**: Ignores the _pkg_ directory, _.gem_ files, and _.bundle_ directory.
+
+The command will also ask whether you want to include a `CODE_OF_CONDUCT.md` and
+`LICENSE.txt`. For information on gem naming conventions, see the
+[Name Your Gem](/name-your-gem/) guide.
+
+After running `bundle gem`, you can build and install the gem using Rake tasks:
+
+    $ rake build    # Build the gem into the pkg directory
+    $ rake install  # Build and install the gem to your system
 
 Requiring more files
 --------------------
@@ -350,6 +392,28 @@ there's an `executables` array field on the gemspec.
 > Note that you should change the gem's version when pushing up a new release.
 > For more information on gem versioning, see the [Patterns Guide](/patterns/#semantic-versioning)
 
+Using other gems
+-----------------
+
+If your gem depends on another gem, you can specify it in your gemspec using
+`add_dependency`. For example, to depend on `activesupport`:
+
+    Gem::Specification.new do |s|
+      ...
+      s.add_dependency "activesupport", "~> 7.0"
+    end
+
+Using `~>` (the pessimistic version constraint) is recommended to avoid
+compatibility issues with future major versions. You can also specify
+development-only dependencies that are needed for testing but not at runtime:
+
+    s.add_development_dependency "minitest", "~> 5.0"
+
+When using Bundler, running `bundle install` will resolve and install all
+dependencies specified in the gemspec. Anyone who runs
+`gem install yourgemname --dev` will get the development dependencies installed
+too.
+
 Writing tests
 --------------
 
@@ -363,12 +427,14 @@ when a gem is downloaded.
 
 In short: *TEST YOUR GEM!* Please!
 
-`Minitest` is Ruby's built-in test framework. There are
-[lots](https://www.mikeperham.com/2012/09/25/minitest-ruby-1-9s-test-framework/) of
-[tutorials](https://github.com/minitest/minitest/blob/master/README.rdoc) for
-using it online. There are many other test frameworks available for Ruby as
-well. [RSpec](https://rspec.info/) is a popular choice. At the end of the day,
-it doesn't matter what you use, just *TEST*!
+There are two popular test frameworks in the Ruby community:
+[Minitest](https://github.com/minitest/minitest) and
+[RSpec](https://rspec.info/). Minitest is Ruby's built-in test framework and
+requires no additional setup. RSpec is a widely used alternative that provides
+an expressive DSL for writing specs. Either works great — pick whichever you
+prefer and see the corresponding section below.
+
+### Testing with Minitest
 
 Let's add some tests to Hola. This requires adding a few more files, namely a
 `Rakefile` and a brand new `test` directory:
@@ -435,8 +501,53 @@ Finally, to run the tests:
 
     3 runs, 3 assertions, 0 failures, 0 errors, 0 skips
 
-It's green! Well, depending on your shell colors. For more great examples, the
-best thing you can do is to hunt around [GitHub
+It's green! Well, depending on your shell colors.
+
+### Testing with RSpec
+
+[RSpec](https://rspec.info/) is another popular testing framework. To use it,
+first add it as a development dependency in your gemspec:
+
+    s.add_development_dependency "rspec", "~> 3.0"
+
+Then create a `spec` directory and a spec file:
+
+    $ tree
+    .
+    ├── hola.gemspec
+    ├── lib
+    │   ├── hola
+    │   │   └── translator.rb
+    │   └── hola.rb
+    └── spec
+        └── hola_spec.rb
+
+Write your specs in `spec/hola_spec.rb`:
+
+    $ cat spec/hola_spec.rb
+    require "hola"
+
+    describe Hola do
+      it "says hello world in english" do
+        expect(Hola.hi("english")).to eql("hello world")
+      end
+
+      it "says hello world by default" do
+        expect(Hola.hi("ruby")).to eql("hello world")
+      end
+
+      it "says hola mundo in spanish" do
+        expect(Hola.hi("spanish")).to eql("hola mundo")
+      end
+    end
+
+Run the specs with:
+
+    $ bundle exec rspec spec
+
+    3 examples, 0 failures
+
+For more great examples, the best thing you can do is to hunt around [GitHub
 ](https://github.com/search?q=stars%3A%3E1000+forks%3A%3E100&type=Repositories&l=Ruby)
 and read some code.
 
@@ -470,6 +581,28 @@ automatically from your gem. YARD is backwards compatible with RDoc, and it
 has a [good
 introduction](https://rubydoc.info/gems/yard/file/docs/GettingStarted.md) on
 what's different and how to use it.
+
+Releasing your gem
+------------------
+
+If you created your gem with `bundle gem`, you can use the `rake release` command
+to release it. This command:
+
+1. Builds the gem into the _pkg_ directory
+2. Creates a git tag for the current version
+3. Pushes the tag to the git remote
+4. Pushes the gem to RubyGems.org
+
+Before releasing, make sure to update the version number in your version file
+(e.g. `lib/hola/version.rb`) and commit all changes.
+
+To make version bumping easier, you can use the
+[gem-release](https://github.com/svenfuchs/gem-release) gem:
+
+    $ gem install gem-release
+    $ gem bump --version minor  # bumps to the next minor version
+    $ gem bump --version major  # bumps to the next major version
+    $ gem bump --version 1.1.1  # bumps to the specified version
 
 Wrapup
 ------
