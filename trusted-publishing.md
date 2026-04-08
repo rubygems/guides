@@ -2,7 +2,7 @@
 layout: default
 title: Trusted Publishing
 url: /trusted-publishing
-previous: /releasing-rubygems
+previous: /cve
 next: /organizations
 alias:
   - /trusted-publishing/adding-a-publisher
