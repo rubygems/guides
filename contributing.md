@@ -285,24 +285,6 @@ A RubyGems.org cache and private gem server.
   </a>
 </p>
 
-<a class="project__name" href="https://github.com/rubygems/compact_index">Compact Index</a>
-
-Implements the response logic for the compact index format used by Bundler
-to resolve dependencies efficiently.
-
-<div class="project__links">
-  <a class="project__link t-link" href="https://github.com/rubygems/compact_index/issues">Issues</a>
-</div>
-
-<p class="avatars">
-  <a href="https://github.com/hsbt">
-    <img src="https://github.com/hsbt.png?size=32" title="Hiroshi SHIBATA">
-  </a>
-  <a href="https://github.com/colby-swandale">
-    <img src="https://github.com/colby-swandale.png?size=32" title="Colby Swandale">
-  </a>
-</p>
-
 <em class="t-gray t-uppercase">Alumni:</em>
 
 <p class="avatars">
