@@ -285,14 +285,6 @@ A RubyGems.org cache and private gem server.
   </a>
 </p>
 
-<em class="t-gray t-uppercase">Alumni:</em>
-
-<p class="avatars">
-  <a href="https://github.com/segiddins">
-    <img src="https://github.com/segiddins.png?size=32" title="Samuel Giddins">
-  </a>
-</p>
-
 <a class="project__name" href="https://github.com/rubygems/release-gem">release-gem</a>
 
 The official GitHub Action for publishing gem files to RubyGems.org.
