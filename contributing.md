@@ -254,6 +254,9 @@ A RubyGems.org cache and private gem server.
   <a href="https://github.com/colby-swandale">
     <img src="https://github.com/colby-swandale.png?size=32" title="Colby Swandale">
   </a>
+  <a href="https://github.com/olleolleolle">
+    <img src="https://github.com/olleolleolle.png?size=32" title="Olle Jonsson">
+  </a>
 </p>
 
 <em class="t-gray t-uppercase">Alumni:</em>
@@ -279,9 +282,6 @@ A RubyGems.org cache and private gem server.
   </a>
   <a href="https://github.com/javier-menendez">
     <img src="https://github.com/javier-menendez.png?size=32" title="Javier Menendez">
-  </a>
-  <a href="https://github.com/olleolleolle">
-    <img src="https://github.com/olleolleolle.png?size=32" title="Olle Jonsson">
   </a>
 </p>
 
