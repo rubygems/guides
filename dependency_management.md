@@ -4,7 +4,7 @@ title: How to manage dependencies with Bundler
 url: /dependency_management
 previous: /groups
 next: /rubygems_tls_ssl_troubleshooting_guide
-alias:
+redirect_from:
   - /bundler_sharing
   - /rationale
 ---
