@@ -4,7 +4,7 @@ title: Using multi-factor authentication in command line
 url: /using-mfa-in-command-line
 previous: /setting-up-otp-mfa
 next: /mfa-requirement-opt-in
-alias:
+redirect_from:
   - /using-webauthn-mfa-in-command-line
   - /using-otp-mfa-in-command-line
 ---

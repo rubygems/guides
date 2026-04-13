@@ -4,7 +4,7 @@ title: Trusted Publishing
 url: /trusted-publishing
 previous: /cve
 next: /organizations
-alias:
+redirect_from:
   - /trusted-publishing/adding-a-publisher
   - /trusted-publishing/pushing-a-new-gem
   - /trusted-publishing/releasing-gems
