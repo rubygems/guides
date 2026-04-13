@@ -4,7 +4,7 @@ title: Frequently Asked Questions
 url: /faqs
 previous: /contributing
 next: /plugins
-redirect_from: /faq
+redirect_from: /faq/
 ---
 
 <em class="t-gray">More of the "why" and "wtf" than "how".</em>

@@ -5,9 +5,9 @@ url: /trusted-publishing
 previous: /cve
 next: /organizations
 redirect_from:
-  - /trusted-publishing/adding-a-publisher
-  - /trusted-publishing/pushing-a-new-gem
-  - /trusted-publishing/releasing-gems
+  - /trusted-publishing/adding-a-publisher/
+  - /trusted-publishing/pushing-a-new-gem/
+  - /trusted-publishing/releasing-gems/
 ---
 
 With Trusted Publishing, releasing a new version of your gem is as simple as pushing a git tag to GitHub. There are no API tokens to create, rotate, or store as secrets — GitHub Actions securely authenticates with RubyGems.org on your behalf using short-lived tokens.

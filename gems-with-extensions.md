@@ -4,7 +4,7 @@ title: Gems with Extensions
 url: /gems-with-extensions
 previous: /make-your-own-gem
 next: /name-your-gem
-redirect_from: /c-extensions
+redirect_from: /c-extensions/
 ---
 
 <em class="t-gray">Creating a gem that includes an extension that is built at install time.</em>
