@@ -5,8 +5,8 @@ url: /dependency_management
 previous: /groups
 next: /rubygems_tls_ssl_troubleshooting_guide
 redirect_from:
-  - /bundler_sharing
-  - /rationale
+  - /bundler_sharing/
+  - /rationale/
 ---
 
 ## How to manage dependencies with Bundler

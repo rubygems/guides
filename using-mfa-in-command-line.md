@@ -5,8 +5,8 @@ url: /using-mfa-in-command-line
 previous: /setting-up-otp-mfa
 next: /mfa-requirement-opt-in
 redirect_from:
-  - /using-webauthn-mfa-in-command-line
-  - /using-otp-mfa-in-command-line
+  - /using-webauthn-mfa-in-command-line/
+  - /using-otp-mfa-in-command-line/
 ---
 <em class="t-gray">How to use multi-factor authentication with gem CLI.</em>
 
