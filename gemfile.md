@@ -115,7 +115,7 @@ Credentials for gem servers can be specified either in the URL or using
 `bundle config`, as described above.
 Git repositories are also valid gem sources, as long as the repo contains one or
 more valid gems. Specify what to check out with `:tag`,
-`:branch`, or `:ref`. The default is the `master` branch.
+`:branch`, or `:ref`. The default is the repository's default branch.
 
 ~~~ruby
 gem 'nokogiri', :git => 'https://github.com/tenderlove/nokogiri.git', :branch => '1.4'
