@@ -8,7 +8,7 @@ next: /rubygems-org-api
 
 <em class="t-gray">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 4.0.10.
+This reference was automatically generated from RubyGems version 4.0.11.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -1425,7 +1425,7 @@ Display gem specification (in yaml)
 
 ### Usage
 
-    gem specification [GEMFILE] [FIELD] [options]
+    gem specification [GEM_OR_FILE] [FIELD] [options]
 
 ### Options
 
@@ -1464,7 +1464,7 @@ Display gem specification (in yaml)
 
 ### Arguments
 
-* *GEMFILE* -        name of gem to show the gemspec for
+* *GEM_OR_FILE* -    gem name or a .gem file to show the gemspec for
 * *FIELD* -          name of gemspec field to show
 
 ### Description
