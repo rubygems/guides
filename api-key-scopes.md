@@ -22,7 +22,7 @@ Click on **New API Key** to create a new API key for your account.
 
 ![Settings API key](/images/api-keys-index.png){:class="t-img"}
 
-Enter a name to help you identify the environment the API key may be used in (eg: ci-push-key, mirror-webhook-key, etc.). Check all the scopes you may want to enable and click on create.
+Enter a name to help you identify the environment the API key may be used in (eg: ci-push-key, mirror-webhook-key, etc.). Check all the scopes you may want to enable. You can also optionally set an [expiration date](#set-an-expiration-date) for the key. Click create when done.
 
 **Note:** *Show dashboard* is an exclusive scope, and it can't be enabled in combination with any other scope.
 
@@ -32,7 +32,7 @@ On the following page, you should see the new API key.
 
 ![API key created](/images/api-key-created.png){:class="t-img"}
 
-The *Age* column shows how old is the key. The *Last access* column shows the last time (in UTC) the key was used in a successful authentication. You can use the **Edit** button to update the scopes of the key. You can use the **Reset** button in the last row to delete *all* the API keys associated with your account.
+The *Age* column shows how old the key is, the *Expiration* column shows when the key will expire (if an expiration was set), and the *Last access* column shows the last time (in UTC) the key was used in a successful authentication. You can use the **Edit** button to update the scopes of the key. You can use the **Reset** button in the last row to delete *all* the API keys associated with your account.
 
 Usage with gem CLI
 ------------------
@@ -99,6 +99,19 @@ The operations corresponding to these scopes will only be valid on the selected 
 If you are using a key to modify only one of your gems, please consider gem scoping your keys.
 
 **Note:** When your ownership to a gem is removed, API keys scoped to that gem will become invalid and cannot be used.
+
+Set an expiration date
+-----------------------
+
+When creating an API key, we highly recommend you set an **expiration date** using the expiration field on the form. Once the expiration date passes, the key becomes invalid and can no longer be used for authentication.
+
+![New API key with expiration](/images/new-api-key-expiration.png){:class="t-img"}
+
+Setting an expiration is useful for temporary access to make changes, such as pushing a gem, adding or removing ownership, or other one-off operations.
+
+The expiration must be set to at least 5 minutes in the future. If no expiration is set, the key will remain valid indefinitely (until manually deleted or reset).
+
+**Note:** The expiration date cannot be changed after the key is created. If you need a key with a different expiration, create a new one.
 
 Enable MFA on specific API keys
 -----------------------------
