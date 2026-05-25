@@ -288,14 +288,19 @@ If your gem depends on another gem, you can specify it in your gemspec using
 
     Gem::Specification.new do |s|
       ...
-      s.add_dependency "activesupport", "~> 7.0"
+      s.add_dependency "activesupport", ">= 7.0"
     end
 
-Using `~>` (the pessimistic version constraint) is recommended to avoid
-compatibility issues with future major versions. You can also specify
-development-only dependencies that are needed for testing but not at runtime:
+Using `>=` (an optimistic version constraint) is recommended in most cases, so
+that your gem does not artificially lock its users out of future releases of
+the dependency. See
+[Optimistic vs. pessimistic version constraints](patterns#optimistic-vs-pessimistic-version-constraints)
+for when a pessimistic (`~>`) constraint may be more appropriate.
 
-    s.add_development_dependency "minitest", "~> 5.0"
+You can also specify development-only dependencies that are needed for testing
+but not at runtime:
+
+    s.add_development_dependency "minitest", ">= 5.0"
 
 When using Bundler, running `bundle install` will resolve and install all
 dependencies specified in the gemspec. Anyone who runs
