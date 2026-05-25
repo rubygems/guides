@@ -132,7 +132,7 @@ could also use a tool like [Bundler](https://bundler.io/)). Gems themselves
 **should not** do this. They should instead use dependencies in the gemspec so
 RubyGems can handle loading the dependency instead of the user.
 
-### Pessimistic version constraint
+### Optimistic vs. pessimistic version constraints
 
 If your gem properly follows [semantic versioning](https://semver.org) with its
 versioning scheme, then other Ruby developers can take advantage of this when
@@ -159,12 +159,15 @@ dependency in your gem (or a `Gemfile` from Bundler) might look like:
     # bundler
     gem 'library', '>= 2.2.0'
 
-This is an "optimistic" version constraint. It's saying that all versions greater
-than or equal to 2.2.0 will work with your software.
+This is an "optimistic" version constraint. It's saying that all versions
+greater than or equal to 2.2.0 will work with your software. In most cases this
+is the recommended approach, because you cannot predict the future: even
+backwards incompatible changes in a new major release may not affect the parts
+of the library your code actually uses.
 
-However, you might know that 3.0 introduces a breaking change and is no longer
-compatible. The way to designate this is to be "pessimistic". This explicitly
-excludes the versions that might break your code:
+The opposite approach is "pessimistic" versioning, which assumes that every
+major version bump in a dependency will break your software. You can express it
+with an explicit upper bound:
 
     # gemspec
     spec.add_runtime_dependency 'library',
@@ -186,25 +189,43 @@ RubyGems provides a shortcut for this, commonly known as the
 Notice that we dropped the `PATCH` level of the version number. Had we said
 `~> 2.2.0`, that would have been equivalent to `['>= 2.2.0', '< 2.3.0']`.
 
+Pessimistic versioning is often wrong in both directions. Patch or minor
+releases can still introduce incompatibilities (for example, a security fix
+that requires a backwards-incompatible API change), and many major releases do
+not actually break the parts of the API your gem uses. More importantly, a
+pessimistic constraint in a published gem can lock the entire dependency graph
+out of new releases: if library B pins `~> 1.0` on library A, then any library
+that depends on B cannot upgrade to A 2.x, even when A 2.x would have worked
+fine. This kind of transitive lock-in is a common and serious problem in
+practice, while problems caused by optimistic constraints can usually be
+resolved by adding a single specific dependency in the application that hits
+the incompatibility.
+
+For these reasons, prefer optimistic constraints (`>=`) by default in your
+gemspec. Reserve pessimistic constraints (`~>`) for the cases where they are
+genuinely warranted, such as:
+
+* The dependency is so small (for example, it exposes a single method) that
+  any major version bump is overwhelmingly likely to break you.
+* The dependency has already announced or shipped a backwards-incompatible
+  change that you know will break your gem.
+
 If you want to allow use of newer backwards-compatible versions but need a
 specific bug fix you can use a compound requirement:
 
     # gemspec
-    spec.add_runtime_dependency 'library', '~> 2.2', '>= 2.2.1'
+    spec.add_runtime_dependency 'library', '>= 2.2.1'
 
     # bundler
-    gem 'library', '~> 2.2', '>= 2.2.1'
-
-The important note to take home here is to be aware others *will* be using
-your gems, so guard yourself from potential bugs/failures in future releases
-by using `~>` instead of `>=` if at all possible.
+    gem 'library', '>= 2.2.1'
 
 > If you're dealing with a lot of gem dependencies in your application, we
 > recommend that you take a look into [Bundler](https://bundler.io/) or
 > [Isolate](https://github.com/jbarnette/isolate) which do a great job of
 > managing a complex version manifest for many gems.
 
-It's also important to know that if you specify a major version only, like this:
+It's also important to know that if you specify a major version only with the
+twiddle-wakka, like this:
 
     # gemspec
     spec.add_runtime_dependency 'library', '~> 2'
@@ -214,7 +235,7 @@ It will only use the latest version from the 2.x series -- so 2.3.0 -- and not 3
 You can also exclude specific versions using `!=`. Let's say version 2.2.1 has a show-stopping bug, or a change that accidentally breaks backwards-compatibility, and thus breaks your gem. You can exclude it as follows:
 
     # gemspec
-    spec.add_runtime_dependency 'library', '~> 2', '!= 2.2.1'
+    spec.add_runtime_dependency 'library', '>= 2.0', '!= 2.2.1'
 
 You can append additional versions by adding them as an additional argument to `add_runtime_dependency` - after all, its last argument is just an array.
 
