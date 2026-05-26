@@ -74,7 +74,7 @@ The specifier `~>` has a special meaning, best shown by example.
 `~> 2.2.beta` will match prerelease versions like `2.2.beta.12`.
 `~> 0` is identical to `>= 0.0` and `< 1.0`.
 
-<a href="https://guides.rubygems.org/patterns/#pessimistic-version-constraint" class="btn btn-primary">RubyGems version specifiers</a>
+<a href="https://guides.rubygems.org/patterns/#optimistic-vs-pessimistic-version-constraints" class="btn btn-primary">RubyGems version specifiers</a>
 
 If a gem's main file is different than the gem name, specify how to require it.
 
