@@ -47,36 +47,25 @@
   --color-neutral-1000: #000000;
 }
 
-/* Defer offscreen rendering for the long archive list on the index page.
-   The browser skips layout/paint for rows outside the viewport and
-   reserves ~60px each so the scrollbar stays accurate. */
 @layer components {
   /* Sidebar nav links — Figma: Body/03 semi-bold, 16px, tracking 4, neutral-800 default / orange active */
   .sidenav-link {
-    @apply block text-[16px] leading-[1.5] tracking-[0.04em] text-neutral-800 pb-[0.35em] pr-8 hover:text-orange-500 hover:underline transition-colors;
+    @apply block text-[16px] leading-[1.5] tracking-[0.04em] text-neutral-800 pb-[0.35em] pr-8 hover:text-orange-700 hover:underline transition-colors;
     &.is-active {
-      @apply text-orange-500 font-bold;
+      @apply text-orange-500 font-bold underline;
     }
   }
 
   .sidenav-link--sub {
-    @apply block text-[14px] leading-[1.5] tracking-[0.04em] text-neutral-600 pb-[0.1em] pr-8 hover:text-orange-500 hover:underline transition-colors;
+    @apply block text-[14px] leading-[1.5] tracking-[0.04em] text-neutral-600 pb-[0.1em] pr-8 hover:text-orange-700 hover:underline transition-colors;
     &.is-active {
-      @apply text-orange-500 font-semibold;
-    }
-  }
-
-  /* Header nav links — Figma: Body/02 PRIMARY, 19px, neutral-800 default / black hover / orange+semibold active */
-  .header-nav-link {
-    @apply block md:inline-block px-4 py-[18px] md:py-[25px] text-[19px] leading-[1.5] tracking-[0.01em] text-neutral-800 hover:text-neutral-1000 transition-colors border-b border-neutral-300 md:border-0;
-    &.is-active {
-      @apply text-orange-500 font-bold tracking-[0.02em];
+      @apply text-orange-700 font-semibold underline;
     }
   }
 
   /* Footer nav links */
   .footer-nav-link {
-    @apply text-[23px] md:text-[19px] leading-[1.5] tracking-[0.23px] md:tracking-[0.19px] text-neutral-800 hover:text-neutral-1000 hover:underline transition-colors focus:outline-none;
+    @apply inline-flex items-center py-2 hover:text-neutral-600 focus-visible:text-orange-700 focus-visible:outline-none focus-visible:underline
   }
 
   /* Sponsor logos — sprite sheet at /images/sponsors.png (white logos, inverted for light bg) */
