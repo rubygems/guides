@@ -6,8 +6,6 @@ previous: /using_bundler_in_applications
 next: /dependency_management
 ---
 
-## How to manage groups of gems
-
 Grouping your dependencies allows you
 to perform operations on the entire
 group.

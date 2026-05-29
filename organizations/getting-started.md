@@ -12,7 +12,6 @@ next: /organizations/managing-members
   <span class="beta-banner__text">Organizations are currently in limited private beta testing. If you're interested in joining the beta program, please contact <a href="mailto:support@rubygems.org">support@rubygems.org</a>.</span>
 </div>
 
-# Getting Started with Organizations
 
 Create your first Organization and start collaborating on RubyGems.org in minutes.
 

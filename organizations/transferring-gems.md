@@ -6,8 +6,6 @@ previous: /organizations/roles-and-permissions
 next: /credits
 ---
 
-# Transferring Gems to Organizations
-
 <div class="beta-banner">
   <span class="beta-banner__icon">⚠️</span>
   <strong class="beta-banner__title">Private Beta:</strong>

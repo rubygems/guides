@@ -5,8 +5,6 @@ url: /bundler_setup
 previous: /rails
 next: /rubymotion
 ---
-## How to use Bundler with Ruby
-
 Configure the load path so all dependencies in
 your Gemfile can be required
 

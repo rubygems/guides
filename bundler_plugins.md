@@ -6,7 +6,6 @@ previous: /git_bisect
 next: /bundler_known_plugins
 ---
 
-# How to write a Bundler plugin
 <a name="how-to-write-a-bundler-plugin"></a>
 
 ## What is a plugin?
