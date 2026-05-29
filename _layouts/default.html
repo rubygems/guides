@@ -35,7 +35,7 @@
 
 <body class="bg-white text-neutral-800 antialiased">
 
-  <header class="bg-white">
+  <header class="bg-white print:hidden">
     <div class="py-4 px-5 sm:px-6 lg:px-8 border-b border-neutral-400">
       <div class="flex flex-wrap justify-between items-center max-w-screen-xl mx-auto">
 
@@ -89,7 +89,7 @@
 
       <div class="flow-root">
 
-        <div class="md:float-left md:w-[240px] mb-[60px] md:mb-0">
+        <div class="md:float-left md:w-[240px] mb-[60px] md:mb-0 print:hidden">
           <ul>
             <li><a class="sidenav-link" data-sidenav href="/rubygems-basics">RubyGems Basics</a></li>
             <li><a class="sidenav-link" data-sidenav href="/what-is-a-gem">What is a gem?</a></li>
@@ -183,7 +183,7 @@
     </div>
   </main>
 
-  <footer>
+  <footer class="print:hidden">
 
     <!-- Nav band -->
     <nav class="bg-orange-100 py-8 px-6 md:px-16" aria-label="Footer navigation">
