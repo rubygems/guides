@@ -50,17 +50,57 @@
 @layer components {
   /* Sidebar nav links — Figma: Body/03 semi-bold, 16px, tracking 4, neutral-800 default / orange active */
   .sidenav-link {
-    @apply block text-[16px] leading-[1.5] tracking-[0.04em] text-neutral-800 pb-[0.35em] pr-8 hover:text-orange-700 hover:underline transition-colors;
+    @apply block text-sm leading-[1.5] tracking-[0.04em] text-neutral-800 pb-[0.35em] pr-8 hover:text-orange-700 hover:underline transition-colors;
     &.is-active {
       @apply text-orange-500 font-bold underline;
     }
   }
 
   .sidenav-link--sub {
-    @apply block text-[14px] leading-[1.5] tracking-[0.04em] text-neutral-600 pb-[0.1em] pr-8 hover:text-orange-700 hover:underline transition-colors;
+    @apply block text-sm leading-[1.5] tracking-[0.04em] text-neutral-800 pb-[0.1em] pr-8 hover:text-orange-700 hover:underline transition-colors;
     &.is-active {
       @apply text-orange-700 font-semibold underline;
     }
+  }
+
+  /* Beta banner — warning callout used in organizations pages */
+  .beta-banner {
+    @apply text-sm leading-[1.5] mb-[1.5em] py-2 px-[1.25em] rounded-lg;
+    background-color: #FFF3CD;
+    border: 1px solid #FFE69C;
+    color: #856404;
+    a {
+      color: #856404;
+      text-decoration: underline;
+      &:hover { color: #533f03; }
+    }
+    strong {
+      font-weight: bold;
+      color: #533f03;
+    }
+  }
+
+  .beta-banner--info {
+    background-color: #D1ECF1;
+    border-color: #BEE5EB;
+    color: #0C5460;
+    a {
+      color: #0C5460;
+      &:hover { color: #062E34; }
+    }
+    strong { color: #062E34; }
+  }
+
+  .beta-banner__icon {
+    @apply inline-block font-bold mr-[0.5em];
+  }
+
+  .beta-banner__title {
+    @apply inline font-bold mr-[0.5em];
+  }
+
+  .beta-banner__text {
+    @apply inline;
   }
 
   /* Inline guide images — Kramdown {:class="t-img"} */
