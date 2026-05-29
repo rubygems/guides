@@ -1,0 +1,152 @@
+/* File for defining tailwind customizations */
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Titillium Web", ui-sans-serif, system-ui, sans-serif;
+
+  /* Orange palette — Figma: Orange/Orange-* */
+  --color-orange-050: #FFF8F1;
+  --color-orange-100: #FFF0EC;
+  --color-orange-200: #FFCEB6;
+  --color-orange-300: #FFA983;
+  --color-orange-400: #FF7539;
+  --color-orange-500: #F74C27;
+  --color-orange-600: #E54523;
+  --color-orange-700: #AD2F14;
+  --color-orange-800: #761A05;
+  --color-orange-900: #581A0C;
+  --color-orange-950: #3A1007;
+
+  /* Red palette — Figma: Red/Red-* */
+  --color-red-500: #E4002B;
+  --color-red-600: #BA0023;
+
+  /* Green palette — Figma: Green/Green-* */
+  --color-green-500: #05A3A7;
+  --color-green-600: #03858B;
+
+  /* Blue palette — Figma: Blue/Blue-* */
+  --color-blue-500: #6999D2;
+  --color-blue-600: #5B86B8;
+
+  /* Neutral palette — Figma: Neutral/Neutral-* */
+  --color-neutral-000: #FFFFFF;
+  --color-neutral-050: #FBFBFB;
+  --color-neutral-100: #EEF1F3;
+  --color-neutral-200: #E3E7EA;
+  --color-neutral-300: #D7DEE3;
+  --color-neutral-400: #C6CED5;
+  --color-neutral-500: #AEB8C1;
+  --color-neutral-600: #6C7583;
+  --color-neutral-700: #434B59;
+  --color-neutral-800: #333A45;
+  --color-neutral-900: #222831;
+  --color-neutral-950: #16191E;
+  --color-neutral-1000: #000000;
+}
+
+/* Defer offscreen rendering for the long archive list on the index page.
+   The browser skips layout/paint for rows outside the viewport and
+   reserves ~60px each so the scrollbar stays accurate. */
+@layer components {
+  /* Sidebar nav links — Figma: Body/03 semi-bold, 16px, tracking 4, neutral-800 default / orange active */
+  .sidenav-link {
+    @apply block text-[16px] leading-[1.5] tracking-[0.04em] text-neutral-800 pb-[0.35em] pr-8 hover:text-orange-500 transition-colors;
+    &.is-active {
+      @apply text-orange-500 font-semibold;
+    }
+  }
+
+  .sidenav-link--sub {
+    @apply block text-[14px] leading-[1.5] tracking-[0.04em] text-neutral-600 pb-[0.1em] pr-8 hover:text-orange-500 transition-colors;
+    &.is-active {
+      @apply text-orange-500 font-semibold;
+    }
+  }
+
+  /* Header nav links — Figma: Body/02 PRIMARY, 19px, neutral-800 default / black hover / orange+semibold active */
+  .header-nav-link {
+    @apply block md:inline-block px-4 py-[18px] md:py-[25px] text-[19px] leading-[1.5] tracking-[0.01em] text-neutral-800 hover:text-neutral-1000 transition-colors border-b border-neutral-300 md:border-0;
+    &.is-active {
+      @apply text-orange-500 font-semibold tracking-[0.02em];
+    }
+  }
+
+  /* Footer nav links */
+  .footer-nav-link {
+    @apply block text-[16px] leading-[1.5] tracking-[0.04em] text-white hover:text-white/30 transition-colors mb-[10px] focus:outline-none;
+  }
+
+  /* Sponsor logos — sprite sheet at /images/sponsors.png */
+  .footer-sponsor {
+    @apply mx-[26px] mb-9 inline-block h-[100px] w-[90px] italic font-light text-[12px] text-center text-white opacity-40 hover:opacity-100 focus:opacity-100 focus:outline-none transition-opacity;
+    background-image: url(/images/sponsors.png);
+    background-size: 100%;
+  }
+  .footer-sponsor--ruby-central  { background-position: 0 4px; }
+  .footer-sponsor--dockyard       { background-position: 0 -204px; }
+  .footer-sponsor--dnsimple       { background-position: 0 -291px; }
+  .footer-sponsor--datadog        { background-position: 0 -634px; }
+  .footer-sponsor--fastly         { background-position: 0 -541px; }
+  .footer-sponsor--honeybadger    { background-position: 0 -717px; }
+  .footer-sponsor--domainr        { background-position: 0 -804px; }
+  .footer-sponsor--whitesource    { background-position: 0 -885px; }
+}
+
+/* Defensive: stop overflow-content (e.g. <pre> code blocks) from propagating
+   up and creating a tiny page-level horizontal scroll on narrow viewports.
+   Internal scroll containers continue to scroll on their own axis. */
+html, body {
+  overflow-x: clip;
+}
+
+/* Honour user motion preferences globally. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Typography plugin customizations.
+   Must be in @layer utilities to win over the plugin's own rules,
+   which are emitted into @layer utilities. */
+@layer utilities {
+  .prose {
+    --tw-prose-body: var(--color-neutral-800);
+    --tw-prose-headings: var(--color-neutral-800);
+    --tw-prose-links: var(--color-orange-700);
+    --tw-prose-bold: var(--color-neutral-800);
+    --tw-prose-quotes: var(--color-neutral-800);
+    --tw-prose-quote-borders: var(--color-orange-600);
+    --tw-prose-code: var(--color-neutral-800);
+    --tw-prose-pre-code: var(--color-neutral-100);
+    --tw-prose-pre-bg: var(--color-neutral-900);
+  }
+
+  .prose :where(a):not(:where([class~="not-prose"] *)) {
+    text-decoration: underline;
+  }
+
+  .prose :where(a):not(:where([class~="not-prose"] *)):hover {
+    color: var(--color-orange-800);
+  }
+
+  .prose :where(code):not(:where([class~="not-prose"], pre *)) {
+    background-color: var(--color-neutral-100);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-weight: 400;
+    overflow-wrap: break-word;
+  }
+
+  .prose :where(code):not(:where([class~="not-prose"] *))::before,
+  .prose :where(code):not(:where([class~="not-prose"] *))::after {
+    content: "";
+  }
+}
+
