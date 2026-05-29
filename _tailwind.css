@@ -63,6 +63,15 @@
     }
   }
 
+  /* Inline guide images — Kramdown {:class="t-img"} */
+  .t-img {
+    @apply w-[98%] h-full m-[1%] rounded-none;
+  }
+
+  .t-img--small {
+    @apply w-[70%];
+  }
+
   /* Footer nav links */
   .footer-nav-link {
     @apply inline-flex items-center py-2 hover:text-neutral-600 focus-visible:text-orange-700 focus-visible:outline-none focus-visible:underline
