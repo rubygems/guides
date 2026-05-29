@@ -82,10 +82,10 @@
     </div>
   </header>
 
-  <main class="bg-white pb-[86px] md:pb-[175px]">
-    <div class="max-w-[940px] mx-auto w-[90%]">
+  <main class="flex-1 w-full px-5 sm:px-6 lg:px-8 bg-neutral-050 text-neutral-800">
+    <div class=" max-w-screen-xl w-full mx-auto pt-8 pb-10 mb-12 md:mb-16 lg:mb-28">
 
-      <a class="block text-neutral-800 text-[30px] md:text-[43px] font-bold leading-[1.2] border-b border-neutral-300 pt-[18px] pb-[10px] md:pt-[30px] md:pb-[30px] mb-[30px] hover:text-orange-500 transition-colors" href="/">Guides</a>
+      <h1 class="text-3xl md:text-4xl font-bold text-neutral-800 mb-8"> Guides </h1>
 
       <div class="overflow-auto">
 
@@ -135,8 +135,8 @@
             <li><a class="sidenav-link" data-sidenav href="/credits">Credits</a></li>
           </ul>
 
+          <h3 class="font-bold tracking-[0.04em] text-lg text-neutral-600 pt-4 pb-2">Bundler</h3>
           <ul>
-            <h3 class="font-bold tracking-[0.04em] text-lg text-neutral-600 pt-4 pb-2">Bundler</h3>
             <li><a class="sidenav-link" data-sidenav href="/rubygems">Bundler in gems</a></li>
             <li><a class="sidenav-link" data-sidenav href="/gemfile">Gemfiles</a></li>
             <li><a class="sidenav-link" data-sidenav href="/getting_started">Getting Started</a></li>
@@ -163,6 +163,7 @@
         </div>
 
         <div class="md:float-right md:w-[calc(100%-240px)] md:pl-[60px]">
+          <h1 class="text-3xl md:text-4xl font-bold text-neutral-800 mb-8"> {{ page.title }}</h1>
           <div class="prose prose-lg max-w-none">
             {{ content }}
           </div>
@@ -182,58 +183,63 @@
     </div>
   </main>
 
-  <footer class="bg-neutral-950 text-white pt-12 pb-12 border-t border-white/30 relative overflow-auto w-full">
-    <div class="max-w-[940px] mx-auto w-[90%]">
-      <div class="overflow-auto">
+  <footer>
 
-        <div class="md:float-right md:pl-[60px] mb-8 md:mb-0">
-          <a class="footer-nav-link" href="https://status.rubygems.org/">Status</a>
-          <a class="footer-nav-link" href="http://uptime.rubygems.org/">Uptime</a>
-          <a class="footer-nav-link" href="https://github.com/rubygems/rubygems.org" target="_blank">Code</a>
-          <a class="footer-nav-link" href="https://groups.google.com/forum/#!forum/rubygems-org" target="_blank">Discuss</a>
-          <a class="footer-nav-link" href="https://rubygems.org/stats">Stats</a>
-          <a class="footer-nav-link" href="https://blog.rubygems.org/">Blog</a>
+    <!-- Nav band -->
+    <nav class="bg-orange-100 py-8 px-6 md:px-16" aria-label="Footer navigation">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-9 md:gap-0 max-w-screen-xl mx-auto">
+
+        <div class="flex flex-col md:flex-row gap-3 md:gap-8">
           <a class="footer-nav-link" href="https://rubygems.org/pages/about">About</a>
-          <a class="footer-nav-link !mb-0" href="mailto:support@rubygems.org">Help</a>
+          <a class="footer-nav-link" href="/">Docs</a>
+          <a class="footer-nav-link" href="https://rubygems.org/pages/supporters">Supporters</a>
+          <a class="footer-nav-link" href="https://status.rubygems.org/">Status</a>
+          <a class="footer-nav-link" href="https://rubygems.org/pages/security">Security</a>
+          <a class="footer-nav-link" href="mailto:support@rubygems.org">Contact</a>
         </div>
 
-        <div class="md:float-left md:w-[75%] md:border-r md:border-white/10 md:pr-[60px]">
-          <p class="text-[18px] font-light leading-[1.66] text-neutral-600 max-w-[550px] md:min-h-[222px]">RubyGems.org is the Ruby community&rsquo;s gem hosting service. Instantly publish
-            your gems and install them. Use the API to interact and find out more information about available gems.
-            Become a contributor and enhance the site with your own changes.</p>
+        <div class="flex gap-[26px] items-center">
+          <a href="https://github.com/rubygems" class="text-neutral-800/70 hover:text-neutral-800 transition-colors" aria-label="RubyGems on GitHub">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+          <a href="https://ruby.social/@rubygems" class="text-neutral-800/70 hover:text-neutral-800 transition-colors" aria-label="RubyGems on Mastodon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z"/>
+            </svg>
+          </a>
+          <a href="https://x.com/rubygems" class="text-neutral-800/70 hover:text-neutral-800 transition-colors" aria-label="RubyGems on X">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.736-8.832L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </nav>
+
+    <!-- Supporters band -->
+    <div class="bg-orange-200 py-8 px-6 md:px-16">
+      <div class="flex flex-col md:flex-row items-center justify-center md:justify-between gap-10 max-w-screen-xl mx-auto">
+
+        <p class="mb-6 lg:mb-0 lg:mr-14 lg:w-52 text-base leading-6 text-balance">
+          RubyGems.org is supported by
+        </p>
+
+        <div class="w-full lg:grow mx-auto grid grid-cols-3 gap-6 justify-items-center md:flex md:items-center md:justify-between text-orange-900">
+          <a class="footer-sponsor footer-sponsor--ruby-central" href="https://rubycentral.org/" target="_blank" rel="noreferrer" aria-label="Ruby Central"></a>
+          <a class="footer-sponsor footer-sponsor--dnsimple" href="https://dnsimple.link/resolving-rubygems" target="_blank" rel="noreferrer" aria-label="DNSimple"></a>
+          <a class="footer-sponsor footer-sponsor--datadog" href="https://www.datadoghq.com/" target="_blank" rel="noreferrer" aria-label="Datadog"></a>
+          <a class="footer-sponsor footer-sponsor--fastly" href="https://www.fastly.com/" target="_blank" rel="noreferrer" aria-label="Fastly"></a>
+          <a class="footer-sponsor footer-sponsor--honeybadger" href="https://www.honeybadger.io/" target="_blank" rel="noreferrer" aria-label="Honeybadger"></a>
+          <a class="footer-sponsor footer-sponsor--domainr" href="https://domainr.com/" target="_blank" rel="noreferrer" aria-label="Domainr"></a>
+          <a class="footer-sponsor footer-sponsor--whitesource" href="https://www.mend.io/" target="_blank" rel="noreferrer" aria-label="mend.io"></a>
         </div>
 
       </div>
     </div>
 
-    <div class="mt-[60px] pt-[45px] border-t border-white/10">
-      <div class="max-w-[940px] mx-auto w-[90%] text-center">
-        <a class="footer-sponsor footer-sponsor--ruby-central" href="https://rubycentral.org/" target="_blank" rel="noreferrer">
-          Supported by <span class="sr-only">Ruby Central</span>
-        </a>
-        <a class="footer-sponsor footer-sponsor--dockyard" href="https://dockyard.com/ruby-on-rails-consulting" target="_blank" rel="noreferrer">
-          Designed by <span class="sr-only">DockYard</span>
-        </a>
-        <a class="footer-sponsor footer-sponsor--dnsimple" href="https://dnsimple.link/resolving-rubygems" target="_blank" rel="noreferrer">
-          Resolved with <span class="sr-only">DNSimple</span>
-        </a>
-        <a class="footer-sponsor footer-sponsor--datadog" href="https://www.datadoghq.com/" target="_blank" rel="noreferrer">
-          Monitored by <span class="sr-only">Datadog</span>
-        </a>
-        <a class="footer-sponsor footer-sponsor--fastly" href="https://www.fastly.com/" target="_blank" rel="noreferrer">
-          Gems served by <span class="sr-only">Fastly</span>
-        </a>
-        <a class="footer-sponsor footer-sponsor--honeybadger" href="https://www.honeybadger.io/" target="_blank" rel="noreferrer">
-          Monitored by <span class="sr-only">Honeybadger</span>
-        </a>
-        <a class="footer-sponsor footer-sponsor--domainr" href="https://domainr.com/" target="_blank" rel="noreferrer">
-          Verified by <span class="sr-only">Domainr</span>
-        </a>
-        <a class="footer-sponsor footer-sponsor--whitesource" href="https://www.whitesourcesoftware.com/" target="_blank" rel="noreferrer">
-          Secured by <span class="sr-only">Whitesource</span>
-        </a>
-      </div>
-    </div>
   </footer>
 
   <script type="text/javascript">

@@ -76,14 +76,15 @@
 
   /* Footer nav links */
   .footer-nav-link {
-    @apply text-[23px] md:text-[19px] leading-[1.5] tracking-[0.23px] md:tracking-[0.19px] text-white/80 hover:text-white hover:underline transition-colors focus:outline-none;
+    @apply text-[23px] md:text-[19px] leading-[1.5] tracking-[0.23px] md:tracking-[0.19px] text-neutral-800 hover:text-neutral-1000 hover:underline transition-colors focus:outline-none;
   }
 
-  /* Sponsor logos — sprite sheet at /images/sponsors.png */
+  /* Sponsor logos — sprite sheet at /images/sponsors.png (white logos, inverted for light bg) */
   .footer-sponsor {
-    @apply inline-block h-[100px] w-[90px] opacity-60 hover:opacity-100 focus:opacity-100 focus:outline-none transition-opacity;
+    @apply inline-block h-[100px] w-[90px] opacity-50 hover:opacity-100 focus:opacity-100 focus:outline-none transition-opacity;
     background-image: url(/images/sponsors.png);
     background-size: 100%;
+    filter: brightness(0);
   }
   .footer-sponsor--ruby-central  { background-position: 0 4px; }
   .footer-sponsor--dockyard       { background-position: 0 -204px; }

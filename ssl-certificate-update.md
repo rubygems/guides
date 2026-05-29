@@ -6,8 +6,6 @@ previous: /removing-a-published-gem
 next: /patterns
 ---
 
-# SSL Certificate Updates
-
 If you’ve seen the following SSL error when trying to pull updates from RubyGems:
 
 ```OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed```
