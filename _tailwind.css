@@ -53,14 +53,14 @@
 @layer components {
   /* Sidebar nav links — Figma: Body/03 semi-bold, 16px, tracking 4, neutral-800 default / orange active */
   .sidenav-link {
-    @apply block text-[16px] leading-[1.5] tracking-[0.04em] text-neutral-800 pb-[0.35em] pr-8 hover:text-orange-500 transition-colors;
+    @apply block text-[16px] leading-[1.5] tracking-[0.04em] text-neutral-800 pb-[0.35em] pr-8 hover:text-orange-500 hover:underline transition-colors;
     &.is-active {
-      @apply text-orange-500 font-semibold;
+      @apply text-orange-500 font-bold;
     }
   }
 
   .sidenav-link--sub {
-    @apply block text-[14px] leading-[1.5] tracking-[0.04em] text-neutral-600 pb-[0.1em] pr-8 hover:text-orange-500 transition-colors;
+    @apply block text-[14px] leading-[1.5] tracking-[0.04em] text-neutral-600 pb-[0.1em] pr-8 hover:text-orange-500 hover:underline transition-colors;
     &.is-active {
       @apply text-orange-500 font-semibold;
     }
@@ -70,18 +70,18 @@
   .header-nav-link {
     @apply block md:inline-block px-4 py-[18px] md:py-[25px] text-[19px] leading-[1.5] tracking-[0.01em] text-neutral-800 hover:text-neutral-1000 transition-colors border-b border-neutral-300 md:border-0;
     &.is-active {
-      @apply text-orange-500 font-semibold tracking-[0.02em];
+      @apply text-orange-500 font-bold tracking-[0.02em];
     }
   }
 
   /* Footer nav links */
   .footer-nav-link {
-    @apply block text-[16px] leading-[1.5] tracking-[0.04em] text-white hover:text-white/30 transition-colors mb-[10px] focus:outline-none;
+    @apply text-[23px] md:text-[19px] leading-[1.5] tracking-[0.23px] md:tracking-[0.19px] text-white/80 hover:text-white hover:underline transition-colors focus:outline-none;
   }
 
   /* Sponsor logos — sprite sheet at /images/sponsors.png */
   .footer-sponsor {
-    @apply mx-[26px] mb-9 inline-block h-[100px] w-[90px] italic font-light text-[12px] text-center text-white opacity-40 hover:opacity-100 focus:opacity-100 focus:outline-none transition-opacity;
+    @apply inline-block h-[100px] w-[90px] opacity-60 hover:opacity-100 focus:opacity-100 focus:outline-none transition-opacity;
     background-image: url(/images/sponsors.png);
     background-size: 100%;
   }
