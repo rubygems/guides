@@ -9,8 +9,6 @@ redirect_from:
   - /rationale/
 ---
 
-## How to manage dependencies with Bundler
-
 This guide explains how Bundler manages your application's dependencies, why
 `Gemfile.lock` matters, and how to share a consistent environment with other
 developers and deployment targets.

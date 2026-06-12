@@ -6,8 +6,6 @@ previous: /credits
 next: /trusted-publishing
 ---
 
-# RubyGems Common Vulnerabilities and Exposures
-
 ## CVE-2013-4287: Algorithmic complexity vulnerability in RubyGems 2.0.7 and older
 
 RubyGems validates versions with a regular expression that is vulnerable to

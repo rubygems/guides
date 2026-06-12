@@ -6,8 +6,6 @@ previous: /rubymotion
 next: /git_bisect
 ---
 
-## How to use Bundler with Sinatra
-
 To use bundler with a Sinatra application, you only need to do two things. First, create a Gemfile.
 
 ~~~ruby

@@ -6,8 +6,6 @@ previous: /bundler_setup
 next: /sinatra
 ---
 
-## How to use Bundler with RubyMotion
-
 If you don't have a RubyMotion app yet, generate one.
 
 ~~~

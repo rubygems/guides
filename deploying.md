@@ -6,8 +6,6 @@ previous: /bundler_2_upgrade
 next: /git
 ---
 
-## How to deploy bundled applications
-
 Before deploying an app that uses Bundler, add your `Gemfile`
 and `Gemfile.lock` to source control, but ignore the
 `.bundle` folder, which is specific to each machine.

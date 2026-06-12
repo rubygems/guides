@@ -11,3 +11,7 @@ gem "webrick", "~> 1.8"
 gem "csv", "~> 3.3"
 gem "base64", "~> 0.3"
 gem "logger", "~> 1.7"
+
+group :jekyll_plugins do
+  gem "jekyll-tailwindcss"
+end

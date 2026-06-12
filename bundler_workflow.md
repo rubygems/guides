@@ -6,8 +6,6 @@ previous: /bundler_known_plugins
 next: /gemfile_ruby
 ---
 
-## Recommended Workflow with Version Control
-
 In general, when working with an application managed with bundler, you
 should use the following workflow:
 
