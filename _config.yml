@@ -1,12 +1,10 @@
 ---
+url: "https://guides.rubygems.org"
 exclude:
 - README.md
 - CNAME
 - vendor
 permalink: "pretty"
 plugins:
-- jekyll-redirect-from
-safe: true
-whitelist:
 - jekyll-redirect-from
 markdown: kramdown
