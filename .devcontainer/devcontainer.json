@@ -1,5 +1,5 @@
 {
-  "name: RubyGems Guides",
+  "name": "RubyGems Guides",
   "dockerFile": "Dockerfile",
   "forwardPorts": [
     4000
