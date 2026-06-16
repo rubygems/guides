@@ -23,6 +23,10 @@ focus on what you should put in your gem specification to make this as easy and
 maintainable as possible.  The extension in this guide will wrap `malloc()` and
 `free()` from the C standard library.
 
+Extensions don't have to be written in C.  This guide uses C for its main
+example, but you can also write extensions in [Rust](#rust-extensions); see the
+Rust Extensions section below.
+
 Gem layout
 ----------
 
@@ -256,6 +260,176 @@ a gem with the name `<name>`:
 6. `lib/<name>.rb` contains `require '<name>/<name>'` which loads the C
    extension
 
+Rust Extensions
+---------------
+
+Native extensions can also be written in [Rust][rust] instead of C.  Since
+[RubyGems 3.3.11][pr-5175] a gem can declare a Rust extension that is compiled
+at install time, giving you Rust's memory safety and the Cargo build system
+while still producing an ordinary shared library that Ruby loads with `require`.
+
+The recommended toolchain is maintained by the [oxidize-rb][oxidize-rb]
+project:
+
+* [rb-sys][rb-sys] wires Cargo into the standard `rake-compiler` workflow, so
+  building, testing, and cross-compiling work the same way they do for C
+  extensions.
+* [magnus][magnus] provides a high-level, safe API for defining Ruby modules,
+  classes, and methods from Rust.  You can drop down to the raw `rb-sys`
+  bindings when you need to, but most gems should use magnus.
+
+You'll need a [Rust toolchain][rustup] installed in addition to Ruby.
+
+### Generating the gem
+
+The quickest way to start is to let Bundler scaffold the whole project:
+
+    $ bundle gem --ext=rust my_gem
+
+This produces a working gem with all of the Rust wiring already in place:
+
+    Cargo.toml                         # Cargo workspace
+    Rakefile
+    my_gem.gemspec
+    ext/my_gem/Cargo.toml              # crate definition and dependencies
+    ext/my_gem/extconf.rb              # extension configuration
+    ext/my_gem/src/lib.rs              # extension source
+    lib/my_gem.rb                      # generic features
+
+The rest of this section walks through the pieces that differ from a C
+extension.
+
+### extconf.rb
+
+Instead of `mkmf`'s `create_makefile`, a Rust extension uses
+`create_rust_makefile` from `rb_sys/mkmf`.  It generates a Makefile that drives
+Cargo:
+
+    require "mkmf"
+    require "rb_sys/mkmf"
+
+    create_rust_makefile("my_gem/my_gem")
+
+The argument is the install path of the compiled library, exactly like the
+argument to `create_makefile`.  Here it places the shared object at
+`lib/my_gem/my_gem.so`.
+
+### Cargo.toml
+
+Each extension is a Cargo crate.  The two things that matter for a Ruby
+extension are the `cdylib` crate type, so Cargo produces a shared library Ruby
+can load, and the `magnus` dependency:
+
+    [package]
+    name = "my_gem"
+    version = "0.1.0"
+    edition = "2021"
+    publish = false
+
+    [lib]
+    crate-type = ["cdylib"]
+
+    [dependencies]
+    magnus = "0.8"
+
+A `Cargo.toml` in the project root declares a [workspace][cargo-workspace] so
+that editors and `cargo` commands run from the top of the gem behave correctly:
+
+    [workspace]
+    members = ["./ext/my_gem"]
+    resolver = "2"
+
+### The Rust source
+
+`ext/my_gem/src/lib.rs` defines the extension.  The function marked with
+`#[magnus::init]` is called when Ruby loads the library, and it's where you
+define your modules, classes, and methods:
+
+    use magnus::{function, prelude::*, Error, Ruby};
+
+    fn hello(subject: String) -> String {
+        format!("Hello {subject}, from Rust!")
+    }
+
+    #[magnus::init]
+    fn init(ruby: &Ruby) -> Result<(), Error> {
+        let module = ruby.define_module("MyGem")?;
+        module.define_singleton_method("hello", function!(hello, 1))?;
+        Ok(())
+    }
+
+magnus converts between Ruby and Rust types for you, so `hello` takes and
+returns an ordinary Rust `String`.  Calling `MyGem.hello("world")` from Ruby
+returns `"Hello world, from Rust!"`.
+
+### Rakefile
+
+`rb_sys` ships a drop-in replacement for `Rake::ExtensionTask` that knows how to
+drive Cargo.  Use `RbSys::ExtensionTask` and it hooks into `rake compile` just
+like the C workflow:
+
+    require "rb_sys/extensiontask"
+
+    task build: :compile
+
+    GEMSPEC = Gem::Specification.load("my_gem.gemspec")
+
+    RbSys::ExtensionTask.new("my_gem", GEMSPEC) do |ext|
+      ext.lib_dir = "lib/my_gem"
+    end
+
+    task default: %i[compile test]
+
+### lib/my_gem.rb
+
+The top-level Ruby file requires the compiled library, just like a C extension:
+
+    require_relative "my_gem/version"
+    require "my_gem/my_gem"
+
+    module MyGem
+      class Error < StandardError; end
+      # Your code goes here...
+    end
+
+### Gem specification
+
+Point `extensions` at the `extconf.rb` and add a dependency on `rb_sys`:
+
+    Gem::Specification.new do |spec|
+      spec.name = "my_gem"
+      spec.version = MyGem::VERSION
+      # [...]
+
+      spec.extensions = ["ext/my_gem/extconf.rb"]
+      spec.add_dependency "rb_sys", ">= 0.9.128"
+    end
+
+Make sure the gemspec's `files` list includes the Rust sources and the
+`Cargo.toml` files (for example `ext/**/*.rs` and `**/Cargo.*`) so they ship in
+the packaged gem.  The scaffold generated by `bundle gem` already does this via
+`git ls-files`.
+
+### Building and testing locally
+
+Compile the extension and try it out:
+
+    $ bundle install
+    $ bundle exec rake compile
+    $ bundle exec ruby -Ilib -r my_gem -e "puts MyGem.hello('world')"
+    Hello world, from Rust!
+
+`rake compile` builds the crate with Cargo and copies the resulting shared
+library into `lib/my_gem/`, where `lib/my_gem.rb` can `require` it.  From here
+`rake test` works exactly as it would for a C extension.
+
+Although Cargo omits `Cargo.lock` from version control for library crates by
+default, you should commit it for a gem.  The native extension is built from
+source on the user's machine at install time, so a checked-in `Cargo.lock`
+gives everyone the same, reproducible set of Rust dependencies.  The
+`.gitignore` generated by `bundle gem` ignores only the `target/` build
+directory, leaving `Cargo.lock` tracked.
+
 Further Reading
 ---------------
 
@@ -274,8 +448,23 @@ Further Reading
 * Interfaces to C libraries can be written using ruby and
   [fiddle](https://docs.ruby-lang.org/en/master/Fiddle.html) (part
   of the standard library) or [ruby-ffi](https://github.com/ffi/ffi)
+* [The Ruby on Rust Book][rb-sys-book] is the official guide to writing
+  extensions in Rust with rb-sys and magnus
+* [magnus][magnus] provides the high-level Rust API used in the Rust example
+  above
+* [oxi-test][oxi-test] is a minimal, cross-compiled reference gem built with
+  rb-sys
 
 [extension.rdoc]: https://github.com/ruby/ruby/blob/master/doc/extension.rdoc
 [mkmf.rb]: https://github.com/ruby/ruby/blob/master/lib/mkmf.rb
 [rake-compiler]: https://github.com/luislavena/rake-compiler
 [nokogiri]: https://rubygems.org/gems/nokogiri
+[pr-5175]: https://github.com/rubygems/rubygems/pull/5175
+[rust]: https://www.rust-lang.org
+[rustup]: https://rustup.rs
+[oxidize-rb]: https://github.com/oxidize-rb
+[rb-sys]: https://github.com/oxidize-rb/rb-sys
+[magnus]: https://github.com/matsadler/magnus
+[cargo-workspace]: https://doc.rust-lang.org/cargo/reference/workspaces.html
+[rb-sys-book]: https://oxidize-rb.github.io/rb-sys/
+[oxi-test]: https://github.com/oxidize-rb/oxi-test
