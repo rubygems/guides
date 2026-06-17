@@ -85,7 +85,11 @@
   <main class="flex-1 w-full px-5 sm:px-6 lg:px-8 bg-neutral-050 text-neutral-800">
     <div class=" max-w-screen-xl w-full mx-auto pt-8 pb-10 mb-12 md:mb-16 lg:mb-28">
 
+      {% if page.url == '/' %}
       <h1 class="text-3xl md:text-4xl font-bold text-neutral-800 mb-8"> Guides </h1>
+      {% else %}
+      <a href="/" class="inline-block text-3xl md:text-4xl font-bold text-neutral-800 mb-8 no-underline hover:text-orange-700 transition-colors"> Guides </a>
+      {% endif %}
 
       <div class="flow-root">
 
@@ -163,7 +167,9 @@
         </div>
 
         <div class="md:float-right md:w-[calc(100%-240px)] md:pl-[60px]">
+          {% unless page.url == '/' %}
           <h1 class="text-3xl md:text-4xl font-bold text-neutral-800 mb-8"> {{ page.title }}</h1>
+          {% endunless %}
           <div class="prose prose-lg max-w-none">
             {{ content }}
           </div>
