@@ -6,7 +6,7 @@ previous: /using-s3-source
 next: /resources
 ---
 
-<em class="t-gray">Understanding Ruby's standard library gems.</em>
+<em class="text-neutral-600">Understanding Ruby's standard library gems.</em>
 
 * [What are Default Gems and Bundled Gems?](#what-are-default-gems-and-bundled-gems)
 * [Default Gems](#default-gems)

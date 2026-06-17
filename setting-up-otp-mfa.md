@@ -6,7 +6,7 @@ previous: /setting-up-webauthn-mfa
 next: /using-mfa-in-command-line
 ---
 
-<em class="t-gray">Setting up one-time password (OTP) multi-factor authentication</em>
+<em class="text-neutral-600">Setting up one-time password (OTP) multi-factor authentication</em>
 
 ## Prerequisite
 

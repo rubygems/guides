@@ -6,7 +6,7 @@ previous: /specification-reference
 next: /rubygems-org-api
 ---
 
-<em class="t-gray">What each `gem` command does, and how to use it.</em>
+<em class="text-neutral-600">What each `gem` command does, and how to use it.</em>
 
 This reference was automatically generated from RubyGems version 4.0.14.
 

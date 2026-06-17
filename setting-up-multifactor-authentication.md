@@ -6,7 +6,7 @@ previous: /run-your-own-gem-server
 next: /setting-up-webauthn-mfa
 ---
 
-<em class="t-gray">Want to better protect your RubyGems.org account?</em>
+<em class="text-neutral-600">Want to better protect your RubyGems.org account?</em>
 
 Your RubyGems.org account is important! Unauthorized access of your account
 can lead to irrevocable damage to your gem's reputation. We highly recommend

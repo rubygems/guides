@@ -6,7 +6,7 @@ previous: /security
 next: /removing-a-published-gem
 ---
 
-<em class="t-gray">How to add or remove owners to your gem using the web UI?</em>
+<em class="text-neutral-600">How to add or remove owners to your gem using the web UI?</em>
 
 Similar to `gem owner --add` and `gem owner --remove` commands of the gem CLI,
 you can add or remove the owners of the gem you own using the web UI.

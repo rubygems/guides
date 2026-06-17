@@ -6,7 +6,7 @@ previous: /
 next: /what-is-a-gem
 ---
 
-<em class="t-gray">Use of common RubyGems commands</em>
+<em class="text-neutral-600">Use of common RubyGems commands</em>
 
 The `gem` command allows you to interact with RubyGems.
 

@@ -6,7 +6,7 @@ previous: /name-your-gem
 next: /security
 ---
 
-<em class="t-gray">Start with an idea, end with a distributable package of Ruby code.</em>
+<em class="text-neutral-600">Start with an idea, end with a distributable package of Ruby code.</em>
 
 Ways to share your gem code with other users.
 

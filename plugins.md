@@ -9,7 +9,7 @@ next: /cve
 Plugins
 =======
 
-<em class="t-gray">Extensions that use the RubyGems plugin API.</em>
+<em class="text-neutral-600">Extensions that use the RubyGems plugin API.</em>
 
 RubyGems will load plugins in the latest version of each installed gem or
 `$LOAD_PATH`.  Plugins must be named 'rubygems\_plugin' (.rb, .so, etc) and

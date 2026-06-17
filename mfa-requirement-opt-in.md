@@ -5,7 +5,7 @@ url: /mfa-requirement-opt-in
 previous: /using-mfa-in-command-line
 next: /using-s3-source
 ---
-<em class="t-gray">How to opt-in for MFA requirement.</em>
+<em class="text-neutral-600">How to opt-in for MFA requirement.</em>
 
 You can make your gems more secure by requiring all owners to enable MFA on their account.
 

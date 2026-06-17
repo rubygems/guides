@@ -6,7 +6,7 @@ previous: /gems-with-extensions
 next: /publishing
 ---
 
-<em class="t-gray">Our recommendation on the use of "_" and "-" in your gem's name.</em>
+<em class="text-neutral-600">Our recommendation on the use of "_" and "-" in your gem's name.</em>
 
 Here are some examples of our recommendations for naming gems:
 

@@ -6,7 +6,7 @@ previous: /default-gems-and-bundled-gems
 next: /contributing
 ---
 
-<em class="t-gray">Great blog posts, tutorials, and other sites to help you out.</em>
+<em class="text-neutral-600">Great blog posts, tutorials, and other sites to help you out.</em>
 
 A collection of helpful material about RubyGems. Feel free to
 [fork](https://github.com/rubygems/guides) and add your own!

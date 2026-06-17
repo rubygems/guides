@@ -6,7 +6,7 @@ previous: /command-reference
 next: /rubygems-org-api-v2
 ---
 
-<em class="t-gray">Details on interacting with RubyGems.org over HTTP.</em>
+<em class="text-neutral-600">Details on interacting with RubyGems.org over HTTP.</em>
 
 > NOTE: The API is a work in progress, and [can use your help!](https://github.com/rubygems/rubygems.org)
 > RubyGems itself and the

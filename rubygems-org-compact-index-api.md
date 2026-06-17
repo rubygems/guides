@@ -5,7 +5,7 @@ url: /rubygems-org-compact-index-api
 previous: /rubygems-org-api-v2
 next: /rubygems-org-rate-limits
 ---
-<em class="t-gray">Details of the Compact Index API used for Bundler dependency resolution</em>
+<em class="text-neutral-600">Details of the Compact Index API used for Bundler dependency resolution</em>
 
 Compact Index API
 -----------------
