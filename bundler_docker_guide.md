@@ -6,8 +6,6 @@ previous: /bundler_in_a_single_file_ruby_script
 next: /rails
 ---
 
-# How to use Bundler with Docker
-
 ## Introduction
 
 The official Docker images for Ruby assume that you will use only one application, with one Gemfile, and no other gems or Ruby applications will be installed or run in your container.

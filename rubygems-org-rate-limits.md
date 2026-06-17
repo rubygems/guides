@@ -6,7 +6,7 @@ previous: /rubygems-org-api-v2
 next: /api-key-scopes
 ---
 
-<em class="t-gray">Why are you seeing 429 responses?</em>
+<em class="text-neutral-600">Why are you seeing 429 responses?</em>
 
 Load balancer rate limits
 ----

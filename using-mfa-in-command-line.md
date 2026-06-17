@@ -8,7 +8,7 @@ redirect_from:
   - /using-webauthn-mfa-in-command-line/
   - /using-otp-mfa-in-command-line/
 ---
-<em class="t-gray">How to use multi-factor authentication with gem CLI.</em>
+<em class="text-neutral-600">How to use multi-factor authentication with gem CLI.</em>
 
 Multi-factor authentication (MFA) greatly increases the security of your account.
 RubyGems currently requires that owners of any gem with more than 180 million

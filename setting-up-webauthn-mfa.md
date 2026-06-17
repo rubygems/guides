@@ -6,7 +6,7 @@ previous: /setting-up-multifactor-authentication
 next: /setting-up-otp-mfa
 ---
 
-<em class="t-gray">Setting up WebAuthn multi-factor authentication</em>
+<em class="text-neutral-600">Setting up WebAuthn multi-factor authentication</em>
 
 Using WebAuthn for multi-factor authentication (MFA) is the best way to
 protect your account from takeover. It's stronger and easier to use than

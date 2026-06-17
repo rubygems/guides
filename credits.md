@@ -5,7 +5,7 @@ previous: /organizations/transferring-gems
 next: /rubygems
 ---
 
-<em class="t-gray">This site is [open source](https://github.com/rubygems/guides) and its content is
+<em class="text-neutral-600">This site is [open source](https://github.com/rubygems/guides) and its content is
 [Creative Commons](https://github.com/rubygems/guides/blob/gh-pages/CC-LICENSE)
 licensed.</em>
 

@@ -6,7 +6,7 @@ previous: /rubygems-basics/
 next: /make-your-own-gem/
 ---
 
-<em class="t-gray">Unpack the mystery behind what's in a RubyGem.</em>
+<em class="text-neutral-600">Unpack the mystery behind what's in a RubyGem.</em>
 
 Structure of a Gem
 ------------------

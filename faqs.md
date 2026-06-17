@@ -7,7 +7,7 @@ next: /plugins
 redirect_from: /faq/
 ---
 
-<em class="t-gray">More of the "why" and "wtf" than "how".</em>
+<em class="text-neutral-600">More of the "why" and "wtf" than "how".</em>
 
 * [RubyGems FAQ](#rubygems-faq)
 * [Bundler FAQ](#bundler-faq)

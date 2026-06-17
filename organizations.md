@@ -6,8 +6,6 @@ previous: /trusted-publishing
 next: /organizations/getting-started
 ---
 
-# Organizations
-
 <div class="beta-banner">
   <span class="beta-banner__icon">⚠️</span>
   <strong class="beta-banner__title">Private Beta:</strong>

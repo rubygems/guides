@@ -5,8 +5,6 @@ url: /updating_gems
 previous: /rubygems_tls_ssl_troubleshooting_guide
 next: /bundler_in_a_single_file_ruby_script
 ---
-## How to update gems with Bundler
-
 ### Updating a Dependency
 <a name="updating-a-dependency"></a>
 

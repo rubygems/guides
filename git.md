@@ -5,8 +5,6 @@ url: /git
 previous: /deploying
 next: /using_bundler_in_applications
 ---
-## How to install gems from git repositories
-
 This document is written for Bundler 2.1 or higher.
 Use `bundle config X Y` instead of `bundle config set X Y`
 if you are still using Bundler 2.0 or earlier, which were already deprecated.

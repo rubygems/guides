@@ -7,7 +7,7 @@ previous: /what-is-a-gem/
 next: /gems-with-extensions/
 ---
 
-<p><em class="t-gray">From start to finish, learn how to package your Ruby code in a gem.</em></p>
+<p><em class="text-neutral-600">From start to finish, learn how to package your Ruby code in a gem.</em></p>
 
 * [Introduction](#introduction)
 * [Your first gem](#your-first-gem)

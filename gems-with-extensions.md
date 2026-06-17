@@ -7,7 +7,7 @@ next: /name-your-gem
 redirect_from: /c-extensions/
 ---
 
-<em class="t-gray">Creating a gem that includes an extension that is built at install time.</em>
+<em class="text-neutral-600">Creating a gem that includes an extension that is built at install time.</em>
 
 Many gems use extensions to wrap libraries that are written in C with a ruby
 wrapper.  Examples include [nokogiri][nokogiri] which

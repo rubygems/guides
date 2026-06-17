@@ -6,8 +6,6 @@ previous: /organizations/getting-started
 next: /organizations/roles-and-permissions
 ---
 
-# Managing Organization Members
-
 <div class="beta-banner">
   <span class="beta-banner__icon">⚠️</span>
   <strong class="beta-banner__title">Private Beta:</strong>

@@ -6,8 +6,6 @@ previous: /getting_started
 next: /deploying
 ---
 
-# How to Upgrade to Bundler 2
-
 So! You’ve heard that [Bundler 2 was released](https://bundler.io/blog/2019/01/03/announcing-bundler-2.html)! If you want to try out Bundler 2 for yourself, this guide will help you do that.
 
 Bundler 2 is almost entirely the same as the previous version, 1.17. The big change is that Bundler now requires at least Ruby 2.3.0 and RubyGems 2.5.0.

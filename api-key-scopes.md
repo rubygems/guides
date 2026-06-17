@@ -5,7 +5,7 @@ previous: /rubygems-org-rate-limits
 next: /run-your-own-gem-server
 ---
 
-<em class="t-gray">RubyGems.org API keys, their scopes, and CLI usage</em>
+<em class="text-neutral-600">RubyGems.org API keys, their scopes, and CLI usage</em>
 
 You can create multiple API keys based on your requirements. API keys have varying scopes that grant specific privileges. Using API keys with the least amount of privilege makes your RubyGems.org account more secure by limiting the impact a compromised key may have.
 

@@ -6,7 +6,7 @@ previous: /api-key-scopes
 next: /setting-up-multifactor-authentication
 ---
 
-<em class="t-gray">Need to serve gems locally or for your organization?</em>
+<em class="text-neutral-600">Need to serve gems locally or for your organization?</em>
 
 There are times you would like to run your own gem server.  You may want to
 share gems with colleagues when you are both without internet connectivity. You

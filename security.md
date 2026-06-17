@@ -6,7 +6,7 @@ previous: /publishing
 next: /managing-owners-using-ui
 ---
 
-<em class="t-gray">How to build and install cryptographically signed gems-- and other security concerns.</em>
+<em class="text-neutral-600">How to build and install cryptographically signed gems-- and other security concerns.</em>
 
 Security practices are being actively discussed. Check back often.
 

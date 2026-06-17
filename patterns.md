@@ -6,7 +6,7 @@ previous: /ssl-certificate-update
 next: /specification-reference
 ---
 
-<em class="t-gray">Common practices to make your gem users' and other developers' lives easier.</em>
+<em class="text-neutral-600">Common practices to make your gem users' and other developers' lives easier.</em>
 
 * [Consistent naming](#consistent-naming)
 * [Semantic versioning](#semantic-versioning)

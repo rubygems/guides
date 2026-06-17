@@ -6,7 +6,7 @@ previous: /managing-owners-using-ui
 next: /ssl-certificate-update
 ---
 
-<em class="t-gray">Published a gem before it was ready for release? Published a gem with the wrong name?</em>
+<em class="text-neutral-600">Published a gem before it was ready for release? Published a gem with the wrong name?</em>
 
 Here's how you can fix it.
 

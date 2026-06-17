@@ -6,8 +6,6 @@ previous: /organizations/managing-members
 next: /organizations/transferring-gems
 ---
 
-# Organization Roles and Permissions
-
 <div class="beta-banner">
   <span class="beta-banner__icon">⚠️</span>
   <strong class="beta-banner__title">Private Beta:</strong>

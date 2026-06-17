@@ -5,7 +5,7 @@ url: /rubygems-org-api-v2
 previous: /rubygems-org-api
 next: /rubygems-org-compact-index-api
 ---
-<em class="t-gray">Get twice more info with API v2</em>
+<em class="text-neutral-600">Get twice more info with API v2</em>
 
 Gem Version Methods
 -------------------

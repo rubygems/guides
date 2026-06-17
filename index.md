@@ -5,7 +5,7 @@ previous: /credits
 next: /rubygems-basics
 ---
 
-<em class="t-gray">Learn how RubyGems works, and how to make your own.</em>
+<em class="text-neutral-600">Learn how RubyGems works, and how to make your own.</em>
 
 The RubyGems software allows you to easily 
 download, install, and use ruby software packages on your system.  The
