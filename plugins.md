@@ -6,9 +6,6 @@ previous: /faqs
 next: /cve
 ---
 
-Plugins
-=======
-
 <em class="text-neutral-600">Extensions that use the RubyGems plugin API.</em>
 
 RubyGems will load plugins in the latest version of each installed gem or
