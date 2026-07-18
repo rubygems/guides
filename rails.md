@@ -64,7 +64,7 @@ group :development, :test do
 end
 ~~~
 
-<a href="./groups.html" class="btn btn-primary">Learn More: Groups</a>
+<a href="/groups" class="btn btn-primary">Learn More: Groups</a>
 
 After adding a dependency, if it is not yet
 installed, install it

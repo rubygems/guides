@@ -15,7 +15,7 @@ you need are present in development, staging, and production.
 Starting work on a project is as simple as `bundle install`.
 
 <a href="https://bundler.io/whats_new.html" class="btn btn-primary">What's new in Bundler</a>
-<a href="./dependency_management.html" class="btn btn-primary">Managing dependencies</a>
+<a href="/dependency_management" class="btn btn-primary">Managing dependencies</a>
 
 ## Getting Started
 <a name="getting-started"></a>
@@ -34,7 +34,7 @@ gem 'rack', '~> 2.2.4'
 gem 'rspec'
 ~~~
 
-<a href="./gemfile.html" class="btn btn-primary">Learn More: Gemfiles</a>
+<a href="/gemfile" class="btn btn-primary">Learn More: Gemfiles</a>
 
 Install all of the required gems from your specified sources:
 
@@ -58,7 +58,7 @@ require 'bundler/setup'
 require 'nokogiri'
 ~~~
 
-<a href="./bundler_setup.html" class="btn btn-primary">Learn More: Bundler.setup</a>
+<a href="/bundler_setup" class="btn btn-primary">Learn More: Bundler.setup</a>
 
 Run an executable that comes with a gem in your bundle:
 
@@ -118,10 +118,10 @@ Initializing git repo in ./my_gem
 ## Use Bundler with
 <a name="use-bundler"></a>
 
-<a href="./rails.html" class="btn btn-primary">Rails</a>
-<a href="./sinatra.html" class="btn btn-primary">Sinatra</a>
-<a href="./rubygems.html" class="btn btn-primary">RubyGems</a>
-<a href="./rubymotion.html" class="btn btn-primary">RubyMotion</a>
+<a href="/rails" class="btn btn-primary">Rails</a>
+<a href="/sinatra" class="btn btn-primary">Sinatra</a>
+<a href="/rubygems" class="btn btn-primary">RubyGems</a>
+<a href="/rubymotion" class="btn btn-primary">RubyMotion</a>
 
 ## Get involved
 <a name="get-involved"></a>
@@ -130,7 +130,7 @@ Bundler has a lot of contributors and users, and they all talk to each other qui
 If you have questions, try [the IRC channel](http://webchat.freenode.net/?channels=bundler)
 or [mailing list](http://groups.google.com/group/ruby-bundler).
 If you're interested in contributing to the project (no programming skills needed),
-read [the contributing guide](https://guides.rubygems.org/contributing)
+read [the contributing guide](/contributing)
 or [the development guide](https://github.com/rubygems/rubygems/blob/master/bundler/doc/development/README.md).
 While participating in the Bundler project, please keep the [code of conduct](https://bundler.io/conduct.html)
 in mind, and be inclusive and friendly towards everyone. If you have sponsorship or security questions, please contact the core team directly.
@@ -138,5 +138,5 @@ in mind, and be inclusive and friendly towards everyone. If you have sponsorship
 <a href="https://bundler.io/conduct.html" class="btn btn-primary">Code of Conduct</a>
 <a href="http://webchat.freenode.net/?channels=bundler" class="btn btn-primary">#bundler on IRC</a>
 <a href="http://groups.google.com/group/ruby-bundler" class="btn btn-primary">Mailing list</a>
-<a href="https://guides.rubygems.org/contributing" class="btn btn-primary">Contributing</a>
+<a href="/contributing" class="btn btn-primary">Contributing</a>
 <a href="mailto:team@bundler.io" class="btn btn-primary">Email core team</a>

@@ -110,7 +110,7 @@ The central home for RubyGems documentation, including tutorials and reference m
 Contributions are welcome!
 
 <div class="mt-4 mb-4 flex flex-wrap items-center">
-  <a class="text-lg uppercase text-red-500 hover:text-red-500/70 transition-colors" href="https://guides.rubygems.org">Site</a>
+  <a class="text-lg uppercase text-red-500 hover:text-red-500/70 transition-colors" href="/">Site</a>
   <span aria-hidden="true" class="mx-[15px] inline-block relative -top-0.5 h-[7px] w-[7px] rounded-full bg-neutral-400"></span>
   <a class="text-lg uppercase text-red-500 hover:text-red-500/70 transition-colors" href="https://github.com/rubygems/guides/issues">Issues</a>
 </div>

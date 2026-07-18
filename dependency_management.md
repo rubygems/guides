@@ -36,7 +36,7 @@ Next, you declare a few dependencies:
 - on any version of `rack-cache`
 - on a version of `nokogiri` that is `>= 1.6.1` but `< 1.7.0`
 
-<a href="./gemfile.html" class="btn btn-primary">Learn More: Gemfiles</a>
+<a href="/gemfile" class="btn btn-primary">Learn More: Gemfiles</a>
 
 ### Installing dependencies
 
@@ -107,10 +107,10 @@ always run the exact same third-party code.
 ### Next Steps
 
 For the day-to-day workflow of managing dependencies with version control, see the
-[Recommended Workflow with Version Control](./bundler_workflow.html) guide.
+[Recommended Workflow with Version Control](/bundler_workflow) guide.
 
 <div class="buttons">
-  <a href="./bundler_setup.html" class="btn btn-primary">Learn More: Bundler.setup</a>
-  <a href="./updating_gems.html" class="btn btn-primary">Learn More: Updating gems</a>
-  <a href="./deploying.html" class="btn btn-primary">Learn More: Deploying</a>
+  <a href="/bundler_setup" class="btn btn-primary">Learn More: Bundler.setup</a>
+  <a href="/updating_gems" class="btn btn-primary">Learn More: Updating gems</a>
+  <a href="/deploying" class="btn btn-primary">Learn More: Deploying</a>
 </div>

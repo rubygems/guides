@@ -74,7 +74,7 @@ The specifier `~>` has a special meaning, best shown by example.
 `~> 2.2.beta` will match prerelease versions like `2.2.beta.12`.
 `~> 0` is identical to `>= 0.0` and `< 1.0`.
 
-<a href="https://guides.rubygems.org/patterns/#optimistic-vs-pessimistic-version-constraints" class="btn btn-primary">RubyGems version specifiers</a>
+<a href="/patterns/#optimistic-vs-pessimistic-version-constraints" class="btn btn-primary">RubyGems version specifiers</a>
 
 If a gem's main file is different than the gem name, specify how to require it.
 
@@ -93,7 +93,7 @@ gem 'sqlite3'
 In order to require gems in your `Gemfile`, you will need to call
 `Bundler.require` in your application.
 
-<a href="./groups.html" class="btn btn-primary">Learn More: Bundler.require</a>
+<a href="/groups" class="btn btn-primary">Learn More: Bundler.require</a>
 
 If some of your gems need to be fetched from a private gem server, this default source can be overridden for those gems.
 For a gem server that contains a single gem, it is easiest to use the `:source` option on that gem.
@@ -126,7 +126,7 @@ will create a simple one, without any dependencies, executables or C extensions.
 This may work for simple gems, but not work for others. If there is no .gemspec,
 you probably shouldn't use the gem from git.
 
-<a href="./git.html" class="btn btn-primary">Learn More: Git</a>
+<a href="/git" class="btn btn-primary">Learn More: Git</a>
 
 If you would like to use an unpacked gem directly from the filesystem, simply set the `:path` option to the path containing the gem's files.
 
@@ -155,7 +155,7 @@ group :test do
 end
 ~~~
 
-<a href="./groups.html" class="btn btn-primary">Learn More: Groups</a>
+<a href="/groups" class="btn btn-primary">Learn More: Groups</a>
 
 You can specify the required version of Ruby in the `Gemfile` with `ruby`.
 If the `Gemfile` is loaded on a different Ruby version, Bundler will raise an exception with an explanation.
@@ -172,7 +172,7 @@ You can be more specific with the `:engine` and `:engine_version` options.
 ruby '1.9.3', :engine => 'jruby', :engine_version => '1.6.7'
 ~~~
 
-<a href="./gemfile_ruby.html" class="btn btn-primary">Learn More: Ruby Directive</a>
+<a href="/gemfile_ruby" class="btn btn-primary">Learn More: Ruby Directive</a>
 
 In some cases, you may wish to split your gems across multiple files. To read the contents of one file from another, you can use `eval_gemfile`.
 

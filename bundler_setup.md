@@ -23,7 +23,7 @@ Bundler.setup(:default, :ci)
 require 'nokogiri'
 ~~~
 
-<a href="./groups.html" class="btn btn-primary">Learn More: Groups</a>
+<a href="/groups" class="btn btn-primary">Learn More: Groups</a>
 
 ## Compatibility
 

@@ -92,7 +92,7 @@ gem 'rspec'
 This `Gemfile` says a few things. First, it says that bundler should
 look for gems declared in the `Gemfile` at `https://rubygems.org` by default.
 
-<a href="./gemfile.html" class="btn btn-primary">Learn More: Gemfiles</a>
+<a href="/gemfile" class="btn btn-primary">Learn More: Gemfiles</a>
 
 After declaring your first set of dependencies, you tell bundler to go get them:
 
@@ -182,8 +182,8 @@ $ bundle update
   third-party code that you are using now.
 
 <div class="buttons">
-  <a href="./bundle_install.html" class="btn btn-primary">Learn More: bundle install</a>
-  <a href="./bundle_update.html" class="btn btn-primary">Learn More: bundle update</a>
+  <a href="https://bundler.io/man/bundle-install.1.html" class="btn btn-primary">Learn More: bundle install</a>
+  <a href="https://bundler.io/man/bundle-update.1.html" class="btn btn-primary">Learn More: bundle update</a>
 </div>
 
 Inside your app, load up the bundled environment:
@@ -195,7 +195,7 @@ require 'bundler/setup'
 require 'nokogiri'
 ~~~
 
-<a href="./bundler_setup.html" class="btn btn-primary">Learn More: Bundler.setup</a>
+<a href="/bundler_setup" class="btn btn-primary">Learn More: Bundler.setup</a>
 
 Run an executable that comes with a gem in your bundle:
 
