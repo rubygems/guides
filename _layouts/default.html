@@ -12,6 +12,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
   <link href="/stylesheets/styles.css" rel="stylesheet" />
+  <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet" />
+  <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
+  <style>
+    :root {
+      --pf-text: #333A45;
+      --pf-text-secondary: #6C7583;
+      --pf-border: #C6CED5;
+      --pf-border-focus: #AD2F14;
+      --pf-mark: #AD2F14;
+      --pf-outline-focus: #AD2F14;
+      --pf-border-radius: 4px;
+      --pf-font: "Titillium Web", sans-serif;
+    }
+  </style>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var path = window.location.pathname.replace(/\/$/, '');
@@ -94,6 +108,10 @@
       <div class="flow-root">
 
         <div class="md:float-left md:w-[240px] mb-[60px] md:mb-0 print:hidden">
+          <div class="mb-6">
+            <pagefind-modal-trigger></pagefind-modal-trigger>
+            <pagefind-modal></pagefind-modal>
+          </div>
           <h3 class="font-bold tracking-[0.04em] text-lg text-neutral-600 pb-2">Getting Started</h3>
           <ul>
             <li><a class="sidenav-link" data-sidenav href="/rubygems-basics">RubyGems Basics</a></li>
@@ -200,7 +218,7 @@
           </ul>
         </div>
 
-        <div class="md:float-right md:w-[calc(100%-240px)] md:pl-[60px]">
+        <div class="md:float-right md:w-[calc(100%-240px)] md:pl-[60px]" data-pagefind-body data-pagefind-meta="title:{{ page.title | escape }}">
           {% unless page.url == '/' %}
           <h1 class="text-3xl md:text-4xl font-bold text-neutral-800 mb-8"> {{ page.title }}</h1>
           {% endunless %}

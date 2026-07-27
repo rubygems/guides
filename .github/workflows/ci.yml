@@ -33,6 +33,10 @@ jobs:
         run: bundle exec jekyll build
         working-directory: guides
 
+      - name: Build search index
+        run: npx --yes pagefind@1.5.2 --site _site
+        working-directory: guides
+
       - name: Generate command references
         run: RUBYOPT="--disable-gems -I../rubygems/lib" RUBYGEMS_DIR="../rubygems" bundle exec rake command_reference && git diff --exit-code
         working-directory: guides
