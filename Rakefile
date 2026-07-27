@@ -202,6 +202,9 @@ task :bundler_reference => %w[RUBYGEMS_DIR_exists] do
   end
 end
 
+desc "generate the gem and bundle command references"
+task :command_reference => %w[command_guide bundler_reference]
+
 desc "serve documentation on http://localhost:4000"
 task :server do
   pids = [
