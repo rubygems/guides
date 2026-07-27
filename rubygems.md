@@ -2,7 +2,7 @@
 layout: default
 title: Bundler in gems
 url: /rubygems
-previous: /credits
+previous: /bundler-compatibility
 next: /gemfile
 ---
 
