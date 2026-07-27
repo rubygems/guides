@@ -90,7 +90,7 @@ If you try to use Bundler 2 on an application that needs Bundler 1, and you also
 Bundler 2 does not provide a way to downgrade a Gemfile back to Bundler 1. Instead, we recommend checking in your `Gemfile` and `Gemfile.lock` before you upgrade your application. That way, if something goes wrong, you can revert to the previous commit and go back to using Bundler 1.
 
 ### There was an issue upgrading my application to Bundler 2
-Oh no! Sorry about that. Please head over to our [troubleshooting guide](https://github.com/rubygems/rubygems/blob/master/bundler/doc/TROUBLESHOOTING.md#other-problems) and open a ticket so that we can try to fix your problem ASAP.
+Oh no! Sorry about that. Please head over to our [troubleshooting guide](https://github.com/ruby/rubygems/blob/master/doc/TROUBLESHOOTING.md#other-problems) and open a ticket so that we can try to fix your problem ASAP.
 
 ### Will Bundler 2 have any other notable changes?
 Bundler 2 includes these changes:

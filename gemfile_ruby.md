@@ -69,4 +69,4 @@ The set of supported version operators is that of Rubygems (`gem` version operat
 ruby '~> 3.3.0'
 ~~~
 
-<a href="https://guides.rubygems.org/patterns/#declaring-dependencies" class="btn btn-primary">Learn More: Version Operators</a>
+<a href="/patterns/#declaring-dependencies" class="btn btn-primary">Learn More: Version Operators</a>
