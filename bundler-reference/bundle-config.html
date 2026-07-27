@@ -1,0 +1,563 @@
+---
+layout: default
+title: "bundle config"
+description: "Set bundler configuration options"
+url: /bundler-reference/bundle-config
+permalink: /bundler-reference/bundle-config/
+previous: /bundler-reference/bundle-clean
+next: /bundler-reference/bundle-console
+---
+
+<em class="text-neutral-600">Set bundler configuration options</em>
+
+<div class="mp" id="man">
+
+  
+
+  
+
+  
+
+
+
+
+
+<pre><code>bundle config</code> [list]<br>
+<code>bundle config</code> [get [--local|--global]] NAME<br>
+<code>bundle config</code> [set [--local|--global]] NAME VALUE<br>
+<code>bundle config</code> unset [--local|--global] NAME</pre>
+
+<h2 id="DESCRIPTION">Description</h2>
+
+<p>This command allows you to interact with Bundler's configuration system.</p>
+
+<p>Bundler loads configuration settings in this order:</p>
+
+<ol>
+  <li>Local config (<code>&lt;project_root&gt;/.bundle/config</code> or <code>$BUNDLE_APP_CONFIG/config</code>)</li>
+  <li>Environmental variables (<code>ENV</code>)</li>
+  <li>Global config (<code>~/.bundle/config</code>)</li>
+  <li>Bundler default config</li>
+</ol>
+
+<p>Executing <code>bundle</code> with the <code>BUNDLE_IGNORE_CONFIG</code> environment variable set will
+cause it to ignore all configuration.</p>
+
+<h2 id="SUB-COMMANDS">Sub-commands</h2>
+
+<h3 id="list-default-command-">List (default Command)</h3>
+
+<p>Executing <code>bundle config list</code> will print a list of all bundler
+configuration for the current bundle, and where that configuration
+was set.</p>
+
+<h3 id="get">Get</h3>
+
+<p>Executing <code>bundle config get &lt;name&gt;</code> will print the value of that configuration
+setting, and all locations where it was set.</p>
+
+<p><strong>OPTIONS</strong></p>
+
+<dl>
+<dt><code>--local</code></dt>
+<dd>Get configuration from configuration file for the local application, namely,
+<code>&lt;project_root&gt;/.bundle/config</code>, or <code>$BUNDLE_APP_CONFIG/config</code> if
+<code>BUNDLE_APP_CONFIG</code> is set.</dd>
+<dt><code>--global</code></dt>
+<dd>Get configuration from configuration file global to all bundles executed as
+the current user, namely, from <code>~/.bundle/config</code>.</dd>
+</dl>
+
+<h3 id="set">Set</h3>
+
+<p>Executing <code>bundle config set &lt;name&gt; &lt;value&gt;</code> defaults to setting <code>local</code>
+configuration if executing from within a local application, otherwise it will
+set <code>global</code> configuration.</p>
+
+<p><strong>OPTIONS</strong></p>
+
+<dl>
+<dt><code>--local</code></dt>
+<dd>Executing <code>bundle config set --local &lt;name&gt; &lt;value&gt;</code> will set that configuration
+in the directory for the local application. The configuration will be stored in
+<code>&lt;project_root&gt;/.bundle/config</code>. If <code>BUNDLE_APP_CONFIG</code> is set, the configuration
+will be stored in <code>$BUNDLE_APP_CONFIG/config</code>.</dd>
+<dt><code>--global</code></dt>
+<dd>Executing <code>bundle config set --global &lt;name&gt; &lt;value&gt;</code> will set that
+configuration to the value specified for all bundles executed as the current
+user. The configuration will be stored in <code>~/.bundle/config</code>. If <var>name</var> already
+is set, <var>name</var> will be overridden and user will be warned.</dd>
+</dl>
+
+<h3 id="unset">Unset</h3>
+
+<p>Executing <code>bundle config unset &lt;name&gt;</code> will delete the configuration in both
+local and global sources.</p>
+
+<p><strong>OPTIONS</strong></p>
+
+<dl>
+<dt><code>--local</code></dt>
+<dd>Executing <code>bundle config unset --local &lt;name&gt;</code> will delete the configuration
+only from the local application.</dd>
+<dt><code>--global</code></dt>
+<dd>Executing <code>bundle config unset --global &lt;name&gt;</code> will delete the configuration
+only from the user configuration.</dd>
+</dl>
+
+<h2 id="CONFIGURATION-KEYS">Configuration Keys</h2>
+
+<p>Configuration keys in bundler have two forms: the canonical form and the
+environment variable form.</p>
+
+<p>For instance, passing the <code>--without</code> flag to <a href="/bundler-reference/bundle-install/">bundle install(1)</a>
+prevents Bundler from installing certain groups specified in the <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a>. Bundler
+persists this value in <code>app/.bundle/config</code> so that calls to <code>Bundler.setup</code>
+do not try to find gems from the <code>Gemfile</code> that you didn't install. Additionally,
+subsequent calls to <a href="/bundler-reference/bundle-install/">bundle install(1)</a> remember this setting
+and skip those groups.</p>
+
+<p>The canonical form of this configuration is <code>"without"</code>. To convert the canonical
+form to the environment variable form, capitalize it, and prepend <code>BUNDLE_</code>. The
+environment variable form of <code>"without"</code> is <code>BUNDLE_WITHOUT</code>.</p>
+
+<p>Any periods in the configuration keys must be replaced with two underscores when
+setting it via environment variables. The configuration key <code>local.rack</code> becomes
+the environment variable <code>BUNDLE_LOCAL__RACK</code>.</p>
+
+<h2 id="LIST-OF-AVAILABLE-KEYS">List Of Available Keys</h2>
+
+<p>The following is a list of all configuration keys and their purpose. You can
+learn more about their operation in <a href="/bundler-reference/bundle-install/">bundle install(1)</a>.</p>
+
+<ul>
+  <li>
+<code>api_request_size</code> (<code>BUNDLE_API_REQUEST_SIZE</code>):
+ Configure how many dependencies to fetch when resolving the specifications.
+ This configuration is only used when fetchig specifications from RubyGems
+ servers that didn't implement the Compact Index API.
+ Defaults to 100.</li>
+  <li>
+<code>auto_install</code> (<code>BUNDLE_AUTO_INSTALL</code>):
+ Automatically run <code>bundle install</code> when gems are missing.</li>
+  <li>
+<code>bin</code> (<code>BUNDLE_BIN</code>):
+ If configured, <code>bundle binstubs</code> will install executables from gems in the
+ bundle to the specified directory. Otherwise it will create them in a <code>bin</code>
+ directory relative to the Gemfile directory. These executables run in
+ Bundler's context. If used, you might add this directory to your
+ environment's <code>PATH</code> variable. For instance, if the <code>rails</code> gem comes with a
+ <code>rails</code> executable, <code>bundle binstubs</code> will create a <code>bin/rails</code> executable
+ that ensures that all referred dependencies will be resolved using the
+ bundled gems.</li>
+  <li>
+<code>cache_all</code> (<code>BUNDLE_CACHE_ALL</code>):
+ Cache all gems, including path and git gems. This needs to be explicitly
+ before bundler 4, but will be the default on bundler 4.</li>
+  <li>
+<code>cache_all_platforms</code> (<code>BUNDLE_CACHE_ALL_PLATFORMS</code>):
+ Cache gems for all platforms.</li>
+  <li>
+<code>cache_path</code> (<code>BUNDLE_CACHE_PATH</code>):
+ The directory that bundler will place cached gems in when running
+ <code>bundle package</code>, and that bundler will look in when installing gems.
+ Defaults to <code>vendor/cache</code>.</li>
+  <li>
+<code>clean</code> (<code>BUNDLE_CLEAN</code>):
+ Whether Bundler should run <code>bundle clean</code> automatically after
+ <code>bundle install</code>. Defaults to <code>true</code> in Bundler 4, as long as <code>path</code> is not
+ explicitly configured.</li>
+  <li>
+<code>console</code> (<code>BUNDLE_CONSOLE</code>):
+ The console that <code>bundle console</code> starts. Defaults to <code>irb</code>.</li>
+  <li>
+    <p><code>cooldown</code> (<code>BUNDLE_COOLDOWN</code>):
+ Number of days a published gem version must age before bundler will
+ resolve to it. Defaults to unset (no cooldown). Pass <code>0</code> to disable
+ cooldown for an individual run.</p>
+
+    <p>The effective cooldown for any given gem is resolved from three
+ layers, highest precedence first:</p>
+
+    <ol>
+      <li>CLI flag <code>--cooldown N</code> on <code>install</code>, <code>update</code>, <code>add</code>, and
+<code>outdated</code>.</li>
+      <li>This setting (<code>bundle config set cooldown N</code> or
+<code>BUNDLE_COOLDOWN=N</code>).</li>
+      <li>The per-source <code>cooldown:</code> keyword in the Gemfile, such as
+<code>source "https://rubygems.org", cooldown: 7</code>.</li>
+    </ol>
+
+    <p>The CLI flag and this setting apply uniformly to every source,
+ including ones declared with their own <code>cooldown:</code> value. To keep a
+ private registry permanently exempt while still cooling down public
+ gems, declare <code>source "https://internal", cooldown: 0</code> in the
+ Gemfile; remember that <code>--cooldown N</code> on the command line will
+ still override it for that single run.</p>
+
+    <p>Cooldown filtering depends on the gem server providing a per-version
+ <code>created_at</code> timestamp in the v2 compact-index format. Versions
+ without that metadata - older gem servers, historical entries that
+ predate the v2 cutover on <code>rubygems.org</code>, or private registries that
+ still emit the v1 format - are treated as outside the cooldown
+ window and remain resolvable. If you rely on cooldown for
+ supply-chain protection, confirm that the gem server emits
+ <code>created_at</code> in its <code>/info/&lt;gem&gt;</code> responses.</p>
+  </li>
+  <li>
+<code>default_cli_command</code> (<code>BUNDLE_DEFAULT_CLI_COMMAND</code>):
+ The command that running <code>bundle</code> without arguments should run. Defaults to
+ <code>cli_help</code> since Bundler 4, but can also be <code>install</code> which was the previous
+ default.</li>
+  <li>
+<code>deployment</code> (<code>BUNDLE_DEPLOYMENT</code>):
+ Equivalent to setting <code>frozen</code> to <code>true</code> and <code>path</code> to <code>vendor/bundle</code>.</li>
+  <li>
+<code>disable_checksum_validation</code> (<code>BUNDLE_DISABLE_CHECKSUM_VALIDATION</code>):
+ Allow installing gems even if they do not match the checksum provided by
+ RubyGems.</li>
+  <li>
+<code>disable_exec_load</code> (<code>BUNDLE_DISABLE_EXEC_LOAD</code>):
+ Stop Bundler from using <code>load</code> to launch an executable in-process in
+ <code>bundle exec</code>.</li>
+  <li>
+<code>disable_local_branch_check</code> (<code>BUNDLE_DISABLE_LOCAL_BRANCH_CHECK</code>):
+ Allow Bundler to use a local git override without a branch specified in the
+ Gemfile.</li>
+  <li>
+<code>disable_local_revision_check</code> (<code>BUNDLE_DISABLE_LOCAL_REVISION_CHECK</code>):
+ Allow Bundler to use a local git override without checking if the revision
+ present in the lockfile is present in the repository.</li>
+  <li>
+<code>disable_shared_gems</code> (<code>BUNDLE_DISABLE_SHARED_GEMS</code>):
+ Stop Bundler from accessing gems installed to RubyGems' normal location.</li>
+  <li>
+<code>disable_version_check</code> (<code>BUNDLE_DISABLE_VERSION_CHECK</code>):
+ Stop Bundler from checking if a newer Bundler version is available on
+ rubygems.org.</li>
+  <li>
+<code>force_ruby_platform</code> (<code>BUNDLE_FORCE_RUBY_PLATFORM</code>):
+ Ignore the current machine's platform and install only <code>ruby</code> platform gems.
+ As a result, gems with native extensions will be compiled from source.</li>
+  <li>
+<code>frozen</code> (<code>BUNDLE_FROZEN</code>):
+ Disallow any automatic changes to <code>Gemfile.lock</code>. Bundler commands will
+ be blocked unless the lockfile can be installed exactly as written.
+ Usually this will happen when changing the <code>Gemfile</code> manually and forgetting
+ to update the lockfile through <code>bundle lock</code> or <code>bundle install</code>.</li>
+  <li>
+<code>gem.github_username</code> (<code>BUNDLE_GEM__GITHUB_USERNAME</code>):
+ Sets a GitHub username or organization to be used in the <code>README</code> and <code>.gemspec</code> files
+ when you create a new gem via <code>bundle gem</code> command. It can be overridden by passing an
+ explicit <code>--github-username</code> flag to <code>bundle gem</code>.</li>
+  <li>
+<code>gem.push_key</code> (<code>BUNDLE_GEM__PUSH_KEY</code>):
+ Sets the <code>--key</code> parameter for <code>gem push</code> when using the <code>rake release</code>
+ command with a private gemstash server.</li>
+  <li>
+<code>gemfile</code> (<code>BUNDLE_GEMFILE</code>):
+ The name of the file that bundler should use as the <code>Gemfile</code>. This location
+ of this file also sets the root of the project, which is used to resolve
+ relative paths in the <code>Gemfile</code>, among other things. By default, bundler
+ will search up from the current working directory until it finds a
+ <code>Gemfile</code>.</li>
+  <li>
+<code>global_gem_cache</code> (<code>BUNDLE_GLOBAL_GEM_CACHE</code>):
+ Whether Bundler should cache all gems and compiled extensions globally,
+ rather than locally to the configured installation path.</li>
+  <li>
+<code>ignore_funding_requests</code> (<code>BUNDLE_IGNORE_FUNDING_REQUESTS</code>):
+ When set, no funding requests will be printed.</li>
+  <li>
+<code>ignore_messages</code> (<code>BUNDLE_IGNORE_MESSAGES</code>):
+ When set, no post install messages will be printed. To silence a single gem,
+ use dot notation like <code>ignore_messages.httparty true</code>.</li>
+  <li>
+<code>init_gems_rb</code> (<code>BUNDLE_INIT_GEMS_RB</code>):
+ Generate a <code>gems.rb</code> instead of a <code>Gemfile</code> when running <code>bundle init</code>.</li>
+  <li>
+<code>jobs</code> (<code>BUNDLE_JOBS</code>):
+ The number of gems Bundler can download and install in parallel.
+ Defaults to the number of available processors.</li>
+  <li>
+<code>lockfile</code> (<code>BUNDLE_LOCKFILE</code>):
+ The path to the lockfile that bundler should use. By default, Bundler adds
+ <code>.lock</code> to the end of the <code>gemfile</code> entry. Can be set to <code>false</code> in the
+ Gemfile to disable lockfile creation entirely (see <span class="man-ref">gemfile<span class="s">(5)</span></span>).</li>
+  <li>
+<code>lockfile_checksums</code> (<code>BUNDLE_LOCKFILE_CHECKSUMS</code>):
+ Whether Bundler should include a checksums section in new lockfiles, to protect from compromised gem sources. Defaults to true.</li>
+  <li>
+<code>no_install</code> (<code>BUNDLE_NO_INSTALL</code>):
+ Whether <code>bundle package</code> should skip installing gems.</li>
+  <li>
+<code>no_prune</code> (<code>BUNDLE_NO_PRUNE</code>):
+ Whether Bundler should leave outdated gems unpruned when caching.</li>
+  <li>
+<code>only</code> (<code>BUNDLE_ONLY</code>):
+ A space-separated list of groups to install only gems of the specified groups.
+ Please check carefully if you want to install also gems without a group, because
+ they get put inside <code>default</code> group. For example <code>only test:default</code> will install
+ all gems specified in test group and without one.</li>
+  <li>
+<code>path</code> (<code>BUNDLE_PATH</code>):
+ The location on disk where all gems in your bundle will be located regardless
+ of <code>$GEM_HOME</code> or <code>$GEM_PATH</code> values. Bundle gems not found in this location
+ will be installed by <code>bundle install</code>. When not set, Bundler install by
+ default to a <code>.bundle</code> directory relative to repository root in Bundler 4,
+ and to the default system path (<code>Gem.dir</code>) before Bundler 4. That means that
+ before Bundler 4, Bundler shares this location with Rubygems, and <code>gem
+ install ...</code> will have gems installed in the same location and therefore,
+ gems installed without <code>path</code> set will show up by calling <code>gem list</code>. This
+ will not be the case in Bundler 4.</li>
+  <li>
+<code>path.system</code> (<code>BUNDLE_PATH__SYSTEM</code>):
+ Whether Bundler will install gems into the default system path (<code>Gem.dir</code>).</li>
+  <li>
+<code>plugins</code> (<code>BUNDLE_PLUGINS</code>):
+ Enable Bundler's experimental plugin system.</li>
+  <li>
+<code>prefer_patch</code> (<code>BUNDLE_PREFER_PATCH</code>):
+ Prefer updating only to next patch version during updates. Makes <code>bundle update</code> calls equivalent to <code>bundler update --patch</code>.</li>
+  <li>
+<code>redirect</code> (<code>BUNDLE_REDIRECT</code>):
+ The number of redirects allowed for network requests. Defaults to <code>5</code>.</li>
+  <li>
+<code>retry</code> (<code>BUNDLE_RETRY</code>):
+ The number of times to retry failed network requests. Defaults to <code>3</code>.</li>
+  <li>
+<code>shebang</code> (<code>BUNDLE_SHEBANG</code>):
+ The program name that should be invoked for generated binstubs. Defaults to
+ the ruby install name used to generate the binstub.</li>
+  <li>
+<code>silence_deprecations</code> (<code>BUNDLE_SILENCE_DEPRECATIONS</code>):
+ Whether Bundler should silence deprecation warnings for behavior that will
+ be changed in the next major version.</li>
+  <li>
+<code>silence_root_warning</code> (<code>BUNDLE_SILENCE_ROOT_WARNING</code>):
+ Silence the warning Bundler prints when installing gems as root.</li>
+  <li>
+<code>simulate_version</code> (<code>BUNDLE_SIMULATE_VERSION</code>):
+ The virtual version Bundler should use for activating feature flags. Can be
+ used to simulate all the new functionality that will be enabled in a future
+ major version.</li>
+  <li>
+<code>ssl_ca_cert</code> (<code>BUNDLE_SSL_CA_CERT</code>):
+ Path to a designated CA certificate file or folder containing multiple
+ certificates for trusted CAs in PEM format.</li>
+  <li>
+<code>ssl_client_cert</code> (<code>BUNDLE_SSL_CLIENT_CERT</code>):
+ Path to a designated file containing a X.509 client certificate
+ and key in PEM format.</li>
+  <li>
+<code>ssl_verify_mode</code> (<code>BUNDLE_SSL_VERIFY_MODE</code>):
+ The SSL verification mode Bundler uses when making HTTPS requests.
+ Defaults to verify peer.</li>
+  <li>
+<code>system_bindir</code> (<code>BUNDLE_SYSTEM_BINDIR</code>):
+ The location where RubyGems installs binstubs. Defaults to <code>Gem.bindir</code>.</li>
+  <li>
+<code>timeout</code> (<code>BUNDLE_TIMEOUT</code>):
+ The seconds allowed before timing out for network requests. Defaults to <code>10</code>.</li>
+  <li>
+<code>update_requires_all_flag</code> (<code>BUNDLE_UPDATE_REQUIRES_ALL_FLAG</code>):
+ Require passing <code>--all</code> to <code>bundle update</code> when everything should be updated,
+ and disallow passing no options to <code>bundle update</code>.</li>
+  <li>
+<code>user_agent</code> (<code>BUNDLE_USER_AGENT</code>):
+ The custom user agent fragment Bundler includes in API requests.</li>
+  <li>
+<code>verbose</code> (<code>BUNDLE_VERBOSE</code>):
+ Whether Bundler should print verbose output. Defaults to <code>false</code>, unless the
+ <code>--verbose</code> CLI flag is used.</li>
+  <li>
+<code>version</code> (<code>BUNDLE_VERSION</code>):
+ The version of Bundler to use when running under Bundler environment.
+ Defaults to <code>lockfile</code>. You can also specify <code>system</code> or <code>x.y.z</code>.
+ <code>lockfile</code> will use the Bundler version specified in the <code>Gemfile.lock</code>,
+ <code>system</code> will use the system version of Bundler, and <code>x.y.z</code> will use
+ the specified version of Bundler.</li>
+  <li>
+<code>with</code> (<code>BUNDLE_WITH</code>):
+ A space-separated or <code>:</code>-separated list of groups whose gems bundler should install.</li>
+  <li>
+<code>without</code> (<code>BUNDLE_WITHOUT</code>):
+ A space-separated or <code>:</code>-separated list of groups whose gems bundler should not install.</li>
+</ul>
+
+<h2 id="BUILD-OPTIONS">Build Options</h2>
+
+<p>You can use <code>bundle config</code> to give Bundler the flags to pass to the gem
+installer every time bundler tries to install a particular gem.</p>
+
+<p>A very common example, the <code>mysql</code> gem, requires Snow Leopard users to
+pass configuration flags to <code>gem install</code> to specify where to find the
+<code>mysql_config</code> executable.</p>
+
+<pre><code>gem install mysql -- --with-mysql-config=/usr/local/mysql/bin/mysql_config
+</code></pre>
+
+<p>Since the specific location of that executable can change from machine
+to machine, you can specify these flags on a per-machine basis.</p>
+
+<pre><code>bundle config set --global build.mysql --with-mysql-config=/usr/local/mysql/bin/mysql_config
+</code></pre>
+
+<p>After running this command, every time bundler needs to install the
+<code>mysql</code> gem, it will pass along the flags you specified.</p>
+
+<h2 id="LOCAL-GIT-REPOS">Local Git Repos</h2>
+
+<p>Bundler also allows you to work against a git repository locally
+instead of using the remote version. This can be achieved by setting
+up a local override:</p>
+
+<pre><code>bundle config set --local local.GEM_NAME /path/to/local/git/repository
+</code></pre>
+
+<p>Important: This feature only works for gems that are specified with a git
+source in your Gemfile. It does not work for gems installed from RubyGems
+or other sources. The gem must be defined with <code>git:</code> option pointing to a
+remote repository.</p>
+
+<p>For example, if your Gemfile contains:</p>
+
+<pre><code>gem "rack", git: "https://github.com/rack/rack.git", branch: "main"
+</code></pre>
+
+<p>Then you can use a local Rack repository by running:</p>
+
+<pre><code>bundle config set --local local.rack ~/Work/git/rack
+</code></pre>
+
+<p>Now instead of checking out the remote git repository, the local
+override will be used. Similar to a path source, every time the local
+git repository change, changes will be automatically picked up by
+Bundler. This means a commit in the local git repo will update the
+revision in the <code>Gemfile.lock</code> to the local git repo revision. This
+requires the same attention as git submodules. Before pushing to
+the remote, you need to ensure the local override was pushed, otherwise
+you may point to a commit that only exists in your local machine.
+You'll also need to CGI escape your usernames and passwords as well.</p>
+
+<p>Bundler does many checks to ensure a developer won't work with
+invalid references. Particularly, we force a developer to specify
+a branch in the <code>Gemfile</code> in order to use this feature. If the branch
+specified in the <code>Gemfile</code> and the current branch in the local git
+repository do not match, Bundler will abort. This ensures that
+a developer is always working against the correct branches, and prevents
+accidental locking to a different branch.</p>
+
+<p>Finally, Bundler also ensures that the current revision in the
+<code>Gemfile.lock</code> exists in the local git repository. By doing this, Bundler
+forces you to fetch the latest changes in the remotes.</p>
+
+<p>If you need to temporarily use a local version of a gem that is normally
+installed from RubyGems (not from git), use a path source instead:</p>
+
+<pre><code>gem "rack", path: "~/Work/git/rack"
+</code></pre>
+
+<h2 id="MIRRORS-OF-GEM-SOURCES">Mirrors Of Gem Sources</h2>
+
+<p>Bundler supports overriding gem sources with mirrors. This allows you to
+configure rubygems.org as the gem source in your Gemfile while still using your
+mirror to fetch gems.</p>
+
+<pre><code>bundle config set --global mirror.SOURCE_URL MIRROR_URL
+</code></pre>
+
+<p>For example, to use a mirror of https://rubygems.org hosted at https://example.org:</p>
+
+<pre><code>bundle config set --global mirror.https://rubygems.org https://example.org
+</code></pre>
+
+<p>Each mirror also provides a fallback timeout setting. If the mirror does not
+respond within the fallback timeout, Bundler will try to use the original
+server instead of the mirror.</p>
+
+<pre><code>bundle config set --global mirror.SOURCE_URL.fallback_timeout TIMEOUT
+</code></pre>
+
+<p>For example, to fall back to rubygems.org after 3 seconds:</p>
+
+<pre><code>bundle config set --global mirror.https://rubygems.org.fallback_timeout 3
+</code></pre>
+
+<p>The default fallback timeout is 0.1 seconds, but the setting can currently
+only accept whole seconds (for example, 1, 15, or 30).</p>
+
+<h2 id="CREDENTIALS-FOR-GEM-SOURCES">Credentials For Gem Sources</h2>
+
+<p>Bundler allows you to configure credentials for any gem source, which allows
+you to avoid putting secrets into your Gemfile.</p>
+
+<pre><code>bundle config set --global SOURCE_HOSTNAME USERNAME:PASSWORD
+</code></pre>
+
+<p>For example, to save the credentials of user <code>claudette</code> for the gem source at
+<code>gems.longerous.com</code>, you would run:</p>
+
+<pre><code>bundle config set --global gems.longerous.com claudette:s00pers3krit
+</code></pre>
+
+<p>Or you can set the credentials as an environment variable like this:</p>
+
+<pre><code>export BUNDLE_GEMS__LONGEROUS__COM="claudette:s00pers3krit"
+</code></pre>
+
+<p>For gems with a git source with HTTP(S) URL you can specify credentials like so:</p>
+
+<pre><code>bundle config set --global https://github.com/ruby/rubygems.git username:password
+</code></pre>
+
+<p>Or you can set the credentials as an environment variable like so:</p>
+
+<pre><code>export BUNDLE_GITHUB__COM=username:password
+</code></pre>
+
+<p>This is especially useful for private repositories on hosts such as GitHub,
+where you can use personal OAuth tokens:</p>
+
+<pre><code>export BUNDLE_GITHUB__COM=abcd0123generatedtoken:x-oauth-basic
+</code></pre>
+
+<p>Note that any configured credentials will be redacted by informative commands
+such as <code>bundle config list</code> or <code>bundle config get</code>, unless you use the
+<code>--parseable</code> flag. This is to avoid unintentionally leaking credentials when
+copy-pasting bundler output.</p>
+
+<p>Also note that to guarantee a sane mapping between valid environment variable
+names and valid host names, bundler makes the following transformations:</p>
+
+<ul>
+  <li>
+    <p>Any <code>-</code> characters in a host name are mapped to a triple underscore (<code>___</code>) in the
+corresponding environment variable.</p>
+  </li>
+  <li>
+    <p>Any <code>.</code> characters in a host name are mapped to a double underscore (<code>__</code>) in the
+corresponding environment variable.</p>
+  </li>
+</ul>
+
+<p>This means that if you have a gem server named <code>my.gem-host.com</code>, you'll need to
+use the <code>BUNDLE_MY__GEM___HOST__COM</code> variable to configure credentials for it
+through ENV.</p>
+
+<h2 id="CONFIGURE-BUNDLER-DIRECTORIES">Configure Bundler Directories</h2>
+
+<p>Bundler's home, cache and plugin directories and config file can be configured
+through environment variables. The default location for Bundler's home directory is
+<code>~/.bundle</code>, which all directories inherit from by default. The following
+outlines the available environment variables and their default values</p>
+
+<pre><code>BUNDLE_USER_HOME : $HOME/.bundle
+BUNDLE_USER_CACHE : $BUNDLE_USER_HOME/cache
+BUNDLE_USER_CONFIG : $BUNDLE_USER_HOME/config
+BUNDLE_USER_PLUGIN : $BUNDLE_USER_HOME/plugin
+</code></pre>
+
+  
+
+  </div>

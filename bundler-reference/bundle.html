@@ -1,0 +1,121 @@
+---
+layout: default
+title: "bundle"
+description: "Ruby Dependency Management"
+url: /bundler-reference/bundle
+permalink: /bundler-reference/bundle/
+previous: /bundler-reference/bundle-version
+next: /bundler-reference/gemfile
+---
+
+<em class="text-neutral-600">Ruby Dependency Management</em>
+
+<div class="mp" id="man">
+
+  
+
+  
+
+  
+
+
+
+
+
+<pre><code>bundle</code> COMMAND [--no-color] [--verbose] [ARGS]</pre>
+
+<h2 id="DESCRIPTION">Description</h2>
+
+<p>Bundler manages an <code>application's dependencies</code> through its entire life
+across many machines systematically and repeatably.</p>
+
+<p>See <a href="https://bundler.io">the bundler website</a> for information on getting
+started, and <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a> for more information on the <code>Gemfile</code> format.</p>
+
+<h2 id="OPTIONS">Options</h2>
+
+<dl>
+<dt><code>--no-color</code></dt>
+<dd>Print all output without color</dd>
+<dt>
+<code>--retry</code>, <code>-r</code>
+</dt>
+<dd>Specify the number of times you wish to attempt network commands</dd>
+<dt>
+<code>--verbose</code>, <code>-V</code>
+</dt>
+<dd>Print out additional logging information</dd>
+</dl>
+
+<h2 id="BUNDLE-COMMANDS">Bundle Commands</h2>
+
+<p>We divide <code>bundle</code> subcommands into primary commands and utilities:</p>
+
+<h2 id="PRIMARY-COMMANDS">Primary Commands</h2>
+
+<dl>
+<dt><a href="/bundler-reference/bundle-install/"><code>bundle install(1)</code></a></dt>
+<dd>Install the gems specified by the <code>Gemfile</code> or <code>Gemfile.lock</code>
+</dd>
+<dt><a href="/bundler-reference/bundle-update/"><code>bundle update(1)</code></a></dt>
+<dd>Update dependencies to their latest versions</dd>
+<dt><a href="/bundler-reference/bundle-cache/"><code>bundle cache(1)</code></a></dt>
+<dd>Package the .gem files required by your application into the
+<code>vendor/cache</code> directory (aliases: <code>bundle package</code>, <code>bundle pack</code>)</dd>
+<dt><a href="/bundler-reference/bundle-exec/"><code>bundle exec(1)</code></a></dt>
+<dd>Execute a script in the current bundle</dd>
+<dt><a href="/bundler-reference/bundle-config/"><code>bundle config(1)</code></a></dt>
+<dd>Specify and read configuration options for Bundler</dd>
+<dt><a href="/bundler-reference/bundle-help/"><code>bundle help(1)</code></a></dt>
+<dd>Display detailed help for each subcommand</dd>
+</dl>
+
+<h2 id="UTILITIES">Utilities</h2>
+
+<dl>
+<dt><a href="/bundler-reference/bundle-add/"><code>bundle add(1)</code></a></dt>
+<dd>Add the named gem to the Gemfile and run <code>bundle install</code>
+</dd>
+<dt><a href="/bundler-reference/bundle-binstubs/"><code>bundle binstubs(1)</code></a></dt>
+<dd>Generate binstubs for executables in a gem</dd>
+<dt><a href="/bundler-reference/bundle-check/"><code>bundle check(1)</code></a></dt>
+<dd>Determine whether the requirements for your application are installed
+and available to Bundler</dd>
+<dt><a href="/bundler-reference/bundle-show/"><code>bundle show(1)</code></a></dt>
+<dd>Show the source location of a particular gem in the bundle</dd>
+<dt><a href="/bundler-reference/bundle-outdated/"><code>bundle outdated(1)</code></a></dt>
+<dd>Show all of the outdated gems in the current bundle</dd>
+<dt>
+<code>bundle console(1)</code> (deprecated)</dt>
+<dd>Start an IRB session in the current bundle</dd>
+<dt><a href="/bundler-reference/bundle-open/"><code>bundle open(1)</code></a></dt>
+<dd>Open an installed gem in the editor</dd>
+<dt><a href="/bundler-reference/bundle-lock/"><code>bundle lock(1)</code></a></dt>
+<dd>Generate a lockfile for your dependencies</dd>
+<dt><a href="/bundler-reference/bundle-init/"><code>bundle init(1)</code></a></dt>
+<dd>Generate a simple <code>Gemfile</code>, placed in the current directory</dd>
+<dt><a href="/bundler-reference/bundle-gem/"><code>bundle gem(1)</code></a></dt>
+<dd>Create a simple gem, suitable for development with Bundler</dd>
+<dt><a href="/bundler-reference/bundle-platform/"><code>bundle platform(1)</code></a></dt>
+<dd>Display platform compatibility information</dd>
+<dt><a href="/bundler-reference/bundle-clean/"><code>bundle clean(1)</code></a></dt>
+<dd>Clean up unused gems in your Bundler directory</dd>
+<dt><a href="/bundler-reference/bundle-doctor/"><code>bundle doctor(1)</code></a></dt>
+<dd>Display warnings about common problems</dd>
+<dt><a href="/bundler-reference/bundle-remove/"><code>bundle remove(1)</code></a></dt>
+<dd>Removes gems from the Gemfile</dd>
+<dt><a href="/bundler-reference/bundle-plugin/"><code>bundle plugin(1)</code></a></dt>
+<dd>Manage Bundler plugins</dd>
+<dt><a href="/bundler-reference/bundle-version/"><code>bundle version(1)</code></a></dt>
+<dd>Prints Bundler version information</dd>
+</dl>
+
+<h2 id="PLUGINS">Plugins</h2>
+
+<p>When running a command that isn't listed in PRIMARY COMMANDS or UTILITIES,
+Bundler will try to find an executable on your path named <code>bundler-&lt;command&gt;</code>
+and execute it, passing down any extra arguments to it.</p>
+
+  
+
+  </div>

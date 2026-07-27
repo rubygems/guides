@@ -1,0 +1,57 @@
+---
+layout: default
+title: "bundle pristine"
+description: "Restores installed gems to their pristine condition"
+url: /bundler-reference/bundle-pristine
+permalink: /bundler-reference/bundle-pristine/
+previous: /bundler-reference/bundle-plugin
+next: /bundler-reference/bundle-remove
+---
+
+<em class="text-neutral-600">Restores installed gems to their pristine condition</em>
+
+<div class="mp" id="man">
+
+  
+
+  
+
+  
+
+
+
+
+
+<pre><code>bundle pristine</code></pre>
+
+<h2 id="DESCRIPTION">Description</h2>
+
+<p><code>pristine</code> restores the installed gems in the bundle to their pristine condition
+using the local gem cache from RubyGems. For git gems, a forced checkout will be performed.</p>
+
+<p>For further explanation, <code>bundle pristine</code> ignores unpacked files on disk. In other
+words, this command utilizes the local <code>.gem</code> cache or the gem's git repository
+as if one were installing from scratch.</p>
+
+<p>Note: the Bundler gem cannot be restored to its original state with <code>pristine</code>.
+One also cannot use <code>bundle pristine</code> on gems with a 'path' option in the Gemfile,
+because bundler has no original copy it can restore from.</p>
+
+<p>When is it practical to use <code>bundle pristine</code>?</p>
+
+<p>It comes in handy when a developer is debugging a gem. <code>bundle pristine</code> is a
+great way to get rid of experimental changes to a gem that one may not want.</p>
+
+<p>Why use <code>bundle pristine</code> over <code>gem pristine --all</code>?</p>
+
+<p>Both commands are very similar.
+For context: <code>bundle pristine</code>, without arguments, cleans all gems from the lockfile.
+Meanwhile, <code>gem pristine --all</code> cleans all installed gems for that Ruby version.</p>
+
+<p>If a developer forgets which gems in their project they might
+have been debugging, the Rubygems <code>gem pristine [GEMNAME]</code> command may be inconvenient.
+One can avoid waiting for <code>gem pristine --all</code>, and instead run <code>bundle pristine</code>.</p>
+
+  
+
+  </div>

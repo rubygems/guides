@@ -1,0 +1,107 @@
+---
+layout: default
+title: "bundle doctor"
+description: "Checks the bundle for common problems"
+url: /bundler-reference/bundle-doctor
+permalink: /bundler-reference/bundle-doctor/
+previous: /bundler-reference/bundle-console
+next: /bundler-reference/bundle-env
+---
+
+<em class="text-neutral-600">Checks the bundle for common problems</em>
+
+<div class="mp" id="man">
+
+  
+
+  
+
+  
+
+
+
+
+
+<pre><code>bundle doctor [diagnose]</code> [--quiet]
+                           [--gemfile=GEMFILE]
+                           [--ssl]<br>
+<code>bundle doctor ssl</code> [--host=HOST]
+                    [--tls-version=TLS-VERSION]
+                    [--verify-mode=VERIFY-MODE]<br>
+<code>bundle doctor</code> help [COMMAND]</pre>
+
+<h2 id="DESCRIPTION">Description</h2>
+
+<p>You can diagnose common Bundler problems with this command such as checking gem environment or SSL/TLS issue.</p>
+
+<h2 id="SUB-COMMANDS">Sub-commands</h2>
+
+<h3 id="diagnose-default-command-">Diagnose (default Command)</h3>
+
+<p>Checks your Gemfile and gem environment for common problems. If issues
+are detected, Bundler prints them and exits status 1. Otherwise,
+Bundler prints a success message and exits status 0.</p>
+
+<p>Examples of common problems caught include:</p>
+
+<ul>
+  <li>Invalid Bundler settings</li>
+  <li>Mismatched Ruby versions</li>
+  <li>Mismatched platforms</li>
+  <li>Uninstalled gems</li>
+  <li>Missing dependencies</li>
+</ul>
+
+<p><strong>OPTIONS</strong></p>
+
+<dl>
+<dt><code>--quiet</code></dt>
+<dd>Only output warnings and errors.</dd>
+<dt><code>--gemfile=GEMFILE</code></dt>
+<dd>The location of the <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a> which Bundler should use. This defaults
+to a <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a> in the current working directory. In general, Bundler
+will assume that the location of the <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a> is also the project's
+root and will try to find <code>Gemfile.lock</code> and <code>vendor/cache</code> relative
+to this location.</dd>
+<dt><code>--ssl</code></dt>
+<dd>Diagnose common SSL problems when connecting to https://rubygems.org.
+
+    <p>This flag runs the <code>bundle doctor ssl</code> subcommand with default values
+underneath.</p>
+</dd>
+</dl>
+
+<h3 id="ssl">Ssl</h3>
+
+<p>If you've experienced issues related to SSL certificates and/or TLS versions while connecting
+to https://rubygems.org, this command can help troubleshoot common problems.
+The diagnostic will perform a few checks such as:</p>
+
+<ul>
+  <li>Verify the Ruby OpenSSL version installed on your system.</li>
+  <li>Check the OpenSSL library version used for compilation.</li>
+  <li>Ensure CA certificates are correctly setup on your machine.</li>
+  <li>Open a TLS connection and verify the outcome.</li>
+</ul>
+
+<p><strong>OPTIONS</strong></p>
+
+<dl>
+<dt><code>--host=HOST</code></dt>
+<dd>Perform the diagnostic on HOST. Defaults to <code>rubygems.org</code>.</dd>
+<dt><code>--tls-version=TLS-VERSION</code></dt>
+<dd>Specify the TLS version when opening the connection to HOST.
+
+    <p>Accepted values are: <code>1.1</code> or <code>1.2</code>.</p>
+</dd>
+<dt><code>--verify-mode=VERIFY-MODE</code></dt>
+<dd>Specify the TLS verify mode when opening the connection to HOST.
+Defaults to <code>SSL_VERIFY_PEER</code>.
+
+    <p>Accepted values are: <code>CLIENT_ONCE</code>, <code>FAIL_IF_NO_PEER_CERT</code>, <code>NONE</code>, <code>PEER</code>.</p>
+</dd>
+</dl>
+
+  
+
+  </div>

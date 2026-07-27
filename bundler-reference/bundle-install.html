@@ -1,0 +1,343 @@
+---
+layout: default
+title: "bundle install"
+description: "Install the dependencies specified in your Gemfile"
+url: /bundler-reference/bundle-install
+permalink: /bundler-reference/bundle-install/
+previous: /bundler-reference/bundle-init
+next: /bundler-reference/bundle-issue
+---
+
+<em class="text-neutral-600">Install the dependencies specified in your Gemfile</em>
+
+<div class="mp" id="man">
+
+  
+
+  
+
+  
+
+
+
+
+
+<pre><code>bundle install</code> [--cooldown=NUMBER]
+                 [--force]
+                 [--full-index]
+                 [--gemfile=GEMFILE]
+                 [--jobs=NUMBER]
+                 [--local]
+                 [--lockfile=LOCKFILE]
+                 [--no-cache]
+                 [--no-lock]
+                 [--prefer-local]
+                 [--quiet]
+                 [--retry=NUMBER]
+                 [--standalone[=GROUP[ GROUP...]]]
+                 [--trust-policy=TRUST-POLICY]
+                 [--target-rbconfig=TARGET-RBCONFIG]</pre>
+
+<h2 id="DESCRIPTION">Description</h2>
+
+<p>Install the gems specified in your <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a>. If this is the first
+time you run bundle install (and a <code>Gemfile.lock</code> does not exist),
+Bundler will fetch all remote sources, resolve dependencies and
+install all needed gems.</p>
+
+<p>If a <code>Gemfile.lock</code> does exist, and you have not updated your <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a>,
+Bundler will fetch all remote sources, but use the dependencies
+specified in the <code>Gemfile.lock</code> instead of resolving dependencies.</p>
+
+<p>If a <code>Gemfile.lock</code> does exist, and you have updated your <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a>,
+Bundler will use the dependencies in the <code>Gemfile.lock</code> for all gems
+that you did not update, but will re-resolve the dependencies of
+gems that you did update. You can find more information about this
+update process below under <a href="#CONSERVATIVE-UPDATING" title="CONSERVATIVE UPDATING" data-bare-link="true">CONSERVATIVE UPDATING</a>.</p>
+
+<h2 id="OPTIONS">Options</h2>
+
+<dl>
+<dt><code>--cooldown=&lt;number&gt;</code></dt>
+<dd>Only consider gem versions published at least <var>number</var> days ago when
+resolving. Pass <code>0</code> to disable cooldown for this run, overriding any
+per-source or global configuration. See <code>cooldown</code> in <a class="man-ref" href="/bundler-reference/bundle-config/">bundle-config<span class="s">(1)</span></a>
+for details on the precedence between the CLI flag, Bundler config,
+and Gemfile per-source settings.</dd>
+<dt>
+<code>--force</code>, <code>--redownload</code>
+</dt>
+<dd>Force reinstalling every gem, even if already installed.</dd>
+<dt><code>--full-index</code></dt>
+<dd>Bundler will not call Rubygems' API endpoint (default) but download and cache
+a (currently big) index file of all gems. Performance can be improved for
+large bundles that seldom change by enabling this option.</dd>
+<dt><code>--gemfile=GEMFILE</code></dt>
+<dd>The location of the <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a> which Bundler should use. This defaults
+to a <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a> in the current working directory. In general, Bundler
+will assume that the location of the <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a> is also the project's
+root and will try to find <code>Gemfile.lock</code> and <code>vendor/cache</code> relative
+to this location.</dd>
+<dt>
+<code>--jobs=&lt;number&gt;</code>, <code>-j=&lt;number&gt;</code>
+</dt>
+<dd>The maximum number of parallel download and install jobs. The default is the
+number of available processors.</dd>
+<dt><code>--local</code></dt>
+<dd>Do not attempt to connect to <code>rubygems.org</code>. Instead, Bundler will use the
+gems already present in Rubygems' cache or in <code>vendor/cache</code>. Note that if an
+appropriate platform-specific gem exists on <code>rubygems.org</code> it will not be
+found.</dd>
+<dt><code>--lockfile=LOCKFILE</code></dt>
+<dd>The location of the lockfile which Bundler should use. This defaults
+to the Gemfile location with <code>.lock</code> appended.</dd>
+<dt><code>--prefer-local</code></dt>
+<dd>Force using locally installed gems, or gems already present in Rubygems' cache
+or in <code>vendor/cache</code>, when resolving, even if newer versions are available
+remotely. Only attempt to connect to <code>rubygems.org</code> for gems that are not
+present locally.</dd>
+<dt><code>--no-cache</code></dt>
+<dd>Do not update the cache in <code>vendor/cache</code> with the newly bundled gems. This
+does not remove any gems in the cache but keeps the newly bundled gems from
+being cached during the install.</dd>
+<dt><code>--no-lock</code></dt>
+<dd>Do not create a lockfile. Useful if you want to install dependencies but not
+lock versions of gems. Recommended for library development, and other
+situations where the code is expected to work with a range of dependency
+versions.
+
+    <p>This has the same effect as using <code>lockfile false</code> in the Gemfile.
+See <span class="man-ref">gemfile<span class="s">(5)</span></span> for more information.</p>
+</dd>
+<dt><code>--quiet</code></dt>
+<dd>Do not print progress information to the standard output.</dd>
+<dt><code>--retry=[&lt;number&gt;]</code></dt>
+<dd>Retry failed network or git requests for <var>number</var> times.</dd>
+<dt><code>--standalone[=&lt;list&gt;]</code></dt>
+<dd>Makes a bundle that can work without depending on Rubygems or Bundler at
+runtime. A space separated list of groups to install can be specified.
+Bundler creates a directory named <code>bundle</code> and installs the bundle there. It
+also generates a <code>bundle/bundler/setup.rb</code> file to replace Bundler's own setup
+in the manner required.</dd>
+<dt><code>--trust-policy=TRUST-POLICY</code></dt>
+<dd>Apply the Rubygems security policy <var>policy</var>, where policy is one of
+<code>HighSecurity</code>, <code>MediumSecurity</code>, <code>LowSecurity</code>, <code>AlmostNoSecurity</code>, or
+<code>NoSecurity</code>. For more details, please see the Rubygems signing documentation
+linked below in <a href="#SEE-ALSO" title="SEE ALSO" data-bare-link="true">SEE ALSO</a>.</dd>
+<dt><code>--target-rbconfig=TARGET-RBCONFIG</code></dt>
+<dd>Path to rbconfig.rb for the deployment target platform.</dd>
+</dl>
+
+<h2 id="DEPLOYMENT-MODE">Deployment Mode</h2>
+
+<p>Bundler's defaults are optimized for development. To switch to
+defaults optimized for deployment and for CI, use the <code>deployment</code>
+setting. Do not activate deployment mode on development machines, as it
+will cause an error when the <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a> is modified.</p>
+
+<ol>
+  <li>
+    <p>A <code>Gemfile.lock</code> is required.</p>
+
+    <p>To ensure that the same versions of the gems you developed with
+and tested with are also used in deployments, a <code>Gemfile.lock</code>
+is required.</p>
+
+    <p>This is mainly to ensure that you remember to check your
+<code>Gemfile.lock</code> into version control.</p>
+  </li>
+  <li>
+    <p>The <code>Gemfile.lock</code> must be up to date</p>
+
+    <p>In development, you can modify your <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a> and re-run
+<code>bundle install</code> to <a href="#CONSERVATIVE-UPDATING" title="CONSERVATIVE UPDATING" data-bare-link="true">conservatively update</a>
+your <code>Gemfile.lock</code> snapshot.</p>
+
+    <p>In deployment, your <code>Gemfile.lock</code> should be up-to-date with
+changes made in your <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a>.</p>
+  </li>
+  <li>
+    <p>Gems are installed to <code>vendor/bundle</code> not your default system location</p>
+
+    <p>In development, it's convenient to share the gems used in your
+application with other applications and other scripts that run on
+the system.</p>
+
+    <p>In deployment, isolation is a more important default. In addition,
+the user deploying the application may not have permission to install
+gems to the system, or the web server may not have permission to
+read them.</p>
+
+    <p>As a result, when <code>deployment</code> is configured, <code>bundle install</code> installs gems
+to the <code>vendor/bundle</code> directory in the application. This may be
+overridden using the <code>path</code> setting.</p>
+  </li>
+</ol>
+
+<h2 id="INSTALLING-GROUPS">Installing Groups</h2>
+
+<p>By default, <code>bundle install</code> will install all gems in all groups
+in your <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a>, except those declared for a different platform.</p>
+
+<p>However, you can explicitly tell Bundler to skip installing
+certain groups with the <code>without</code> setting. This setting takes
+a space-separated list of groups.</p>
+
+<p>While the <code>without</code> setting will skip <em>installing</em> the gems in the
+specified groups, <code>bundle install</code> will still <em>download</em> those gems and use them
+to resolve the dependencies of every gem in your <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a>.</p>
+
+<p>This is so that installing a different set of groups on another
+ machine (such as a production server) will not change the
+gems and versions that you have already developed and tested against.</p>
+
+<p><code>Bundler offers a rock-solid guarantee that the third-party
+code you are running in development and testing is also the
+third-party code you are running in production. You can choose
+to exclude some of that code in different environments, but you
+will never be caught flat-footed by different versions of
+third-party code being used in different environments.</code></p>
+
+<p>For a simple illustration, consider the following <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a>:</p>
+
+<pre><code>source 'https://rubygems.org'
+
+gem 'sinatra'
+
+group :production do
+  gem 'rack-perftools-profiler'
+end
+</code></pre>
+
+<p>In this case, <code>sinatra</code> depends on any version of Rack (<code>&gt;= 1.0</code>), while
+<code>rack-perftools-profiler</code> depends on 1.x (<code>~&gt; 1.0</code>).</p>
+
+<p>When you configure <code>bundle config without production</code> in development, we
+look at the dependencies of <code>rack-perftools-profiler</code> as well. That way,
+you do not spend all your time developing against Rack 2.0, using new
+APIs unavailable in Rack 1.x, only to have Bundler switch to Rack 1.2
+when the <code>production</code> group <em>is</em> used.</p>
+
+<p>This should not cause any problems in practice, because we do not
+attempt to <code>install</code> the gems in the excluded groups, and only evaluate
+as part of the dependency resolution process.</p>
+
+<p>This also means that you cannot include different versions of the same
+gem in different groups, because doing so would result in different
+sets of dependencies used in development and production. Because of
+the vagaries of the dependency resolution process, this usually
+affects more than the gems you list in your <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a>, and can
+(surprisingly) radically change the gems you are using.</p>
+
+<h2 id="THE-GEMFILE-LOCK">The Gemfile.lock</h2>
+
+<p>When you run <code>bundle install</code>, Bundler will persist the full names
+and versions of all gems that you used (including dependencies of
+the gems specified in the <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a>) into a file called <code>Gemfile.lock</code>.</p>
+
+<p>Bundler uses this file in all subsequent calls to <code>bundle install</code>,
+which guarantees that you always use the same exact code, even
+as your application moves across machines.</p>
+
+<p>Because of the way dependency resolution works, even a
+seemingly small change (for instance, an update to a point-release
+of a dependency of a gem in your <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a>) can result in radically
+different gems being needed to satisfy all dependencies.</p>
+
+<p>As a result, you <code>SHOULD</code> check your <code>Gemfile.lock</code> into version
+control, in both applications and gems. If you do not, every machine that
+checks out your repository (including your production server) will resolve all
+dependencies again, which will result in different versions of
+third-party code being used if <code>any</code> of the gems in the <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a>
+or any of their dependencies have been updated.</p>
+
+<p>When Bundler first shipped, the <code>Gemfile.lock</code> was included in the <code>.gitignore</code>
+file included with generated gems.  Over time, however, it became clear that
+this practice forces the pain of broken dependencies onto new contributors,
+while leaving existing contributors potentially unaware of the problem. Since
+<code>bundle install</code> is usually the first step towards a contribution, the pain of
+broken dependencies would discourage new contributors from contributing. As a
+result, we have revised our guidance for gem authors to now recommend checking
+in the lock for gems.</p>
+
+<h2 id="CONSERVATIVE-UPDATING">Conservative Updating</h2>
+
+<p>When you make a change to the <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a> and then run <code>bundle install</code>,
+Bundler will update only the gems that you modified.</p>
+
+<p>In other words, if a gem that you <code>did not modify</code> worked before
+you called <code>bundle install</code>, it will continue to use the exact
+same versions of all dependencies as it used before the update.</p>
+
+<p>Let's take a look at an example. Here's your original <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a>:</p>
+
+<pre><code>source 'https://rubygems.org'
+
+gem 'actionpack', '2.3.8'
+gem 'activemerchant'
+</code></pre>
+
+<p>In this case, both <code>actionpack</code> and <code>activemerchant</code> depend on
+<code>activesupport</code>. The <code>actionpack</code> gem depends on <code>activesupport 2.3.8</code>
+and <code>rack ~&gt; 1.1.0</code>, while the <code>activemerchant</code> gem depends on
+<code>activesupport &gt;= 2.3.2</code>, <code>braintree &gt;= 2.0.0</code>, and <code>builder &gt;= 2.0.0</code>.</p>
+
+<p>When the dependencies are first resolved, Bundler will select
+<code>activesupport 2.3.8</code>, which satisfies the requirements of both
+gems in your <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a>.</p>
+
+<p>Next, you modify your <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a> to:</p>
+
+<pre><code>source 'https://rubygems.org'
+
+gem 'actionpack', '3.0.0.rc'
+gem 'activemerchant'
+</code></pre>
+
+<p>The <code>actionpack 3.0.0.rc</code> gem has a number of new dependencies,
+and updates the <code>activesupport</code> dependency to <code>= 3.0.0.rc</code> and
+the <code>rack</code> dependency to <code>~&gt; 1.2.1</code>.</p>
+
+<p>When you run <code>bundle install</code>, Bundler notices that you changed
+the <code>actionpack</code> gem, but not the <code>activemerchant</code> gem. It
+evaluates the gems currently being used to satisfy its requirements:</p>
+
+<dl>
+<dt><code>activesupport 2.3.8</code></dt>
+<dd>also used to satisfy a dependency in <code>activemerchant</code>,
+which is not being updated</dd>
+<dt><code>rack ~&gt; 1.1.0</code></dt>
+<dd>not currently being used to satisfy another dependency</dd>
+</dl>
+
+<p>Because you did not explicitly ask to update <code>activemerchant</code>,
+you would not expect it to suddenly stop working after updating
+<code>actionpack</code>. However, satisfying the new <code>activesupport 3.0.0.rc</code>
+dependency of actionpack requires updating one of its dependencies.</p>
+
+<p>Even though <code>activemerchant</code> declares a very loose dependency
+that theoretically matches <code>activesupport 3.0.0.rc</code>, Bundler treats
+gems in your <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a> that have not changed as an atomic unit
+together with their dependencies. In this case, the <code>activemerchant</code>
+dependency is treated as <code>activemerchant 1.7.1 + activesupport 2.3.8</code>,
+so <code>bundle install</code> will report that it cannot update <code>actionpack</code>.</p>
+
+<p>To explicitly update <code>actionpack</code>, including its dependencies
+which other gems in the <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a> still depend on, run
+<code>bundle update actionpack</code> (see <code>bundle update(1)</code>).</p>
+
+<p><code>Summary</code>: In general, after making a change to the <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a> , you
+should first try to run <code>bundle install</code>, which will guarantee that no
+other gem in the <a class="man-ref" href="/bundler-reference/gemfile/">Gemfile<span class="s">(5)</span></a> is impacted by the change. If that
+does not work, run <a href="/bundler-reference/bundle-update/">bundle update(1)</a>.</p>
+
+<h2 id="SEE-ALSO">See Also</h2>
+
+<ul>
+  <li><a href="https://guides.rubygems.org/rubygems-basics/#installing-gems">Gem install docs</a></li>
+  <li><a href="https://guides.rubygems.org/security/">Rubygems signing docs</a></li>
+</ul>
+
+  
+
+  </div>
