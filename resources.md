@@ -2,7 +2,7 @@
 layout: default
 title: Resources
 url: /resources
-previous: /default-gems-and-bundled-gems
+previous: /faqs
 next: /contributing
 ---
 

@@ -2,8 +2,8 @@
 layout: default
 title: How to update gems with Bundler
 url: /updating_gems
-previous: /rubygems_tls_ssl_troubleshooting_guide
-next: /bundler_in_a_single_file_ruby_script
+previous: /dependency_management
+next: /groups
 ---
 ### Updating a Dependency
 <a name="updating-a-dependency"></a>

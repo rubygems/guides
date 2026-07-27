@@ -3,8 +3,8 @@ layout: default
 title: Make your own gem
 url: /make-your-own-gem/
 redirect_from: /creating_gem/
-previous: /what-is-a-gem/
-next: /gems-with-extensions/
+previous: /getting_started
+next: /publishing
 ---
 
 <p><em class="text-neutral-600">From start to finish, learn how to package your Ruby code in a gem.</em></p>

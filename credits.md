@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Credits
-previous: /organizations/transferring-gems
-next: /bundler-compatibility
+previous: /bundler_2_upgrade
+next: /
 ---
 
 <em class="text-neutral-600">This site is [open source](https://github.com/rubygems/guides) and its content is

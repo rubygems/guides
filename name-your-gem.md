@@ -2,8 +2,8 @@
 layout: default
 title: Name your gem
 url: /name-your-gem
-previous: /gems-with-extensions
-next: /publishing
+previous: /deploying
+next: /patterns
 ---
 
 <em class="text-neutral-600">Our recommendation on the use of "_" and "-" in your gem's name.</em>

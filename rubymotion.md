@@ -2,8 +2,8 @@
 layout: default
 title: How to use Bundler with RubyMotion
 url: /rubymotion
-previous: /bundler_setup
-next: /sinatra
+previous: /bundler_docker_guide
+next: /run-your-own-gem-server
 ---
 
 If you don't have a RubyMotion app yet, generate one.

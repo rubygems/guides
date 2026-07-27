@@ -2,8 +2,8 @@
 layout: default
 title: How to write a Bundler plugin
 url: /bundler_plugins
-previous: /git_bisect
-next: /bundler_known_plugins
+previous: /plugins
+next: /rubygems_tls_ssl_troubleshooting_guide
 ---
 
 <a name="how-to-write-a-bundler-plugin"></a>

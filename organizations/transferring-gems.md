@@ -3,7 +3,7 @@ url: /organizations/transferring-gems
 title: Transferring Gems to Organizations
 layout: default
 previous: /organizations/roles-and-permissions
-next: /credits
+next: /removing-a-published-gem
 ---
 
 <div class="beta-banner">

@@ -3,7 +3,7 @@ layout: default
 title: MFA requirement opt-in
 url: /mfa-requirement-opt-in
 previous: /using-mfa-in-command-line
-next: /using-s3-source
+next: /managing-owners-using-ui
 ---
 <em class="text-neutral-600">How to opt-in for MFA requirement.</em>
 

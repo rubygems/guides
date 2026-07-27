@@ -2,8 +2,8 @@
 layout: default
 title: How to Upgrade to Bundler 2
 url: /bundler_2_upgrade
-previous: /getting_started
-next: /deploying
+previous: /contributing
+next: /credits
 ---
 
 So! You’ve heard that [Bundler 2 was released](https://bundler.io/blog/2019/01/03/announcing-bundler-2.html)! If you want to try out Bundler 2 for yourself, this guide will help you do that.

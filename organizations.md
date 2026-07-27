@@ -2,7 +2,7 @@
 layout: default
 title: Organizations
 url: /organizations
-previous: /trusted-publishing
+previous: /managing-owners-using-ui
 next: /organizations/getting-started
 ---
 

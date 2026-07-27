@@ -94,26 +94,37 @@
       <div class="flow-root">
 
         <div class="md:float-left md:w-[240px] mb-[60px] md:mb-0 print:hidden">
+          <h3 class="font-bold tracking-[0.04em] text-lg text-neutral-600 pb-2">Getting Started</h3>
           <ul>
             <li><a class="sidenav-link" data-sidenav href="/rubygems-basics">RubyGems Basics</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/what-is-a-gem">What is a gem?</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/getting_started">Getting Started with Bundler</a></li>
             <li><a class="sidenav-link" data-sidenav href="/make-your-own-gem">Make your own gem</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/gems-with-extensions">Gems with Extensions</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/name-your-gem">Name your gem</a></li>
             <li><a class="sidenav-link" data-sidenav href="/publishing">Publishing your gem</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/security">Security Practices</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/managing-owners-using-ui">Managing owners using UI</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/removing-a-published-gem">Removing a Published gem</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/ssl-certificate-update">SSL Certificate Update</a></li>
+          </ul>
+
+          <h3 class="font-bold tracking-[0.04em] text-lg text-neutral-600 pt-5 pb-1">Guides</h3>
+          <h4 class="font-semibold tracking-[0.08em] uppercase text-xs text-neutral-500 pt-2 pb-1">Dependency Management</h4>
+          <ul>
+            <li><a class="sidenav-link" data-sidenav href="/using_bundler_in_applications">How to manage application dependencies with Bundler</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/dependency_management">How to manage dependencies with Bundler</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/updating_gems">How to update gems with Bundler</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/groups">How to manage groups of gems</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/git">How to install gems from git repositories</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/bundler_workflow">Recommended Workflow with Version Control</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/bundler_setup">How to use Bundler with Ruby</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/bundler_in_a_single_file_ruby_script">How to use Bundler in a single-file Ruby script</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/deploying">How to deploy bundled applications</a></li>
+          </ul>
+          <h4 class="font-semibold tracking-[0.08em] uppercase text-xs text-neutral-500 pt-3 pb-1">Gem Development</h4>
+          <ul>
+            <li><a class="sidenav-link" data-sidenav href="/name-your-gem">Name your gem</a></li>
             <li><a class="sidenav-link" data-sidenav href="/patterns">Patterns</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/specification-reference">Specification Reference</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/command-reference">Command Reference</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/rubygems-org-api">RubyGems.org API</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/rubygems-org-api-v2">RubyGems.org API V2.0</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/rubygems-org-compact-index-api">RubyGems.org Compact Index API</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/rubygems-org-rate-limits">RubyGems.org rate limits</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/api-key-scopes">API key scopes</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/run-your-own-gem-server">Run your own gem server</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/gems-with-extensions">Gems with Extensions</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/rubygems">Bundler in gems</a></li>
+          </ul>
+          <h4 class="font-semibold tracking-[0.08em] uppercase text-xs text-neutral-500 pt-3 pb-1">Publishing &amp; Security</h4>
+          <ul>
+            <li><a class="sidenav-link" data-sidenav href="/trusted-publishing">Trusted Publishing</a></li>
             <li><a class="sidenav-link" data-sidenav href="/setting-up-multifactor-authentication">Setting up multi-factor authentication</a></li>
             <ul class="pl-[8%]">
               <li><a class="sidenav-link--sub" data-sidenav href="/setting-up-webauthn-mfa">Setting up WebAuthn MFA</a></li>
@@ -121,14 +132,7 @@
             </ul>
             <li><a class="sidenav-link" data-sidenav href="/using-mfa-in-command-line">Using multi-factor authentication in command line</a></li>
             <li><a class="sidenav-link" data-sidenav href="/mfa-requirement-opt-in">MFA requirement opt in</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/using-s3-source">Using S3 as gem source</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/default-gems-and-bundled-gems">Default gems and bundled gems</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/resources">Resources</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/contributing">Contributing to RubyGems</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/faqs">Frequently Asked Questions</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/plugins">Plugins</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/cve">Common Vulnerabilities and Exposures</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/trusted-publishing">Trusted Publishing</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/managing-owners-using-ui">Managing owners using UI</a></li>
             <li><a class="sidenav-link" data-sidenav href="/organizations">Organizations</a></li>
             <ul class="pl-[8%]">
               <li><a class="sidenav-link--sub" data-sidenav href="/organizations/getting-started">Getting Started</a></li>
@@ -136,35 +140,63 @@
               <li><a class="sidenav-link--sub" data-sidenav href="/organizations/roles-and-permissions">Roles &amp; Permissions</a></li>
               <li><a class="sidenav-link--sub" data-sidenav href="/organizations/transferring-gems">Transferring Gems</a></li>
             </ul>
-            <li><a class="sidenav-link" data-sidenav href="/credits">Credits</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/removing-a-published-gem">Removing a Published gem</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/security">Security Practices</a></li>
+          </ul>
+          <h4 class="font-semibold tracking-[0.08em] uppercase text-xs text-neutral-500 pt-3 pb-1">Integrations</h4>
+          <ul>
+            <li><a class="sidenav-link" data-sidenav href="/rails">How to use Bundler with Rails</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/sinatra">How to use Bundler with Sinatra</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/bundler_docker_guide">How to use Bundler with Docker</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/rubymotion">How to use Bundler with RubyMotion</a></li>
+          </ul>
+          <h4 class="font-semibold tracking-[0.08em] uppercase text-xs text-neutral-500 pt-3 pb-1">Hosting &amp; Sources</h4>
+          <ul>
+            <li><a class="sidenav-link" data-sidenav href="/run-your-own-gem-server">Run your own gem server</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/using-s3-source">Using S3 as gem source</a></li>
+          </ul>
+          <h4 class="font-semibold tracking-[0.08em] uppercase text-xs text-neutral-500 pt-3 pb-1">Extending</h4>
+          <ul>
+            <li><a class="sidenav-link" data-sidenav href="/plugins">RubyGems Plugins</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/bundler_plugins">How to write a Bundler plugin</a></li>
+          </ul>
+          <h4 class="font-semibold tracking-[0.08em] uppercase text-xs text-neutral-500 pt-3 pb-1">Troubleshooting</h4>
+          <ul>
+            <li><a class="sidenav-link" data-sidenav href="/rubygems_tls_ssl_troubleshooting_guide">How to troubleshoot RubyGems and Bundler TLS/SSL Issues</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/ssl-certificate-update">SSL Certificate Update</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/git_bisect">How to use git bisect with Bundler</a></li>
           </ul>
 
-          <h3 class="font-bold tracking-[0.04em] text-lg text-neutral-600 pt-4 pb-2">Bundler</h3>
+          <h3 class="font-bold tracking-[0.04em] text-lg text-neutral-600 pt-5 pb-2">Concepts</h3>
           <ul>
+            <li><a class="sidenav-link" data-sidenav href="/what-is-a-gem">What is a gem?</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/default-gems-and-bundled-gems">Default gems and bundled gems</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/cve">Common Vulnerabilities and Exposures</a></li>
+          </ul>
+
+          <h3 class="font-bold tracking-[0.04em] text-lg text-neutral-600 pt-5 pb-2">Reference</h3>
+          <ul>
+            <li><a class="sidenav-link" data-sidenav href="/command-reference">gem Command Reference</a></li>
             <li><a class="sidenav-link" data-sidenav href="/command-reference/bundle">Bundler Command Reference</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/bundler-compatibility">Bundler compatibility with Ruby</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/rubygems">Bundler in gems</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/gemfile">Gemfiles</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/getting_started">Getting Started</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/bundler_2_upgrade">How to Upgrade to Bundler 2</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/deploying">How to deploy bundled applications</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/git">How to install gems from git repositories</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/using_bundler_in_applications">How to manage application dependencies with Bundler</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/groups">How to manage groups of gems</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/dependency_management">How to manage dependencies with Bundler</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/rubygems_tls_ssl_troubleshooting_guide">How to troubleshoot RubyGems and Bundler TLS/SSL Issues</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/updating_gems">How to update gems with Bundler</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/bundler_in_a_single_file_ruby_script">How to use Bundler in a single-file Ruby script</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/bundler_docker_guide">How to use Bundler with Docker</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/rails">How to use Bundler with Rails</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/bundler_setup">How to use Bundler with Ruby</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/rubymotion">How to use Bundler with RubyMotion</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/sinatra">How to use Bundler with Sinatra</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/git_bisect">How to use git bisect with Bundler</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/bundler_plugins">How to write a Bundler plugin</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/bundler_known_plugins">Known Plugins</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/bundler_workflow">Recommended Workflow with Version Control</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/gemfile">Gemfile Reference</a></li>
             <li><a class="sidenav-link" data-sidenav href="/gemfile_ruby">Ruby Directive</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/specification-reference">Specification Reference</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/rubygems-org-api">RubyGems.org API</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/rubygems-org-api-v2">RubyGems.org API V2.0</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/rubygems-org-compact-index-api">RubyGems.org Compact Index API</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/rubygems-org-rate-limits">RubyGems.org rate limits</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/api-key-scopes">API key scopes</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/bundler-compatibility">Bundler compatibility with Ruby</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/bundler_known_plugins">Known Bundler Plugins</a></li>
+          </ul>
+
+          <h3 class="font-bold tracking-[0.04em] text-lg text-neutral-600 pt-5 pb-2">Appendix</h3>
+          <ul>
+            <li><a class="sidenav-link" data-sidenav href="/faqs">Frequently Asked Questions</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/resources">Resources</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/contributing">Contributing to RubyGems</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/bundler_2_upgrade">How to Upgrade to Bundler 2</a></li>
+            <li><a class="sidenav-link" data-sidenav href="/credits">Credits</a></li>
           </ul>
         </div>
 

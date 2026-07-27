@@ -2,7 +2,7 @@
 layout: default
 title: API key scopes
 previous: /rubygems-org-rate-limits
-next: /run-your-own-gem-server
+next: /bundler-compatibility
 ---
 
 <em class="text-neutral-600">RubyGems.org API keys, their scopes, and CLI usage</em>

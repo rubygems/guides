@@ -2,8 +2,8 @@
 layout: default
 title: How to use Bundler with Sinatra
 url: /sinatra
-previous: /rubymotion
-next: /git_bisect
+previous: /rails
+next: /bundler_docker_guide
 ---
 
 To use bundler with a Sinatra application, you only need to do two things. First, create a Gemfile.

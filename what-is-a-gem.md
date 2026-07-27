@@ -2,8 +2,8 @@
 layout: default
 title: What is a gem?
 url: /what-is-a-gem/
-previous: /rubygems-basics/
-next: /make-your-own-gem/
+previous: /git_bisect
+next: /default-gems-and-bundled-gems
 ---
 
 <em class="text-neutral-600">Unpack the mystery behind what's in a RubyGem.</em>

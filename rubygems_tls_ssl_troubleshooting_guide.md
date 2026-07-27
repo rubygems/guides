@@ -2,8 +2,8 @@
 layout: default
 title: How to troubleshoot RubyGems and Bundler TLS/SSL Issues
 url: /rubygems_tls_ssl_troubleshooting_guide
-previous: /dependency_management
-next: /updating_gems
+previous: /bundler_plugins
+next: /ssl-certificate-update
 ---
 
 If you’ve experienced issues related to SSL certificates and/or TLS versions, you’ve come

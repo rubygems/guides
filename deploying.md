@@ -2,8 +2,8 @@
 layout: default
 title: How to deploy bundled applications
 url: /deploying
-previous: /bundler_2_upgrade
-next: /git
+previous: /bundler_in_a_single_file_ruby_script
+next: /name-your-gem
 ---
 
 Before deploying an app that uses Bundler, add your `Gemfile`

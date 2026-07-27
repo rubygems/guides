@@ -2,8 +2,8 @@
 layout: default
 title: Plugins
 url: /plugins
-previous: /faqs
-next: /cve
+previous: /using-s3-source
+next: /bundler_plugins
 ---
 
 <em class="text-neutral-600">Extensions that use the RubyGems plugin API.</em>

@@ -2,8 +2,8 @@
 layout: default
 title: How to manage application dependencies with Bundler
 url: /using_bundler_in_applications
-previous: /git
-next: /groups
+previous: /publishing
+next: /dependency_management
 ---
 
 This guide was originally written for Bundler v1.12. If you are using a different version, keep in mind that the output can differ.

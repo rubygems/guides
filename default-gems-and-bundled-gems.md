@@ -2,8 +2,8 @@
 layout: default
 title: Default Gems and Bundled Gems
 url: /default-gems-and-bundled-gems
-previous: /using-s3-source
-next: /resources
+previous: /what-is-a-gem
+next: /cve
 ---
 
 <em class="text-neutral-600">Understanding Ruby's standard library gems.</em>

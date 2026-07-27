@@ -178,7 +178,7 @@ task :bundler_reference => %w[RUBYGEMS_DIR_exists] do
     pages[slug] = { title: title, whatis: whatis, content: content.to_html.strip }
   end
 
-  chain = ['/command-reference'] + slugs.map { |slug| url_for.call(slug) } + ['/getting_started']
+  chain = ['/command-reference'] + slugs.map { |slug| url_for.call(slug) } + ['/gemfile_ruby']
 
   slugs.each_with_index do |slug, index|
     page = pages[slug]

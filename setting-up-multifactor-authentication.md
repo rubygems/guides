@@ -2,7 +2,7 @@
 layout: default
 title: Setting up multi-factor authentication
 url: /setting-up-multifactor-authentication
-previous: /run-your-own-gem-server
+previous: /trusted-publishing
 next: /setting-up-webauthn-mfa
 ---
 
