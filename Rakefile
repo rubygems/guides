@@ -113,6 +113,120 @@ file 'command-reference.md' =>
   File.write 'command-reference.md', content
 end
 
+desc "generate bundler command reference from the Bundler man pages"
+task :bundler_reference => %w[RUBYGEMS_DIR_exists] do
+  require 'cgi'
+  require 'json'
+  require 'nokogiri'
+  require 'ronn'
+
+  # The Bundler tree lives at the repository root on master, under
+  # bundler/ on the stable branches.
+  man_dir = %w[lib/bundler/man bundler/lib/bundler/man]
+    .map { |path| File.join(ENV['RUBYGEMS_DIR'], path) }
+    .find { |path| File.directory?(path) }
+  abort "No Bundler man directory found under #{ENV['RUBYGEMS_DIR']}" unless man_dir
+
+  bundler_version = File.read(File.expand_path('../version.rb', man_dir))[/VERSION = "([^"]+)"/, 1]
+
+  def titleize(header)
+    header.split(" ").map(&:capitalize).join(" ")
+  end
+
+  slugs = Dir.glob(File.join(man_dir, '*.ronn')).sort.map do |path|
+    File.basename(path)[/\A(.+)\.\d\w*\.ronn\z/, 1]
+  end
+
+  pages = {}
+
+  mkdir_p 'bundler-reference'
+
+  Dir.glob(File.join(man_dir, '*.ronn')).sort.each do |ronn_path|
+    slug = File.basename(ronn_path)[/\A(.+)\.\d\w*\.ronn\z/, 1]
+    title = slug.tr('-', ' ')
+
+    doc = Ronn::Document.new(ronn_path)
+    content = Nokogiri::HTML(doc.to_html).at('body').children
+
+    # Ported from bundler-site's man:strip_pages task.
+    content.search('.man-navigation').remove
+    content.search('ol.man-decor').remove
+
+    synopsis = content.search('#SYNOPSIS').first
+    if synopsis
+      synopsis.next_element.name = 'pre'
+      synopsis.remove
+    end
+
+    whatis = content.search('.man-whatis').text
+    content.search('p.man-name').remove
+    content.search('#NAME').remove
+
+    content.search('h2, h3').each { |elem| elem.content = titleize(elem.content) }
+
+    # Rewrite man cross references (relative or via bundler.io) to local pages.
+    content.search('a[href]').each do |a|
+      next unless a['href'] =~ %r{\A(?:https://bundler\.io/man/)?([a-z0-9-]+)\.\d\w*\.html(#.*)?\z}
+      next unless slugs.include?($1)
+      a['href'] = "/bundler-reference/#{$1}/#{$2}"
+    end
+
+    pages[slug] = { title: title, whatis: whatis, content: content.to_html.strip }
+  end
+
+  chain = ['/bundler-reference'] +
+          slugs.map { |slug| "/bundler-reference/#{slug}" } +
+          ['/rubygems-org-api']
+
+  slugs.each_with_index do |slug, index|
+    page = pages[slug]
+    File.write "bundler-reference/#{slug}.html", <<~PAGE
+      ---
+      layout: default
+      title: #{page[:title].to_json}
+      description: #{page[:whatis].to_json}
+      url: /bundler-reference/#{slug}
+      permalink: /bundler-reference/#{slug}/
+      previous: #{chain[index]}
+      next: #{chain[index + 2]}
+      ---
+
+      <em class="text-neutral-600">#{CGI.escapeHTML(page[:whatis])}</em>
+
+      #{page[:content]}
+    PAGE
+  end
+
+  primary_commands = %w[bundle bundle-install bundle-update bundle-cache bundle-exec bundle-config bundle-help]
+  utilities = slugs - primary_commands - %w[gemfile]
+
+  list = ->(slug) { "* [#{pages[slug][:title]}](/bundler-reference/#{slug}/) - #{pages[slug][:whatis]}\n" }
+
+  File.write 'bundler-reference/index.md', <<~INDEX
+    ---
+    layout: default
+    title: Bundler Command Reference
+    url: /bundler-reference
+    previous: /command-reference
+    next: /bundler-reference/bundle
+    ---
+
+    <em class="text-neutral-600">What each `bundle` command does, and how to use it.</em>
+
+    This reference was automatically generated from Bundler version #{bundler_version}.
+
+    ## Primary Commands
+
+    #{primary_commands.map(&list).join}
+    ## Utilities
+
+    #{utilities.map(&list).join}
+    ## Gemfile
+
+    #{list['gemfile']}
+  INDEX
+end
+
 desc "serve documentation on http://localhost:4000"
 task :server do
   pids = [
