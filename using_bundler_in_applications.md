@@ -287,10 +287,10 @@ To learn more about `bundle update` command click [here](https://bundler.io/man/
 
 ## Recommended Workflow
 
-For the recommended workflow when working with an application managed with Bundler, see the [Recommended Workflow with Version Control](./bundler_workflow.html) guide.
+For the recommended workflow when working with an application managed with Bundler, see the [Recommended Workflow with Version Control](/bundler_workflow) guide.
 
 ## Troubleshooting
 
 ### Running `git bisect` in projects using Bundler
 
-See [Git Bisect Guide](./git_bisect.html).
+See [Git Bisect Guide](/git_bisect).

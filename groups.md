@@ -75,7 +75,7 @@ Bundler.setup(:default, :ci)
 require 'nokogiri'
 ~~~
 
-<a href="./bundler_setup.html" class="btn btn-primary">Learn More: Bundler.setup</a>
+<a href="/bundler_setup" class="btn btn-primary">Learn More: Bundler.setup</a>
 
 ## Optional groups and `BUNDLE_WITH`
 <a name="optional-groups"></a>
@@ -121,8 +121,8 @@ Similarly, when you require `bundler/setup`, Bundler will ignore gems in
 these groups. You can see all of the settings that Bundler saved there
 by running `bundle config`, which will also print out global
 settings (stored in `~/.bundle/config`) and settings set via
-environment variables.  For more information on configuring Bundler,
-please see: [bundle_config](https://bundler.io/man/bundle-config.1.html)
+environment variables. For more information on configuring Bundler,
+please see: [`bundle config`](https://bundler.io/man/bundle-config.1.html)
 
 You can also specify which groups to automatically require through the parameters to
 `Bundler.require`. The `:default` group includes all gems not

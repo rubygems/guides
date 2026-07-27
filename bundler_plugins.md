@@ -24,7 +24,7 @@ Currently, a plugin is able to:
 - Add a special handler to install a gem (e.g. Mercurial or SVN)
 - Add functionality to specific hook points:
    - A list of all available hooks, their descriptions, and their block arguments are available
-     [in the plugin/events.rb file.](https://github.com/rubygems/rubygems/blob/master/bundler/lib/bundler/plugin/events.rb)
+     [in the plugin/events.rb file.](https://github.com/rubygems/rubygems/blob/master/lib/bundler/plugin/events.rb)
    - Note: Make sure to check out the `events.rb` file in the version of Bundler you are using.
 
 ## Using a plugin
@@ -155,16 +155,16 @@ For example, let's say you want to install gems from Amazon S3. This can be done
 It is recommended to get familiar with the API for `Bundler::Plugin::API::Source` which is available
 [on rubydoc.info](https://www.rubydoc.info/gems/bundler/Bundler/Plugin/API/Source)
 or
-[in the source code.](https://github.com/rubygems/rubygems/blob/master/bundler/lib/bundler/plugin/api/source.rb)
+[in the source code.](https://github.com/rubygems/rubygems/blob/master/lib/bundler/plugin/api/source.rb)
 
 The basic overview of the source plugin is that you must subclass `Bundler::Plugin::API::Source` and override a number of methods.
 Those methods are indicated in the docs/source code linked above.
 
 Bundler uses the source plugin API to provide interfaces for RubyGems, Git, and path-based gems. The source code for these pieces may prove useful in understanding the API:
 
-- [RubyGems source](https://github.com/rubygems/rubygems/blob/master/bundler/lib/bundler/source/rubygems.rb)
-- [git source](https://github.com/rubygems/rubygems/blob/master/bundler/lib/bundler/source/git.rb)
-- [path source](https://github.com/rubygems/rubygems/blob/master/bundler/lib/bundler/source/path.rb)
+- [RubyGems source](https://github.com/rubygems/rubygems/blob/master/lib/bundler/source/rubygems.rb)
+- [git source](https://github.com/rubygems/rubygems/blob/master/lib/bundler/source/git.rb)
+- [path source](https://github.com/rubygems/rubygems/blob/master/lib/bundler/source/path.rb)
 
 ### 6. Running your plugin locally
 <a name="running-your-plugin-locally" id="running_your_plugin_locally"></a>
@@ -189,9 +189,9 @@ Here are a few plugins that you can use as examples and inspiration:
 - For a plugin that makes use of hooks, take a look at
 [jules2689/extended_bundler-errors](https://github.com/jules2689/extended_bundler-errors)
 - For an example of source plugin, take a look at Bundler's implementations for
-[the RubyGems source,](https://github.com/rubygems/rubygems/blob/master/bundler/lib/bundler/source/rubygems.rb)
-[the git source,](https://github.com/rubygems/rubygems/blob/master/bundler/lib/bundler/source/git.rb)
+[the RubyGems source,](https://github.com/rubygems/rubygems/blob/master/lib/bundler/source/rubygems.rb)
+[the git source,](https://github.com/rubygems/rubygems/blob/master/lib/bundler/source/git.rb)
 and
-[the path source](https://github.com/rubygems/rubygems/blob/master/bundler/lib/bundler/source/path.rb)
+[the path source](https://github.com/rubygems/rubygems/blob/master/lib/bundler/source/path.rb)
 
 You can also look at the [full list of bundler plugins](/bundler_known_plugins).

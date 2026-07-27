@@ -81,17 +81,17 @@ An API key will automatically be created (default key name: *hostname-whoami-tim
 API key scopes
 --------------
 
-* [Index rubygems](https://guides.rubygems.org/rubygems-org-api/#get---apiv1gemsjsonyaml): List all RubyGems of your account
-* [Push rubygems](https://guides.rubygems.org/rubygems-org-api/#post---apiv1gems): Create a new RubyGem or publish a new version of any RubyGem you own
-* [Yank rubygems](https://guides.rubygems.org/rubygems-org-api/#delete---apiv1gemsyank): Remove a published version of any RubyGem you own
-* [Add owner](https://guides.rubygems.org/rubygems-org-api/#post---apiv1gemsgem-nameowners): Add a user to owners of any RubyGem you own
-* [Remove owner](https://guides.rubygems.org/rubygems-org-api/#delete---apiv1gemsgem-nameowners): Remove a user from owners of any RubyGem you own
-* [Access webhooks](https://guides.rubygems.org/rubygems-org-api/#webhook-methods): List, create, delete or fire webhooks associated with your account
+* [Index rubygems](/rubygems-org-api/#get---apiv1gemsjsonyaml): List all RubyGems of your account
+* [Push rubygems](/rubygems-org-api/#post---apiv1gems): Create a new RubyGem or publish a new version of any RubyGem you own
+* [Yank rubygems](/rubygems-org-api/#delete---apiv1gemsyank): Remove a published version of any RubyGem you own
+* [Add owner](/rubygems-org-api/#post---apiv1gemsgem-nameowners): Add a user to owners of any RubyGem you own
+* [Remove owner](/rubygems-org-api/#delete---apiv1gemsgem-nameowners): Remove a user from owners of any RubyGem you own
+* [Access webhooks](/rubygems-org-api/#webhook-methods): List, create, delete or fire webhooks associated with your account
 * [Show dashboard](https://rubygems.org/dashboard): Access to atom feed of your RubyGems.org dashboard. It is an exclusive scope and can't be enabled with any other scope.
 
 Scope an API key to a gem
 -------------------------
-Enabling one or more of the key scopes related to creating or updating a gem ([Push rubygems](https://guides.rubygems.org/rubygems-org-api/#post---apiv1gems), [Yank rubygems](https://guides.rubygems.org/rubygems-org-api/#delete---apiv1gemsyank), [Add owner](https://guides.rubygems.org/rubygems-org-api/#post---apiv1gemsgem-nameowners), and [Remove owner](https://guides.rubygems.org/rubygems-org-api/#delete---apiv1gemsgem-nameowners)) will allow you to scope one of your gems to the API key.
+Enabling one or more of the key scopes related to creating or updating a gem ([Push rubygems](/rubygems-org-api/#post---apiv1gems), [Yank rubygems](/rubygems-org-api/#delete---apiv1gemsyank), [Add owner](/rubygems-org-api/#post---apiv1gemsgem-nameowners), and [Remove owner](/rubygems-org-api/#delete---apiv1gemsgem-nameowners)) will allow you to scope one of your gems to the API key.
 The operations corresponding to these scopes will only be valid on the selected gem.
 
 ![New API key with gem scope](/images/new-api-key-gem-scope.png){:class="t-img"}
@@ -116,7 +116,7 @@ The expiration must be set to at least 5 minutes in the future. If no expiration
 Enable MFA on specific API keys
 -----------------------------
 
-If your account has MFA enabled on the **UI and gem signin** [authentication level](https://guides.rubygems.org/setting-up-multifactor-authentication/#authentication-levels), you have the option to enable MFA on a specific API key. This will require an OTP code for `gem push`, `yank`, `owner --add/--remove` commands.
+If your account has MFA enabled on the **UI and gem signin** [authentication level](/setting-up-multifactor-authentication/#authentication-levels), you have the option to enable MFA on a specific API key. This will require an OTP code for `gem push`, `yank`, `owner --add/--remove` commands.
 
 You can toggle this option when creating or editing an API key on the UI.
 ![New API key with MFA enabled](/images/new-mfa-api-key.png){:class="t-img"}

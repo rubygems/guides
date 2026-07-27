@@ -29,7 +29,7 @@ will see a dropdown menu with these options:
 **UI only** was previously a valid MFA level. However, it has been removed, and only accounts that are currently at that level will still see it in the dropdown.
 
 Note: If you are on the **UI and gem signin** authentication level,
-you can selectively enable MFA on specific API keys (see [API key scopes](https://guides.rubygems.org/api-key-scopes/#enable-mfa-on-specific-api-keys)).
+you can selectively enable MFA on specific API keys (see [API key scopes](/api-key-scopes/#enable-mfa-on-specific-api-keys)).
 This is different from the **UI and API** level as MFA is enabled on all API keys by default and cannot be selectively enabled.
 
 Steps to change your MFA level:
