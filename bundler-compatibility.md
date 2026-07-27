@@ -18,7 +18,11 @@ downgrading RubyGems should not affect Bundler.
 
 That effectively comes down to the following:
 
-* Bundler **2.6** or higher
+* Bundler **4.0** or higher
+  * requires a minimum ruby version of **3.2.0**, and a minimum RubyGems version of **3.4.1** (version of RubyGems shipped with ruby **3.2.0**).
+* Bundler **2.7**
+  * requires a minimum ruby version of **3.2.0**, and a minimum RubyGems version of **3.4.1** (version of RubyGems shipped with ruby **3.2.0**).
+* Bundler **2.6**
   * requires a minimum ruby version of **3.1.0**, and a minimum RubyGems version of **3.3.3** (version of RubyGems shipped with ruby **3.1.0**).
 * Bundler **2.5**
   * requires a minimum ruby version of **3.0.0**, and a minimum RubyGems version of **3.2.3** (version of RubyGems shipped with ruby **3.0.0**).
