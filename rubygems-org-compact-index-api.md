@@ -49,7 +49,7 @@ If the result matches the `Repr-Digest` header's SHA256 checksum, the file is co
 Each line in the `/versions` file includes the latest MD5 calculation of the matching `/info` file for that rubygem at the time the line was written.
 The latest MD5, closest to the end of the file, will match the MD5 of the up-to-date `/info` file.
 
-Exact implementation details are available in the [Bundler CompactIndexClient::Updater](https://github.com/rubygems/rubygems/blob/master/lib/bundler/compact_index_client/updater.rb).
+Exact implementation details are available in the [Bundler CompactIndexClient::Updater](https://github.com/ruby/rubygems/blob/master/lib/bundler/compact_index_client/updater.rb).
 
 ### GET - `/versions`
 

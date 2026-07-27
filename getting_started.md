@@ -131,7 +131,7 @@ If you have questions, try [the IRC channel](http://webchat.freenode.net/?channe
 or [mailing list](http://groups.google.com/group/ruby-bundler).
 If you're interested in contributing to the project (no programming skills needed),
 read [the contributing guide](/contributing)
-or [the development guide](https://github.com/rubygems/rubygems/tree/master/doc#development).
+or [the development guide](https://github.com/ruby/rubygems/tree/master/doc#development).
 While participating in the Bundler project, please keep the [code of conduct](https://bundler.io/conduct.html)
 in mind, and be inclusive and friendly towards everyone. If you have sponsorship or security questions, please contact the core team directly.
 
