@@ -1,0 +1,138 @@
+---
+layout: default
+title: "bundle outdated"
+description: "List installed gems with newer versions available"
+url: /command-reference/bundle-outdated
+permalink: /command-reference/bundle-outdated/
+previous: /command-reference/bundle-open
+next: /command-reference/bundle-platform
+---
+
+<em class="text-neutral-600">List installed gems with newer versions available</em>
+
+<p>This reference was automatically generated from Bundler version 4.0.17.</p>
+
+<div class="mp" id="man">
+
+  
+
+  
+
+  
+
+
+
+
+
+<pre><code>bundle outdated</code> [GEM] [--local]
+                        [--pre]
+                        [--source]
+                        [--filter-strict | --strict]
+                        [--update-strict]
+                        [--parseable | --porcelain]
+                        [--group=GROUP]
+                        [--groups]
+                        [--patch|--minor|--major]
+                        [--filter-major]
+                        [--filter-minor]
+                        [--filter-patch]
+                        [--only-explicit]
+                        [--cooldown=NUMBER]</pre>
+
+<h2 id="DESCRIPTION">Description</h2>
+
+<p>Outdated lists the names and versions of gems that have a newer version available
+in the given source. Calling outdated with [GEM [GEM]] will only check for newer
+versions of the given gems. Prerelease gems are ignored by default. If your gems
+are up to date, Bundler will exit with a status of 0. Otherwise, it will exit 1.</p>
+
+<h2 id="OPTIONS">Options</h2>
+
+<dl>
+<dt><code>--local</code></dt>
+<dd>Do not attempt to fetch gems remotely and use the gem cache instead.</dd>
+<dt><code>--pre</code></dt>
+<dd>Check for newer pre-release gems.</dd>
+<dt><code>--source=&lt;list&gt;</code></dt>
+<dd>Check against a specific source.</dd>
+<dt>
+<code>--filter-strict</code>, <code>--strict</code>
+</dt>
+<dd>Only list newer versions allowed by your Gemfile requirements, also respecting conservative update flags (--patch, --minor, --major).</dd>
+<dt><code>--update-strict</code></dt>
+<dd>Strict conservative resolution, do not allow any gem to be updated past latest --patch | --minor | --major.</dd>
+<dt>
+<code>--parseable</code>, <code>--porcelain</code>
+</dt>
+<dd> Use minimal formatting for more parseable output.</dd>
+<dt><code>--group=GROUP</code></dt>
+<dd>List gems from a specific group.</dd>
+<dt><code>--groups</code></dt>
+<dd>List gems organized by groups.</dd>
+<dt><code>--minor</code></dt>
+<dd>Prefer updating only to next minor version.</dd>
+<dt><code>--major</code></dt>
+<dd>Prefer updating to next major version (default).</dd>
+<dt><code>--patch</code></dt>
+<dd>Prefer updating only to next patch version.</dd>
+<dt><code>--filter-major</code></dt>
+<dd>Only list major newer versions.</dd>
+<dt><code>--filter-minor</code></dt>
+<dd>Only list minor newer versions.</dd>
+<dt><code>--filter-patch</code></dt>
+<dd>Only list patch newer versions.</dd>
+<dt><code>--only-explicit</code></dt>
+<dd>Only list gems specified in your Gemfile, not their dependencies.</dd>
+<dt><code>--cooldown=&lt;number&gt;</code></dt>
+<dd>Annotate (rather than hide) versions that are still inside the
+cooldown window of <var>number</var> days. The prose output appends "in
+cooldown for Nd more days" and the table form adds "(cooldown Nd)" to
+the Latest column. See <code>cooldown</code> in <a class="man-ref" href="/command-reference/bundle-config/">bundle-config<span class="s">(1)</span></a>.</dd>
+</dl>
+
+<h2 id="PATCH-LEVEL-OPTIONS">Patch Level Options</h2>
+
+<p>See <a href="/command-reference/bundle-update/">bundle update(1)</a> for details.</p>
+
+<h2 id="FILTERING-OUTPUT">Filtering Output</h2>
+
+<p>The 3 filtering options do not affect the resolution of versions, merely what versions are shown
+in the output.</p>
+
+<p>If the regular output shows the following:</p>
+
+<pre><code>* Gem       Current  Latest  Requested  Groups              Release Date
+* faker     1.6.5    1.6.6   ~&gt; 1.4     development, test   2024-02-05
+* hashie    1.2.0    3.4.6   = 1.2.0    default             2023-11-10
+* headless  2.2.3    2.3.1   = 2.2.3    test                2022-08-19
+</code></pre>
+
+<p><code>--filter-major</code> would only show:</p>
+
+<pre><code>* Gem       Current  Latest  Requested  Groups   Release Date
+* hashie    1.2.0    3.4.6   = 1.2.0    default  2023-11-10
+</code></pre>
+
+<p><code>--filter-minor</code> would only show:</p>
+
+<pre><code>* Gem       Current  Latest  Requested  Groups  Release Date
+* headless  2.2.3    2.3.1   = 2.2.3    test    2022-08-19
+</code></pre>
+
+<p><code>--filter-patch</code> would only show:</p>
+
+<pre><code>* Gem       Current  Latest  Requested  Groups              Release Date
+* faker     1.6.5    1.6.6   ~&gt; 1.4     development, test   2024-02-05
+</code></pre>
+
+<p>Filter options can be combined. <code>--filter-minor</code> and <code>--filter-patch</code> would show:</p>
+
+<pre><code>* Gem       Current  Latest  Requested  Groups              Release Date
+* faker     1.6.5    1.6.6   ~&gt; 1.4     development, test   2024-02-05
+</code></pre>
+
+<p>Combining all three <code>filter</code> options would be the same result as providing none of them.</p>
+
+  
+
+  </div>

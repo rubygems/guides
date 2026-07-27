@@ -1,0 +1,65 @@
+---
+layout: default
+title: "bundle binstubs"
+description: "Install the binstubs of the listed gems"
+url: /command-reference/bundle-binstubs
+permalink: /command-reference/bundle-binstubs/
+previous: /command-reference/bundle-add
+next: /command-reference/bundle-cache
+---
+
+<em class="text-neutral-600">Install the binstubs of the listed gems</em>
+
+<p>This reference was automatically generated from Bundler version 4.0.17.</p>
+
+<div class="mp" id="man">
+
+  
+
+  
+
+  
+
+
+
+
+
+<pre><code>bundle binstubs</code> <var>GEM_NAME</var> [--force] [--standalone] [--all-platforms]</pre>
+
+<h2 id="DESCRIPTION">Description</h2>
+
+<p>Binstubs are scripts that wrap around executables. Bundler creates a
+small Ruby file (a binstub) that loads Bundler, runs the command,
+and puts it into <code>bin/</code>. Binstubs are a shortcut-or alternative-
+to always using <code>bundle exec</code>. This gives you a file that can be run
+directly, and one that will always run the correct gem version
+used by the application.</p>
+
+<p>For example, if you run <code>bundle binstubs rspec-core</code>, Bundler will create
+the file <code>bin/rspec</code>. That file will contain enough code to load Bundler,
+tell it to load the bundled gems, and then run rspec.</p>
+
+<p>This command generates binstubs for executables in <code>GEM_NAME</code>.
+Binstubs are put into <code>bin</code>, or the directory specified by <code>bin</code> setting if it
+has been configured. Calling binstubs with [GEM [GEM]] will create binstubs for
+all given gems.</p>
+
+<h2 id="OPTIONS">Options</h2>
+
+<dl>
+<dt><code>--force</code></dt>
+<dd>Overwrite existing binstubs if they exist.</dd>
+<dt><code>--standalone</code></dt>
+<dd>Makes binstubs that can work without depending on Rubygems or Bundler at
+runtime.</dd>
+<dt><code>--shebang=SHEBANG</code></dt>
+<dd>Specify a different shebang executable name than the default (default 'ruby')</dd>
+<dt><code>--all</code></dt>
+<dd>Create binstubs for all gems in the bundle.</dd>
+<dt><code>--all-platforms</code></dt>
+<dd>Install binstubs for all platforms.</dd>
+</dl>
+
+  
+
+  </div>

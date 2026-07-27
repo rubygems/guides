@@ -1,0 +1,60 @@
+---
+layout: default
+title: "bundle init"
+description: "Generates a Gemfile into the current working directory"
+url: /command-reference/bundle-init
+permalink: /command-reference/bundle-init/
+previous: /command-reference/bundle-info
+next: /command-reference/bundle-install
+---
+
+<em class="text-neutral-600">Generates a Gemfile into the current working directory</em>
+
+<p>This reference was automatically generated from Bundler version 4.0.17.</p>
+
+<div class="mp" id="man">
+
+  
+
+  
+
+  
+
+
+
+
+
+<pre><code>bundle init</code> [--gemspec=FILE]</pre>
+
+<h2 id="DESCRIPTION">Description</h2>
+
+<p>Init generates a default <a href="/gemfile/"><code>Gemfile(5)</code></a> in the current working directory. When
+adding a <a href="/gemfile/"><code>Gemfile(5)</code></a> to a gem with a gemspec, the <code>--gemspec</code> option will
+automatically add each dependency listed in the gemspec file to the newly
+created <a href="/gemfile/"><code>Gemfile(5)</code></a>.</p>
+
+<h2 id="OPTIONS">Options</h2>
+
+<dl>
+<dt><code>--gemspec=GEMSPEC</code></dt>
+<dd>Use the specified .gemspec to create the <a href="/gemfile/"><code>Gemfile(5)</code></a>
+</dd>
+<dt><code>--gemfile=GEMFILE</code></dt>
+<dd>Use the specified name for the gemfile instead of <code>Gemfile</code>
+</dd>
+</dl>
+
+<h2 id="FILES">Files</h2>
+
+<p>Included in the default <a href="/gemfile/"><code>Gemfile(5)</code></a>
+generated is the line <code># frozen_string_literal: true</code>. This is a magic comment
+supported for the first time in Ruby 2.3. The presence of this line
+results in all string literals in the file being implicitly frozen.</p>
+
+<h2 id="SEE-ALSO">See Also</h2>
+
+<p><a href="/gemfile/">Gemfile(5)</a></p>
+
+  
+
+  </div>

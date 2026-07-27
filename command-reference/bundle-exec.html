@@ -1,0 +1,186 @@
+---
+layout: default
+title: "bundle exec"
+description: "Execute a command in the context of the bundle"
+url: /command-reference/bundle-exec
+permalink: /command-reference/bundle-exec/
+previous: /command-reference/bundle-env
+next: /command-reference/bundle-fund
+---
+
+<em class="text-neutral-600">Execute a command in the context of the bundle</em>
+
+<p>This reference was automatically generated from Bundler version 4.0.17.</p>
+
+<div class="mp" id="man">
+
+  
+
+  
+
+  
+
+
+
+
+
+<pre><code>bundle exec</code> [--gemfile=GEMFILE] <var>command</var></pre>
+
+<h2 id="DESCRIPTION">Description</h2>
+
+<p>This command executes the command, making all gems specified in the
+<a href="/gemfile/"><code>Gemfile(5)</code></a> available to <code>require</code> in Ruby programs.</p>
+
+<p>Essentially, if you would normally have run something like
+<code>rspec spec/my_spec.rb</code>, and you want to use the gems specified
+in the <a href="/gemfile/"><code>Gemfile(5)</code></a> and installed via <a href="/command-reference/bundle-install/">bundle install(1)</a>, you
+should run <code>bundle exec rspec spec/my_spec.rb</code>.</p>
+
+<p>Note that <code>bundle exec</code> does not require that an executable is
+available on your shell's <code>$PATH</code>.</p>
+
+<h2 id="OPTIONS">Options</h2>
+
+<dl>
+<dt><code>--gemfile=GEMFILE</code></dt>
+<dd>Use the specified gemfile instead of <a href="/gemfile/"><code>Gemfile(5)</code></a>.</dd>
+</dl>
+
+<h2 id="BUNDLE-INSTALL-BINSTUBS">Bundle Install --binstubs</h2>
+
+<p>If you use the <code>--binstubs</code> flag in <a href="/command-reference/bundle-install/">bundle install(1)</a>, Bundler will
+automatically create a directory (which defaults to <code>app_root/bin</code>)
+containing all of the executables available from gems in the bundle.</p>
+
+<p>After using <code>--binstubs</code>, <code>bin/rspec spec/my_spec.rb</code> is identical
+to <code>bundle exec rspec spec/my_spec.rb</code>.</p>
+
+<h2 id="ENVIRONMENT-MODIFICATIONS">Environment Modifications</h2>
+
+<p><code>bundle exec</code> makes a number of changes to the shell environment,
+then executes the command you specify in full.</p>
+
+<ul>
+  <li>make sure that it's still possible to shell out to <code>bundle</code>
+from inside a command invoked by <code>bundle exec</code> (using
+<code>$BUNDLE_BIN_PATH</code>)</li>
+  <li>put the directory containing executables (like <code>rails</code>, <code>rspec</code>,
+<code>rackup</code>) for your bundle on <code>$PATH</code>
+</li>
+  <li>make sure that if bundler is invoked in the subshell, it uses
+the same <code>Gemfile</code> (by setting <code>BUNDLE_GEMFILE</code>)</li>
+  <li>add <code>-rbundler/setup</code> to <code>$RUBYOPT</code>, which makes sure that
+Ruby programs invoked in the subshell can see the gems in
+the bundle</li>
+</ul>
+
+<p>It also modifies Rubygems:</p>
+
+<ul>
+  <li>disallow loading additional gems not in the bundle</li>
+  <li>modify the <code>gem</code> method to be a no-op if a gem matching
+the requirements is in the bundle, and to raise a
+<code>Gem::LoadError</code> if it's not</li>
+  <li>Define <code>Gem.refresh</code> to be a no-op, since the source
+index is always frozen when using bundler, and to
+prevent gems from the system leaking into the environment</li>
+  <li>Override <code>Gem.bin_path</code> to use the gems in the bundle,
+making system executables work</li>
+  <li>Add all gems in the bundle into Gem.loaded_specs</li>
+</ul>
+
+<p>Finally, <code>bundle exec</code> also implicitly modifies <code>Gemfile.lock</code> if the lockfile
+and the Gemfile do not match. Bundler needs the Gemfile to determine things
+such as a gem's groups, <code>autorequire</code>, and platforms, etc., and that
+information isn't stored in the lockfile. The Gemfile and lockfile must be
+synced in order to <code>bundle exec</code> successfully, so <code>bundle exec</code>
+updates the lockfile beforehand.</p>
+
+<h3 id="Loading">Loading</h3>
+
+<p>By default, when attempting to <code>bundle exec</code> to a file with a ruby shebang,
+Bundler will <code>Kernel.load</code> that file instead of using <code>Kernel.exec</code>. For the
+vast majority of cases, this is a performance improvement. In a rare few cases,
+this could cause some subtle side-effects (such as dependence on the exact
+contents of <code>$0</code> or <code>__FILE__</code>) and the optimization can be disabled by enabling
+the <code>disable_exec_load</code> setting.</p>
+
+<h3 id="Shelling-out">Shelling Out</h3>
+
+<p>Any Ruby code that opens a subshell (like <code>system</code>, backticks, or <code>%x{}</code>) will
+automatically use the current Bundler environment. If you need to shell out to
+a Ruby command that is not part of your current bundle, use the
+<code>with_unbundled_env</code> method with a block. Any subshells created inside the block
+will be given the environment present before Bundler was activated. For
+example, Homebrew commands run Ruby, but don't work inside a bundle:</p>
+
+<pre><code>Bundler.with_unbundled_env do
+  `brew install wget`
+end
+</code></pre>
+
+<p>Using <code>with_unbundled_env</code> is also necessary if you are shelling out to a different
+bundle. Any Bundler commands run in a subshell will inherit the current
+Gemfile, so commands that need to run in the context of a different bundle also
+need to use <code>with_unbundled_env</code>.</p>
+
+<pre><code>Bundler.with_unbundled_env do
+  Dir.chdir "/other/bundler/project" do
+    `bundle exec ./script`
+  end
+end
+</code></pre>
+
+<p>Bundler provides convenience helpers that wrap <code>system</code> and <code>exec</code>, and they
+can be used like this:</p>
+
+<pre><code>Bundler.unbundled_system('brew install wget')
+Bundler.unbundled_exec('brew install wget')
+</code></pre>
+
+<h2 id="RUBYGEMS-PLUGINS">Rubygems Plugins</h2>
+
+<p>At present, the Rubygems plugin system requires all files
+named <code>rubygems_plugin.rb</code> on the load path of <em>any</em> installed
+gem when any Ruby code requires <code>rubygems.rb</code>. This includes
+executables installed into the system, like <code>rails</code>, <code>rackup</code>,
+and <code>rspec</code>.</p>
+
+<p>Since Rubygems plugins can contain arbitrary Ruby code, they
+commonly end up activating themselves or their dependencies.</p>
+
+<p>For instance, the <code>gemcutter 0.5</code> gem depended on <code>json_pure</code>.
+If you had that version of gemcutter installed (even if
+you <em>also</em> had a newer version without this problem), Rubygems
+would activate <code>gemcutter 0.5</code> and <code>json_pure &lt;latest&gt;</code>.</p>
+
+<p>If your <a class="man-ref" href="/gemfile/">Gemfile<span class="s">(5)</span></a> also contained <code>json_pure</code> (or a gem
+with a dependency on <code>json_pure</code>), the latest version on
+your system might conflict with the version in your
+<a class="man-ref" href="/gemfile/">Gemfile<span class="s">(5)</span></a>, or the snapshot version in your <code>Gemfile.lock</code>.</p>
+
+<p>If this happens, bundler will say:</p>
+
+<pre><code>You have already activated json_pure 1.4.6 but your Gemfile
+requires json_pure 1.4.3. Consider using bundle exec.
+</code></pre>
+
+<p>In this situation, you almost certainly want to remove the
+underlying gem with the problematic gem plugin. In general,
+the authors of these plugins (in this case, the <code>gemcutter</code>
+gem) have released newer versions that are more careful in
+their plugins.</p>
+
+<p>You can find a list of all the gems containing gem plugins
+by running</p>
+
+<pre><code>ruby -e "puts Gem.find_files('rubygems_plugin.rb')"
+</code></pre>
+
+<p>At the very least, you should remove all but the newest
+version of each gem plugin, and also remove all gem plugins
+that you aren't using (<code>gem uninstall gem_name</code>).</p>
+
+  
+
+  </div>

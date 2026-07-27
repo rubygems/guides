@@ -133,13 +133,17 @@ task :bundler_reference => %w[RUBYGEMS_DIR_exists] do
     header.split(" ").map(&:capitalize).join(" ")
   end
 
-  slugs = Dir.glob(File.join(man_dir, '*.ronn')).sort.map do |path|
+  slugs = Dir.glob(File.join(man_dir, '*.ronn')).map do |path|
     File.basename(path)[/\A(.+)\.\d\w*\.ronn\z/, 1]
-  end
+  end.sort
+
+  # gemfile(5) replaces the former hand-written Gemfiles guide at /gemfile,
+  # the bundle commands live next to the gem command reference.
+  url_for = ->(slug) { slug == 'gemfile' ? '/gemfile' : "/command-reference/#{slug}" }
 
   pages = {}
 
-  mkdir_p 'bundler-reference'
+  mkdir_p 'command-reference'
 
   Dir.glob(File.join(man_dir, '*.ronn')).sort.each do |ronn_path|
     slug = File.basename(ronn_path)[/\A(.+)\.\d\w*\.ronn\z/, 1]
@@ -168,63 +172,34 @@ task :bundler_reference => %w[RUBYGEMS_DIR_exists] do
     content.search('a[href]').each do |a|
       next unless a['href'] =~ %r{\A(?:https://bundler\.io/man/)?([a-z0-9-]+)\.\d\w*\.html(#.*)?\z}
       next unless slugs.include?($1)
-      a['href'] = "/bundler-reference/#{$1}/#{$2}"
+      a['href'] = "#{url_for.call($1)}/#{$2}"
     end
 
     pages[slug] = { title: title, whatis: whatis, content: content.to_html.strip }
   end
 
-  chain = ['/bundler-reference'] +
-          slugs.map { |slug| "/bundler-reference/#{slug}" } +
-          ['/rubygems-org-api']
+  chain = ['/command-reference'] + slugs.map { |slug| url_for.call(slug) } + ['/getting_started']
 
   slugs.each_with_index do |slug, index|
     page = pages[slug]
-    File.write "bundler-reference/#{slug}.html", <<~PAGE
+    File.write "command-reference/#{slug}.html", <<~PAGE
       ---
       layout: default
       title: #{page[:title].to_json}
       description: #{page[:whatis].to_json}
-      url: /bundler-reference/#{slug}
-      permalink: /bundler-reference/#{slug}/
+      url: #{url_for.call(slug)}
+      permalink: #{url_for.call(slug)}/
       previous: #{chain[index]}
       next: #{chain[index + 2]}
       ---
 
       <em class="text-neutral-600">#{CGI.escapeHTML(page[:whatis])}</em>
 
+      <p>This reference was automatically generated from Bundler version #{bundler_version}.</p>
+
       #{page[:content]}
     PAGE
   end
-
-  primary_commands = %w[bundle bundle-install bundle-update bundle-cache bundle-exec bundle-config bundle-help]
-  utilities = slugs - primary_commands - %w[gemfile]
-
-  list = ->(slug) { "* [#{pages[slug][:title]}](/bundler-reference/#{slug}/) - #{pages[slug][:whatis]}\n" }
-
-  File.write 'bundler-reference/index.md', <<~INDEX
-    ---
-    layout: default
-    title: Bundler Command Reference
-    url: /bundler-reference
-    previous: /command-reference
-    next: /bundler-reference/bundle
-    ---
-
-    <em class="text-neutral-600">What each `bundle` command does, and how to use it.</em>
-
-    This reference was automatically generated from Bundler version #{bundler_version}.
-
-    ## Primary Commands
-
-    #{primary_commands.map(&list).join}
-    ## Utilities
-
-    #{utilities.map(&list).join}
-    ## Gemfile
-
-    #{list['gemfile']}
-  INDEX
 end
 
 desc "serve documentation on http://localhost:4000"

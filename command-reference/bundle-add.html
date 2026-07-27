@@ -1,0 +1,121 @@
+---
+layout: default
+title: "bundle add"
+description: "Add gem to the Gemfile and run bundle install"
+url: /command-reference/bundle-add
+permalink: /command-reference/bundle-add/
+previous: /command-reference/bundle
+next: /command-reference/bundle-binstubs
+---
+
+<em class="text-neutral-600">Add gem to the Gemfile and run bundle install</em>
+
+<p>This reference was automatically generated from Bundler version 4.0.17.</p>
+
+<div class="mp" id="man">
+
+  
+
+  
+
+  
+
+
+
+
+
+<pre><code>bundle add</code> <var>GEM_NAME</var> [--group=GROUP] [--version=VERSION] [--source=SOURCE]
+           [--path=PATH] [--git=GIT|--github=GITHUB] [--branch=BRANCH] [--ref=REF]
+           [--cooldown=NUMBER] [--quiet] [--skip-install] [--strict|--optimistic]</pre>
+
+<h2 id="DESCRIPTION">Description</h2>
+
+<p>Adds the named gem to the <a href="/gemfile/"><code>Gemfile(5)</code></a> and run <code>bundle install</code>.
+<code>bundle install</code> can be avoided by using the flag <code>--skip-install</code>.</p>
+
+<h2 id="OPTIONS">Options</h2>
+
+<dl>
+<dt>
+<code>--version=VERSION</code>, <code>-v=VERSION</code>
+</dt>
+<dd>Specify version requirements(s) for the added gem.</dd>
+<dt>
+<code>--group=GROUP</code>, <code>-g=GROUP</code>
+</dt>
+<dd>Specify the group(s) for the added gem. Multiple groups should be separated by commas.</dd>
+<dt>
+<code>--source=SOURCE</code>, <code>-s=SOURCE</code>
+</dt>
+<dd>Specify the source for the added gem.</dd>
+<dt>
+<code>--require=REQUIRE</code>, <code>-r=REQUIRE</code>
+</dt>
+<dd>Adds require path to gem. Provide false, or a path as a string.</dd>
+<dt><code>--path=PATH</code></dt>
+<dd>Specify the file system path for the added gem.</dd>
+<dt><code>--git=GIT</code></dt>
+<dd>Specify the git source for the added gem.</dd>
+<dt><code>--github=GITHUB</code></dt>
+<dd>Specify the github source for the added gem.</dd>
+<dt><code>--branch=BRANCH</code></dt>
+<dd>Specify the git branch for the added gem.</dd>
+<dt><code>--ref=REF</code></dt>
+<dd>Specify the git ref for the added gem.</dd>
+<dt><code>--glob=GLOB</code></dt>
+<dd>Specify the location of a dependency's .gemspec, expanded within Ruby (single quotes recommended).</dd>
+<dt><code>--quiet</code></dt>
+<dd>Do not print progress information to the standard output.</dd>
+<dt><code>--skip-install</code></dt>
+<dd>Adds the gem to the Gemfile but does not install it.</dd>
+<dt><code>--optimistic</code></dt>
+<dd>Adds optimistic declaration of version.</dd>
+<dt><code>--strict</code></dt>
+<dd>Adds strict declaration of version.</dd>
+<dt><code>--cooldown=&lt;number&gt;</code></dt>
+<dd>Only consider gem versions published at least <var>number</var> days ago when
+resolving. Pass <code>0</code> to disable cooldown for this run. See <code>cooldown</code>
+in <a class="man-ref" href="/command-reference/bundle-config/">bundle-config<span class="s">(1)</span></a> for precedence rules.</dd>
+</dl>
+
+<h2 id="EXAMPLES">Examples</h2>
+
+<ol>
+  <li>
+    <p>You can add the <code>rails</code> gem to the Gemfile without any version restriction.
+The source of the gem will be the global source.</p>
+
+    <p><code>bundle add rails</code></p>
+  </li>
+  <li>
+    <p>You can add the <code>rails</code> gem with version greater than 1.1 (not including 1.1) and less than 3.0.</p>
+
+    <p><code>bundle add rails --version "&gt; 1.1, &lt; 3.0"</code></p>
+  </li>
+  <li>
+    <p>You can use the <code>https://gems.example.com</code> custom source and assign the gem
+to a group.</p>
+
+    <p><code>bundle add rails --version "~&gt; 5.0.0" --source "https://gems.example.com" --group "development"</code></p>
+  </li>
+  <li>
+    <p>The following adds the <code>gem</code> entry to the Gemfile without installing the
+gem. You can install gems later via <code>bundle install</code>.</p>
+
+    <p><code>bundle add rails --skip-install</code></p>
+  </li>
+  <li>
+    <p>You can assign the gem to more than one group.</p>
+
+    <p><code>bundle add rails --group "development, test"</code></p>
+  </li>
+</ol>
+
+<h2 id="SEE-ALSO">See Also</h2>
+
+<p><a href="/gemfile/">Gemfile(5)</a>,
+<a href="/command-reference/bundle-remove/">bundle-remove(1)</a></p>
+
+  
+
+  </div>
