@@ -2,8 +2,8 @@
 layout: default
 title: Using S3 as gem source
 url: /using-s3-source
-previous: /mfa-requirement-opt-in
-next: /default-gems-and-bundled-gems
+previous: /run-your-own-gem-server
+next: /plugins
 ---
 <em class="text-neutral-600">How to use S3 bucket as gem source.</em>
 

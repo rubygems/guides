@@ -2,8 +2,8 @@
 layout: default
 title: RubyGems Common Vulnerabilities and Exposures
 url: /cve
-previous: /credits
-next: /trusted-publishing
+previous: /default-gems-and-bundled-gems
+next: /command-reference
 ---
 
 ## CVE-2013-4287: Algorithmic complexity vulnerability in RubyGems 2.0.7 and older

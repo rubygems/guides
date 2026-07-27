@@ -2,8 +2,8 @@
 layout: default
 title: Command Reference
 url: /command-reference
-previous: /specification-reference
-next: /rubygems-org-api
+previous: /cve
+next: /command-reference/bundle
 ---
 
 <em class="text-neutral-600">What each `gem` command does, and how to use it.</em>

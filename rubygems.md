@@ -2,8 +2,8 @@
 layout: default
 title: Bundler in gems
 url: /rubygems
-previous: /bundler-compatibility
-next: /gemfile
+previous: /gems-with-extensions
+next: /trusted-publishing
 ---
 
 ## Using Bundler while developing a gem

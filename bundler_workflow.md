@@ -2,8 +2,8 @@
 layout: default
 title: Recommended Workflow with Version Control
 url: /bundler_workflow
-previous: /bundler_known_plugins
-next: /gemfile_ruby
+previous: /git
+next: /bundler_setup
 ---
 
 In general, when working with an application managed with bundler, you

@@ -2,8 +2,8 @@
 layout: default
 title: Frequently Asked Questions
 url: /faqs
-previous: /contributing
-next: /plugins
+previous: /bundler_known_plugins
+next: /resources
 redirect_from: /faq/
 ---
 

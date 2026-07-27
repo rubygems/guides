@@ -2,8 +2,8 @@
 layout: default
 title: Ruby Directive
 url: /gemfile_ruby
-previous: /bundler_workflow
-next: /
+previous: /gemfile
+next: /specification-reference
 ---
 
 ## Specifying a Ruby Version

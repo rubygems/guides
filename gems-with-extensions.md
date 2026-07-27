@@ -2,8 +2,8 @@
 layout: default
 title: Gems with Extensions
 url: /gems-with-extensions
-previous: /make-your-own-gem
-next: /name-your-gem
+previous: /patterns
+next: /rubygems
 redirect_from: /c-extensions/
 ---
 

@@ -3,7 +3,7 @@ layout: default
 title: Contributing to RubyGems
 url: /contributing
 previous: /resources
-next: /faqs
+next: /bundler_2_upgrade
 ---
 
 <em class="text-neutral-600">How you can help make RubyGems and the surrounding ecosystem better.</em>

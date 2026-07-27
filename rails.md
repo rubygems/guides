@@ -2,8 +2,8 @@
 layout: default
 title: How to use Bundler with Rails
 url: /rails
-previous: /bundler_docker_guide
-next: /bundler_setup
+previous: /security
+next: /sinatra
 ---
 
 Rails comes with baked-in support for Bundler.

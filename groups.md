@@ -2,8 +2,8 @@
 layout: default
 title: How to manage groups of gems
 url: /groups
-previous: /using_bundler_in_applications
-next: /dependency_management
+previous: /updating_gems
+next: /git
 ---
 
 Grouping your dependencies allows you

@@ -2,8 +2,8 @@
 layout: default
 title: Removing a published gem
 url: /removing-a-published-gem
-previous: /managing-owners-using-ui
-next: /ssl-certificate-update
+previous: /organizations/transferring-gems
+next: /security
 ---
 
 <em class="text-neutral-600">Published a gem before it was ready for release? Published a gem with the wrong name?</em>

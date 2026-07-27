@@ -2,8 +2,8 @@
 layout: default
 title: Security
 url: /security
-previous: /publishing
-next: /managing-owners-using-ui
+previous: /removing-a-published-gem
+next: /rails
 ---
 
 <em class="text-neutral-600">How to build and install cryptographically signed gems-- and other security concerns.</em>

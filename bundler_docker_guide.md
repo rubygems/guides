@@ -2,8 +2,8 @@
 layout: default
 title: How to use Bundler with Docker
 url: /bundler_docker_guide
-previous: /bundler_in_a_single_file_ruby_script
-next: /rails
+previous: /sinatra
+next: /rubymotion
 ---
 
 ## Introduction

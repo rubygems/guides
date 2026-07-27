@@ -2,7 +2,7 @@
 layout: default
 title: RubyGems.org rate limits
 url: /rubygems-org-rate-limits
-previous: /rubygems-org-api-v2
+previous: /rubygems-org-compact-index-api
 next: /api-key-scopes
 ---
 

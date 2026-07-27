@@ -2,8 +2,8 @@
 layout: default
 title: Trusted Publishing
 url: /trusted-publishing
-previous: /cve
-next: /organizations
+previous: /rubygems
+next: /setting-up-multifactor-authentication
 redirect_from:
   - /trusted-publishing/adding-a-publisher/
   - /trusted-publishing/pushing-a-new-gem/

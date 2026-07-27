@@ -2,8 +2,8 @@
 layout: default
 title: Managing Owners via UI
 url: /managing-owners-using-ui
-previous: /security
-next: /removing-a-published-gem
+previous: /mfa-requirement-opt-in
+next: /organizations
 ---
 
 <em class="text-neutral-600">How to add or remove owners to your gem using the web UI?</em>

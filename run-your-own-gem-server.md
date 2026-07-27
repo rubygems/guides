@@ -2,8 +2,8 @@
 layout: default
 title: Run your own gem server
 url: /run-your-own-gem-server
-previous: /api-key-scopes
-next: /setting-up-multifactor-authentication
+previous: /rubymotion
+next: /using-s3-source
 ---
 
 <em class="text-neutral-600">Need to serve gems locally or for your organization?</em>

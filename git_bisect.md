@@ -2,8 +2,8 @@
 layout: default
 title: How to use git bisect with Bundler
 url: /git_bisect
-previous: /sinatra
-next: /bundler_plugins
+previous: /ssl-certificate-update
+next: /what-is-a-gem
 ---
 
 ## How to use git bisect

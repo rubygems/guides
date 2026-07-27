@@ -2,8 +2,8 @@
 layout: default
 title: Publishing your gem
 url: /publishing
-previous: /name-your-gem
-next: /security
+previous: /make-your-own-gem
+next: /using_bundler_in_applications
 ---
 
 <em class="text-neutral-600">Start with an idea, end with a distributable package of Ruby code.</em>

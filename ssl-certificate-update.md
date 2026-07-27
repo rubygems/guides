@@ -2,8 +2,8 @@
 layout: default
 title: SSL Certificate Update
 url: /ssl-certificate-update
-previous: /removing-a-published-gem
-next: /patterns
+previous: /rubygems_tls_ssl_troubleshooting_guide
+next: /git_bisect
 ---
 
 If you’ve seen the following SSL error when trying to pull updates from RubyGems:

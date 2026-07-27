@@ -3,7 +3,7 @@ layout: default
 title: RubyGems Basics
 url: /rubygems-basics
 previous: /
-next: /what-is-a-gem
+next: /getting_started
 ---
 
 <em class="text-neutral-600">Use of common RubyGems commands</em>

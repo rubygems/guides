@@ -2,8 +2,8 @@
 layout: default
 title: Patterns
 url: /patterns
-previous: /ssl-certificate-update
-next: /specification-reference
+previous: /name-your-gem
+next: /gems-with-extensions
 ---
 
 <em class="text-neutral-600">Common practices to make your gem users' and other developers' lives easier.</em>
