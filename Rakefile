@@ -113,6 +113,98 @@ file 'command-reference.md' =>
   File.write 'command-reference.md', content
 end
 
+desc "generate bundler command reference from the Bundler man pages"
+task :bundler_reference => %w[RUBYGEMS_DIR_exists] do
+  require 'cgi'
+  require 'json'
+  require 'nokogiri'
+  require 'ronn'
+
+  # The Bundler tree lives at the repository root on master, under
+  # bundler/ on the stable branches.
+  man_dir = %w[lib/bundler/man bundler/lib/bundler/man]
+    .map { |path| File.join(ENV['RUBYGEMS_DIR'], path) }
+    .find { |path| File.directory?(path) }
+  abort "No Bundler man directory found under #{ENV['RUBYGEMS_DIR']}" unless man_dir
+
+  bundler_version = File.read(File.expand_path('../version.rb', man_dir))[/VERSION = "([^"]+)"/, 1]
+
+  def titleize(header)
+    header.split(" ").map(&:capitalize).join(" ")
+  end
+
+  slugs = Dir.glob(File.join(man_dir, '*.ronn')).map do |path|
+    File.basename(path)[/\A(.+)\.\d\w*\.ronn\z/, 1]
+  end.sort
+
+  # gemfile(5) replaces the former hand-written Gemfiles guide at /gemfile,
+  # the bundle commands live next to the gem command reference.
+  url_for = ->(slug) { slug == 'gemfile' ? '/gemfile' : "/command-reference/#{slug}" }
+
+  pages = {}
+
+  mkdir_p 'command-reference'
+
+  Dir.glob(File.join(man_dir, '*.ronn')).sort.each do |ronn_path|
+    slug = File.basename(ronn_path)[/\A(.+)\.\d\w*\.ronn\z/, 1]
+    title = slug.tr('-', ' ')
+
+    doc = Ronn::Document.new(ronn_path)
+    content = Nokogiri::HTML(doc.to_html).at('body').children
+
+    # Ported from bundler-site's man:strip_pages task.
+    content.search('.man-navigation').remove
+    content.search('ol.man-decor').remove
+
+    synopsis = content.search('#SYNOPSIS').first
+    if synopsis
+      synopsis.next_element.name = 'pre'
+      synopsis.remove
+    end
+
+    whatis = content.search('.man-whatis').text
+    content.search('p.man-name').remove
+    content.search('#NAME').remove
+
+    content.search('h2, h3').each { |elem| elem.content = titleize(elem.content) }
+
+    # Rewrite man cross references (relative or via bundler.io) to local pages.
+    content.search('a[href]').each do |a|
+      next unless a['href'] =~ %r{\A(?:https://bundler\.io/man/)?([a-z0-9-]+)\.\d\w*\.html(#.*)?\z}
+      next unless slugs.include?($1)
+      a['href'] = "#{url_for.call($1)}/#{$2}"
+    end
+
+    pages[slug] = { title: title, whatis: whatis, content: content.to_html.strip }
+  end
+
+  chain = ['/command-reference'] + slugs.map { |slug| url_for.call(slug) } + ['/getting_started']
+
+  slugs.each_with_index do |slug, index|
+    page = pages[slug]
+    File.write "command-reference/#{slug}.html", <<~PAGE
+      ---
+      layout: default
+      title: #{page[:title].to_json}
+      description: #{page[:whatis].to_json}
+      url: #{url_for.call(slug)}
+      permalink: #{url_for.call(slug)}/
+      previous: #{chain[index]}
+      next: #{chain[index + 2]}
+      ---
+
+      <em class="text-neutral-600">#{CGI.escapeHTML(page[:whatis])}</em>
+
+      <p>This reference was automatically generated from Bundler version #{bundler_version}.</p>
+
+      #{page[:content]}
+    PAGE
+  end
+end
+
+desc "generate the gem and bundle command references"
+task :command_reference => %w[command_guide bundler_reference]
+
 desc "serve documentation on http://localhost:4000"
 task :server do
   pids = [

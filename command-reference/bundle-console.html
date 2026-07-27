@@ -1,0 +1,70 @@
+---
+layout: default
+title: "bundle console"
+description: "Open an IRB session with the bundle pre-loaded"
+url: /command-reference/bundle-console
+permalink: /command-reference/bundle-console/
+previous: /command-reference/bundle-config
+next: /command-reference/bundle-doctor
+---
+
+<em class="text-neutral-600">Open an IRB session with the bundle pre-loaded</em>
+
+<p>This reference was automatically generated from Bundler version 4.0.17.</p>
+
+<div class="mp" id="man">
+
+  
+
+  
+
+  
+
+
+
+
+
+<pre><code>bundle console</code> [GROUP]</pre>
+
+<h2 id="DESCRIPTION">Description</h2>
+
+<p>Starts an interactive Ruby console session in the context of the current bundle.</p>
+
+<p>If no <code>GROUP</code> is specified, all gems in the <code>default</code> group in the <a href="/gemfile/">Gemfile(5)</a> are
+preliminarily loaded.</p>
+
+<p>If <code>GROUP</code> is specified, all gems in the given group in the Gemfile in addition
+to the gems in <code>default</code> group are loaded. Even if the given group does not
+exist in the Gemfile, IRB console starts without any warning or error.</p>
+
+<p>The environment variable <code>BUNDLE_CONSOLE</code> or <code>bundle config set console</code> can be used to change
+the shell from the following:</p>
+
+<ul>
+  <li>
+<code>irb</code> (default)</li>
+  <li>
+<code>pry</code> (https://github.com/pry/pry)</li>
+  <li>
+<code>ripl</code> (https://github.com/cldwalker/ripl)</li>
+</ul>
+
+<p><code>bundle console</code> uses irb by default. An alternative Pry or Ripl can be used with
+<code>bundle console</code> by adjusting the <code>console</code> Bundler setting. Also make sure that
+<code>pry</code> or <code>ripl</code> is in your Gemfile.</p>
+
+<h2 id="EXAMPLE">Example</h2>
+
+<pre><code>$ bundle config set console pry
+$ bundle console
+Resolving dependencies...
+[1] pry(main)&gt;
+</code></pre>
+
+<h2 id="SEE-ALSO">See Also</h2>
+
+<p><a href="/gemfile/">Gemfile(5)</a></p>
+
+  
+
+  </div>

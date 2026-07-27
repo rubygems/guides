@@ -33,8 +33,8 @@ jobs:
         run: bundle exec jekyll build
         working-directory: guides
 
-      - name: Generate command guide
-        run: RUBYOPT="--disable-gems -I../rubygems/lib" RUBYGEMS_DIR="../rubygems" bundle exec rake command_guide && git diff --exit-code
+      - name: Generate command references
+        run: RUBYOPT="--disable-gems -I../rubygems/lib" RUBYGEMS_DIR="../rubygems" bundle exec rake command_reference && git diff --exit-code
         working-directory: guides
 
       - name: Lint generated markdown
