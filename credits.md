@@ -2,7 +2,7 @@
 layout: default
 title: Credits
 previous: /organizations/transferring-gems
-next: /rubygems
+next: /bundler-compatibility
 ---
 
 <em class="text-neutral-600">This site is [open source](https://github.com/rubygems/guides) and its content is
