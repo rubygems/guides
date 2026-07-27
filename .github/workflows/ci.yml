@@ -37,6 +37,10 @@ jobs:
         run: RUBYOPT="--disable-gems -I../rubygems/lib" RUBYGEMS_DIR="../rubygems" bundle exec rake command_guide && git diff --exit-code
         working-directory: guides
 
+      - name: Generate bundler reference
+        run: RUBYGEMS_DIR="../rubygems" bundle exec rake bundler_reference && git diff --exit-code
+        working-directory: guides
+
       - name: Lint generated markdown
         run: bundle exec mdl --rules MD009,MD012 command-reference.md
         working-directory: guides
