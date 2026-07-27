@@ -25,7 +25,22 @@
       --pf-border-radius: 4px;
       --pf-font: "Titillium Web", sans-serif;
     }
+
+    .pagefind-highlight {
+      background-color: #FFCEB6;
+      color: #222831;
+      border-radius: 2px;
+      padding: 0 0.1em;
+    }
   </style>
+  <script type="module">
+    // mark.js is bundled into pagefind-highlight.js, so only pull it in on
+    // the pages actually arrived at from a search result.
+    if (new URLSearchParams(window.location.search).has('highlight')) {
+      await import('/pagefind/pagefind-highlight.js');
+      new PagefindHighlight({ highlightParam: 'highlight' });
+    }
+  </script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var path = window.location.pathname.replace(/\/$/, '');
@@ -109,6 +124,7 @@
 
         <div class="md:float-left md:w-[240px] mb-[60px] md:mb-0 print:hidden">
           <div class="mb-6">
+            <pagefind-config highlight-param="highlight"></pagefind-config>
             <pagefind-modal-trigger></pagefind-modal-trigger>
             <pagefind-modal></pagefind-modal>
           </div>
