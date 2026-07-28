@@ -12,7 +12,7 @@ The official Docker images for Ruby assume that you will use only one applicatio
 
 If you want to install more than one Gemfile in your container, or simply install gems via RubyGems and use them as system gems, this situation is confusing, and has historically led to many confusing errors that appear to be bugs in Bundler.
 
-However, these errors ultimately come from the way the Dockerfile tells Bundler to create [binstubs](https://bundler.io/v1.16/man/bundle-binstubs.1.html) (which are linked to one application and Gemfile) in a single global place for the entire container. If you install two Gemfiles with `rake`, for example, running the `rake` command will always load the last Gemfile that was installed, and never any others.
+However, these errors ultimately come from the way the Dockerfile tells Bundler to create [binstubs](/command-reference/bundle-binstubs/) (which are linked to one application and Gemfile) in a single global place for the entire container. If you install two Gemfiles with `rake`, for example, running the `rake` command will always load the last Gemfile that was installed, and never any others.
 
 ## Dockerfiles for multiple Ruby applications and gems
 

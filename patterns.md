@@ -128,7 +128,7 @@ specific version of a gem:
     require "extlib"
 
 It's reasonable for applications that consume gems to use this (though they
-could also use a tool like [Bundler](https://bundler.io/)). Gems themselves
+could also use a tool like [Bundler](/getting_started)). Gems themselves
 **should not** do this. They should instead use dependencies in the gemspec so
 RubyGems can handle loading the dependency instead of the user.
 
@@ -220,7 +220,7 @@ specific bug fix you can use a compound requirement:
     gem 'library', '>= 2.2.1'
 
 > If you're dealing with a lot of gem dependencies in your application, we
-> recommend that you take a look into [Bundler](https://bundler.io/) or
+> recommend that you take a look into [Bundler](/getting_started) or
 > [Isolate](https://github.com/jbarnette/isolate) which do a great job of
 > managing a complex version manifest for many gems.
 

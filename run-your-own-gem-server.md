@@ -153,7 +153,7 @@ Then install gems as usual:
     Successfully installed secretgem-0.0.1
     1 gem installed
 
-If you're using [Bundler](https://bundler.io/) then you can specify this
+If you're using [Bundler](/getting_started) then you can specify this
 server as a gem source in your `Gemfile`:
 
     [~/dev/myapp] cat Gemfile

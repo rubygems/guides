@@ -86,7 +86,7 @@ Gems inside block will be retrieved from given source.
 
 ***
 
-Learn more about `source` [here](https://bundler.io/man/gemfile.5.html#GLOBAL-SOURCES). 
+Learn more about `source` [here](/gemfile/#GLOBAL-SOURCE). 
 
 ### Adding Gems
 
@@ -121,11 +121,11 @@ gem "nokogiri", ">= 1.4.2"
 
 ***
 
-Learn more about gems in Gemfile [here](https://bundler.io/man/gemfile.5.html#GEMS).
+Learn more about gems in Gemfile [here](/gemfile/#GEMS).
 
 ### Gemfile Syntax
 
-Learn more about Gemfile syntax from the [gemfile manpage](https://bundler.io/man/gemfile.5.html#SYNTAX).
+Learn more about Gemfile syntax from the [gemfile manpage](/gemfile/#SYNTAX).
 
 ## Installing Gems - **bundle install**
 
@@ -146,7 +146,7 @@ This should give you similar output:
     Bundle complete! 1 Gemfile dependency, 4 gems now installed.
     Use `bundle show [gemname]` to see where a bundled gem is installed.
 
-It should also create [`Gemfile.lock` file](https://bundler.io/man/bundle-install.1.html#THE-GEMFILE-LOCK):
+It should also create [`Gemfile.lock` file](/command-reference/bundle-install/#THE-GEMFILE-LOCK):
 
     GEM
       remote: https://rubygems.org/
@@ -171,7 +171,7 @@ This Gemfile.lock is described in [next chapter](#gemfilelock).
 ### Deployment
 
 For deployment you should use
-[`--deployment` option](https://bundler.io/man/bundle-install.1.html#DEPLOYMENT-MODE):
+[`--deployment` option](/command-reference/bundle-install/#DEPLOYMENT-MODE):
 
     $ bundle install --deployment
     
@@ -184,7 +184,7 @@ To run this command, there are some requirements:
 
 ***
 
-To learn more about `bundle install` command click [here](https://bundler.io/man/bundle-install.1.html).
+To learn more about `bundle install` command click [here](/command-reference/bundle-install/).
 
 ## Gemfile.lock
 
@@ -223,7 +223,7 @@ Let's break it down:
   * `remote` - source of gems
   * `specs` - installed gems (with versions). We can see here that `mini_portile2` is
   dependency of `nokogiri` because it's beneath and indented
-* `PLATFORMS` - platform that is used in your application ([see more here](https://bundler.io/man/gemfile.5.html#PLATFORMS)).
+* `PLATFORMS` - platform that is used in your application ([see more here](/gemfile/#PLATFORMS)).
 * `DEPENDENCIES` - gems defined in our Gemfile.
 * `BUNDLED WITH` - version of Bundler which was last used to change `Gemfile.lock`
 
@@ -240,7 +240,7 @@ making all gems in Gemfile available to `require` and use.
 
 ***
 
-To learn more about `bundle exec` command click [here](https://bundler.io/man/bundle-exec.1.html).
+To learn more about `bundle exec` command click [here](/command-reference/bundle-exec/).
 
 ## Updating Gems - **bundle outdated** and **bundle update**
 
@@ -281,9 +281,9 @@ To update specific gems, use `bundle update *gems`
 
 ***
 
-To learn more about `bundle outdated` command click [here](https://bundler.io/bundle_outdated.html).
+To learn more about `bundle outdated` command click [here](/command-reference/bundle-outdated/).
 
-To learn more about `bundle update` command click [here](https://bundler.io/man/bundle-update.1.html).
+To learn more about `bundle update` command click [here](/command-reference/bundle-update/).
 
 ## Recommended Workflow
 
