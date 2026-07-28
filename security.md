@@ -63,6 +63,10 @@ Reporting security vulnerabilities
 
 Report vulnerabilities in RubyGems, Bundler, or the RubyGems.org service, as well as malicious gems published on RubyGems.org, to <security@rubygems.org> or through [HackerOne](https://hackerone.com/rubygems). Do not open a public issue.
 
+### In Ruby itself
+
+Vulnerabilities in the Ruby language belong to a separate program. Report them to the Ruby security team through [HackerOne](https://hackerone.com/ruby) or <security@ruby-lang.org>. See the [Ruby security page](https://www.ruby-lang.org/en/security/) for the scope of that program.
+
 ### In someone else's gem
 
 First check whether the vulnerability is already known by searching [RubySec](https://rubysec.com). If it appears to be new, contact the authors privately rather than through a public issue or pull request. Explain the issue, how it can be exploited, and ideally how it might be fixed. If the gem is developed on GitHub, the repository may accept [private vulnerability reports](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability).
