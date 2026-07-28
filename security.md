@@ -31,7 +31,7 @@ If you suspect your account has been compromised or a malicious version of your 
 Securing your dependencies
 --------------------------
 
-Commit your `Gemfile.lock` to version control. It pins the exact version of every dependency, so every machine installs the same code that you tested.
+Bundler records the exact version of every dependency in `Gemfile.lock`, so later installs from the same lockfile use the same code that you tested. The protections below build on it.
 
 ### Lockfile checksums
 
