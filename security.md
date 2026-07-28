@@ -20,9 +20,9 @@ Securing your account
 
 If you publish gems, your RubyGems.org account is part of your users' supply chain. Protecting it protects everyone who installs your gems.
 
-Enable multi-factor authentication. It is the most effective defense against account takeover. See [Setting up multi-factor authentication](/setting-up-multifactor-authentication) to enable it and [Using MFA in the command line](/using-mfa-in-command-line) for how it affects `gem` commands. You can also [require MFA from all owners of your gems](/mfa-requirement-opt-in).
+Enable multi-factor authentication. It is the most effective defense against account takeover. Prefer [WebAuthn](/setting-up-webauthn-mfa) with a security key or passkey, which resists the phishing attacks behind recent account takeovers in other packaging ecosystems. See [Setting up multi-factor authentication](/setting-up-multifactor-authentication) to enable it and [Using MFA in the command line](/using-mfa-in-command-line) for how it affects `gem` commands. You can also [require MFA from all owners of your gems](/mfa-requirement-opt-in).
 
-Limit what your API keys can do. Instead of one all-powerful key, create keys scoped to the specific actions they need, such as a push-only key for a release pipeline. See [API key scopes](/api-key-scopes).
+Limit what your API keys can do. Instead of one all-powerful key, create keys scoped to the specific actions they need, such as a push-only key for a release pipeline, and set an expiration date so a forgotten key cannot be abused indefinitely. See [API key scopes](/api-key-scopes).
 
 Publish from CI without long-lived credentials. [Trusted Publishing](/trusted-publishing) lets a configured CI workflow push your gem using short-lived tokens, so there is no API key to leak or rotate.
 
@@ -50,6 +50,10 @@ Most malicious releases are detected and yanked within days of publication. A co
     bundle config set cooldown 7
 
 You can also pass `--cooldown N` to `bundle install`, `bundle update`, `bundle add`, and `bundle outdated`, or set a per-source value in the Gemfile with `source "https://rubygems.org", cooldown: 7`. The CLI flag takes precedence over the config setting, which takes precedence over the per-source value. To exempt a trusted internal source, declare it with `cooldown: 0`. Cooldown relies on the gem server publishing a creation time for each version through the v2 compact index. Versions from servers that do not provide it are treated as outside the cooldown window. See the `cooldown` entry in [bundle config](/command-reference/bundle-config/) for details.
+
+### Pinning gem sources
+
+If you install gems from more than one source, such as an internal gem server alongside rubygems.org, a public gem published under the same name as an internal one could be substituted for it. Assign every internal gem to its server with a `source` block, so Bundler installs it only from there. A source declared in a block still remains a candidate for gems without an explicit source, so give every gem in the Gemfile an explicit source. See the [Gemfile manual](/gemfile) for the block form of `source`.
 
 ### Auditing for known vulnerabilities
 
