@@ -3,7 +3,7 @@ layout: default
 title: Security
 url: /security
 previous: /removing-a-published-gem
-next: /rails
+next: /cooldown
 ---
 
 <em class="text-neutral-600">How to protect your account as a gem author, harden the gems you install, and report vulnerabilities.</em>
@@ -49,7 +49,7 @@ Most malicious releases are detected and yanked within days of publication. A co
 
     bundle config set cooldown 7
 
-You can also pass `--cooldown N` to `bundle install`, `bundle update`, `bundle add`, and `bundle outdated`, or set a per-source value in the Gemfile with `source "https://rubygems.org", cooldown: 7`. The CLI flag takes precedence over the config setting, which takes precedence over the per-source value. To exempt a trusted internal source, declare it with `cooldown: 0`. Cooldown relies on the gem server publishing a creation time for each version through the v2 compact index. Versions from servers that do not provide it are treated as outside the cooldown window. See the `cooldown` entry in [bundle config](/command-reference/bundle-config/) for details.
+You can also pass `--cooldown N` to `bundle install`, `bundle update`, `bundle add`, and `bundle outdated`, or set a per-source value in the Gemfile with `source "https://rubygems.org", cooldown: 7`. The CLI flag takes precedence over the config setting, which takes precedence over the per-source value. To exempt a trusted internal source, declare it with `cooldown: 0`. Cooldown relies on the gem server publishing a creation time for each version through the v2 compact index. Versions from servers that do not provide it are treated as outside the cooldown window. See [How to delay new gem versions with cooldown](/cooldown) for details.
 
 ### Pinning gem sources
 

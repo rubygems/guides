@@ -2,7 +2,7 @@
 layout: default
 title: How to use Bundler with Rails
 url: /rails
-previous: /security
+previous: /cooldown
 next: /sinatra
 ---
 
