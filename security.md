@@ -6,186 +6,79 @@ previous: /removing-a-published-gem
 next: /rails
 ---
 
-<em class="text-neutral-600">How to build and install cryptographically signed gems-- and other security concerns.</em>
+<em class="text-neutral-600">How to protect your account as a gem author, harden the gems you install, and report vulnerabilities.</em>
 
-Security practices are being actively discussed. Check back often.
+Installing a gem runs someone else's code on your machine, with your privileges. RubyGems and Bundler provide several layers of defense against compromised accounts and malicious releases. This page is an index to those layers.
 
-* [General](#general)
-* [Using Gems](#using-gems)
-* [Building Gems](#building-gems)
-* [Reporting Security Vulnerabilities](#reporting-security-vulnerabilities)
+* [Securing your account](#securing-your-account)
+* [Securing your dependencies](#securing-your-dependencies)
+* [Gem signing](#gem-signing)
+* [Reporting security vulnerabilities](#reporting-security-vulnerabilities)
 
-General
--------
+Securing your account
+---------------------
 
-Installing a gem allows that gem's code to run in the context of your
-application. Clearly this has security implications: installing a malicious gem
-on a server could ultimately result in that server being completely penetrated
-by the gem's author. Because of this, the security of gem code is a topic of
-active discussion within the Ruby community.
+If you publish gems, your RubyGems.org account is part of your users' supply chain. Protecting it protects everyone who installs your gems.
 
-RubyGems has had the ability to [cryptographically sign
-gems](https://docs.seattlerb.org/rubygems/Gem/Security.html) since version
-0.8.11. This signing works by using the `gem cert` command to create a key
-pair, and then packaging signing data inside the gem itself. The `gem install`
-command optionally lets you set a security policy, and you can verify the
-signing key for a gem before you install it.
+Enable multi-factor authentication. It is the most effective defense against account takeover. Prefer [WebAuthn](/setting-up-webauthn-mfa) with a security key or passkey, which resists the phishing attacks behind recent account takeovers in other packaging ecosystems. See [Setting up multi-factor authentication](/setting-up-multifactor-authentication) to enable it and [Using MFA in the command line](/using-mfa-in-command-line) for how it affects `gem` commands. You can also [require MFA from all owners of your gems](/mfa-requirement-opt-in).
 
-However, this method of securing gems is not widely used. It requires a number
-of [manual steps on the part of the developer](#building-gems), and there is no
-well-established chain of trust for gem signing keys.  Discussion of new
-signing models such as X509 and OpenPGP is going on in the [rubygems-trust
-wiki](https://github.com/rubygems-trust/rubygems.org/wiki/_pages), the
-[RubyGems-Developers
-list](https://groups.google.com/d/msg/rubygems-developers/lnnGTlfsuYo/TLDcJ2RPSDoJ)
-and in [IRC](irc://chat.freenode.net/#rubygems-trust). The goal is to improve
-(or replace) the signing system so that it is easy for authors and transparent
-for users.
+Limit what your API keys can do. Instead of one all-powerful key, create keys scoped to the specific actions they need, such as a push-only key for a release pipeline, and set an expiration date so a forgotten key cannot be abused indefinitely. See [API key scopes](/api-key-scopes).
 
-Using Gems
--------
+Publish from CI without long-lived credentials. [Trusted Publishing](/trusted-publishing) lets a configured CI workflow push your gem using short-lived tokens, so there is no API key to leak or rotate.
 
-Install with a trust policy.
+Only add people you trust as owners of your gems. Every owner has the same permissions you have, including pushing new versions, yanking existing ones, and adding or removing other owners. See [Managing gem owners](/managing-owners-using-ui), or use [Organizations](/organizations) for finer-grained roles.
 
-  * `gem install gemname -P HighSecurity`: All dependent gems must be signed
-    and verified.
+Keep credentials out of the gems you publish. A pushed gem is public and widely mirrored, so a leaked API key or password cannot be recalled by yanking the version. Build the `files` list in your gemspec from an explicit allowlist such as `git ls-files` instead of a broad glob that can pick up local configuration, and review the packaged files with `gem unpack` before pushing. If a secret does ship, revoke it first, then yank the version.
 
-  * `gem install gemname -P MediumSecurity`: All signed dependent gems must be
-    verified.
+If you suspect your account has been compromised or a malicious version of your gem has been published, [yank the affected versions](/removing-a-published-gem) immediately and report the incident to <security@rubygems.org>.
 
-  * `bundle --trust-policy MediumSecurity`: Same as above, except Bundler only
-    recognizes the long `--trust-policy` flag, not the short `-P`.
+Securing your dependencies
+--------------------------
 
-  * *Caveat:* Gem certificates are trusted globally, such that adding a
-    cert.pem for one gem automatically trusts all gems signed by that cert.
+Bundler records the exact version of every dependency in `Gemfile.lock`, so later installs from the same lockfile use the same code that you tested. The protections below build on it.
 
-Verify the checksum, if available
+### Lockfile checksums
 
-    gem fetch gemname -v version
-    ruby -rdigest/sha2 -e "puts Digest::SHA512.new.hexdigest(File.read('gemname-version.gem'))"
+Bundler records a `CHECKSUMS` section in newly generated lockfiles and verifies each gem against its checksum during installation. A gem that has been tampered with after the lockfile was created fails to install. Existing lockfiles are not rewritten automatically. Add checksums to one with:
 
-Know the risks of being pwned, as described by [Benjamin Smith's Hacking with Gems talk](https://youtu.be/zEBReauO-vg)
+    bundle lock --add-checksums
 
-Building Gems
--------
+### Cooldown
 
-### Sign with: `gem cert`
+Most malicious releases are detected and yanked within days of publication. A cooldown excludes gem versions newer than a given number of days from dependency resolution, so your application never installs a release before the ecosystem has had time to vet it. Enable it for a project with:
 
-1) Create self-signed gem cert
+    bundle config set cooldown 7
 
-    cd ~/.ssh
-    gem cert --build your@email.com
-    chmod 600 gem-p*
+You can also pass `--cooldown N` to `bundle install`, `bundle update`, `bundle add`, and `bundle outdated`, or set a per-source value in the Gemfile with `source "https://rubygems.org", cooldown: 7`. The CLI flag takes precedence over the config setting, which takes precedence over the per-source value. To exempt a trusted internal source, declare it with `cooldown: 0`. Cooldown relies on the gem server publishing a creation time for each version through the v2 compact index. Versions from servers that do not provide it are treated as outside the cooldown window. See the `cooldown` entry in [bundle config](/command-reference/bundle-config/) for details.
 
-- use the email address you specify in your gemspecs
+### Pinning gem sources
 
-2) Configure gemspec with cert
+If you install gems from more than one source, such as an internal gem server alongside rubygems.org, a public gem published under the same name as an internal one could be substituted for it. Assign every internal gem to its server with a `source` block, so Bundler installs it only from there. A source declared in a block still remains a candidate for gems without an explicit source, so give every gem in the Gemfile an explicit source. See the [Gemfile manual](/gemfile) for the block form of `source`.
 
-Add cert public key to your repository
+### Auditing for known vulnerabilities
 
-    cd /path/to/your/gem
-    mkdir certs
-    cp ~/.ssh/gem-public_cert.pem certs/yourhandle.pem
-    git add certs/yourhandle.pem
+[bundler-audit](https://github.com/rubysec/bundler-audit) checks your `Gemfile.lock` against [ruby-advisory-db](https://github.com/rubysec/ruby-advisory-db), the community database of known vulnerabilities in Ruby gems. Run it in CI so newly disclosed advisories surface quickly. Vulnerabilities in RubyGems itself are listed on the [CVE page](/cve).
 
-Add cert paths to your gemspec
+Gem signing
+-----------
 
-    s.cert_chain  = ['certs/yourhandle.pem']
-    s.signing_key = File.expand_path("~/.ssh/gem-private_key.pem") if $0 =~ /gem\z/
+RubyGems can cryptographically sign gems. Authors create a certificate with `gem cert`, and users opt into verification with a trust policy, using `gem install -P MediumSecurity` or `bundle install --trust-policy MediumSecurity`. In practice signing is rarely used because there is no established chain of trust for signing certificates, and each certificate must be trusted manually. Prefer the protections above. If you still want to sign your gems, see the [Gem::Security documentation](https://docs.ruby-lang.org/en/master/Gem/Security.html).
 
-3) Add your own cert to your approved list, just like anyone else
+Reporting security vulnerabilities
+----------------------------------
 
-    gem cert --add certs/yourhandle.pem
+### In RubyGems, Bundler, or RubyGems.org
 
-4) Build gem and test that you can install it
+Report vulnerabilities in RubyGems, Bundler, or the RubyGems.org service, as well as malicious gems published on RubyGems.org, to <security@rubygems.org> or through [HackerOne](https://hackerone.com/rubygems). Do not open a public issue.
 
-    gem build gemname.gemspec
-    gem install gemname-version.gem -P HighSecurity
-    # or -P MediumSecurity if your gem depends on unsigned gems
+### In Ruby itself
 
-5) Example text for installation documentation
+Vulnerabilities in the Ruby language belong to a separate program. Report them to the Ruby security team through [HackerOne](https://hackerone.com/ruby) or <security@ruby-lang.org>. See the [Ruby security page](https://www.ruby-lang.org/en/security/) for the scope of that program.
 
-> MetricFu is cryptographically signed. To be sure the gem you install hasn't been tampered with:
->
-> Add my public key (if you haven't already) as a trusted certificate
->
-> `gem cert --add <(curl -Ls https://raw.github.com/metricfu/metric_fu/master/certs/bf4.pem)`
->
-> `gem install metric_fu -P MediumSecurity`
->
-> The MediumSecurity trust profile will verify signed gems, but allow the installation of unsigned dependencies.
->
-> This is necessary because not all of MetricFu's dependencies are signed, so we cannot use HighSecurity.
+### In someone else's gem
 
--------
+First check whether the vulnerability is already known by searching [RubySec](https://rubysec.com). If it appears to be new, contact the authors privately rather than through a public issue or pull request. Explain the issue, how it can be exploited, and ideally how it might be fixed. If the gem is developed on GitHub, the repository may accept [private vulnerability reports](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability).
 
-### Include checksum of released gems in your repository
+### In your own gem
 
-    require 'digest/sha2'
-    built_gem_path = 'pkg/gemname-version.gem'
-    checksum = Digest::SHA512.new.hexdigest(File.read(built_gem_path))
-    checksum_path = 'checksum/gemname-version.gem.sha512'
-    File.open(checksum_path, 'w' ) {|f| f.write(checksum) }
-    # add and commit 'checksum_path'
-
--------
-
-### OpenPGP signing is [not recommended due to lack of support (archive)](https://web.archive.org/web/20131125012205/https://www.rubygems-openpgp-ca.org/blog/nobody-cares-about-signed-gems.html).
-
-For details, see discussion [with Yorick
-Peterse](https://github.com/rubygems/guides/pull/70#issuecomment-29007487).
-
-Reporting Security vulnerabilities
--------
-
-
-### Reporting a security vulnerability with someone else's gem
-
-If you spot a security vulnerability in someone else's gem, then you
-first step should be to check whether this is a known vulnerability.
-One way is by searching for an advisory on [RubySec](https://rubysec.com).
-
-If this looks like a newly discovered vulnerability, then you should
-contact the author(s) privately (i.e., not via a pull request or issue on a
-public project) explaining the issue, how it can be exploited, and ideally
-offering an indication of how it might be fixed.
-
-### Reporting a security vulnerability with your own gem
-
-First, request a [CVE identifier](https://www.cve.org/ResourcesSupport/FAQs)
-by emailing [one of these places](https://github.com/RedHatProductSecurity/CVE-HOWTO#how-do-i-request-a-cve)
-or from GitHub by creating a [Security Advisory](https://docs.github.com/en/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories#cve-identification-numbers).
-This identifier will make it easy to uniquely identify the vulnerability when talking about it.
-
-Second, work out what people who depend on your gem should do to resolve the
-vulnerability. This may involve releasing a patched version of your gem that
-you can recommend they upgrade to.
-
-Finally, you need to tell people about the vulnerability. Currently there
-is no single place to broadcast this information but some good places to
-start might be to:
-
-- Send an email to several lists including ruby-security-ann@googlegroups.com,
-  rubysec-announce@googlegroups.com, and oss-security@lists.openwall.com
-  outlining the vulnerability, which versions of your gem it affects, and what
-  actions those depending on the gem should take. Make sure to use a subject
-  that includes the gem name, some short summary of the vulnerability, and the
-  CVE ID if you have one.
-
-- Add it to [ruby-advisory-db](https://github.com/rubysec/ruby-advisory-db/).
-  You can do this by following the
-  [CONTRIBUTING](https://github.com/rubysec/ruby-advisory-db/blob/master/CONTRIBUTING.md)
-  guidelines and submitting a pull request.
-
-Credits
--------
-
-Several sources were used for content for this guide:
-
-* [How to cryptographically sign your RubyGem](https://www.benjaminfleischer.com/2013/11/08/how-to-sign-your-rubygem-cert/) - Step-by-step guide
-* [Signing rubygems - Pasteable instructions (archive)](https://web.archive.org/web/20130218074304/https://developer.zendesk.com/blog/2013/02/03/signing-gems/)
-* [metric_fu gem gemspec](https://github.com/metricfu/metric_fu/blob/master/metric_fu.gemspec)
-* [RubyGems Trust Model Overview](https://github.com/rubygems-trust/rubygems.org/wiki/Overview), [doc](https://goo.gl/ybFIO)
-* [Let's figure out a way to start signing RubyGems](https://tonyarcieri.com/lets-figure-out-a-way-to-start-signing-rubygems)
-* [A Practical Guide to Using Signed Ruby Gems - Part 3: Signing your Own (archive)](https://web.archive.org/web/20131125020053/https://blog.meldium.com/home/2013/3/6/signing-gems-how-to)
-* Also see the [Resources](/resources) page.
+Request a CVE identifier by creating a [GitHub Security Advisory](https://docs.github.com/en/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories), then release a patched version and tell your users which versions are affected and what to do. Announce the fix on <ruby-security-ann@googlegroups.com> and submit the advisory to [ruby-advisory-db](https://github.com/rubysec/ruby-advisory-db) so that audit tools pick it up.
