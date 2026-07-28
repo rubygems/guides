@@ -26,6 +26,8 @@ Limit what your API keys can do. Instead of one all-powerful key, create keys sc
 
 Publish from CI without long-lived credentials. [Trusted Publishing](/trusted-publishing) lets a configured CI workflow push your gem using short-lived tokens, so there is no API key to leak or rotate.
 
+Keep credentials out of the gems you publish. A pushed gem is public and widely mirrored, so a leaked API key or password cannot be recalled by yanking the version. Build the `files` list in your gemspec from an explicit allowlist such as `git ls-files` instead of a broad glob that can pick up local configuration, and review the packaged files with `gem unpack` before pushing. If a secret does ship, revoke it first, then yank the version.
+
 If you suspect your account has been compromised or a malicious version of your gem has been published, [yank the affected versions](/removing-a-published-gem) immediately and report the incident to <security@rubygems.org>.
 
 Securing your dependencies
