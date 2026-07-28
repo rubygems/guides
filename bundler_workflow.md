@@ -221,4 +221,4 @@ $ bin/rspec spec/models
 The executables installed into `bin` are scoped to the
 bundle, and will always work.
 
-<a href="https://bundler.io/man/bundle-exec.1.html" class="btn btn-primary">Learn More: Executables</a>
+<a href="/command-reference/bundle-exec/" class="btn btn-primary">Learn More: Executables</a>

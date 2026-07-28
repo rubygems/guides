@@ -122,7 +122,7 @@ these groups. You can see all of the settings that Bundler saved there
 by running `bundle config`, which will also print out global
 settings (stored in `~/.bundle/config`) and settings set via
 environment variables. For more information on configuring Bundler,
-please see: [`bundle config`](https://bundler.io/man/bundle-config.1.html)
+please see: [`bundle config`](/command-reference/bundle-config/)
 
 You can also specify which groups to automatically require through the parameters to
 `Bundler.require`. The `:default` group includes all gems not

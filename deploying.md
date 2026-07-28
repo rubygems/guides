@@ -30,7 +30,7 @@ with the exact same gems you use in development.
 If you have run `bundle package`, the cached
 gems will be used automatically.
 
-<a href="https://bundler.io/man/bundle-cache.1.html" class="btn btn-primary">Learn More: Packing</a>
+<a href="/command-reference/bundle-cache/" class="btn btn-primary">Learn More: Packing</a>
 
 ### After deploying
 
@@ -45,7 +45,7 @@ Alternatively, you can use the `--binstubs` option on the
 install command to generate executable binaries that can be used instead of
 `bundle exec`.
 
-<a href="https://bundler.io/man/bundle-exec.1.html" class="btn btn-primary">Learn More: Executables</a>
+<a href="/command-reference/bundle-exec/" class="btn btn-primary">Learn More: Executables</a>
 
 ### Heroku
 
