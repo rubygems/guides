@@ -10,15 +10,14 @@ next: /getting_started
 
 The `gem` command allows you to interact with RubyGems.
 
-Ruby 1.9 and newer ships with RubyGems built-in but you may need to upgrade for
-bug fixes or new features.  To upgrade RubyGems, visit the
-[download](https://rubygems.org/pages/download) page.
+RubyGems ships with Ruby, so the `gem` command is available as soon as Ruby is installed. See the [Installation guide](/installation) to check your setup or to upgrade RubyGems itself.
 
 If you want to see how to require files from a gem, skip ahead to [What is a
 gem](/what-is-a-gem)
 
 * [Finding Gems](#finding-gems)
 * [Installing Gems](#installing-gems)
+* [Running Executables Without Installing](#running-executables-without-installing)
 * [Requiring Code](#requiring-code)
 * [Listing Installed Gems](#listing-installed-gems)
 * [Uninstalling Gems](#uninstalling-gems)
@@ -85,6 +84,17 @@ then builds documentation for the installed gems.
 
 You can disable documentation generation using the `--no-document` argument when
 installing gems.
+
+Running Executables Without Installing
+--------------------------------------
+
+The `exec` command runs an executable from a gem, installing the gem first if necessary. It is a shortcut for running `gem install` and then the command itself:
+
+    $ gem exec rails new my_app
+
+RubyGems uses the most recent version of the gem unless you specify one with `--version` or allow prereleases with `--prerelease`. Pass `--conservative` to prefer the most recent version that is already installed. If the executable name differs from the gem name, name the gem with `--gem`. Gems installed this way are kept separate from your user-installed gems.
+
+See [gem exec](/command-reference#gem-exec) in the Command Reference for details.
 
 Requiring code
 --------------
