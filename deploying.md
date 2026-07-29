@@ -41,9 +41,9 @@ from gems in the bundle
 $ bundle exec rake db:setup
 ~~~
 
-Alternatively, you can use the `--binstubs` option on the
-install command to generate executable binaries that can be used instead of
-`bundle exec`.
+Alternatively, you can run `bundle binstubs GEM_NAME` (or
+`bundle binstubs --all`) to generate executable binaries that can be used
+instead of `bundle exec`.
 
 <a href="/command-reference/bundle-exec/" class="btn btn-primary">Learn More: Executables</a>
 
