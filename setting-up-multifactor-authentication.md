@@ -105,8 +105,7 @@ Steps to change your MFA level:
 
 1. In the "Multi-factor Authentication" section, select your intended option from the dropdown menu, and click **Update**.
     ![Multi-factor section on the edit settings page](/images/changing_mfa_step1.png){:class="t-img"}
-2. You will be prompted to use your MFA device to authorize the MFA level change.
-    ![Multi-factor authentication prompt to update MFA level](/images/changing_mfa_step2.png){:class="t-img"}
+2. You will be asked to authorize the change on the same screen you see when signing in. Enter a code from your MFA device.
 
 ## Using recovery codes
 
