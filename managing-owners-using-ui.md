@@ -2,7 +2,7 @@
 layout: default
 title: Managing Owners via UI
 url: /managing-owners-using-ui
-previous: /mfa-requirement-opt-in
+previous: /using-mfa-in-command-line
 next: /organizations
 ---
 
