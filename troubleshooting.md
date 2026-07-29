@@ -19,13 +19,15 @@ The most common cause is a missing compiler toolchain. Install it with your syst
     xcode-select --install
 
     # Debian, Ubuntu
-    apt-get install build-essential ruby-dev
+    apt-get install build-essential
 
     # Fedora
-    dnf install ruby-devel gcc make
+    dnf install gcc make
 
     # Alpine
-    apk add build-base ruby-dev
+    apk add build-base
+
+If you use the Ruby packaged by your distribution, also install its header package, such as `ruby-dev` on Debian, Ubuntu, and Alpine, or `ruby-devel` on Fedora. Skip this if you installed Ruby with a version manager such as ruby-build. Those rubies ship their own headers, and installing the distribution package would add a second Ruby to the system.
 
 The next most common cause is a missing library header. A gem that wraps a system library needs that library's development package, not just the runtime package. For example, the `pg` gem needs the libpq development package, such as `libpq-dev` on Debian and Ubuntu.
 
