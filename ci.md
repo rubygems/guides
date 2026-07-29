@@ -8,7 +8,7 @@ next: /rubymotion
 
 <em class="text-neutral-600">How to install gems quickly and reproducibly on GitHub Actions, GitLab CI, and other CI systems.</em>
 
-A CI job needs the same gems as your development machine, installed from scratch on every run. The recipe is the same everywhere. Check in your `Gemfile.lock`, cache installed gems keyed on that lockfile, and configure Bundler through `BUNDLE_*` environment variables instead of running `bundle config` in each job.
+A CI job needs the same gems as your development machine, installed from scratch on every run. The recipe is the same everywhere. Cache installed gems, keyed on the `Gemfile.lock` when the repository has one, and configure Bundler through `BUNDLE_*` environment variables instead of running `bundle config` in each job.
 
 GitHub Actions
 --------------
