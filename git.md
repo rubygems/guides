@@ -112,10 +112,26 @@ gem 'rails', github: 'rails', ref: 'a9752dcfd15bcddfe7b6f7126f3a6e0ba5927c56'
 ~~~
 
 There are analogous shortcuts for Bitbucket (`:bitbucket`) and GitHub Gists (`:gist`).
+The `:gist` value is the id from the gist's URL.
 
 ~~~ruby
 gem 'keystone', bitbucket: 'musicone/keystone'
-gem 'my_gist', gist: '4815162342'
+gem 'microg', gist: 'bf6b8689108da1b9c4ddbe7f2acdd26c'
+~~~
+
+A gist cannot contain directories, so a gem served from a gist keeps all of
+its files at the top level. Put the gemspec at the root of the gist and set
+`require_paths = ["."]` so ruby files are loaded from there:
+
+~~~ruby
+Gem::Specification.new do |spec|
+  spec.name = "microg"
+  spec.version = "0.1.0"
+  spec.authors = ["x-yuri"]
+  spec.summary = "a micro gem"
+  spec.files = ["microg.rb"]
+  spec.require_paths = ["."]
+end
 ~~~
 
 ## Custom git sources
