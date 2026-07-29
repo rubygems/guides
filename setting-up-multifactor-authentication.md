@@ -92,8 +92,8 @@ When you register a new device or enable MFA for the first time, we will enable
 MFA for both the UI and the API. If you go to the edit settings page again, in the "Multi-factor Authentication" section, you
 will see a dropdown menu with these options:
 
+- **UI and API (Recommended)**: UI operations, `gem signin`, `push`, `owner --add` and `owner --remove` will require OTP code.
 - **UI and gem signin**: UI operations and `gem signin` will require OTP code.
-- **UI and API**: UI operations, `gem signin`, `push`, `owner --add` and `owner --remove` will require OTP code.
 
 **UI only** was previously a valid MFA level. However, it has been removed, and only accounts that are currently at that level will still see it in the dropdown.
 
