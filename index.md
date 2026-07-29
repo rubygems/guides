@@ -2,7 +2,7 @@
 layout: default
 title: Guides
 previous: /credits
-next: /rubygems-basics
+next: /installation
 ---
 
 <em class="text-neutral-600">Everything about library management in Ruby: learn what gems are, how to use them in your projects, and how to build and publish your own.</em>
@@ -23,6 +23,7 @@ bundle add rack
     <h2 class="text-xl font-bold text-neutral-800 mb-1">Getting Started</h2>
     <p class="text-neutral-600 mb-4">New to gems? Follow the tutorial from installing your first gem to publishing your own.</p>
     <ul class="space-y-1.5">
+      <li><a class="text-orange-700 hover:underline" href="/installation">Installation</a></li>
       <li><a class="text-orange-700 hover:underline" href="/rubygems-basics">RubyGems Basics</a></li>
       <li><a class="text-orange-700 hover:underline" href="/getting_started">Getting Started with Bundler</a></li>
       <li><a class="text-orange-700 hover:underline" href="/make-your-own-gem">Make your own gem</a></li>
