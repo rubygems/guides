@@ -37,12 +37,14 @@ example we'll use "my_malloc" for the name.
 
 Some extensions will be partially written in C and partially written in ruby.
 If you are going to support multiple languages, such as C and Java extensions,
-you should put the C-specific ruby files under the `ext/` directory as well in a
-`lib/` directory.
+put the ruby files that are specific to the C extension in a `lib/` directory
+under the extension's directory (`ext/my_malloc/lib/` here), not in the
+top-level `lib/` directory.
 
     Rakefile
     ext/my_malloc/extconf.rb               # extension configuration
     ext/my_malloc/my_malloc.c              # extension source
+    ext/my_malloc/lib/my_malloc/helper.rb  # ruby code for the C extension
     lib/my_malloc.rb                       # generic features
 
 When the extension is built the files in `ext/my_malloc/lib/` will be installed
