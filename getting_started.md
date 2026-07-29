@@ -74,10 +74,11 @@ However, this is unreliable and is the source of considerable pain.
 Even if it looks like it works, it may not work in the future or
 on another machine.
 
-Finally, if you want a way to get a shortcut to gems in your bundle:
+Finally, if you want a shortcut to the executables of a gem in your
+bundle, generate binstubs for it:
 
 ~~~
-$ bundle install --binstubs
+$ bundle binstubs rspec-core
 $ bin/rspec spec/models
 ~~~
 
