@@ -35,11 +35,11 @@ expression characters in your query:
 
     *** REMOTE GEMS ***
 
-    rails (7.0.3)
+    rails (8.1.3)
     rails-3-settings (0.1.1)
+    rails-access-control (0.0.3)
     rails-acm (0.1.0)
     rails-action-args (0.1.1)
-    rails-action-authorization (1.1.2)
     [...]
 
 If you see a gem you want more information on you can add the details option.
@@ -50,9 +50,10 @@ with details requires downloading more files:
 
     *** REMOTE GEMS ***
 
-    rails (7.0.3)
+    rails (8.1.3)
         Author: David Heinemeier Hansson
         Homepage: https://rubyonrails.org
+        License: MIT
 
         Full-stack web application framework.
 
@@ -78,9 +79,9 @@ dependencies then builds documentation for the installed gems.
     Done installing documentation for rbtree, drip after 0 seconds
     2 gems installed
 
-Here the drip command depends upon the rbtree gem which has an extension.  Ruby
-installs the dependency rbtree and builds its extension, installs the drip gem,
-then builds documentation for the installed gems.
+Here the drip command depends upon the rbtree gem which has an extension.
+RubyGems installs the dependency rbtree and builds its extension, installs the
+drip gem, then builds documentation for the installed gems.
 
 You can disable documentation generation using the `--no-document` argument when
 installing gems.
@@ -105,15 +106,15 @@ placing that gem's `lib` directory onto your `$LOAD_PATH`. Let's try this out
 in `irb`.
 
     % irb
-    irb(main):001:0> pp $LOAD_PATH
-    [".../lib/ruby/site_ruby/3.1.0",
-     ".../lib/ruby/site_ruby/3.1.0/x86_64-linux",
+    irb(main):001> pp $LOAD_PATH
+    [".../lib/ruby/site_ruby/4.0.0",
+     ".../lib/ruby/site_ruby/4.0.0/arm64-darwin27",
      ".../lib/ruby/site_ruby",
-     ".../lib/ruby/vendor_ruby/3.1.0",
-     ".../lib/ruby/vendor_ruby/3.1.0/x86_64-linux",
+     ".../lib/ruby/vendor_ruby/4.0.0",
+     ".../lib/ruby/vendor_ruby/4.0.0/arm64-darwin27",
      ".../lib/ruby/vendor_ruby",
-     ".../lib/ruby/3.1.0",
-     ".../lib/ruby/3.1.0/x86_64-linux"]
+     ".../lib/ruby/4.0.0",
+     ".../lib/ruby/4.0.0/arm64-darwin27"]
 
 By default you have just a few system directories on the load path and the Ruby
 standard libraries.  To add the awesome_print directories to the load path,
@@ -122,26 +123,26 @@ you can require one of its files:
     $ gem install awesome_print
     [...]
     $ irb
-    irb(main):001:0> require "ap"
+    irb(main):001> require "ap"
     => true
-    irb(main):002:0> pp $LOAD_PATH.first
+    irb(main):002> pp $LOAD_PATH.first
     ".../gems/awesome_print-1.9.2/lib"
 
 *Tip: Passing `-r` to `irb` will automatically require a library when irb is
 loaded.*
 
     $ irb -rap
-    irb(main):001:0> ap $LOAD_PATH
+    irb(main):001> ap $LOAD_PATH
     [
-        [0] ".../bundle/gems/awesome_print-1.9.2/lib",
-        [1] ".../lib/ruby/site_ruby/3.1.0",
-        [2] ".../lib/ruby/site_ruby/3.1.0/x86_64-linux",
+        [0] ".../gems/awesome_print-1.9.2/lib",
+        [1] ".../lib/ruby/site_ruby/4.0.0",
+        [2] ".../lib/ruby/site_ruby/4.0.0/arm64-darwin27",
         [3] ".../lib/ruby/site_ruby",
-        [4] ".../lib/ruby/vendor_ruby/3.1.0",
-        [5] ".../lib/ruby/vendor_ruby/3.1.0/x86_64-linux",
+        [4] ".../lib/ruby/vendor_ruby/4.0.0",
+        [5] ".../lib/ruby/vendor_ruby/4.0.0/arm64-darwin27",
         [6] ".../lib/ruby/vendor_ruby",
-        [7] ".../lib/ruby/3.1.0",
-        [8] ".../lib/ruby/3.1.0/x86_64-linux"
+        [7] ".../lib/ruby/4.0.0",
+        [8] ".../lib/ruby/4.0.0/arm64-darwin27"
     ]
 
 Once you've required `ap`, RubyGems automatically places its
@@ -175,28 +176,27 @@ The `list` command shows your locally installed gems:
 
     *** LOCAL GEMS ***
 
-    abbrev (default: 0.1.0)
+    abbrev (0.1.2)
     awesome_print (1.9.2)
-    base64 (default: 0.1.1)
-    benchmark (default: 0.2.0)
-    bigdecimal (default: 3.1.1)
-    bundler (default: 2.3.7)
-    cgi (default: 0.3.1)
-    csv (default: 3.2.2)
-    date (default: 3.2.2)
-    debug (1.4.0)
-    delegate (default: 0.2.0)
-    did_you_mean (default: 1.6.1)
-    digest (default: 3.1.0)
-    drb (default: 2.1.0)
+    base64 (0.3.0)
+    benchmark (0.5.0)
+    bigdecimal (4.0.1)
+    bundler (default: 4.0.16)
+    csv (3.3.5)
+    date (default: 3.5.1)
+    debug (1.11.1)
+    delegate (default: 0.6.1)
+    did_you_mean (default: 2.0.0)
+    digest (default: 3.2.1)
+    drb (2.2.3)
     drip (0.1.1)
-    english (default: 0.7.1)
+    english (default: 0.8.1)
     [...]
 
-The list includes defaults gems and bundled gems both of which were shipped
-with Ruby by default. In Ruby 3.1, the default gems are 70 gems in total
-including bigdecimal, bundler, csv, did_you_mean etc. and the bundled gems are
-debug, rake etc.
+The list includes default gems and bundled gems both of which were shipped
+with Ruby by default. In Ruby 4.0, the default gems are 46 gems in total
+including bundler, erb, json, psych etc. and the bundled gems are csv, debug,
+rake etc.
 
 Uninstalling Gems
 -----------------
@@ -261,9 +261,9 @@ You can also unpack a gem you have installed, modify a few files, then use the
 modified gem in place of the installed one:
 
     $ gem unpack rake
-    Unpacked gem: '.../13.0.6'
-    $ vim 13.0.6/lib/rake/...
-    $ ruby -I 13.0.6/lib -S rake some_rake_task
+    Unpacked gem: '.../rake-13.4.2'
+    $ vim rake-13.4.2/lib/rake/...
+    $ ruby -I rake-13.4.2/lib -S rake some_rake_task
     [...]
 
 The `-I` argument adds your unpacked rake to the ruby `$LOAD_PATH` which
