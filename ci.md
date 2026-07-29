@@ -19,7 +19,7 @@ Use the [ruby/setup-ruby](https://github.com/ruby/setup-ruby) action. With `bund
       test:
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v5
+          - uses: actions/checkout@v7
           - uses: ruby/setup-ruby@v1
             with:
               bundler-cache: true
@@ -31,10 +31,10 @@ The `ruby-version` input can be omitted if the repository has a `.ruby-version`,
       test:
         strategy:
           matrix:
-            ruby: ["3.2", "3.3", "3.4"]
+            ruby: ["3.3", "3.4", "4.0"]
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v5
+          - uses: actions/checkout@v7
           - uses: ruby/setup-ruby@v1
             with:
               ruby-version: ${{ matrix.ruby }}
@@ -49,7 +49,7 @@ GitLab CI
 On GitLab, install gems into the project directory and cache that path, keyed on `Gemfile.lock` so the cache is invalidated when dependencies change:
 
     test:
-      image: ruby:3.4
+      image: ruby:4.0
       cache:
         key:
           files:
