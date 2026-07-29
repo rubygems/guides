@@ -2,7 +2,7 @@
 layout: default
 title: How to use git bisect with Bundler
 url: /git_bisect
-previous: /ssl-certificate-update
+previous: /rubygems_tls_ssl_troubleshooting_guide
 next: /what-is-a-gem
 ---
 
