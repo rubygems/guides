@@ -20,7 +20,7 @@ Securing your account
 
 If you publish gems, your RubyGems.org account is part of your users' supply chain. Protecting it protects everyone who installs your gems.
 
-Enable multi-factor authentication. It is the most effective defense against account takeover. Prefer [WebAuthn](/setting-up-webauthn-mfa) with a security key or passkey, which resists the phishing attacks behind recent account takeovers in other packaging ecosystems. See [Setting up multi-factor authentication](/setting-up-multifactor-authentication) to enable it and [Using MFA in the command line](/using-mfa-in-command-line) for how it affects `gem` commands. You can also [require MFA from all owners of your gems](/mfa-requirement-opt-in).
+Enable multi-factor authentication. It is the most effective defense against account takeover. Prefer [WebAuthn](/setting-up-multifactor-authentication#setting-up-webauthn-recommended) with a security key or passkey, which resists the phishing attacks behind recent account takeovers in other packaging ecosystems. See [Setting up multi-factor authentication](/setting-up-multifactor-authentication) to enable it and [Using MFA in the command line](/using-mfa-in-command-line) for how it affects `gem` commands. You can also [require MFA from all owners of your gems](/setting-up-multifactor-authentication#requiring-mfa-for-your-gems).
 
 Limit what your API keys can do. Instead of one all-powerful key, create keys scoped to the specific actions they need, such as a push-only key for a release pipeline, and set an expiration date so a forgotten key cannot be abused indefinitely. See [API key scopes](/api-key-scopes).
 
