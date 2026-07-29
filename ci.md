@@ -68,7 +68,7 @@ Dependency bots and cooldown
 
 If CI runs against pull requests opened by a dependency bot, align the bot's update delay with the [cooldown](/cooldown) configured in Bundler. Otherwise the bot proposes versions that `bundle install` refuses to resolve, or bypasses the waiting period that cooldown is meant to enforce.
 
-Dependabot supports a `cooldown` block for version updates in `dependabot.yml`:
+On GitHub, Dependabot supports a `cooldown` block for version updates in `dependabot.yml`:
 
     version: 2
     updates:
@@ -79,7 +79,7 @@ Dependabot supports a `cooldown` block for version updates in `dependabot.yml`:
         cooldown:
           default-days: 7
 
-The `cooldown` block also accepts `semver-major-days`, `semver-minor-days`, and `semver-patch-days` to set different delays per update type, and `include` and `exclude` lists to scope which dependencies it applies to. Renovate offers the same control through `minimumReleaseAge`, a duration string such as `"7 days"`. In both cases, use the same number of days as your Bundler cooldown. See [the cooldown guide](/cooldown) for how the Bundler side works.
+The `cooldown` block also accepts `semver-major-days`, `semver-minor-days`, and `semver-patch-days` to set different delays per update type, and `include` and `exclude` lists to scope which dependencies it applies to. Renovate, which runs on both GitHub and GitLab, offers the same control through `minimumReleaseAge`, a duration string such as `"7 days"`. In both cases, use the same number of days as your Bundler cooldown. See [the cooldown guide](/cooldown) for how the Bundler side works.
 
 Publishing from CI
 ------------------
