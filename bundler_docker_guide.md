@@ -3,7 +3,7 @@ layout: default
 title: How to use Bundler with Docker
 url: /bundler_docker_guide
 previous: /sinatra
-next: /rubymotion
+next: /ci
 ---
 
 ## Introduction

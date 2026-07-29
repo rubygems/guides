@@ -2,7 +2,7 @@
 layout: default
 title: How to use Bundler with RubyMotion
 url: /rubymotion
-previous: /bundler_docker_guide
+previous: /ci
 next: /run-your-own-gem-server
 ---
 
