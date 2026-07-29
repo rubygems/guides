@@ -4,7 +4,9 @@ title: Frequently Asked Questions
 url: /faqs
 previous: /bundler_known_plugins
 next: /resources
-redirect_from: /faq/
+redirect_from:
+  - /faq/
+  - /bundler_2_upgrade/
 ---
 
 <em class="text-neutral-600">More of the "why" and "wtf" than "how".</em>

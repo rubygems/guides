@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Credits
-previous: /bundler_2_upgrade
+previous: /contributing
 next: /
 ---
 

@@ -121,7 +121,6 @@ Initializing git repo in ./my_gem
 <a href="/rails" class="btn btn-primary">Rails</a>
 <a href="/sinatra" class="btn btn-primary">Sinatra</a>
 <a href="/rubygems" class="btn btn-primary">RubyGems</a>
-<a href="/rubymotion" class="btn btn-primary">RubyMotion</a>
 
 ## Get involved
 <a name="get-involved"></a>

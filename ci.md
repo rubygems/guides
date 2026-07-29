@@ -3,7 +3,7 @@ layout: default
 title: How to use Bundler in CI
 url: /ci
 previous: /bundler_docker_guide
-next: /rubymotion
+next: /run-your-own-gem-server
 ---
 
 <em class="text-neutral-600">How to install gems quickly and reproducibly on GitHub Actions, GitLab CI, and other CI systems.</em>
