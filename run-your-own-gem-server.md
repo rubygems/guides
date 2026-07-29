@@ -2,7 +2,7 @@
 layout: default
 title: Run your own gem server
 url: /run-your-own-gem-server
-previous: /rubymotion
+previous: /ci
 next: /using-s3-source
 ---
 

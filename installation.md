@@ -44,4 +44,4 @@ Bundler is a [default gem](/default-gems-and-bundled-gems), so every Ruby instal
 Which Bundler version runs
 --------------------------
 
-A project's `Gemfile.lock` records the Bundler version that created it under `BUNDLED WITH`. When you run `bundle` commands in that project, Bundler automatically switches to the recorded version if it is installed, even when a newer version is present. See [Bundler compatibility](/bundler-compatibility) for the Ruby and RubyGems versions each Bundler release supports.
+A project's `Gemfile.lock` records the Bundler version that created it under `BUNDLED WITH`. When you run `bundle` commands in that project, Bundler automatically switches to the recorded version if it is installed, even when a newer version is present. To update the recorded version to the latest installed Bundler, run `bundle update --bundler`. See [Bundler compatibility](/bundler-compatibility) for the Ruby and RubyGems versions each Bundler release supports.
