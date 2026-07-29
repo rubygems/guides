@@ -2,7 +2,7 @@
 layout: default
 title: RubyGems Basics
 url: /rubygems-basics
-previous: /
+previous: /installation
 next: /getting_started
 ---
 
