@@ -80,11 +80,9 @@ Please make sure you choose the option "time based" as MFA type.
 On successful registration, you will see a 6-digit access code (30
 seconds expiry) in your authenticator app for your rubygems.org account.
 Enter the shown access code in the "OTP Code" text field and click **Enable**.
-    ![Registering a new device](/images/enabling_mfa_step2.png){:class="t-img"}
 3. If the code is correct and the QR code has not expired, on next page you will see a list of recovery
 codes. Please copy and store these codes in a safe place, and see
 [Using recovery codes](#using-recovery-codes) for what they are for.
-    ![Recovery codes](/images/enabling_mfa_step3.png){:class="t-img"}
 4. Sign out and sign in again. Signing in will now ask for an OTP code.
     ![OTP prompt at login page](/images/mfa_login.png){:class="t-img"}
 
