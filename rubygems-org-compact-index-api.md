@@ -2,7 +2,7 @@
 layout: default
 title: RubyGems.org Compact Index API
 url: /rubygems-org-compact-index-api
-previous: /rubygems-org-api-v2
+previous: /rubygems-org-api
 next: /rubygems-org-rate-limits
 ---
 <em class="text-neutral-600">Details of the Compact Index API used for Bundler dependency resolution</em>

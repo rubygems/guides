@@ -3,10 +3,13 @@ layout: default
 title: RubyGems.org API
 url: /rubygems-org-api
 previous: /specification-reference
-next: /rubygems-org-api-v2
+next: /rubygems-org-compact-index-api
+redirect_from: /rubygems-org-api-v2/
 ---
 
 <em class="text-neutral-600">Details on interacting with RubyGems.org over HTTP.</em>
+
+Most endpoints are under API v1. API v2 covers lookups scoped to one specific gem version.
 
 > NOTE: The API is a work in progress, and [can use your help!](https://github.com/rubygems/rubygems.org)
 > RubyGems itself and the
@@ -20,6 +23,7 @@ next: /rubygems-org-api-v2
   versions of a particular gem
 * [Gem Download Methods](#gem-download-methods): Query for download statistics
 * [Owner Methods](#owner-methods): Manage owners for gems
+* [Profile Methods](#profile-methods): Query for user information
 * [Webhook Methods](#webhook-methods): Manage notifications for when gems are
   pushed
 * [Activity Methods](#activity-methods): Query for information about site-wide
@@ -42,6 +46,10 @@ in the `OTP` header. Here's an example of using your API key with a OTP:
     $ curl -H 'Authorization:YOUR_API_KEY' \
            -H 'OTP:YOUR_ONE_TIME_PASSCODE' \
       https://rubygems.org/api/v1/some_api_call.json
+
+Each key carries a set of scopes, and a call fails if the key lacks the scope it
+needs. Pushing a gem, for example, requires `push_rubygem`. See [API key
+scopes](/api-key-scopes) for the full list.
 
 Ruby Library
 ------------
@@ -71,55 +79,51 @@ Returns some basic information about the given gem. See below an example respons
 
     {
       "name": "rails",
-      "downloads": 7528417,
-      "version": "3.2.1",
-      "version_downloads": 47602,
+      "downloads": 769153204,
+      "version": "8.1.3.1",
+      "version_created_at": "2026-07-29T15:02:41.060Z",
+      "version_downloads": 78333,
+      "platform": "ruby",
       "authors": "David Heinemeier Hansson",
-      "info": "Ruby on Rails is a full-stack web framework optimized for programmer
-              happiness and sustainable productivity. It encourages beautiful code
-              by favoring convention over configuration.",
-      "project_uri": "http://rubygems.org/gems/rails",
-      "gem_uri": "http://rubygems.org/gems/rails-3.2.1.gem",
-      "homepage_uri": "http://www.rubyonrails.org",
-      "wiki_uri": "http://wiki.rubyonrails.org",
-      "documentation_uri": "http://api.rubyonrails.org",
-      "mailing_list_uri": "http://groups.google.com/group/rubyonrails-talk",
-      "source_code_uri": "http://github.com/rails/rails",
-      "bug_tracker_uri": "http://github.com/rails/rails/issues",
+      "info": "Ruby on Rails is a full-stack web framework optimized for programmer happiness and sustainable productivity.",
+      "licenses": ["MIT"],
+      "metadata": {
+        "changelog_uri": "https://github.com/rails/rails/releases/tag/v8.1.3.1",
+        "bug_tracker_uri": "https://github.com/rails/rails/issues",
+        "source_code_uri": "https://github.com/rails/rails/tree/v8.1.3.1",
+        "rubygems_mfa_required": "true"
+      },
+      "yanked": false,
+      "sha": "ccd11a36bfc171bf9c66d585d14c0ece91c0c9dde840aae60c0118d6f5c9c52a",
+      "spec_sha": "5b60af49df6edf722925a85d144f1118abda22485a820da2c516e97cab8347b8",
+      "project_uri": "https://rubygems.org/gems/rails",
+      "gem_uri": "https://rubygems.org/gems/rails-8.1.3.1.gem",
+      "homepage_uri": "https://rubyonrails.org",
+      "wiki_uri": null,
+      "documentation_uri": "https://api.rubyonrails.org/v8.1.3.1/",
+      "mailing_list_uri": "https://discuss.rubyonrails.org/c/rubyonrails-talk",
+      "source_code_uri": "https://github.com/rails/rails/tree/v8.1.3.1",
+      "bug_tracker_uri": "https://github.com/rails/rails/issues",
+      "changelog_uri": "https://github.com/rails/rails/releases/tag/v8.1.3.1",
+      "funding_uri": null,
       "dependencies": {
         "development": [],
         "runtime": [
           {
+            "name": "actioncable",
+            "requirements": "= 8.1.3.1"
+          },
+          {
+            "name": "actionmailbox",
+            "requirements": "= 8.1.3.1"
+          },
+          {
             "name": "actionmailer",
-            "requirements":"= 3.2.1"
+            "requirements": "= 8.1.3.1"
           },
-          {
-            "name": "actionpack",
-            "requirements": "= 3.2.1"
-          },
-          {
-            "name": "activerecord",
-            "requirements": "= 3.2.1"
-          },
-          {
-            "name": "activeresource",
-            "requirements": "= 3.2.1"
-          },
-          {
-            "name": "activesupport",
-            "requirements": "= 3.2.1"
-          },
-          {
-            "name": "bundler",
-            "requirements": "~> 1.0"
-          },
-          {
-            "name": "railties",
-            "requirements": "= 3.2.1"
-          }
+          ...
         ]
       }
-    }
     }
 
 ### GET - `/api/v1/search.(json|yaml)?query=[YOUR QUERY]`
@@ -136,6 +140,14 @@ gems. To get subsequent results, use the page query parameter until an empty
 response is received.
 
     $ curl 'https://rubygems.org/api/v1/search.json?query=cucumber&page=2'
+
+### GET - `/api/v1/search/autocomplete?query=[YOUR QUERY]`
+
+Returns an array of gem names matching the query, for populating a search box.
+
+    $ curl 'https://rubygems.org/api/v1/search/autocomplete?query=nokogiri'
+
+    ["nokogiri","nokogiri-diff","nokogiri-happymapper","nokogiri-styles", ...]
 
 ### GET - `/api/v1/gems.(json|yaml)`
 
@@ -165,12 +177,15 @@ Remove a gem from RubyGems.org's index. Platform is optional.
            -d 'platform=x86-darwin-10' \
            https://rubygems.org/api/v1/gems/yank
 
-    Successfully yanked gem: bills (0.0.1)
+    Successfully deleted gem: bills (0.0.1)
 
 
 ### GET - `/api/v1/gems/[GEM NAME]/reverse_dependencies.json`
 
 List dependants of the specified gem. This is all the dependants whose latest version depend on the particular gem. Returns an array that includes names of the dependant gems.
+
+Pass `only=runtime` or `only=development` to restrict the result to that
+dependency type. Both types are returned by default.
 
     $ curl https://rubygems.org/api/v1/gems/shoulda/reverse_dependencies.json
 
@@ -194,19 +209,24 @@ Returns an array of gem version details like the below:
 
     [
       {
-        "authors" : "Evan David Light",
-        "built_at" : "2011-08-08T04:00:00.000Z",
-        "created_at" : "2011-08-08T21:23:40.254Z",
-        "description" : "Behaviour Driven Development derived from Cucumber but as an internal DSL with methods for reuse",
-        "downloads_count" : 2224,
-        "number" : "0.7.1",
-        "summary" : "Test::Unit-based acceptance testing DSL",
-        "platform" : "ruby",
-        "ruby_version" : nil,
-        "prerelease" : false,
-        "licenses" : nil,
-        "requirements" : nil,
-        "sha" : "777c3a7ed83e44198b0a624976ec99822eb6f4a44bf1513eafbc7c13997cd86c"
+        "authors": "Evan David Light",
+        "built_at": "2011-08-08T04:00:00.000Z",
+        "created_at": "2011-08-08T21:23:40.254Z",
+        "description": "Behaviour Driven Development derived from Cucumber but as an internal DSL with methods for reuse",
+        "downloads_count": 9676,
+        "metadata": {
+          "homepage_uri": "http://coulda.tiggerpalace.com"
+        },
+        "number": "0.7.1",
+        "summary": "Test::Unit-based acceptance testing DSL",
+        "platform": "ruby",
+        "rubygems_version": ">= 0",
+        "ruby_version": null,
+        "prerelease": false,
+        "licenses": null,
+        "requirements": null,
+        "sha": "777c3a7ed83e44198b0a624976ec99822eb6f4a44bf1513eafbc7c13997cd86c",
+        "spec_sha": "57b863cff56029a0085eaf1b3416b701ed4fa75418d062358b45753e270c9ffa"
       }
     ]
 
@@ -219,6 +239,104 @@ Returns an object containing the latest version of particular gem.
     {
       "version": "4.2.1"
     }
+
+### GET - `/api/v2/rubygems/[GEM NAME]/versions/[VERSION NUMBER].(json|yaml)` (API v2)
+
+Returns a dictionary with versions details for a specific gem version.
+
+To return the version for a specific platform (e.g. "ruby", "java", "x86_64-linux"), use the `platform` query parameter.
+
+    $ curl https://rubygems.org/api/v2/rubygems/coulda/versions/0.7.1.json
+
+    {
+      "name": "coulda",
+      "downloads": 101713,
+      "version": "0.7.1",
+      "version_created_at": "2011-08-08T21:23:40.254Z",
+      "version_downloads": 9676,
+      "platform": "ruby",
+      "authors": "Evan David Light",
+      "info": "Behaviour Driven Development derived from Cucumber but as an internal DSL with methods for reuse",
+      "licenses": null,
+      "metadata": {
+        "homepage_uri": "http://coulda.tiggerpalace.com"
+      },
+      "yanked": false,
+      "sha": "777c3a7ed83e44198b0a624976ec99822eb6f4a44bf1513eafbc7c13997cd86c",
+      "spec_sha": "57b863cff56029a0085eaf1b3416b701ed4fa75418d062358b45753e270c9ffa",
+      "project_uri": "https://rubygems.org/gems/coulda",
+      "gem_uri": "https://rubygems.org/gems/coulda-0.7.1.gem",
+      "homepage_uri": "http://coulda.tiggerpalace.com",
+      "wiki_uri": null,
+      "documentation_uri": null,
+      "mailing_list_uri": null,
+      "source_code_uri": null,
+      "bug_tracker_uri": null,
+      "changelog_uri": null,
+      "funding_uri": null,
+      "dependencies": {
+        "development": [],
+        "runtime": [
+          {
+            "name": "yourdsl",
+            "requirements": "~> 0.7"
+          }
+        ]
+      },
+      "built_at": "2011-08-08T04:00:00.000Z",
+      "created_at": "2011-08-08T21:23:40.254Z",
+      "description": "Behaviour Driven Development derived from Cucumber but as an internal DSL with methods for reuse",
+      "downloads_count": 9676,
+      "number": "0.7.1",
+      "summary": "Test::Unit-based acceptance testing DSL",
+      "rubygems_version": ">= 0",
+      "ruby_version": null,
+      "prerelease": false,
+      "requirements": null
+    }
+
+### GET - `/api/v2/rubygems/[GEM NAME]/versions/[VERSION NUMBER]/contents.(json|yaml|sha256)` (API v2)
+
+Returns the checksum of every file packaged in a specific gem version. The
+`platform` query parameter selects a non-default platform, as above.
+
+Only versions pushed after RubyGems.org started recording file manifests have
+this data. Older versions respond `404` with "Content is unavailable for this
+version."
+
+    $ curl https://rubygems.org/api/v2/rubygems/rails/versions/8.1.3.1/contents.json
+
+    {
+      "MIT-LICENSE": {
+        "sha256": "717ba1949502290f8e47688ae2e323acd06c8ca47aec9f7596b15f678c1af4a2"
+      },
+      "README.md": {
+        "sha256": "293a6407fb786e32297e2ac50f216affe95779ab182fc64ec764dece160a4f80"
+      }
+    }
+
+The `sha256` format returns the same data as a shasum file instead:
+
+    $ curl https://rubygems.org/api/v2/rubygems/rails/versions/8.1.3.1/contents.sha256
+
+    717ba1949502290f8e47688ae2e323acd06c8ca47aec9f7596b15f678c1af4a2  MIT-LICENSE
+    293a6407fb786e32297e2ac50f216affe95779ab182fc64ec764dece160a4f80  README.md
+
+### GET - `/api/v1/attestations/[GEM NAME]-[VERSION].json`
+
+Returns the [sigstore](/trusted-publishing) attestations published with a gem
+version, as an array of sigstore bundles. Versions pushed without attestations
+return an empty array.
+
+    $ curl https://rubygems.org/api/v1/attestations/rails-8.1.3.1.json
+
+    [
+      {
+        "mediaType": "application/vnd.dev.sigstore.bundle.v0.3+json",
+        "messageSignature": { ... },
+        "verificationMaterial": { ... }
+      }
+    ]
 
 ### GET - `/api/v1/timeframe_versions.json`
 
@@ -339,6 +457,20 @@ as well as the total number of downloads for the specified version.
       "total_downloads": 3142
     }
 
+### GET - `/api/v1/downloads/all.(json|yaml)`
+
+Returns the 50 most downloaded gem versions, each as a pair of the version
+record and its download count.
+
+    $ curl https://rubygems.org/api/v1/downloads/all.json
+
+    {
+      "gems": [
+        [{ "number": "1.6.2", "full_name": "jmespath-1.6.2", ... }, 648386198],
+        ...
+      ]
+    }
+
 Owner Methods
 -------------
 
@@ -360,16 +492,23 @@ list can be requested with both user handle or user id.
 
 ### GET - `/api/v1/gems/[GEM NAME]/owners.(json|yaml)`
 
-View all owners of a gem. These users can all push to this gem.
+View all owners of a gem. These users can all push to this gem. `role` is either
+`owner` or `maintainer`. `email` appears only for users who have made their
+email address public.
 
     $ curl https://rubygems.org/api/v1/gems/gemcutter/owners.json
 
     [
       {
-        "email": "nick@gemcutter.org"
+        "id": 1,
+        "handle": "qrush",
+        "email": "nick@quaran.to",
+        "role": "owner"
       },
       {
-        "email": "ddollar@gmail.com"
+        "id": 7644,
+        "handle": "gemcutter",
+        "role": "owner"
       }
     ]
 
@@ -377,11 +516,14 @@ View all owners of a gem. These users can all push to this gem.
 
 Add an owner to a RubyGem you own, giving that user permission to manage it. See [Owner & Maintainer Roles](/managing-owners-using-ui#owner--maintainer-roles) for more details on roles.
 
+The new owner is added unconfirmed. Ownership access begins once they click the
+confirmation link mailed to them.
+
     $ curl -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
            -F 'email=josh@technicalpickles.com&role=owner' \
            https://rubygems.org/api/v1/gems/gemcutter/owners
 
-    Owner added successfully.
+    techpickles was added as an unconfirmed owner. Ownership access will be enabled after the user clicks on the confirmation mail sent to their email.
 
 ### DELETE - `/api/v1/gems/[GEM NAME]/owners`
 
@@ -409,41 +551,38 @@ Profile Methods
 
 ### GET - `/api/v1/profiles/[USER HANDLE|USER ID].(json|yaml)`
 
-View basic user info for a user.
+View basic user info for a user. `email` appears only if the user has made their
+email address public.
 
     $ curl https://rubygems.org/api/v1/profiles/qrush
 
-    [
-      {
-        "id": 1,
-        "handle": "qrush"
-      }
-    ]
+    {
+      "id": 1,
+      "handle": "qrush",
+      "email": "nick@quaran.to"
+    }
+
+The same user can be requested by id:
 
     $ curl https://rubygems.org/api/v1/profiles/1
-
-    [
-      {
-        "id": 1,
-        "handle": "qrush"
-      }
-    ]
-
 
 ### GET - `/api/v1/profile/me.(json|yaml)`
 
 View basic user information for your account, including Multi-factor authentication status. Requires username and password to be passed.
 
+`mfa` is one of `disabled`, `ui_only`, `ui_and_api` or `ui_and_gem_signin`. A
+`warning` key is present when the account's MFA level is below the recommended
+one.
+
     $ curl -u "nick@gemcutter.org:schwwwwing" \
            https://rubygems.org/api/v1/profile/me
 
-    [
-      {
-        "id": 1,
-        "handle": "qrush",
-        "mfa": "enabled"
-      }
-    ]
+    {
+      "id": 1,
+      "handle": "qrush",
+      "email": "nick@quaran.to",
+      "mfa": "ui_and_api"
+    }
 
 WebHook Methods
 ---------------
@@ -545,16 +684,38 @@ Pulls the 50 most recently updated gems. Returns an array of the JSON or YAML re
 Misc Methods
 ------------
 
-### GET - `/api/v1/api_key.(json|yaml)`
+### POST - `/api/v1/api_key.(json|yaml)`
 
-Retrieve your API key using HTTP basic auth.
+Create a new API key using HTTP basic auth, and return it. Keys are stored
+hashed, so this response is the only chance to read the key.
 
-    $ curl -u "nick@gemcutter.org:schwwwwing" \
+Accepts `name`, the scopes to enable (see [API key scopes](/api-key-scopes)),
+and optionally `expires_at`, `rubygem_name` to scope the key to a single gem, and
+`mfa` to require an OTP when the key is used.
+
+    $ curl -X POST -u "nick@gemcutter.org:schwwwwing" \
+           -d 'name=ci-push' -d 'push_rubygem=true' \
            https://rubygems.org/api/v1/api_key.json
 
     {
-      "rubygems_api_key": "701243f217cdf23b1370c7b66b65ca97"
+      "rubygems_api_key": "rubygems_701243f217cdf23b1370c7b66b65ca97",
+      "status": "ok"
     }
+
+### PATCH - `/api/v1/api_key`
+
+Update the scopes of an existing key, passed as the `api_key` parameter.
+
+    $ curl -X PATCH -u "nick@gemcutter.org:schwwwwing" \
+           -d 'api_key=rubygems_701243f217cdf23b1370c7b66b65ca97' \
+           -d 'yank_rubygem=true' \
+           https://rubygems.org/api/v1/api_key
+
+    Scopes for the API key ci-push updated
+
+> NOTE: `GET /api/v1/api_key`, which `gem signin` used to call, has been retired
+> and now responds `410 Gone`. Create keys with the request above or on the
+> [API keys page](https://rubygems.org/profile/api_keys).
 
 ### POST - `/api/v1/oidc/trusted_publisher/exchange_token`
 
