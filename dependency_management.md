@@ -111,8 +111,15 @@ Once the `Gemfile` and `Gemfile.lock` are in version control, the routine is sho
 
 - Add or change a dependency in the `Gemfile`, then run `bundle install`.
 - Commit the updated `Gemfile.lock` together with the `Gemfile`, so that everyone
-  else installs the same versions. For a gem rather than an application, see the
-  [FAQs](/faqs) for the tradeoffs of committing `Gemfile.lock`.
+  else installs the same versions you tested with. This applies to applications:
+  code that is deployed or run directly, not consumed as a dependency by other
+  software. If you are developing a library that other applications will depend
+  on, do not commit `Gemfile.lock`. A library's lockfile is ignored by any
+  application that depends on it, and locking your own development environment
+  would narrow the range of dependency versions you actually exercise. Add
+  `lockfile false` to the `Gemfile` (or pass `--no-lock` to `bundle install`)
+  instead. See the [FAQs](/faqs) for the case of a gem's own development
+  checkout, where the tradeoffs differ.
 - If `bundle install` reports a conflict between the `Gemfile` and the
   `Gemfile.lock`, update only the gems you changed:
 
