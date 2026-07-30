@@ -9,7 +9,7 @@ redirect_from: /rubygems-org-api-v2/
 
 <em class="text-neutral-600">Details on interacting with RubyGems.org over HTTP.</em>
 
-Most endpoints are under API v1. API v2 currently provides a single endpoint for fetching the details of a specific gem version.
+Most endpoints are under API v1. API v2 covers lookups scoped to one specific gem version.
 
 > NOTE: The API is a work in progress, and [can use your help!](https://github.com/rubygems/rubygems.org)
 > RubyGems itself and the
