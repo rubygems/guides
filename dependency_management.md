@@ -60,13 +60,13 @@ versions that it installed to `Gemfile.lock`.
 ### Checking Your Code into Version Control
 <a name="checking-your-code-into-version-control"></a>
 
-After developing your application for a while, check in the application together with the
-`Gemfile` and `Gemfile.lock` snapshot. Now, your repository has a
+As you develop your application, `Gemfile.lock` accumulates a
 record of the exact versions of all of the gems that you used the last time you know for
 sure that the application worked. Keep in mind that while your `Gemfile`
 lists only three gems (with varying degrees of version strictness), your application
 depends on dozens of gems, once you take into consideration all of the implicit
-requirements of the gems you depend on.
+requirements of the gems you depend on. See
+[The Day-to-day Workflow](#the-day-to-day-workflow) below for when to commit it.
 
 This is important: **the `Gemfile.lock` makes your application a single
 package of both your own code and the third-party code it ran the last time you know for
