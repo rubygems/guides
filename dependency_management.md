@@ -7,6 +7,7 @@ next: /updating_gems
 redirect_from:
   - /bundler_sharing/
   - /rationale/
+  - /bundler_workflow/
 ---
 
 This guide explains how Bundler manages your application's dependencies, why
@@ -20,9 +21,9 @@ You declare your dependencies in a file at the root of your application called
 
 ~~~ruby
 source 'https://rubygems.org'
-gem 'rails', '4.1.0.rc2'
+gem 'rails', '8.1.3.1'
 gem 'rack-cache'
-gem 'nokogiri', '~> 1.6.1'
+gem 'nokogiri', '~> 1.19.4'
 ~~~
 
 This `Gemfile` says a few things. First, it says that bundler should look for gems
@@ -32,9 +33,9 @@ for those gems.
 
 Next, you declare a few dependencies:
 
-- on version `4.1.0.rc2` of `rails`
+- on version `8.1.3.1` of `rails`
 - on any version of `rack-cache`
-- on a version of `nokogiri` that is `>= 1.6.1` but `< 1.7.0`
+- on a version of `nokogiri` that is `>= 1.19.4` but `< 1.20.0`
 
 <a href="/gemfile" class="btn btn-primary">Learn More: Gemfiles</a>
 
@@ -59,13 +60,13 @@ versions that it installed to `Gemfile.lock`.
 ### Checking Your Code into Version Control
 <a name="checking-your-code-into-version-control"></a>
 
-After developing your application for a while, check in the application together with the
-`Gemfile` and `Gemfile.lock` snapshot. Now, your repository has a
+As you develop your application, `Gemfile.lock` accumulates a
 record of the exact versions of all of the gems that you used the last time you know for
 sure that the application worked. Keep in mind that while your `Gemfile`
 lists only three gems (with varying degrees of version strictness), your application
 depends on dozens of gems, once you take into consideration all of the implicit
-requirements of the gems you depend on.
+requirements of the gems you depend on. See
+[The Day-to-day Workflow](#the-day-to-day-workflow) below for when to commit it.
 
 This is important: **the `Gemfile.lock` makes your application a single
 package of both your own code and the third-party code it ran the last time you know for
@@ -80,7 +81,7 @@ Do not check in the `.bundle` directory or any of the files inside it. Those
 files are specific to each particular machine and are used to persist installation options
 between runs of the `bundle install` command.
 
-If you have run `bundle pack`, the gems (although not the git gems) required
+If you have run `bundle cache`, the gems required
 by your bundle will be downloaded into `vendor/cache`. Bundler can run without
 connecting to the internet (or the RubyGems server) if all the gems you need are present
 in that folder and checked in to your source control. This is an **optional**
@@ -99,17 +100,79 @@ used on the original machine.
 In other words, you don't have to guess which versions of the dependencies you should
 install. In the example we've been using, even though `rack-cache` declares a
 dependency on `rack >= 0.4`, we know for sure it works with `rack
-1.5.2`. Even if the Rack team releases `rack 1.5.3`, bundler will
-always install `1.5.2`, the exact version of the gem that we know works. This
+3.2.6`. Even if the Rack team releases `rack 3.2.7`, bundler will
+always install `3.2.6`, the exact version of the gem that we know works. This
 relieves a large maintenance burden from application developers because all machines
 always run the exact same third-party code.
 
-### Next Steps
+### The Day-to-day Workflow
 
-For the day-to-day workflow of managing dependencies with version control, see the
-[Recommended Workflow with Version Control](/bundler_workflow) guide.
+Once the `Gemfile` and `Gemfile.lock` are in version control, the routine is short:
+
+- Add or change a dependency in the `Gemfile`, then run `bundle install`.
+- Commit the updated `Gemfile.lock` together with the `Gemfile`, so that everyone
+  else installs the same versions you tested with. This applies to applications:
+  code that is deployed or run directly, not consumed as a dependency by other
+  software. If you are developing a library that other applications will depend
+  on, do not commit `Gemfile.lock`. A library's lockfile is ignored by any
+  application that depends on it, and locking your own development environment
+  would narrow the range of dependency versions you actually exercise. Add
+  `lockfile false` to the `Gemfile` (or pass `--no-lock` to `bundle install`)
+  instead. See the [FAQs](/faqs) for the case of a gem's own development
+  checkout, where the tradeoffs differ.
+- If `bundle install` reports a conflict between the `Gemfile` and the
+  `Gemfile.lock`, update only the gems you changed:
+
+~~~
+$ bundle update rails puma
+~~~
+
+- Run `bundle update` with no arguments only when you intend to move every gem
+  to the newest version your `Gemfile` allows.
+- On a deployment machine or in CI, enable deployment mode before installing:
+
+~~~
+$ bundle config set --local deployment true
+$ bundle install
+~~~
+
+  Deployment mode requires an up-to-date `Gemfile.lock` and installs gems into
+  `vendor/bundle` inside the application. Do not enable it on a development
+  machine, where editing the `Gemfile` would then raise an error.
+
+### Loading and Running Your Bundle
+
+Inside your application, load the bundled environment before requiring anything:
+
+~~~ruby
+require 'bundler/setup'
+
+# require your gems as usual
+require 'nokogiri'
+~~~
+
+To run an executable that comes with a gem in your bundle, prefix it with
+`bundle exec`:
+
+~~~
+$ bundle exec rspec spec/models
+~~~
+
+Running the executable without `bundle exec` sometimes works, if it also happens
+to be installed on your system and pulls in no gems that conflict with your
+bundle. That is unreliable. It may stop working later, or on another machine.
+
+If you want a shortcut for a gem you run often, generate binstubs for it:
+
+~~~
+$ bundle binstubs rspec-core
+$ bin/rspec spec/models
+~~~
+
+The executables in `bin` are scoped to the bundle, and will always work.
 
 <div class="buttons">
+  <a href="/command-reference/bundle-exec/" class="btn btn-primary">Learn More: Executables</a>
   <a href="/bundler_setup" class="btn btn-primary">Learn More: Bundler.setup</a>
   <a href="/updating_gems" class="btn btn-primary">Learn More: Updating gems</a>
   <a href="/deploying" class="btn btn-primary">Learn More: Deploying</a>

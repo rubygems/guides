@@ -22,7 +22,6 @@ To check your Bundler version, simply run `bundle -v`.
 1. [Gemfile.lock](#gemfilelock)
 1. [Executing Commands - **bundle exec**](#executing-commands---bundle-exec)
 1. [Updating Gems - **bundle outdated** and **bundle update**](#updating-gems---bundle-outdated-and-bundle-update)
-1. [Recommended Workflow](#recommended-workflow)
 1. [Troubleshooting](#troubleshooting)
     1. [Running `git bisect` in projects using Bundler](#running-git-bisect-in-projects-using-bundler)
     
@@ -284,10 +283,6 @@ To update specific gems, use `bundle update *gems`
 To learn more about `bundle outdated` command click [here](/command-reference/bundle-outdated/).
 
 To learn more about `bundle update` command click [here](/command-reference/bundle-update/).
-
-## Recommended Workflow
-
-For the recommended workflow when working with an application managed with Bundler, see the [Recommended Workflow with Version Control](/bundler_workflow) guide.
 
 ## Troubleshooting
 
