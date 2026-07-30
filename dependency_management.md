@@ -7,6 +7,7 @@ next: /updating_gems
 redirect_from:
   - /bundler_sharing/
   - /rationale/
+  - /bundler_workflow/
 ---
 
 This guide explains how Bundler manages your application's dependencies, why
@@ -80,7 +81,7 @@ Do not check in the `.bundle` directory or any of the files inside it. Those
 files are specific to each particular machine and are used to persist installation options
 between runs of the `bundle install` command.
 
-If you have run `bundle pack`, the gems (although not the git gems) required
+If you have run `bundle cache`, the gems required
 by your bundle will be downloaded into `vendor/cache`. Bundler can run without
 connecting to the internet (or the RubyGems server) if all the gems you need are present
 in that folder and checked in to your source control. This is an **optional**
@@ -104,12 +105,67 @@ always install `1.5.2`, the exact version of the gem that we know works. This
 relieves a large maintenance burden from application developers because all machines
 always run the exact same third-party code.
 
-### Next Steps
+### The Day-to-day Workflow
 
-For the day-to-day workflow of managing dependencies with version control, see the
-[Recommended Workflow with Version Control](/bundler_workflow) guide.
+Once the `Gemfile` and `Gemfile.lock` are in version control, the routine is short:
+
+- Add or change a dependency in the `Gemfile`, then run `bundle install`.
+- Commit the updated `Gemfile.lock` together with the `Gemfile`, so that everyone
+  else installs the same versions. For a gem rather than an application, see the
+  [FAQs](/faqs) for the tradeoffs of committing `Gemfile.lock`.
+- If `bundle install` reports a conflict between the `Gemfile` and the
+  `Gemfile.lock`, update only the gems you changed:
+
+~~~
+$ bundle update rails thin
+~~~
+
+- Run `bundle update` with no arguments only when you intend to move every gem
+  to the newest version your `Gemfile` allows.
+- On a deployment machine or in CI, enable deployment mode before installing:
+
+~~~
+$ bundle config set --local deployment true
+$ bundle install
+~~~
+
+  Deployment mode requires an up-to-date `Gemfile.lock` and installs gems into
+  `vendor/bundle` inside the application. Do not enable it on a development
+  machine, where editing the `Gemfile` would then raise an error.
+
+### Loading and Running Your Bundle
+
+Inside your application, load the bundled environment before requiring anything:
+
+~~~ruby
+require 'bundler/setup'
+
+# require your gems as usual
+require 'nokogiri'
+~~~
+
+To run an executable that comes with a gem in your bundle, prefix it with
+`bundle exec`:
+
+~~~
+$ bundle exec rspec spec/models
+~~~
+
+Running the executable without `bundle exec` sometimes works, if it also happens
+to be installed on your system and pulls in no gems that conflict with your
+bundle. That is unreliable. It may stop working later, or on another machine.
+
+If you want a shortcut for a gem you run often, generate binstubs for it:
+
+~~~
+$ bundle binstubs rspec-core
+$ bin/rspec spec/models
+~~~
+
+The executables in `bin` are scoped to the bundle, and will always work.
 
 <div class="buttons">
+  <a href="/command-reference/bundle-exec/" class="btn btn-primary">Learn More: Executables</a>
   <a href="/bundler_setup" class="btn btn-primary">Learn More: Bundler.setup</a>
   <a href="/updating_gems" class="btn btn-primary">Learn More: Updating gems</a>
   <a href="/deploying" class="btn btn-primary">Learn More: Deploying</a>
