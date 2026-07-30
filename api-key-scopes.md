@@ -136,4 +136,4 @@ If it is not possible for you to update your rubygems, you can still use the new
     $ cat ~/.local/share/gem/credentials
     :rubygems_api_key: rubygems_cec9db9373ea171daaaa0bf2337edce187f09558cb19c1b2
 
-**Note:** The legacy endpoint to fetch API keys, `GET /api/v1/keys` has been updated to create a new API key on each request. As a security precaution, the new API keys are stored in our database after one-way encryption. It is no longer possible for us to fetch the same API key in plain text.
+**Note:** The legacy endpoint to fetch API keys, `GET /api/v1/api_key`, has been retired and now responds `410 Gone`. Use [`POST /api/v1/api_key`](/rubygems-org-api#post---apiv1api_keyjsonyaml) to create a key instead. As a security precaution, API keys are stored in our database after one-way encryption. It is no longer possible for us to fetch the same API key in plain text.
