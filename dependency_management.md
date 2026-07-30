@@ -21,9 +21,9 @@ You declare your dependencies in a file at the root of your application called
 
 ~~~ruby
 source 'https://rubygems.org'
-gem 'rails', '4.1.0.rc2'
+gem 'rails', '8.1.3.1'
 gem 'rack-cache'
-gem 'nokogiri', '~> 1.6.1'
+gem 'nokogiri', '~> 1.19.4'
 ~~~
 
 This `Gemfile` says a few things. First, it says that bundler should look for gems
@@ -33,9 +33,9 @@ for those gems.
 
 Next, you declare a few dependencies:
 
-- on version `4.1.0.rc2` of `rails`
+- on version `8.1.3.1` of `rails`
 - on any version of `rack-cache`
-- on a version of `nokogiri` that is `>= 1.6.1` but `< 1.7.0`
+- on a version of `nokogiri` that is `>= 1.19.4` but `< 1.20.0`
 
 <a href="/gemfile" class="btn btn-primary">Learn More: Gemfiles</a>
 
@@ -100,8 +100,8 @@ used on the original machine.
 In other words, you don't have to guess which versions of the dependencies you should
 install. In the example we've been using, even though `rack-cache` declares a
 dependency on `rack >= 0.4`, we know for sure it works with `rack
-1.5.2`. Even if the Rack team releases `rack 1.5.3`, bundler will
-always install `1.5.2`, the exact version of the gem that we know works. This
+3.2.6`. Even if the Rack team releases `rack 3.2.7`, bundler will
+always install `3.2.6`, the exact version of the gem that we know works. This
 relieves a large maintenance burden from application developers because all machines
 always run the exact same third-party code.
 
@@ -117,7 +117,7 @@ Once the `Gemfile` and `Gemfile.lock` are in version control, the routine is sho
   `Gemfile.lock`, update only the gems you changed:
 
 ~~~
-$ bundle update rails thin
+$ bundle update rails puma
 ~~~
 
 - Run `bundle update` with no arguments only when you intend to move every gem
