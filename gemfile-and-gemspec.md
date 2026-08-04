@@ -20,13 +20,12 @@ A Gemfile is the input to [Bundler](/getting_started). It declares the set of ge
 Declaring dependencies
 ----------------------
 
-A gemspec declares dependencies with `add_dependency` for gems needed at runtime and `add_development_dependency` for gems needed only to work on the gem itself:
+A gemspec declares the gems your gem needs at runtime with `add_dependency`:
 
 ~~~ruby
 Gem::Specification.new do |s|
   # ...
   s.add_dependency "activesupport", ">= 7.0"
-  s.add_development_dependency "rspec", ">= 3.0"
 end
 ~~~
 
@@ -44,15 +43,18 @@ The version constraints look alike but pull in opposite directions. A gem's cons
 Using both while developing a gem
 ---------------------------------
 
-While developing a gem you still want Bundler to set up a working environment, so a gem's repository usually contains both files. The convention is to keep the gemspec as the single place where dependencies are declared, and to put the `gemspec` method in the Gemfile:
+While developing a gem you still want Bundler to set up a working environment, so a gem's repository usually contains both files. The convention is to declare runtime dependencies in the gemspec, pull them into the bundle with the `gemspec` method, and declare development dependencies directly in the Gemfile:
 
 ~~~ruby
 source "https://rubygems.org"
 
 gemspec
+
+gem "rspec", "~> 3.13"
+gem "rubocop"
 ~~~
 
-Bundler then treats the gemspec's runtime dependencies as Gemfile entries in the default group, puts its development dependencies in the `:development` group, and adds the gem itself as a `path` dependency so your tests can require it. This is exactly the layout `bundle gem` generates. See [Bundler in gems](/rubygems) for the `gemspec` method's options and [Make your own gem](/make-your-own-gem) for the full workflow.
+The `gemspec` method treats the gemspec's runtime dependencies as Gemfile entries in the default group and adds the gem itself as a `path` dependency so your tests can require it. The gemspec format also supports `add_development_dependency`, and the `gemspec` method pulls those in too, but prefer the Gemfile for development dependencies. A gemspec can only name a gem and a version requirement, while the Gemfile lets you adjust each dependency to the needs of the library you are developing, with groups, git or path sources, and platform conditions. This is the layout `bundle gem` generates. See [Bundler in gems](/rubygems) for the `gemspec` method's options and [Make your own gem](/make-your-own-gem) for the full workflow.
 
 Building a library vs. building an application
 ----------------------------------------------
@@ -66,6 +68,6 @@ Which file gets what
 |------------------------|---------------|
 | The gem's name, version, and metadata | gemspec |
 | Gems your gem needs at runtime | gemspec, `add_dependency` |
-| Gems needed only to develop your gem | gemspec, `add_development_dependency` |
+| Gems needed only to develop your gem | Gemfile |
 | Gems your application uses | Gemfile |
 | Exact versions for reproducible installs | `Gemfile.lock`, written by Bundler |
