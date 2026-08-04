@@ -136,7 +136,9 @@ This creates a directory with the following structure:
 
  * **Gemfile**: Manages gem dependencies for development. Contains a `gemspec` line
 meaning that Bundler will include dependencies specified in _foodie.gemspec_ too.
-It’s best practice to specify all dependencies in the _gemspec_.
+Runtime dependencies belong in the _gemspec_, while development dependencies are
+declared here. See [Gemfile and gemspec](/gemfile-and-gemspec) for how the two
+files divide the work.
 
  * **Rakefile**: Includes Bundler’s `build`, `install` and `release` Rake tasks
 by way of calling `Bundler::GemHelper.install_tasks`.
@@ -305,7 +307,9 @@ but not at runtime:
 When using Bundler, running `bundle install` will resolve and install all
 dependencies specified in the gemspec. Anyone who runs
 `gem install yourgemname --dev` will get the development dependencies installed
-too.
+too. If your gem has a Gemfile alongside the gemspec, prefer declaring
+development dependencies in the Gemfile instead. See
+[Gemfile and gemspec](/gemfile-and-gemspec) for the reasoning.
 
 Writing tests
 --------------

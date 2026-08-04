@@ -119,6 +119,10 @@ and `add_development_dependency`:
       s.add_development_dependency "bourne",
         [">= 0"]
 
+If you develop your gem with Bundler and a Gemfile, prefer declaring
+development dependencies in the Gemfile rather than in the gemspec. See
+[Gemfile and gemspec](/gemfile-and-gemspec) for the reasoning.
+
 ### Don't use `gem` from within your gem
 
 You may have seen some code like this around to make sure you're using a
