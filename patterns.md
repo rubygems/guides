@@ -8,7 +8,7 @@ next: /gems-with-extensions
 
 <em class="text-neutral-600">Common practices to make your gem users' and other developers' lives easier.</em>
 
-This page covers conventions for naming and structuring a gem and for loading its code. Guidance that used to live here has moved: for version numbering, prerelease versions, and dependency constraints see [Semantic versioning and compatibility](/semver), and for where to declare runtime and development dependencies see [Gemfile and gemspec](/gemfile-and-gemspec).
+This page covers conventions for naming and structuring a gem and for loading its code. Guidance that used to live here has moved: for version numbering, prerelease versions, and dependency constraints see [Versioning and compatibility](/versioning), and for where to declare runtime and development dependencies see [Gemfile and gemspec](/gemfile-and-gemspec).
 
 * [Consistent naming](#consistent-naming)
 * [Loading code](#loading-code)

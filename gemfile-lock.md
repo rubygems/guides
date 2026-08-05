@@ -3,7 +3,7 @@ layout: default
 title: How Gemfile.lock works
 url: /gemfile-lock
 previous: /dependency-resolution
-next: /semver
+next: /versioning
 ---
 
 <em class="text-neutral-600">How to read the file that pins every gem version your application installs.</em>
