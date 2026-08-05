@@ -296,7 +296,7 @@ If your gem depends on another gem, you can specify it in your gemspec using
 Using `>=` (an optimistic version constraint) is recommended in most cases, so
 that your gem does not artificially lock its users out of future releases of
 the dependency. See
-[Optimistic vs. pessimistic version constraints](patterns#optimistic-vs-pessimistic-version-constraints)
+[Optimistic vs. pessimistic constraints](/semver#optimistic-vs-pessimistic-constraints)
 for when a pessimistic (`~>`) constraint may be more appropriate.
 
 You can also specify development-only dependencies that are needed for testing
@@ -507,7 +507,7 @@ You can add more executables as well in the `bin` directory if you need to,
 there's an `executables` array field on the gemspec.
 
 > Note that you should change the gem's version when pushing up a new release.
-> For more information on gem versioning, see the [Patterns Guide](/patterns/#semantic-versioning)
+> For more information on gem versioning, see [Semantic versioning and compatibility](/semver)
 
 Documenting your code
 ---------------------
