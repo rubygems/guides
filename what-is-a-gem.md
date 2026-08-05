@@ -3,7 +3,7 @@ layout: default
 title: What is a gem?
 url: /what-is-a-gem/
 previous: /git_bisect
-next: /default-gems-and-bundled-gems
+next: /gemfile-and-gemspec
 ---
 
 <em class="text-neutral-600">Unpack the mystery behind what's in a RubyGem.</em>

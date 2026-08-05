@@ -2,7 +2,7 @@
 layout: default
 title: Default Gems and Bundled Gems
 url: /default-gems-and-bundled-gems
-previous: /what-is-a-gem
+previous: /gemfile-and-gemspec
 next: /cve
 ---
 

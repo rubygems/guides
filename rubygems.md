@@ -26,6 +26,7 @@ gem "rubocop", "0.79.0"
 
 In this Gemfile, the `gemspec` method imports gems listed with `add_runtime_dependency` in the `my_gem.gemspec` file, and it also installs rspec and rubocop to test and develop the gem.
 All dependencies from the gemspec and Gemfile will be installed by `bundle install`, but rspec and rubocop will not be included by `gem install mygem` or `bundle add mygem`.
+Declaring development dependencies in the Gemfile like this, rather than with `add_development_dependency` in the gemspec, is the recommended layout. See [Gemfile and gemspec](/gemfile-and-gemspec) for the reasoning.
 Runtime dependencies in your gemspec are treated as if they are listed in your Gemfile, and development dependencies are added by default to the group, `:development`.
 You can change that group with the `:development_group` option:
 
