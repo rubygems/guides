@@ -6,192 +6,149 @@ previous: /plugins
 next: /troubleshooting
 ---
 
-<a name="how-to-write-a-bundler-plugin"></a>
+<em class="text-neutral-600">Extend Bundler with new commands, gem sources, and lifecycle hooks.</em>
 
-## What is a plugin?
-<a name="what-is-a-plugin"></a>
+A Bundler plugin is a regular gem with one extra file, `plugins.rb`, at its root. Through that file the gem can register three kinds of extensions:
 
-Bundler plugins are specialized gems that are aimed at integrating and extending Bundler's functionality.
-This guide will help you start writing your own Bundler plugins.
+- Commands, so that `bundle my_command` runs your code
+- Gem sources, so that a Gemfile can install gems from somewhere other than a gem server, git, or a local path
+- Lifecycle hooks, so that your code runs at events such as before or after `bundle install`
 
-## Why would I use a plugin?
-<a name="why-would-i-use-a-plugin"></a>
+Installing and using plugins
+----------------------------
 
-Plugins are able to integrate with and extend Bundler.  
-Currently, a plugin is able to:
+Plugins install from a gem server by default, or from a git repository or local path:
 
-- Add commands to Bundler (e.g. `bundle my_command`)
-- Add a special handler to install a gem (e.g. Mercurial or SVN)
-- Add functionality to specific hook points:
-   - A list of all available hooks, their descriptions, and their block arguments are available
-     [in the plugin/events.rb file.](https://github.com/ruby/rubygems/blob/master/lib/bundler/plugin/events.rb)
-   - Note: Make sure to check out the `events.rb` file in the version of Bundler you are using.
+    bundle plugin install my_plugin
+    bundle plugin install my_plugin --git https://github.com/example/my_plugin
+    bundle plugin install my_plugin --path /path/to/my_plugin
 
-## Using a plugin
-<a name="using-a-plugin"></a>
+Once installed, the plugin's commands are available and its hooks are registered. `bundle plugin list` shows installed plugins and their commands, and `bundle plugin uninstall my_plugin` removes one.
 
-#### Install a plugin from a command
-<a name="install-from-command"></a>
+A Gemfile can also declare plugins, and `bundle install` will install them:
 
-Plugins can be installed from RubyGems (default) or from a Git server.
-To use a gem on your machine, you can run `bundler plugin install gem_name`.
-Once the plugin is installed, the commands will be available for use and the hooks will be automatically registered with Bundler.
+    plugin "my_plugin"
+    plugin "my_plugin", git: "https://github.com/example/my_plugin.git"
+    plugin "my_plugin", path: "/path/to/my_plugin"
 
-Run `bundler plugin help install` for more details help and instructions on installing from Git.
+A plugin is a regular gem
+-------------------------
 
-In Bundler 2.2.0, you can uninstall with `bundler plugin uninstall gem_name`.
+Start by [creating a gem](/make-your-own-gem) as usual. That guide builds a command-line executable with Thor, but a plugin needs none of that. No executable, no CLI framework. Bundler talks to your plugin through `plugins.rb` instead.
 
-#### Install a plugin from your Gemfile
-<a name="install-from-gemfile"></a>
+`plugins.rb` lives at the top level of the gem, next to the gemspec, and is the entry point Bundler loads. Usually it just requires your gem's main file:
 
-You can also specify a plugin in your Gemfile:
+    require "my_plugin"
 
-~~~ruby
-plugin 'my_plugin' # Installs from Rubygems
-plugin 'my_plugin', path: '/path/to/plugin' # Installs from a path
-plugin 'my_plugin', git: 'https://github.com/repo/my_plugin.git' # Installs from Git
-~~~
+Make sure the gemspec ships this file. If `spec.files` is a hand-maintained list rather than `git ls-files`, add `plugins.rb` to it.
 
-## Getting started with development
-<a name="getting-started-with-development"></a>
+When the plugin is installed, Bundler runs `plugins.rb` once and records every command, source, and hook it registers into a plugin index. After that, Bundler loads the plugin again only when one of those registrations is used. Registration must therefore happen at load time, in code that runs when `plugins.rb` is required.
 
-### 1. Create a gem
-<a name="create-a-gem"></a>
+Adding a command
+----------------
 
-You'll first need to create a specialized gem before you can make a Bundler plugin.
+A command class needs two things: it registers itself for a command name, and it defines an instance method `exec`. The smallest working command plugin looks like this, with the class reached from `plugins.rb`:
 
-[Create a gem using this guide.](/make-your-own-gem/)
-When you're done, come back to this guide and move onto step two.
+    require "bundler/plugin/api"
 
-### 2. Create a plugins.rb file
-<a name="plugins-rb" id="plugins_rb"></a>
+    module MyPlugin
+      class Hello < Bundler::Plugin::API
+        command "hello"
 
-A `plugins.rb` file is located at the top level of your gem's folder and is the entry point Bundler will use to call your plugin.
-This is a Ruby file that defines your commands, hooks, and other code. Often, you may just require the gem's upper-most lib file.
-
-For example, if your gem is called "my_plugin", you might have a file at `lib/my_plugin.rb` which contains the highest level namespace for your gem.
-Your `plugins.rb` file might be:
-
-~~~ruby
-require 'my_plugin'
-~~~
-
-The `lib/my_plugin.rb` file would include other require statements, hooks, and commands similar to a normal gem.
-
-### 3. Making Bundler commands
-<a name="developing-your-plugin-commands" id="developing_your_plugin_commands"></a>
-
-Bundler commands allow you to extend the Bundler interface with additional functionality.
-
-To add a Bundler command, you need to make a class that registers itself (or another class) as a command.
-For example, to add support for a `bundler my_command` command, you might create a class like so:
-
-~~~ruby
-class MyCommand < Bundler::Plugin::API
-  # Register this class as a handler for the `my_command` command
-  command "my_command"
-
-  # The exec method will be called with the `command` and the `args`.
-  # This is where you should handle all logic and functionality
-  def exec(command, args)
-    if args.empty?
-      # Using BundlerError in plugins is recommended. See below.
-      raise BundlerError, 'My plugin requires arguments'
+        def exec(command, args)
+          puts "Hello! You passed #{args.inspect}"
+        end
+      end
     end
-    puts "You called " + command + " with args: " + args.inspect
-  end
-end
-~~~
 
-or
+When a user runs `bundle hello world --loud`, Bundler instantiates the registered class with no arguments and calls `exec("hello", ["world", "--loud"])`. The second argument is the raw list of remaining command-line arguments. Parse it however you like, for example with `OptionParser` as [bundler-graph](https://github.com/rubygems/bundler-graph) does.
 
-~~~ruby
-module MyCommand
-  # Register this class as a handler for the `my_command` command
-  Bundler::Plugin::API.command('my_command', self)
+If you prefer not to inherit from `Bundler::Plugin::API`, register a plain class explicitly. It must still be a class with a public `exec` instance method, because Bundler calls `.new` on whatever you register:
 
-  # The exec method will be called with the `command_name` and the `args`.
-  # This is where you should handle all logic and functionality
-  def exec(command_name, args)
-    puts "You called " + command_name + " with args: " + args.inspect
-  end
-end
-~~~
+    require "bundler/plugin/api"
 
-These two elements are important in order for a command to register in Bundler:
+    module MyPlugin
+      class Hello
+        Bundler::Plugin::API.command("hello", self)
 
-1. `Bundler::Plugin::API.command(COMMAND_NAME, CLASS)` or `command 'COMMAND_NAME'` is called, depending on the method used (see examples above)
-2. The class defines the instance method `exec(command_name, args)`
+        def exec(command, args)
+          puts "Hello! You passed #{args.inspect}"
+        end
+      end
+    end
 
-#### Raising Errors
-<a name="raising-errors" id="raising_errors"></a>
+### Raising errors
 
-If something goes wrong, your plugins should raise a `BundlerError`.
-It's not recommended to raise e.g. `Exception` in a plugin, because that will cause Bundler to print its own bug report template, asking users to report the bug to Bundler itself.
+When something goes wrong, raise `Bundler::BundlerError` (or a subclass). Bundler rescues it and prints the message concisely. Any other exception makes Bundler print its bug report template asking users to file an issue against Bundler itself. The details are in [friendly_errors.rb](https://github.com/ruby/rubygems/blob/master/lib/bundler/friendly_errors.rb).
 
-To see in detail how bundler rescues errors, check out `bundler/friendly_errors.rb`.
+    raise Bundler::BundlerError, "my_command requires an argument" if args.empty?
 
-### 4. Using Bundler hooks
-<a name="developing-your-plugin-hooks" id="developing_your_plugin_hooks"></a>
+### Commands and Thor
 
-To interface with various parts of Bundler, you can use a hook.
-Hooks will let you inject some functionality at specific events by registering to listen for specific things to happen.
-To listen to an event, you need to add a hook for it and provide a block.
+If your gem already has a Thor CLI, do not register the Thor class itself as the command. Thor classes define no `exec` instance method, so Bundler's call lands on the private `Kernel#exec` and the command crashes with `NoMethodError: private method 'exec' called`. Keep the Bundler command in its own small class and delegate to Thor from there:
 
-For example, for a `Bundler::Plugin::Events::GEM_BEFORE_INSTALL_ALL` hook you must give a block that has an argument for an Array of `Bundler::Dependency` objects:
+    module MyPlugin
+      class BundlerCommand < Bundler::Plugin::API
+        command "my_command"
 
-~~~ruby
-Bundler::Plugin.add_hook('before-install-all') do |dependencies|
-  # Do something with the dependencies
-end
-~~~
+        def exec(command, args)
+          MyPlugin::CLI.start(args)
+        end
+      end
+    end
 
-### 5. Developing a source plugin
-<a name="developing-your-plugin-sources" id="developing_your_plugin_sources"></a>
+`MyPlugin::CLI.start(args)` here is the same entry point the gem's own executable would use.
 
-A source plugin allows you to specify more possible installation sources to use within Bundler.
-For example, let's say you want to install gems from Amazon S3. This can be done by building a plugin.
+### Plugin commands vs. executables on PATH
 
-It is recommended to get familiar with the API for `Bundler::Plugin::API::Source` which is available
-[on rubydoc.info](https://www.rubydoc.info/gems/bundler/Bundler/Plugin/API/Source)
-or
-[in the source code.](https://github.com/ruby/rubygems/blob/master/lib/bundler/plugin/api/source.rb)
+There is a second, older way to add a `bundle` subcommand that has nothing to do with plugins. When `bundle foo` matches neither a built-in command nor an installed plugin command, Bundler searches PATH for an executable named `bundler-foo` and runs it. [bundler-audit](https://github.com/rubysec/bundler-audit) works this way: installing the gem puts a `bundler-audit` executable on PATH, which makes `bundle audit` work. It is not a Bundler plugin and does not use the plugin API.
 
-The basic overview of the source plugin is that you must subclass `Bundler::Plugin::API::Source` and override a number of methods.
-Those methods are indicated in the docs/source code linked above.
+The two mechanisms differ in how they are installed and where they run. A PATH executable comes from a gem installed with `gem install` or a Gemfile, runs in its own process, and does not appear in `bundle plugin list`. A plugin command is installed with `bundle plugin install`, runs inside the Bundler process with access to Bundler's API, and is listed by `bundle plugin list`. If both exist for the same name, the plugin command wins. For a new project, prefer the plugin API. Adding command registration to a gem that already ships a `bundler-`prefixed executable changes nothing for its users except the installation method.
 
-Bundler uses the source plugin API to provide interfaces for RubyGems, Git, and path-based gems. The source code for these pieces may prove useful in understanding the API:
+Running code at lifecycle events
+--------------------------------
 
-- [RubyGems source](https://github.com/ruby/rubygems/blob/master/lib/bundler/source/rubygems.rb)
-- [git source](https://github.com/ruby/rubygems/blob/master/lib/bundler/source/git.rb)
-- [path source](https://github.com/ruby/rubygems/blob/master/lib/bundler/source/path.rb)
+Hooks run your code when Bundler reaches specific events. Register a hook with the event name and a block. The block arguments depend on the event:
 
-### 6. Running your plugin locally
-<a name="running-your-plugin-locally" id="running_your_plugin_locally"></a>
+    require "bundler/plugin/api"
 
-To install and run your plugin locally, you can run `bundler plugin install --git '/PATH/TO/GEM' copycat`
+    Bundler::Plugin::API.hook("before-install-all") do |dependencies|
+      puts "About to install #{dependencies.map(&:name).join(", ")}"
+    end
 
-### 7. Deploying your plugin
-<a name="deploying-your-plugin" id="deploying_your_plugin"></a>
+The full list of events, with their descriptions and block arguments, is in [events.rb](https://github.com/ruby/rubygems/blob/master/lib/bundler/plugin/events.rb). Check the copy in the Bundler version you target, since events have been added over time. For a real-world example, [bundler-multilock](https://github.com/instructure/bundler-multilock) uses an `after-install-all` hook.
 
-Deploy your plugin to RubyGems so others can install it. For instructions on deploying to RubyGems, visit
-[this guide.](/make-your-own-gem/#releasing-your-gem)
+Adding a gem source
+-------------------
 
-Although plugins can be installed from a git branch, it's recommended to install plugins directly from RubyGems.
+A source plugin lets a Gemfile install gems from a place Bundler does not support natively, such as Amazon S3. Subclass `Bundler::Plugin::API::Source` and override at least `fetch_gemspec_files` and `install`. The required and overridable methods are documented in [api/source.rb](https://github.com/ruby/rubygems/blob/master/lib/bundler/plugin/api/source.rb).
 
-## Example Plugins
-<a name="examples"></a>
+Bundler's own sources implement the same interface, so their code is a useful reference: the [rubygems source](https://github.com/ruby/rubygems/blob/master/lib/bundler/source/rubygems.rb), the [git source](https://github.com/ruby/rubygems/blob/master/lib/bundler/source/git.rb), and the [path source](https://github.com/ruby/rubygems/blob/master/lib/bundler/source/path.rb).
 
-Here are a few plugins that you can use as examples and inspiration:
+Developing your plugin locally
+------------------------------
 
-- For a plugin that adds a command, take a look at
-[rubygems/bundler-graph](https://github.com/rubygems/bundler-graph)
-- For a plugin that makes use of hooks, take a look at
-[jules2689/extended_bundler-errors](https://github.com/jules2689/extended_bundler-errors)
-- For an example of source plugin, take a look at Bundler's implementations for
-[the RubyGems source,](https://github.com/ruby/rubygems/blob/master/lib/bundler/source/rubygems.rb)
-[the git source,](https://github.com/ruby/rubygems/blob/master/lib/bundler/source/git.rb)
-and
-[the path source](https://github.com/ruby/rubygems/blob/master/lib/bundler/source/path.rb)
+Install your work-in-progress plugin straight from its source directory:
 
-You can also look at the [full list of bundler plugins](/bundler_known_plugins).
+    bundle plugin install my_plugin --path /path/to/my_plugin
+
+Run this inside a project with a Gemfile and the plugin installs into the project's `.bundle/plugin` directory, keeping the experiment local. Run it outside any project and the plugin installs globally for your user.
+
+A path-installed plugin runs directly from the source directory, so edits to your code take effect on the next `bundle` invocation. The exception is `plugins.rb` registrations, which Bundler caches in its index at install time. After adding or renaming a command, source, or hook, reinstall:
+
+    bundle plugin uninstall my_plugin
+    bundle plugin install my_plugin --path /path/to/my_plugin
+
+Releasing your plugin
+---------------------
+
+A plugin is released like any other gem. [Publish it to RubyGems.org](/publishing) so others can install it with `bundle plugin install`.
+
+Example plugins
+---------------
+
+- [bundler-graph](https://github.com/rubygems/bundler-graph) adds a command. It is maintained by the rubygems organization and is a good reference for the command API.
+- [bundler-multilock](https://github.com/instructure/bundler-multilock) uses a lifecycle hook.
+- Bundler's built-in [rubygems](https://github.com/ruby/rubygems/blob/master/lib/bundler/source/rubygems.rb), [git](https://github.com/ruby/rubygems/blob/master/lib/bundler/source/git.rb), and [path](https://github.com/ruby/rubygems/blob/master/lib/bundler/source/path.rb) sources implement the source interface.
+
+More are listed in the [known plugins list](/bundler_known_plugins).
