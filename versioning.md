@@ -3,7 +3,7 @@ layout: default
 title: Versioning and compatibility
 url: /versioning
 previous: /gemfile-lock
-next: /default-gems-and-bundled-gems
+next: /platforms
 ---
 
 <em class="text-neutral-600">What a version number can and cannot promise, and how RubyGems compares and constrains versions.</em>
