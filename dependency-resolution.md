@@ -3,7 +3,7 @@ layout: default
 title: How dependency resolution works
 url: /dependency-resolution
 previous: /gem-installation-and-loading
-next: /default-gems-and-bundled-gems
+next: /gemfile-lock
 ---
 
 <em class="text-neutral-600">How Bundler picks one set of gem versions that satisfies your Gemfile and every gemspec at once.</em>
