@@ -76,6 +76,12 @@ This lists the platforms the resolution covers. `ruby` is the generic platform o
 
     bundle lock --add-platform x86_64-linux
 
+On macOS the concrete platform records the Darwin major version, `arm64-darwin-27` above. That number differs between macOS releases, so lockfiles generated on different Macs disagree about the platform for no useful reason. Normalizing the list is strongly recommended:
+
+    bundle lock --normalize-platforms
+
+This rewrites the entry to the versionless `arm64-darwin`, which covers every macOS release, and later installs keep the normalized form.
+
 ### DEPENDENCIES
 
     DEPENDENCIES
