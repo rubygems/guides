@@ -2,7 +2,7 @@
 layout: default
 title: Known Plugins
 url: /bundler_known_plugins
-previous: /bundler-compatibility
+previous: /environment-variables
 next: /faqs
 ---
 

@@ -173,6 +173,12 @@
     - url: /bundler-compatibility
       label: "Bundler compatibility with Ruby"
       description: "Which Bundler versions work with which Ruby and RubyGems versions."
+    - url: /configuration
+      label: "Configuration (.gemrc)"
+      description: "Where the gem command reads its configuration and the options a .gemrc file accepts."
+    - url: /environment-variables
+      label: "Environment variables"
+      description: "The environment variables the gem command and the RubyGems runtime read."
     - url: /bundler_known_plugins
       label: "Known Bundler Plugins"
       description: "A list of known Bundler plugins and what they do."
