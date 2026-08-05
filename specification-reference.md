@@ -232,19 +232,19 @@ next: /rubygems-org-api
 
 <p>The license for this gem.</p>
 
-<p>The license must be no more than 64 characters.</p>
-
-<p>This should just be the name of your license. The full text of the license should be inside of the gem (at the top level) when you build it.</p>
-
-<p>The simplest way is to specify the standard SPDX ID <a href="https://spdx.org/licenses">spdx.org/licenses</a>/ for the license. Ideally, you should pick one that is OSI (Open Source Initiative) <a href="https://opensource.org/licenses">opensource.org/licenses</a>/ approved.</p>
+<p>The license must be no more than 64 characters, and should be a single SPDX license identifier from <a href="https://spdx.org/licenses">spdx.org/licenses</a>/. Ideally, you should pick one that is OSI (Open Source Initiative) <a href="https://opensource.org/licenses">opensource.org/licenses</a>/ approved.</p>
 
 <p>The most commonly used OSI-approved licenses are MIT and Apache-2.0. GitHub also provides a license picker at <a href="https://choosealicense.com">choosealicense.com</a>/.</p>
 
-<p>You can also use a custom license file along with your gemspec and specify a LicenseRef-&lt;idstring&gt;, where idstring is the name of the file containing the license text.</p>
+<p>The full text of the license should be inside of the gem (at the top level) when you build it.</p>
+
+<p>RubyGems validates the license against the SPDX license list when you run <code>gem build</code> and warns about unknown or deprecated identifiers. An identifier may carry a trailing <code>+</code> (this version or any later version) and a license exception joined with WITH, for example <code>Apache-2.0 WITH LLVM-exception</code>.</p>
+
+<p>Compound SPDX license expressions such as <code>MIT OR Apache-2.0</code> are not currently supported. RubyGems treats the whole string as a single identifier and warns that it is invalid. For a gem available under more than one license, set each license as a separate entry with <code>licenses=</code>.</p>
+
+<p>For a license that has no SPDX identifier, use Nonstandard, or LicenseRef-&lt;idstring&gt; where idstring is the name of the file containing the license text.</p>
 
 <p>You should specify a license for your gem so that people know how they are permitted to use it and any restrictions you’re placing on it.  Not specifying a license means all rights are reserved; others have no right to use the code for any purpose.</p>
-
-<p>You can set multiple licenses with <code>licenses=</code></p>
 
 <p>Usage:</p>
 
@@ -257,15 +257,15 @@ next: /rubygems-org-api
 
 <p>The license(s) for the library.</p>
 
-<p>Each license must be a short name, no more than 64 characters.</p>
+<p>Each entry must be a single SPDX license identifier, no more than 64 characters. Entries are validated independently, so a compound expression such as <code>MIT OR Apache-2.0</code> is not valid as an entry. Listing the identifiers as separate array elements is currently the only way RubyGems supports declaring a dual- or multi-licensed gem.</p>
 
-<p>This should just be the name of your license. The full text of the license should be inside of the gem when you build it.</p>
+<p>Note that the array itself does not state how the licenses combine. Include the full text of each license in the gem and describe the exact terms there.</p>
 
 <p>See <code>license=</code> for more discussion</p>
 
 <p>Usage:</p>
 
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">licenses</span> = [<span class="ruby-string">&#39;MIT&#39;</span>, <span class="ruby-string">&#39;GPL-2.0&#39;</span>]
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">licenses</span> = [<span class="ruby-string">&#39;MIT&#39;</span>, <span class="ruby-string">&#39;GPL-2.0-only&#39;</span>]
 </pre>
 
 <a id="metadata"> </a>
@@ -341,7 +341,7 @@ next: /rubygems-org-api
 
 <p>Usage:</p>
 
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_dependency</span> <span class="ruby-string">&#39;example&#39;</span>, <span class="ruby-string">&#39;~&gt; 1.1&#39;</span>, <span class="ruby-string">&#39;&gt;= 1.1.4&#39;</span>
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_dependency</span> <span class="ruby-string">&#39;example&#39;</span>, <span class="ruby-string">&#39;&gt;= 1.1.4&#39;</span>, <span class="ruby-string">&#39;&lt; 2&#39;</span>
 </pre>
 Also known as: **add_runtime_dependency**
 
@@ -353,7 +353,7 @@ Also known as: **add_runtime_dependency**
 
 <p>Usage:</p>
 
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_development_dependency</span> <span class="ruby-string">&#39;example&#39;</span>, <span class="ruby-string">&#39;~&gt; 1.1&#39;</span>, <span class="ruby-string">&#39;&gt;= 1.1.4&#39;</span>
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_development_dependency</span> <span class="ruby-string">&#39;example&#39;</span>, <span class="ruby-string">&#39;&gt;= 1.1.4&#39;</span>, <span class="ruby-string">&#39;&lt; 2&#39;</span>
 </pre>
 
 <p>Development dependencies aren’t installed by default and aren’t activated when a gem is required.</p>
