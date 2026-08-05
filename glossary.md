@@ -43,12 +43,12 @@ A packaged Ruby library or program. Each gem has a name, a version, and a platfo
 Gemfile
 -------
 
-The file that describes an application's gem environment for Bundler. It lists the gems the application uses directly, along with the sources to fetch them from. See [Gemfile and gemspec](/gemfile-and-gemspec) and the [Gemfile reference](/gemfile).
+The file that describes an application's gem environment for Bundler. It lists the gems the application uses directly, along with the sources to fetch them from. The file does not have to be named `Gemfile`: Bundler also recognizes `gems.rb`, and the `BUNDLE_GEMFILE` environment variable can point to any file. See [Gemfile and gemspec](/gemfile-and-gemspec) and the [Gemfile reference](/gemfile).
 
 Gemfile.lock
 ------------
 
-The file Bundler writes after dependency resolution, recording the exact version of every gem, direct or transitive. Later installs reuse those versions instead of resolving again, so every machine and every deploy runs the same code. Bundler maintains the file, and you never edit it by hand. See [How Gemfile.lock works](/gemfile-lock).
+The file Bundler writes after dependency resolution, recording the exact version of every gem, direct or transitive. Often called simply the lockfile, and named after the Gemfile when that file uses another name, such as `gems.locked` for `gems.rb`. Later installs reuse those versions instead of resolving again, so every machine and every deploy runs the same code. Bundler maintains the file, and you never edit it by hand. See [How Gemfile.lock works](/gemfile-lock).
 
 gemspec
 -------
@@ -73,7 +73,7 @@ The CPU architecture, operating system type, and sometimes operating system vers
 precompiled gem
 ---------------
 
-A gem published in platform-specific variants with its native extension already compiled, so installation skips the compile step and needs no toolchain. The platforms a lockfile covers for such gems are recorded in its `PLATFORMS` section. See [How Gemfile.lock works](/gemfile-lock#platforms).
+A gem published in platform-specific variants with its native extension already compiled, so installation skips the compile step and needs no toolchain. Also called a fat gem. The platforms a lockfile covers for such gems are recorded in its `PLATFORMS` section. See [How Gemfile.lock works](/gemfile-lock#platforms).
 
 prerelease
 ----------
