@@ -3,7 +3,7 @@ layout: default
 title: Where gems are installed and how they load
 url: /gem-installation-and-loading
 previous: /gemfile-and-gemspec
-next: /default-gems-and-bundled-gems
+next: /dependency-resolution
 ---
 
 <em class="text-neutral-600">How RubyGems decides where a gem lives on disk, and what happens when you require it.</em>
