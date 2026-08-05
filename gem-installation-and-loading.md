@@ -30,7 +30,7 @@ Where gems are installed
 
 The installation directory, often called the gem home, is where `gem install` puts gems. Inside it, each gem version gets its own directory under `gems/`, such as `gems/rake-13.4.2/`, with metadata under `specifications/` and compiled extensions under `extensions/`. Because every version has its own directory, any number of versions of the same gem can be installed side by side.
 
-The gem home belongs to one Ruby installation. It normally lives inside the Ruby installation itself, and its path includes the Ruby ABI version, `4.0.0` above, because gems with compiled extensions only work with the Ruby they were built for. The `GEM_HOME` environment variable overrides where gems are installed, and `GEM_PATH` overrides the list of directories searched when loading them. You rarely need to set either by hand. In scripts, `gem env gemdir` and `gem env gempath` print the values directly.
+The gem home belongs to one Ruby installation. It normally lives inside the Ruby installation itself, and its path includes the Ruby ABI version, `4.0.0` above, because gems with compiled extensions only work with the Ruby they were built for. The `GEM_HOME` environment variable overrides where gems are installed, and `GEM_PATH` overrides the list of directories searched when loading them. You rarely need to set either by hand. In scripts, `gem env gemdir` and `gem env gempath` print the values directly. These and the other variables RubyGems reads are listed in [Environment variables](/environment-variables).
 
 Installing without root permission
 ----------------------------------
