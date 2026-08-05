@@ -1,0 +1,195 @@
+# Site navigation, rendered as the sidebar in _layouts/default.html and as
+# the page list in llms.txt. Add new pages here to appear in both.
+#
+# Each item: url, label, and an optional description. llms.txt prefers the
+# page's leading <em class="text-neutral-600"> summary; description is the
+# fallback for pages without one.
+
+- title: "Getting Started"
+  items:
+    - url: /installation
+      label: "Installation"
+    - url: /rubygems-basics
+      label: "RubyGems Basics"
+    - url: /getting_started
+      label: "Getting Started with Bundler"
+      description: "First steps with Bundler: declare dependencies in a Gemfile and run your code with them."
+    - url: /make-your-own-gem
+      label: "Make your own gem"
+    - url: /publishing
+      label: "Publishing your gem"
+
+- title: "Guides"
+  subsections:
+    - title: "Dependency Management"
+      items:
+        - url: /using_bundler_in_applications
+          label: "How to manage application dependencies with Bundler"
+          description: "The day-to-day Bundler workflow for applications, from installing to updating and version control."
+        - url: /dependency_management
+          label: "How to manage dependencies with Bundler"
+          description: "Why applications declare dependencies in a Gemfile and how Bundler keeps them consistent."
+        - url: /updating_gems
+          label: "How to update gems with Bundler"
+          description: "Update the gems in a bundle, one at a time or all at once."
+        - url: /groups
+          label: "How to manage groups of gems"
+          description: "Organize Gemfile dependencies into groups you can install or require selectively."
+        - url: /git
+          label: "How to install gems from git repositories"
+          description: "Declare dependencies on gems that live in git repositories."
+        - url: /bundler_setup
+          label: "How to use Bundler with Ruby"
+          description: "What require \"bundler/setup\" does and how to load the bundled environment in plain Ruby code."
+        - url: /bundler_in_a_single_file_ruby_script
+          label: "How to use Bundler in a single-file Ruby script"
+          description: "Declare a script's dependencies inline with bundler/inline instead of a separate Gemfile."
+        - url: /deploying
+          label: "How to deploy bundled applications"
+          description: "Install a bundle reproducibly on servers and in CI with deployment mode."
+    - title: "Gem Development"
+      items:
+        - url: /name-your-gem
+          label: "Name your gem"
+        - url: /patterns
+          label: "Patterns"
+        - url: /gems-with-extensions
+          label: "Gems with Extensions"
+        - url: /rubygems
+          label: "Bundler in gems"
+          description: "Using Bundler during gem development with the gemspec directive."
+    - title: "Publishing & Security"
+      items:
+        - url: /trusted-publishing
+          label: "Trusted Publishing"
+          description: "Publish gems from CI without long-lived API keys using OpenID Connect."
+        - url: /setting-up-multifactor-authentication
+          label: "Setting up multi-factor authentication"
+        - url: /using-mfa-in-command-line
+          label: "Using multi-factor authentication in command line"
+        - url: /managing-owners-using-ui
+          label: "Managing owners using UI"
+        - url: /organizations
+          label: "Organizations"
+          description: "What RubyGems.org organizations are and how they help teams manage gems together."
+          children:
+            - url: /organizations/getting-started
+              label: "Getting Started"
+              description: "Create an organization on RubyGems.org and move your gems into it."
+            - url: /organizations/managing-members
+              label: "Managing Members"
+              description: "Invite, update, and remove members of a RubyGems.org organization."
+            - url: /organizations/roles-and-permissions
+              label: "Roles & Permissions"
+              description: "What each organization role can and cannot do."
+            - url: /organizations/transferring-gems
+              label: "Transferring Gems"
+              description: "Move existing gems into a RubyGems.org organization."
+        - url: /removing-a-published-gem
+          label: "Removing a Published gem"
+        - url: /security
+          label: "Security Practices"
+        - url: /cooldown
+          label: "How to delay new gem versions with cooldown"
+    - title: "Integrations"
+      items:
+        - url: /rails
+          label: "How to use Bundler with Rails"
+          description: "Set up and use Bundler in a Rails application."
+        - url: /sinatra
+          label: "How to use Bundler with Sinatra"
+          description: "Set up and use Bundler in a Sinatra application."
+        - url: /bundler_docker_guide
+          label: "How to use Bundler with Docker"
+          description: "Build Docker images for bundled Ruby applications, including private gem sources."
+        - url: /ci
+          label: "How to use Bundler in CI"
+    - title: "Hosting & Sources"
+      items:
+        - url: /run-your-own-gem-server
+          label: "Run your own gem server"
+        - url: /using-s3-source
+          label: "Using S3 as gem source"
+    - title: "Extending"
+      items:
+        - url: /plugins
+          label: "RubyGems Plugins"
+        - url: /bundler_plugins
+          label: "How to write a Bundler plugin"
+          description: "Write a Bundler plugin: commands, hooks, and sources."
+    - title: "Troubleshooting"
+      items:
+        - url: /troubleshooting
+          label: "Troubleshooting common issues"
+        - url: /rubygems_tls_ssl_troubleshooting_guide
+          label: "How to troubleshoot RubyGems and Bundler TLS/SSL Issues"
+        - url: /git_bisect
+          label: "How to use git bisect with Bundler"
+          description: "Track down regressions across gem versions with git bisect and Bundler."
+
+- title: "Concepts"
+  items:
+    - url: /what-is-a-gem
+      label: "What is a gem?"
+    - url: /gemfile-and-gemspec
+      label: "Gemfile and gemspec"
+    - url: /gem-installation-and-loading
+      label: "Where gems are installed and how they load"
+    - url: /dependency-resolution
+      label: "How dependency resolution works"
+    - url: /gemfile-lock
+      label: "How Gemfile.lock works"
+    - url: /versioning
+      label: "Versioning and compatibility"
+    - url: /default-gems-and-bundled-gems
+      label: "Default gems and bundled gems"
+    - url: /cve
+      label: "Common Vulnerabilities and Exposures"
+      description: "How security vulnerabilities in RubyGems are reported, tracked, and disclosed."
+
+- title: "Reference"
+  items:
+    - url: /command-reference
+      label: "gem Command Reference"
+    - url: /command-reference/bundle
+      label: "Bundler Command Reference"
+    - url: /gemfile
+      label: "Gemfile Reference"
+    - url: /gemfile_ruby
+      label: "Ruby Directive"
+      description: "Pin the Ruby version an application requires with the Gemfile ruby directive."
+    - url: /specification-reference
+      label: "Specification Reference"
+      description: "Every attribute of Gem::Specification, generated from the RubyGems source."
+    - url: /rubygems-org-api
+      label: "RubyGems.org API"
+    - url: /rubygems-org-compact-index-api
+      label: "RubyGems.org Compact Index API"
+    - url: /rubygems-org-rate-limits
+      label: "RubyGems.org rate limits"
+    - url: /api-key-scopes
+      label: "API key scopes"
+      description: "What each RubyGems.org API key scope allows."
+    - url: /bundler-compatibility
+      label: "Bundler compatibility with Ruby"
+      description: "Which Bundler versions work with which Ruby and RubyGems versions."
+    - url: /configuration
+      label: "Configuration (.gemrc)"
+      description: "Where the gem command reads its configuration and the options a .gemrc file accepts."
+    - url: /environment-variables
+      label: "Environment variables"
+      description: "The environment variables the gem command and the RubyGems runtime read."
+    - url: /bundler_known_plugins
+      label: "Known Bundler Plugins"
+      description: "A list of known Bundler plugins and what they do."
+
+- title: "Appendix"
+  items:
+    - url: /faqs
+      label: "Frequently Asked Questions"
+    - url: /resources
+      label: "Resources"
+    - url: /contributing
+      label: "Contributing to RubyGems"
+    - url: /credits
+      label: "Credits"
