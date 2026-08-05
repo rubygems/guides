@@ -1,0 +1,12 @@
+<ul>
+  {%- for item in include.items %}
+  <li><a class="sidenav-link" data-sidenav href="{{ item.url }}">{{ item.label | escape }}</a></li>
+  {%- if item.children %}
+  <ul class="pl-[8%]">
+    {%- for child in item.children %}
+    <li><a class="sidenav-link--sub" data-sidenav href="{{ child.url }}">{{ child.label | escape }}</a></li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+  {%- endfor %}
+</ul>
