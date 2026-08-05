@@ -61,9 +61,6 @@ should set this value to prevent accidental pushes to rubygems.org:
       s.metadata['allowed_push_host'] = 'https://gems.my-company.example'
     end
 
-See the [Resources](/resources) guide for an up-to-date listing of options for
-private gem servers.
-
 Publishing to RubyGems.org
 --------------------------
 
