@@ -181,8 +181,8 @@
   items:
     - url: /faqs
       label: "Frequently Asked Questions"
-    - url: /resources
-      label: "Resources"
+    - url: /glossary
+      label: "Glossary"
     - url: /contributing
       label: "Contributing to RubyGems"
     - url: /credits
