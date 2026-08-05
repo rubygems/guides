@@ -1,0 +1,19 @@
+{%- assign item_url = include.item.url | append: '/' -%}
+{%- assign found_page = nil -%}
+{%- for candidate in site.pages -%}
+{%- if candidate.url == include.item.url or candidate.url == item_url -%}
+{%- assign found_page = candidate -%}
+{%- break -%}
+{%- endif -%}
+{%- endfor -%}
+{%- assign description = include.item.description -%}
+{%- if found_page -%}
+{%- assign em_parts = found_page.content | split: '<em class="text-neutral-600">' -%}
+{%- if em_parts.size > 1 -%}
+{%- assign description = em_parts[1] | split: '</em>' | first | strip_html | strip -%}
+{%- endif -%}
+{%- endif -%}
+{%- capture newline %}
+{% endcapture -%}
+{%- assign description = description | replace: newline, ' ' | strip -%}
+- [{{ include.item.label }}]({{ site.url }}{{ item_url }}){% if description != '' %}: {{ description }}{% endif %}
