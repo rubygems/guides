@@ -56,7 +56,9 @@ Open a new terminal after the change, then the commands resolve.
 Version managers
 ----------------
 
-Version managers such as rbenv, RVM, chruby, and mise install each Ruby under its own prefix in your home directory, and each of those Rubies brings its own gem home and executable directory. Switching Ruby versions therefore switches the whole set of installed gems, and nothing needs root permission. Gem homes are not shared between Ruby versions, so after installing a new Ruby you install your gems again for it. This is intentional. Compiled extensions built for one Ruby version do not load into another.
+Version managers such as rbenv, RVM, chruby, and mise install each Ruby under its own prefix in your home directory, and each of those Rubies brings its own gem home and executable directory. Switching Ruby versions therefore switches the whole set of installed gems, and nothing needs root permission. Gem homes are kept separate per Ruby version by default, so after installing a new Ruby you install your gems again for it. This is intentional. Compiled extensions built for one Ruby version do not load into another.
+
+The gem home does not always sit inside the Ruby prefix. chruby, for example, sets `GEM_HOME` to a directory under `~/.gem` that is still separate for each Ruby version, so installed gems survive reinstalling the Ruby itself. Some setups go further and point every Ruby at one shared `GEM_HOME`. Gems written in pure Ruby are then genuinely shared across versions. Gems with compiled extensions keep their builds under `extensions/` separated by platform and Ruby ABI, and a version whose extension is not built for the running Ruby is skipped as if it were not installed, until `gem install` on that Ruby builds it.
 
 Default gems
 ------------
