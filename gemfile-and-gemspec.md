@@ -3,7 +3,7 @@ layout: default
 title: Gemfile and gemspec
 url: /gemfile-and-gemspec
 previous: /what-is-a-gem
-next: /default-gems-and-bundled-gems
+next: /gem-installation-and-loading
 ---
 
 <em class="text-neutral-600">Which file your dependencies belong in, and why Ruby projects have two of them.</em>
