@@ -11,7 +11,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-  <link href="/stylesheets/styles.css" rel="stylesheet" />
+  {% if page.markdown_url %}<link rel="alternate" type="text/markdown" href="{{ page.markdown_url }}" title="Markdown">
+  {% endif %}<link href="/stylesheets/styles.css" rel="stylesheet" />
   <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet" />
   <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
   <style>
