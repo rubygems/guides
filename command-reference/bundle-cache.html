@@ -10,7 +10,7 @@ next: /command-reference/bundle-check
 
 <em class="text-neutral-600">Package your needed .gem files into your application</em>
 
-<p>This reference was automatically generated from Bundler version 4.0.17.</p>
+<p>This reference was automatically generated from Bundler version 4.0.18.</p>
 
 <div class="mp" id="man">
 
@@ -41,6 +41,11 @@ use the gems in the cache in preference to the ones on <code>rubygems.org</code>
 <dd>Include gems for all platforms present in the lockfile, not only the current one.</dd>
 <dt><code>--cache-path=CACHE-PATH</code></dt>
 <dd>Specify a different cache path than the default (vendor/cache).</dd>
+<dt><code>--cooldown=&lt;number&gt;</code></dt>
+<dd>Only consider gem versions published at least <var>number</var> days ago when
+resolving before caching. Pass <code>0</code> to disable cooldown for this run,
+overriding any per-source or global configuration. See <code>cooldown</code> in
+<a class="man-ref" href="/command-reference/bundle-config/">bundle-config<span class="s">(1)</span></a>.</dd>
 <dt><code>--gemfile=GEMFILE</code></dt>
 <dd>Use the specified gemfile instead of Gemfile.</dd>
 <dt><code>--no-install</code></dt>

@@ -10,7 +10,7 @@ next: /gemfile_ruby
 
 <em class="text-neutral-600">A format for describing gem dependencies for Ruby programs</em>
 
-<p>This reference was automatically generated from Bundler version 4.0.17.</p>
+<p>This reference was automatically generated from Bundler version 4.0.18.</p>
 
 <div class="mp" id="man">
 
@@ -177,6 +177,13 @@ All parameters are <code>OPTIONAL</code> unless otherwise specified.</p>
 gem "RedCloth", "&gt;= 4.1.0", "&lt; 4.2.0"
 </code></pre>
 
+<p>Most version specifiers, like <code>&gt;= 1.0</code>, are self-explanatory. The pessimistic
+specifier <code>~&gt;</code> constrains both a lower and an upper bound: <code>~&gt; 2.0.3</code> is
+identical to <code>&gt;= 2.0.3</code> and <code>&lt; 2.1</code>, and <code>~&gt; 2.1</code> is identical to <code>&gt;= 2.1</code> and
+<code>&lt; 3.0</code>. A pessimistic specifier with a prerelease component, like
+<code>~&gt; 2.2.beta</code>, will match prerelease versions like <code>2.2.beta.12</code>. <code>~&gt; 0</code> is
+identical to <code>&gt;= 0.0</code> and <code>&lt; 1.0</code>.</p>
+
 <h3 id="REQUIRE-AS">Require As</h3>
 
 <p>Each <em>gem</em> <code>MAY</code> specify files that should be used when autorequiring via
@@ -238,7 +245,7 @@ are not available).</p>
 <p>Note that on <code>bundle install</code>, bundler downloads and evaluates all gems, in order to
 create a single canonical list of all of the required gems and their dependencies.
 This means that you cannot list different versions of the same gems in different
-groups. For more details, see <a href="https://bundler.io/rationale.html">Understanding Bundler</a>.</p>
+groups. For more details, see <a href="https://guides.rubygems.org/dependency_management/">Dependency management</a>.</p>
 
 <h3 id="PLATFORMS">Platforms</h3>
 
@@ -619,6 +626,19 @@ for the gemspec (defaults to: <code>{,*,*/*}.gemspec</code>), what named <code>.
 <p>When a <code>gemspec</code> dependency encounters version conflicts during resolution, the
 local version under development will always be selected -- even if there are
 remote versions that better match other requirements for the <code>gemspec</code> gem.</p>
+
+<h2 id="EVAL_GEMFILE">Eval_gemfile</h2>
+
+<p>A Gemfile <code>MAY</code> be split across multiple files. The <code>eval_gemfile</code> method reads
+the contents of another file as if they appeared in the current Gemfile. A
+relative path is resolved against the directory of the file containing the
+call.</p>
+
+<pre><code>eval_gemfile "another.gemfile"
+</code></pre>
+
+<p>This can be useful to run tests against multiple combinations of dependencies,
+or to load per-developer gems from an untracked gemfile.</p>
 
 <h2 id="SOURCE-PRIORITY">Source Priority</h2>
 

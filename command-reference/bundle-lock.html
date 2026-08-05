@@ -10,7 +10,7 @@ next: /command-reference/bundle-open
 
 <em class="text-neutral-600">Creates / Updates a lockfile without installing</em>
 
-<p>This reference was automatically generated from Bundler version 4.0.17.</p>
+<p>This reference was automatically generated from Bundler version 4.0.18.</p>
 
 <div class="mp" id="man">
 
@@ -40,7 +40,8 @@ next: /command-reference/bundle-open
               [--major]
               [--pre]
               [--strict]
-              [--conservative]</pre>
+              [--conservative]
+              [--cooldown=NUMBER]</pre>
 
 <h2 id="DESCRIPTION">Description</h2>
 
@@ -89,6 +90,10 @@ platform.</dd>
 <dd>If updating, do not allow any gem to be updated past latest --patch | --minor | --major.</dd>
 <dt><code>--conservative</code></dt>
 <dd>If updating, use bundle install conservative update behavior and do not allow shared dependencies to be updated.</dd>
+<dt><code>--cooldown=&lt;number&gt;</code></dt>
+<dd>Only consider gem versions published at least <var>number</var> days ago when
+resolving. Pass <code>0</code> to disable cooldown for this run, overriding any
+per-source or global configuration. See <code>cooldown</code> in <a class="man-ref" href="/command-reference/bundle-config/">bundle-config<span class="s">(1)</span></a>.</dd>
 </dl>
 
 <h2 id="UPDATING-ALL-GEMS">Updating All Gems</h2>
