@@ -2,8 +2,8 @@
 layout: default
 title: Specification Reference
 url: /specification-reference
-previous: /patterns
-next: /command-reference
+previous: /gemfile_ruby
+next: /rubygems-org-api
 ---
 
 
