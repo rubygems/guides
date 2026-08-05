@@ -8,11 +8,10 @@ next: /gems-with-extensions
 
 <em class="text-neutral-600">Common practices to make your gem users' and other developers' lives easier.</em>
 
+This page covers conventions for naming and structuring a gem and for loading its code. Guidance that used to live here has moved: for version numbering, prerelease versions, and dependency constraints see [Versioning and compatibility](/versioning), and for where to declare runtime and development dependencies see [Gemfile and gemspec](/gemfile-and-gemspec).
+
 * [Consistent naming](#consistent-naming)
-* [Semantic versioning](#semantic-versioning)
-* [Declaring dependencies](#declaring-dependencies)
 * [Loading code](#loading-code)
-* [Prerelease gems](#prerelease-gems)
 
 Consistent naming
 -----------------
@@ -22,25 +21,24 @@ Consistent naming
 
 ### File names
 
-Be consistent with how your gem files in `lib` and `bin` are named. The
-[hola](https://github.com/qrush/hola) gem from the [make your own
-gem](/make-your-own-gem) guide is a great example:
+Be consistent with how the files of your gem are named. This is the layout `bundle gem hola --exe` generates, with the support files trimmed:
 
-    % tree
-    .
+    % tree hola
+    hola
+    ├── Gemfile
     ├── Rakefile
-    ├── bin
+    ├── exe
     │   └── hola
     ├── hola.gemspec
     ├── lib
     │   ├── hola
-    │   │   └── translator.rb
+    │   │   └── version.rb
     │   └── hola.rb
     └── test
+        ├── test_helper.rb
         └── test_hola.rb
 
-The executable and the primary file in `lib` are named the same. A developer
-can easily jump in and call `require 'hola'` with no problems.
+The executable in `exe` and the primary file in `lib` are named after the gem. A developer can easily jump in and call `require 'hola'` with no problems. Everything beyond the primary file lives in a directory with the gem's name, like `lib/hola/version.rb`, for reasons covered in the [Loading code](#loading-code) section below.
 
 ### Naming your gem
 
@@ -49,227 +47,6 @@ quick search on [RubyGems.org](https://rubygems.org) and
 [GitHub](https://github.com/search) to see if someone else has taken it.  Every
 published gem must have a unique name.  Be sure to read our [naming
 recommendations](/name-your-gem) when you've found a name you like.
-
-Semantic versioning
--------------------
-
-A versioning policy is merely a set of simple rules governing how version
-numbers are allocated. It can be very simple (e.g. the version number is a
-single number starting with 1 and incremented for each successive version), or
-it can be really strange (Knuth’s TeX project had version numbers: 3,
-3.1, 3.14, 3.141, 3.1415; each successive version added another digit to PI).
-
-The RubyGems team urges gem developers to follow the
-[Semantic Versioning](https://semver.org) standard for their gem's versions. The
-RubyGems library itself does not enforce a strict versioning policy, but using
-an "irrational" policy will only be a disservice to those in the community who
-use your gems.
-
-Suppose you have a 'stack' gem that holds a `Stack` class with both `push` and
-`pop` functionality. Your `CHANGELOG` might look like this if you use
-semantic versioning:
-
-* **Version 0.1.0**: The initial `Stack` class is released.
-* **Version 0.2.0**: Switched to a linked list implementation because it is
-  cooler.
-* **Version 0.3.0**: Added a `depth` method.
-* **Version 1.0.0**: Added `top` and made `pop` return `nil` (`pop` used to
-  return the old top item).
-* **Version 1.1.0**: `push` now returns the value pushed (it used to return
-  `nil`).
-* **Version 1.1.1**: Fixed a bug in the linked list implementation.
-* **Version 1.1.2**: Fixed a bug introduced in the last fix.
-
-Semantic versioning boils down to:
-
-* **PATCH** `0.0.x` level changes for implementation level detail changes, such
-  as small bug fixes
-* **MINOR** `0.x.0` level changes for any backwards compatible API changes,
-  such as new functionality/features
-* **MAJOR** `x.0.0` level changes for backwards *incompatible* API changes,
-  such as changes that will break existing users code if they update
-
-Declaring dependencies
-----------------------
-
-Gems work with other gems. Here are some tips to make sure they're nice to each
-other.
-
-### Runtime vs. development
-
-RubyGems provides two main "types" of dependencies: runtime and development.
-Runtime dependencies are what your gem needs to work (such as
-[rails](https://rubygems.org/gems/rails) needing
-[activesupport](https://rubygems.org/gems/activesupport)).
-
-Development dependencies are useful for when someone wants to make
-modifications to your gem. When you specify development dependencies, another
-developer can run `gem install --dev your_gem` and RubyGems will grab both sets
-of dependencies (runtime and development). Typical development dependencies
-include test frameworks and build systems.
-
-Setting dependencies in your gemspec is easy. Just use `add_runtime_dependency`
-and `add_development_dependency`:
-
-    Gem::Specification.new do |s|
-      s.name = "hola"
-      s.version = "2.0.0"
-      s.add_runtime_dependency "daemons",
-        ["= 1.1.0"]
-      s.add_development_dependency "bourne",
-        [">= 0"]
-
-If you develop your gem with Bundler and a Gemfile, prefer declaring
-development dependencies in the Gemfile rather than in the gemspec. See
-[Gemfile and gemspec](/gemfile-and-gemspec) for the reasoning.
-
-### Don't use `gem` from within your gem
-
-You may have seen some code like this around to make sure you're using a
-specific version of a gem:
-
-    gem "extlib", ">= 1.0.8"
-    require "extlib"
-
-It's reasonable for applications that consume gems to use this (though they
-could also use a tool like [Bundler](/getting_started)). Gems themselves
-**should not** do this. They should instead use dependencies in the gemspec so
-RubyGems can handle loading the dependency instead of the user.
-
-### Optimistic vs. pessimistic version constraints
-
-If your gem properly follows [semantic versioning](https://semver.org) with its
-versioning scheme, then other Ruby developers can take advantage of this when
-choosing a version constraint to lock down your gem in their application.
-
-Let's say the following releases of a gem exist:
-
-* **Version 2.1.0** — Baseline
-* **Version 2.2.0** — Introduced some new (backward compatible) features.
-* **Version 2.2.1** — Removed some bugs
-* **Version 2.2.2** — Streamlined your code
-* **Version 2.3.0** — More new features (but still backwards compatible).
-* **Version 3.0.0** — Reworked the interface. Code written to version 2.x might
-  not work.
-
-You want to use a gem, and you've determined that version 2.2.0 works with
-your software, but version 2.1.0 doesn't have a feature you need. Adding a
-dependency in your gem (or a `Gemfile` from Bundler) might look like:
-
-    # gemspec
-    spec.add_runtime_dependency 'library',
-      '>= 2.2.0'
-
-    # bundler
-    gem 'library', '>= 2.2.0'
-
-This is an "optimistic" version constraint. It's saying that all versions
-greater than or equal to 2.2.0 will work with your software. In most cases this
-is the recommended approach, because you cannot predict the future: even
-backwards incompatible changes in a new major release may not affect the parts
-of the library your code actually uses.
-
-The opposite approach is "pessimistic" versioning, which assumes that every
-major version bump in a dependency will break your software. You can express it
-with an explicit upper bound:
-
-    # gemspec
-    spec.add_runtime_dependency 'library',
-      ['>= 2.2.0', '< 3.0']
-
-    # bundler
-    gem 'library', '>= 2.2.0', '< 3.0'
-
-RubyGems provides a shortcut for this, commonly known as the
-[twiddle-wakka](https://robots.thoughtbot.com/post/2508037841/twiddle-wakka):
-
-    # gemspec
-    spec.add_runtime_dependency 'library',
-      '~> 2.2'
-
-    # bundler
-    gem 'library', '~> 2.2'
-
-Notice that we dropped the `PATCH` level of the version number. Had we said
-`~> 2.2.0`, that would have been equivalent to `['>= 2.2.0', '< 2.3.0']`.
-
-Pessimistic versioning is often wrong in both directions. Patch or minor
-releases can still introduce incompatibilities (for example, a security fix
-that requires a backwards-incompatible API change), and many major releases do
-not actually break the parts of the API your gem uses. More importantly, a
-pessimistic constraint in a published gem can lock the entire dependency graph
-out of new releases: if library B pins `~> 1.0` on library A, then any library
-that depends on B cannot upgrade to A 2.x, even when A 2.x would have worked
-fine. This kind of transitive lock-in is a common and serious problem in
-practice, while problems caused by optimistic constraints can usually be
-resolved by adding a single specific dependency in the application that hits
-the incompatibility.
-
-For these reasons, prefer optimistic constraints (`>=`) by default in your
-gemspec. Reserve pessimistic constraints (`~>`) for the cases where they are
-genuinely warranted, such as:
-
-* The dependency is so small (for example, it exposes a single method) that
-  any major version bump is overwhelmingly likely to break you.
-* The dependency has already announced or shipped a backwards-incompatible
-  change that you know will break your gem.
-
-If you want to allow use of newer backwards-compatible versions but need a
-specific bug fix you can use a compound requirement:
-
-    # gemspec
-    spec.add_runtime_dependency 'library', '>= 2.2.1'
-
-    # bundler
-    gem 'library', '>= 2.2.1'
-
-> If you're dealing with a lot of gem dependencies in your application, we
-> recommend that you take a look into [Bundler](/getting_started) or
-> [Isolate](https://github.com/jbarnette/isolate) which do a great job of
-> managing a complex version manifest for many gems.
-
-It's also important to know that if you specify a major version only with the
-twiddle-wakka, like this:
-
-    # gemspec
-    spec.add_runtime_dependency 'library', '~> 2'
-
-It will only use the latest version from the 2.x series -- so 2.3.0 -- and not 3.0.0. This behaviour may surprise some people, but automatically allowing any major version past version 2 is more surprising behaviour.
-
-You can also exclude specific versions using `!=`. Let's say version 2.2.1 has a show-stopping bug, or a change that accidentally breaks backwards-compatibility, and thus breaks your gem. You can exclude it as follows:
-
-    # gemspec
-    spec.add_runtime_dependency 'library', '>= 2.0', '!= 2.2.1'
-
-You can append additional versions by adding them as an additional argument to `add_runtime_dependency` - after all, its last argument is just an array.
-
-### Prerelease dependency
-
-When using stable requirements, Bundler will "prefer" using stable gems, only using prerelease gems if necessary.
-
-However, if you want to use prerelease gems, then you can declare a prerelease requirement using non-numerical characters:
-
-    # gemspec
-    spec.add_runtime_dependency 'library', '>= 2.0.0.a', '< 2.0.0'
-
-When a prerelease requirement is given, Bundler will respect the actual semantic versioning precedence for that gem.
-
-### Requiring RubyGems
-
-Summary: don't.
-
-This line...
-
-    require 'rubygems'
-
-...should not be necessary in your gem code, since RubyGems is loaded
-already when a gem is required.  Not having `require 'rubygems'` in your code
-means that the gem can be easily used without needing the RubyGems client to
-run.
-
-For more information please check out [Ryan
-Tomayko's](https://tomayko.com/writings/require-rubygems-antipattern) original
-post about the subject.
 
 Loading code
 ------------
@@ -355,36 +132,18 @@ When RubyGems activates a gem, it adds your package's `lib` folder to the
 `$LOAD_PATH` ready to be required normally by another lib or application.  It
 is safe to assume you can then `require` any file in your `lib` folder.
 
-Prerelease gems
----------------
+### Don't use `gem` from within your gem
 
-Many gem developers have versions of their gem ready to go out for testing or
-"edge" releases before a big gem release. RubyGems supports the concept of
-"prerelease" versions, which could be betas, alphas, or anything else that
-isn't ready as a regular release.
+You may have seen some code like this around to make sure a specific version
+of a gem is activated before requiring it:
 
-Taking advantage of this is easy. All you need is one or more letters in the
-gem version.  For example, here's what a prerelease gemspec's `version` field
-might look like:
+    gem "extlib", ">= 1.0.8"
+    require "extlib"
 
-    Gem::Specification.new do |s|
-      s.name = "hola"
-      s.version = "1.0.0.pre"
-
-Other prerelease version numbers might include `2.0.0.rc1`, or `1.5.0.beta.3`.
-It just has to have a letter in it, and you're set. These gems can then be
-installed with the `--pre` flag, like so:
-
-    % gem list factory_bot -r --pre
-
-    *** REMOTE GEMS ***
-
-    factory_bot (2.0.0.beta2, 2.0.0.beta1)
-    factory_bot_rails (1.1.beta1)
-
-    % gem install factory_bot --pre
-    Successfully installed factory_bot-2.0.0.beta2
-    1 gem installed
+Gems **should not** do this. Declare the requirement in the gemspec instead,
+so the resolver can weigh it together with every other gem's requirements, and
+let RubyGems handle activating the right version. Applications control their
+dependency versions with [Bundler](/getting_started) rather than `gem` calls.
 
 Credits
 -------

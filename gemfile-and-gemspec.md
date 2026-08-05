@@ -39,7 +39,7 @@ gem "rails", "8.1.3.1"
 gem "nokogiri", "~> 1.19"
 ~~~
 
-The version constraints look alike but pull in opposite directions. A gem's constraints should stay wide, because your gem must coexist with every other gem an application installs alongside it, and strict constraints cause resolution conflicts for your users. See [Optimistic vs. pessimistic version constraints](/patterns#optimistic-vs-pessimistic-version-constraints). An application can afford loose constraints in its Gemfile, because exactness comes from `Gemfile.lock` rather than from the requirements themselves.
+The version constraints look alike but pull in opposite directions. A gem's constraints should stay wide, because your gem must coexist with every other gem an application installs alongside it, and strict constraints cause resolution conflicts for your users. See [Optimistic vs. pessimistic constraints](/versioning#optimistic-vs-pessimistic-constraints). An application can afford loose constraints in its Gemfile, because exactness comes from `Gemfile.lock` rather than from the requirements themselves.
 
 Using both while developing a gem
 ---------------------------------
