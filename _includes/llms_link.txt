@@ -16,4 +16,8 @@
 {%- capture newline %}
 {% endcapture -%}
 {%- assign description = description | replace: newline, ' ' | strip -%}
-- [{{ include.item.label }}]({{ site.url }}{{ item_url }}){% if description != '' %}: {{ description }}{% endif %}
+{%- assign link_url = item_url -%}
+{%- if found_page.markdown_url -%}
+{%- assign link_url = found_page.markdown_url -%}
+{%- endif -%}
+- [{{ include.item.label }}]({{ site.url }}{{ link_url }}){% if description != '' %}: {{ description }}{% endif %}
