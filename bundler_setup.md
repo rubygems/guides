@@ -2,7 +2,7 @@
 layout: default
 title: How to use Bundler with Ruby
 url: /bundler_setup
-previous: /git
+previous: /monorepo
 next: /bundler_in_a_single_file_ruby_script
 ---
 Configure the load path so all dependencies in

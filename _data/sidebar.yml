@@ -38,6 +38,9 @@
         - url: /git
           label: "How to install gems from git repositories"
           description: "Declare dependencies on gems that live in git repositories."
+        - url: /monorepo
+          label: "How to develop multiple gems in one repository"
+          description: "Develop a family of related gems side by side with Bundler path sources."
         - url: /bundler_setup
           label: "How to use Bundler with Ruby"
           description: "What require \"bundler/setup\" does and how to load the bundled environment in plain Ruby code."
