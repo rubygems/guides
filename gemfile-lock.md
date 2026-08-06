@@ -72,7 +72,7 @@ For a git source the pinned commit under `revision:` plays the role that the ver
       arm64-darwin-27
       ruby
 
-This lists the platforms the resolution covers. `ruby` is the generic platform of pure-Ruby gems, and the others are concrete platforms the lockfile was resolved for, which matters for gems that ship precompiled platform-specific versions. If you develop on macOS and deploy to Linux, add the deploy platform so resolution covers it too:
+This lists the platforms the resolution covers. `ruby` is the generic platform of pure-Ruby gems, and the others are concrete platforms the lockfile was resolved for, which matters for gems that ship precompiled platform-specific versions. See [Platforms and native gems](/platforms) for the platform concept itself. If you develop on macOS and deploy to Linux, add the deploy platform so resolution covers it too:
 
     bundle lock --add-platform x86_64-linux
 

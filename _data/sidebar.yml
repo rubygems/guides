@@ -141,6 +141,8 @@
       label: "How Gemfile.lock works"
     - url: /versioning
       label: "Versioning and compatibility"
+    - url: /platforms
+      label: "Platforms and native gems"
     - url: /default-gems-and-bundled-gems
       label: "Default gems and bundled gems"
     - url: /cve
