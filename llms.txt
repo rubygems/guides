@@ -1,0 +1,31 @@
+---
+permalink: /llms.txt
+layout: null
+---
+# RubyGems Guides
+
+> Everything about library management in Ruby: learn what gems are, how to use them in your projects, and how to build and publish your own.
+
+Ruby libraries are packaged and distributed as gems. RubyGems installs individual gems and provides the `gem` command, and Bundler tracks the exact set of gems an application depends on through a `Gemfile`. Both ship with Ruby. Gems are published and downloaded on [RubyGems.org](https://rubygems.org). These guides cover both tools and the RubyGems.org APIs.
+{% for section in site.data.sidebar -%}
+{%- if section.subsections -%}
+{%- for subsection in section.subsections %}
+## {{ subsection.title }}
+
+{% for item in subsection.items -%}
+{% include llms_link.txt item=item -%}
+{% if item.children -%}
+{% for child in item.children -%}
+{% include llms_link.txt item=child -%}
+{% endfor -%}
+{% endif -%}
+{% endfor -%}
+{% endfor -%}
+{%- else %}
+## {{ section.title }}
+
+{% for item in section.items -%}
+{% include llms_link.txt item=item -%}
+{% endfor -%}
+{%- endif -%}
+{% endfor -%}

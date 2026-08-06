@@ -169,6 +169,7 @@ Format:
 **`REQUIREMENT` Format**
 
 The REQUIREMENT chunk will always contain the `checksum` key. The `ruby` and `rubygems` keys are like a CONSTRAINT above, indicating a required ruby or rubygems version.
+The `created_at` key was added in version 2 of the format, described in the Format Versions section below.
 
 The `checksum` is the SHA256 checksum of the `GEM-VERSION-PLATFORM.gem` file originally uploaded to rubygems.org. The SHA256 computed from the matching downloaded `.gem` file must match this checksum or the `.gem` must be considered corrupted.
 
@@ -177,6 +178,7 @@ Examples:
     checksum:2c4af8d4a65ac5290445bfe7582be4490162d6934f49d76858b55647b4c4428d
     ruby:< 3.3.dev&>= 2.7
     rubygems:>= 1.8.11
+    created_at:2009-07-25T18:02:12Z
 
 Format:
 
@@ -216,3 +218,22 @@ Each following line consists only of a rubygem name:
 The parts of this line are as follows:
 
 1. **`RUBYGEM`** - The name of the rubygem.
+
+### Format Versions
+
+The compact index format has two versions. rubygems.org serves version 2.
+
+There is no version negotiation.
+The endpoints above always serve the current format, and clients cannot request an older format with an `Accept` header or a separate URL.
+
+The only difference between v1 and v2 is an additional `created_at` REQUIREMENT at the end of each line in the `info` file, giving the UTC time at which that version was published:
+
+    1.0.0 |checksum:b1147fd2991884dfbac9b101b0c88a0f0fc71abbd1bd24fb29cde3fdfc8ebd77,created_at:2009-07-25T18:02:12Z
+
+Because a REQUIREMENT is a generic `KEY:VALUE` pair, clients written for v1 can read v2 files by ignoring the unknown key.
+Adding `created_at` changed the MD5 checksum of every `info` file, so the `versions` file was recalculated when rubygems.org switched to v2, and cached clients picked up the changed files through the mechanism described in Fetching and Caching above.
+
+The per-version `created_at` timestamp is the metadata that [Bundler's cooldown feature](/cooldown) relies on to exclude recently published versions from dependency resolution.
+rubygems.org backfilled `created_at` for versions published before the switch, so every line includes it.
+Versions without a `created_at` value, such as those served by a gem server that only emits the v1 format, are treated as outside the cooldown window and remain resolvable.
+Cooldown therefore offers no protection for those sources.

@@ -11,7 +11,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-  <link href="/stylesheets/styles.css" rel="stylesheet" />
+  {% if page.markdown_url %}<link rel="alternate" type="text/markdown" href="{{ page.markdown_url }}" title="Markdown">
+  {% endif %}<link href="/stylesheets/styles.css" rel="stylesheet" />
   <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet" />
   <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
   <style>
@@ -128,110 +129,18 @@
             <pagefind-modal-trigger></pagefind-modal-trigger>
             <pagefind-modal></pagefind-modal>
           </div>
-          <h3 class="font-bold tracking-[0.04em] text-lg text-neutral-600 pb-2">Getting Started</h3>
-          <ul>
-            <li><a class="sidenav-link" data-sidenav href="/installation">Installation</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/rubygems-basics">RubyGems Basics</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/getting_started">Getting Started with Bundler</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/make-your-own-gem">Make your own gem</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/publishing">Publishing your gem</a></li>
-          </ul>
-
-          <h3 class="font-bold tracking-[0.04em] text-lg text-neutral-600 pt-5 pb-1">Guides</h3>
-          <h4 class="font-semibold tracking-[0.08em] uppercase text-xs text-neutral-500 pt-2 pb-1">Dependency Management</h4>
-          <ul>
-            <li><a class="sidenav-link" data-sidenav href="/using_bundler_in_applications">How to manage application dependencies with Bundler</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/dependency_management">How to manage dependencies with Bundler</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/updating_gems">How to update gems with Bundler</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/groups">How to manage groups of gems</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/git">How to install gems from git repositories</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/monorepo">How to develop multiple gems in one repository</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/bundler_setup">How to use Bundler with Ruby</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/bundler_in_a_single_file_ruby_script">How to use Bundler in a single-file Ruby script</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/deploying">How to deploy bundled applications</a></li>
-          </ul>
-          <h4 class="font-semibold tracking-[0.08em] uppercase text-xs text-neutral-500 pt-3 pb-1">Gem Development</h4>
-          <ul>
-            <li><a class="sidenav-link" data-sidenav href="/name-your-gem">Name your gem</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/patterns">Patterns</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/gems-with-extensions">Gems with Extensions</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/rubygems">Bundler in gems</a></li>
-          </ul>
-          <h4 class="font-semibold tracking-[0.08em] uppercase text-xs text-neutral-500 pt-3 pb-1">Publishing &amp; Security</h4>
-          <ul>
-            <li><a class="sidenav-link" data-sidenav href="/trusted-publishing">Trusted Publishing</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/setting-up-multifactor-authentication">Setting up multi-factor authentication</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/using-mfa-in-command-line">Using multi-factor authentication in command line</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/managing-owners-using-ui">Managing owners using UI</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/organizations">Organizations</a></li>
-            <ul class="pl-[8%]">
-              <li><a class="sidenav-link--sub" data-sidenav href="/organizations/getting-started">Getting Started</a></li>
-              <li><a class="sidenav-link--sub" data-sidenav href="/organizations/managing-members">Managing Members</a></li>
-              <li><a class="sidenav-link--sub" data-sidenav href="/organizations/roles-and-permissions">Roles &amp; Permissions</a></li>
-              <li><a class="sidenav-link--sub" data-sidenav href="/organizations/transferring-gems">Transferring Gems</a></li>
-            </ul>
-            <li><a class="sidenav-link" data-sidenav href="/removing-a-published-gem">Removing a Published gem</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/security">Security Practices</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/cooldown">How to delay new gem versions with cooldown</a></li>
-          </ul>
-          <h4 class="font-semibold tracking-[0.08em] uppercase text-xs text-neutral-500 pt-3 pb-1">Integrations</h4>
-          <ul>
-            <li><a class="sidenav-link" data-sidenav href="/rails">How to use Bundler with Rails</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/sinatra">How to use Bundler with Sinatra</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/bundler_docker_guide">How to use Bundler with Docker</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/ci">How to use Bundler in CI</a></li>
-          </ul>
-          <h4 class="font-semibold tracking-[0.08em] uppercase text-xs text-neutral-500 pt-3 pb-1">Hosting &amp; Sources</h4>
-          <ul>
-            <li><a class="sidenav-link" data-sidenav href="/run-your-own-gem-server">Run your own gem server</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/using-s3-source">Using S3 as gem source</a></li>
-          </ul>
-          <h4 class="font-semibold tracking-[0.08em] uppercase text-xs text-neutral-500 pt-3 pb-1">Extending</h4>
-          <ul>
-            <li><a class="sidenav-link" data-sidenav href="/plugins">RubyGems Plugins</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/bundler_plugins">How to write a Bundler plugin</a></li>
-          </ul>
-          <h4 class="font-semibold tracking-[0.08em] uppercase text-xs text-neutral-500 pt-3 pb-1">Troubleshooting</h4>
-          <ul>
-            <li><a class="sidenav-link" data-sidenav href="/troubleshooting">Troubleshooting common issues</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/rubygems_tls_ssl_troubleshooting_guide">How to troubleshoot RubyGems and Bundler TLS/SSL Issues</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/git_bisect">How to use git bisect with Bundler</a></li>
-          </ul>
-
-          <h3 class="font-bold tracking-[0.04em] text-lg text-neutral-600 pt-5 pb-2">Concepts</h3>
-          <ul>
-            <li><a class="sidenav-link" data-sidenav href="/what-is-a-gem">What is a gem?</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/gemfile-and-gemspec">Gemfile and gemspec</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/gem-installation-and-loading">Where gems are installed and how they load</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/dependency-resolution">How dependency resolution works</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/gemfile-lock">How Gemfile.lock works</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/versioning">Versioning and compatibility</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/default-gems-and-bundled-gems">Default gems and bundled gems</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/cve">Common Vulnerabilities and Exposures</a></li>
-          </ul>
-
-          <h3 class="font-bold tracking-[0.04em] text-lg text-neutral-600 pt-5 pb-2">Reference</h3>
-          <ul>
-            <li><a class="sidenav-link" data-sidenav href="/command-reference">gem Command Reference</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/command-reference/bundle">Bundler Command Reference</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/gemfile">Gemfile Reference</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/gemfile_ruby">Ruby Directive</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/specification-reference">Specification Reference</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/rubygems-org-api">RubyGems.org API</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/rubygems-org-compact-index-api">RubyGems.org Compact Index API</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/rubygems-org-rate-limits">RubyGems.org rate limits</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/api-key-scopes">API key scopes</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/bundler-compatibility">Bundler compatibility with Ruby</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/bundler_known_plugins">Known Bundler Plugins</a></li>
-          </ul>
-
-          <h3 class="font-bold tracking-[0.04em] text-lg text-neutral-600 pt-5 pb-2">Appendix</h3>
-          <ul>
-            <li><a class="sidenav-link" data-sidenav href="/faqs">Frequently Asked Questions</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/resources">Resources</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/contributing">Contributing to RubyGems</a></li>
-            <li><a class="sidenav-link" data-sidenav href="/credits">Credits</a></li>
-          </ul>
+          {%- for section in site.data.sidebar %}
+          {%- if forloop.first %}{% assign h3_padding = "pb-2" %}{% elsif section.subsections %}{% assign h3_padding = "pt-5 pb-1" %}{% else %}{% assign h3_padding = "pt-5 pb-2" %}{% endif %}
+          <h3 class="font-bold tracking-[0.04em] text-lg text-neutral-600 {{ h3_padding }}">{{ section.title | escape }}</h3>
+          {%- if section.subsections %}
+          {%- for subsection in section.subsections %}
+          <h4 class="font-semibold tracking-[0.08em] uppercase text-xs text-neutral-500 {% if forloop.first %}pt-2{% else %}pt-3{% endif %} pb-1">{{ subsection.title | escape }}</h4>
+          {% include sidebar_items.html items=subsection.items %}
+          {%- endfor %}
+          {%- else %}
+          {% include sidebar_items.html items=section.items %}
+          {%- endif %}
+          {%- endfor %}
         </div>
 
         <div class="md:float-right md:w-[calc(100%-240px)] md:pl-[60px]" data-pagefind-body data-pagefind-meta="title:{{ page.title | escape }}">

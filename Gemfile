@@ -14,6 +14,7 @@ gem "logger", "~> 1.7"
 group :site do
   gem "jekyll", "~> 4.2"
   gem "jekyll-redirect-from", "~> 0.16"
+  gem "jekyll-sitemap", "~> 1.4"
   gem "webrick", "~> 1.8"
 end
 

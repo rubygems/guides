@@ -39,7 +39,7 @@ To make Bundler pass the same flags every time it installs a particular gem, sto
 
     bundle config set --global build.mysql --with-mysql-config=/usr/local/mysql/bin/mysql_config
 
-Many popular gems ship precompiled platform gems, so on common platforms no compilation happens at all. If you hit a build failure, check whether a newer version of the gem provides a precompiled binary for your platform. If you are a gem author who wants to ship extensions, see [Gems with Extensions](/gems-with-extensions).
+Many popular gems ship [precompiled platform gems](/platforms), so on common platforms no compilation happens at all. If you hit a build failure, check whether a newer version of the gem provides a precompiled binary for your platform. If you are a gem author who wants to ship extensions, see [Gems with Extensions](/gems-with-extensions).
 
 Dependency resolution conflicts
 -------------------------------

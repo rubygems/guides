@@ -4,7 +4,7 @@ title: Bundler compatibility with Ruby
 description: Ruby and RubyGems requirements needed for Bundler compatibility
 url: /bundler-compatibility
 previous: /api-key-scopes
-next: /bundler_known_plugins
+next: /configuration
 ---
 ## Bundler compatibility with Ruby & RubyGems
 
