@@ -63,6 +63,8 @@ A command class needs two things: it registers itself for a command name, and it
 
 When a user runs `bundle hello world --loud`, Bundler instantiates the registered class with no arguments and calls `exec("hello", ["world", "--loud"])`. The second argument is the raw list of remaining command-line arguments. Parse it however you like, for example with `OptionParser` as [bundler-graph](https://github.com/rubygems/bundler-graph) does.
 
+Bundler routes only on the first word after `bundle`. Subcommands such as `bundle hello status` are yours to implement by dispatching on `args[0]`.
+
 If you prefer not to inherit from `Bundler::Plugin::API`, register a plain class explicitly. It must still be a class with a public `exec` instance method, because Bundler calls `.new` on whatever you register:
 
     require "bundler/plugin/api"
@@ -97,7 +99,7 @@ If your gem already has a Thor CLI, do not register the Thor class itself as the
       end
     end
 
-`MyPlugin::CLI.start(args)` here is the same entry point the gem's own executable would use.
+`MyPlugin::CLI.start(args)` here is the same entry point the gem's own executable would use. Delegating to Thor also gives you subcommands: [bundler-sbom](https://github.com/hsbt/bundler-sbom) registers the single command `sbom` and delegates to a Thor class with `dump` and `license` tasks, which is what makes `bundle sbom dump` work. Thor receives `["dump", ...]` and dispatches as usual.
 
 ### Plugin commands vs. executables on PATH
 
@@ -148,6 +150,7 @@ Example plugins
 ---------------
 
 - [bundler-graph](https://github.com/rubygems/bundler-graph) adds a command. It is maintained by the rubygems organization and is a good reference for the command API.
+- [bundler-sbom](https://github.com/hsbt/bundler-sbom) delegates its command to a Thor CLI with subcommands.
 - [bundler-multilock](https://github.com/instructure/bundler-multilock) uses a lifecycle hook.
 - Bundler's built-in [rubygems](https://github.com/ruby/rubygems/blob/master/lib/bundler/source/rubygems.rb), [git](https://github.com/ruby/rubygems/blob/master/lib/bundler/source/git.rb), and [path](https://github.com/ruby/rubygems/blob/master/lib/bundler/source/path.rb) sources implement the source interface.
 
