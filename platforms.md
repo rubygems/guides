@@ -3,7 +3,7 @@ layout: default
 title: Platforms and native gems
 url: /platforms
 previous: /versioning
-next: /default-gems-and-bundled-gems
+next: /caching-and-vendoring
 ---
 
 <em class="text-neutral-600">How RubyGems names the system a gem was built for, and how precompiled native gems skip compilation at install time.</em>

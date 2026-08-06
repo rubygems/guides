@@ -2,7 +2,7 @@
 layout: default
 title: Default Gems and Bundled Gems
 url: /default-gems-and-bundled-gems
-previous: /platforms
+previous: /caching-and-vendoring
 next: /cve
 ---
 
