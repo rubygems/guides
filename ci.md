@@ -27,6 +27,7 @@ Use the [ruby/setup-ruby](https://github.com/ruby/setup-ruby) action. With `bund
 
 The `ruby-version` input can be omitted if the repository has a `.ruby-version`, `.tool-versions`, or `mise.toml` file. To test against several Ruby versions, use a matrix:
 
+{% raw %}
     jobs:
       test:
         strategy:
@@ -40,6 +41,7 @@ The `ruby-version` input can be omitted if the repository has a `.ruby-version`,
               ruby-version: ${{ matrix.ruby }}
               bundler-cache: true
           - run: bundle exec rake
+{% endraw %}
 
 To test against multiple Gemfiles, set `BUNDLE_GEMFILE` in a job-level `env` block (for example from a matrix value) so that both `setup-ruby` and later steps use the same Gemfile.
 

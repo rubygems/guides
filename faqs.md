@@ -3,7 +3,7 @@ layout: default
 title: Frequently Asked Questions
 url: /faqs
 previous: /bundler_known_plugins
-next: /resources
+next: /glossary
 redirect_from:
   - /faq/
   - /bundler_2_upgrade/

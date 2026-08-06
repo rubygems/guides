@@ -2,7 +2,7 @@
 layout: default
 title: Contributing to RubyGems
 url: /contributing
-previous: /resources
+previous: /glossary
 next: /credits
 ---
 
