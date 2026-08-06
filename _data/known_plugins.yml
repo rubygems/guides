@@ -57,12 +57,18 @@
   summary: A Bundler plugin that installs gems in an additional private Gemfile after
     bundle install.
   uri: https://github.com/fphilipe/bundler-private_install
+- name: bundler-sbom
+  summary: Generate SBOM (Software Bill of Materials) files with Bundler.
+  uri: https://github.com/hsbt/bundler-sbom
 - name: bundler-source-aws-s3
   summary: Add aws-s3 source to bundler via plugin.
   uri: https://github.com/eki/bundler-source-aws-s3
 - name: bundler-symlink
   summary: Post-install hook for bundler to symlink to all gems from a local directory
   uri: https://github.com/petekinnecom/bundler-symlink
+- name: bundler-timing-plugin
+  summary: Display elapsed time of each gem fetch and install during bundle install.
+  uri: https://github.com/hsbt/bundler-timing-plugin
 - name: bundler-versions_report
   summary: At the end of `bundle update` report all updated major and minor versions
   uri: https://github.com/igneus/bundler-versions_report
