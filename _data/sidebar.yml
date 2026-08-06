@@ -143,6 +143,8 @@
       label: "Versioning and compatibility"
     - url: /platforms
       label: "Platforms and native gems"
+    - url: /caching-and-vendoring
+      label: "Caching and vendoring"
     - url: /default-gems-and-bundled-gems
       label: "Default gems and bundled gems"
     - url: /cve
