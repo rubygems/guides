@@ -201,21 +201,22 @@ gems](/rubygems) and [Make your own gem](/make-your-own-gem/).
 
 **Q**: Should I commit my `Gemfile.lock` when writing a gem?
 
-**A**: Yes. A committed `Gemfile.lock` ensures that a fresh checkout uses the
-exact same set of dependencies every time, so anyone can clone the repo, run
-`bundle install`, and have passing tests. Without it, new contributors can
-get different dependency versions and hit failing tests they don't know how
-to fix.
+**A**: No. Applications should always commit their lockfile, but for a gem
+the tradeoff points the other way. Bundler ignores the lockfile when your
+gem is installed as a dependency, and locking your own development
+environment narrows the range of dependency versions your tests actually
+exercise. Add `lockfile false` to the `Gemfile` (or pass `--no-lock` to
+`bundle install`) so no lockfile is generated. See [Dependency
+management](/dependency_management) for the reasoning.
 
-**Q**: But I have read that gems should not check in the Gemfile.lock!
+**Q**: Doesn't that expose contributors to breakage from new dependency
+releases?
 
-**A**: The advantage of not checking it in is that fresh checkouts (including
-CI) immediately reveal breakage from new dependency releases. Instead of
-imposing that on every contributor, the Bundler team recommends a dependency
-monitoring bot such as [Dependabot](https://github.com/dependabot), or a
-daily CI build that deletes the `Gemfile.lock` before running
-`bundle install`. Also consider regenerating the lockfile just before
-releasing your gem.
+**A**: Yes, and that early signal is the point. Fresh checkouts, including
+CI, resolve to the latest versions your constraints allow, so an
+incompatible release surfaces immediately, before your users hit the same
+resolution. When a bad release blocks work, add a temporary pin to the
+`Gemfile` until the incompatibility is fixed.
 
 ### Why Don't Git Gems Show Up in `gem list`?
 
