@@ -118,7 +118,9 @@ Hooks run your code when Bundler reaches specific events. Register a hook with t
       puts "About to install #{dependencies.map(&:name).join(", ")}"
     end
 
-The full list of events, with their descriptions and block arguments, is in [events.rb](https://github.com/ruby/rubygems/blob/master/lib/bundler/plugin/events.rb). Check the copy in the Bundler version you target, since events have been added over time. For a real-world example, [bundler-multilock](https://github.com/instructure/bundler-multilock) uses an `after-install-all` hook.
+The full list of events, with their descriptions and block arguments, is in [events.rb](https://github.com/ruby/rubygems/blob/master/lib/bundler/plugin/events.rb). Check the copy in the Bundler version you target, since events have been added over time. A hook registered for an event the running Bundler does not define raises an error at plugin install time.
+
+For real-world examples, [bundler-multilock](https://github.com/instructure/bundler-multilock) uses an `after-install-all` hook, and [bundler-timing-plugin](https://github.com/hsbt/bundler-timing-plugin) times fetches and installs by registering several hooks in `plugins.rb` that share one tracker object.
 
 Adding a gem source
 -------------------
@@ -152,6 +154,7 @@ Example plugins
 - [bundler-graph](https://github.com/rubygems/bundler-graph) adds a command. It is maintained by the rubygems organization and is a good reference for the command API.
 - [bundler-sbom](https://github.com/hsbt/bundler-sbom) delegates its command to a Thor CLI with subcommands.
 - [bundler-multilock](https://github.com/instructure/bundler-multilock) uses a lifecycle hook.
+- [bundler-timing-plugin](https://github.com/hsbt/bundler-timing-plugin) registers multiple hooks that share state.
 - Bundler's built-in [rubygems](https://github.com/ruby/rubygems/blob/master/lib/bundler/source/rubygems.rb), [git](https://github.com/ruby/rubygems/blob/master/lib/bundler/source/git.rb), and [path](https://github.com/ruby/rubygems/blob/master/lib/bundler/source/path.rb) sources implement the source interface.
 
 More are listed in the [known plugins list](/bundler_known_plugins).
