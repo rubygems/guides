@@ -82,3 +82,4 @@ First check whether the vulnerability is already known by searching [RubySec](ht
 ### In your own gem
 
 Request a CVE identifier by creating a [GitHub Security Advisory](https://docs.github.com/en/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories), then release a patched version and tell your users which versions are affected and what to do. Announce the fix on <ruby-security-ann@googlegroups.com> and submit the advisory to [ruby-advisory-db](https://github.com/rubysec/ruby-advisory-db) so that audit tools pick it up.
+Also the Rubysec.com team monitors for published security advisories inside repos plus published [GitHub Security Advisories](https://github.com/advisories).
