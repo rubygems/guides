@@ -10,7 +10,7 @@ next: /command-reference/bundle-console
 
 <em class="text-neutral-600">Set bundler configuration options</em>
 
-<p>This reference was automatically generated from Bundler version 4.0.18.</p>
+<p>This reference was automatically generated from Bundler version 4.0.19.</p>
 
 <div class="mp" id="man">
 
@@ -167,7 +167,7 @@ learn more about their operation in <a href="/command-reference/bundle-install/"
   <li>
 <code>clean</code> (<code>BUNDLE_CLEAN</code>):
  Whether Bundler should run <code>bundle clean</code> automatically after
- <code>bundle install</code>. Defaults to <code>true</code> in Bundler 4, as long as <code>path</code> is not
+ <code>bundle install</code>. Defaults to <code>true</code> in Bundler 5, as long as <code>path</code> is not
  explicitly configured.</li>
   <li>
 <code>console</code> (<code>BUNDLE_CONSOLE</code>):
@@ -308,12 +308,12 @@ learn more about their operation in <a href="/command-reference/bundle-install/"
  The location on disk where all gems in your bundle will be located regardless
  of <code>$GEM_HOME</code> or <code>$GEM_PATH</code> values. Bundle gems not found in this location
  will be installed by <code>bundle install</code>. When not set, Bundler install by
- default to a <code>.bundle</code> directory relative to repository root in Bundler 4,
- and to the default system path (<code>Gem.dir</code>) before Bundler 4. That means that
- before Bundler 4, Bundler shares this location with Rubygems, and <code>gem
+ default to a <code>.bundle</code> directory relative to repository root in Bundler 5,
+ and to the default system path (<code>Gem.dir</code>) before Bundler 5. That means that
+ before Bundler 5, Bundler shares this location with Rubygems, and <code>gem
  install ...</code> will have gems installed in the same location and therefore,
  gems installed without <code>path</code> set will show up by calling <code>gem list</code>. This
- will not be the case in Bundler 4.</li>
+ will not be the case in Bundler 5.</li>
   <li>
 <code>path.system</code> (<code>BUNDLE_PATH__SYSTEM</code>):
  Whether Bundler will install gems into the default system path (<code>Gem.dir</code>).</li>

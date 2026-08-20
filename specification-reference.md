@@ -2,8 +2,8 @@
 layout: default
 title: Specification Reference
 url: /specification-reference
-previous: /gemfile_ruby
-next: /rubygems-org-api
+previous: /patterns
+next: /command-reference
 ---
 
 
@@ -341,7 +341,7 @@ next: /rubygems-org-api
 
 <p>Usage:</p>
 
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_dependency</span> <span class="ruby-string">&#39;example&#39;</span>, <span class="ruby-string">&#39;&gt;= 1.1.4&#39;</span>, <span class="ruby-string">&#39;&lt; 2&#39;</span>
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_dependency</span> <span class="ruby-string">&#39;example&#39;</span>, <span class="ruby-string">&#39;~&gt; 1.1&#39;</span>, <span class="ruby-string">&#39;&gt;= 1.1.4&#39;</span>
 </pre>
 Also known as: **add_runtime_dependency**
 
@@ -353,7 +353,7 @@ Also known as: **add_runtime_dependency**
 
 <p>Usage:</p>
 
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_development_dependency</span> <span class="ruby-string">&#39;example&#39;</span>, <span class="ruby-string">&#39;&gt;= 1.1.4&#39;</span>, <span class="ruby-string">&#39;&lt; 2&#39;</span>
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_development_dependency</span> <span class="ruby-string">&#39;example&#39;</span>, <span class="ruby-string">&#39;~&gt; 1.1&#39;</span>, <span class="ruby-string">&#39;&gt;= 1.1.4&#39;</span>
 </pre>
 
 <p>Development dependencies aren’t installed by default and aren’t activated when a gem is required.</p>
