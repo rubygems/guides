@@ -8,7 +8,7 @@ next: /command-reference/bundle
 
 <em class="text-neutral-600">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 4.0.19.
+This reference was automatically generated from RubyGems version 4.0.20.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)

@@ -10,7 +10,7 @@ next: /gemfile_ruby
 
 <em class="text-neutral-600">A format for describing gem dependencies for Ruby programs</em>
 
-<p>This reference was automatically generated from Bundler version 4.0.19.</p>
+<p>This reference was automatically generated from Bundler version 4.0.20.</p>
 
 <div class="mp" id="man">
 
@@ -526,7 +526,9 @@ gem "rails", bitbucket: "rails"
 
 <p>You can specify that a gem is located in a particular location
 on the file system. Relative paths are resolved relative to the
-directory containing the <code>Gemfile</code>.</p>
+directory containing the <code>Gemfile</code>. The path must point to a
+directory containing the gem's unpacked source code, not to a
+packaged <code>.gem</code> file.</p>
 
 <p>Similar to the semantics of the <code>:git</code> option, the <code>:path</code>
 option requires that the directory in question either contains

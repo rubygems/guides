@@ -10,7 +10,7 @@ next: /command-reference/bundle-platform
 
 <em class="text-neutral-600">List installed gems with newer versions available</em>
 
-<p>This reference was automatically generated from Bundler version 4.0.19.</p>
+<p>This reference was automatically generated from Bundler version 4.0.20.</p>
 
 <div class="mp" id="man">
 
@@ -87,7 +87,13 @@ are up to date, Bundler will exit with a status of 0. Otherwise, it will exit 1.
 <dd>Annotate (rather than hide) versions that are still inside the
 cooldown window of <var>number</var> days. The prose output appends "in
 cooldown for Nd more days" and the table form adds "(cooldown Nd)" to
-the Latest column. See <code>cooldown</code> in <a class="man-ref" href="/command-reference/bundle-config/">bundle-config<span class="s">(1)</span></a>.</dd>
+the Latest column. When a version outside the window is newer than the
+installed one, the prose output also appends "newest out of cooldown
+X" and the table form becomes "(cooldown Nd, X out of cooldown)".
+With <code>--filter-strict</code> (or <code>--patch</code>, <code>--minor</code>, <code>--major</code>, which
+imply it), "newest" is already the cooldown-filtered resolved version,
+so none of these annotations appear. See <code>cooldown</code> in
+<a class="man-ref" href="/command-reference/bundle-config/">bundle-config<span class="s">(1)</span></a>.</dd>
 </dl>
 
 <h2 id="PATCH-LEVEL-OPTIONS">Patch Level Options</h2>
