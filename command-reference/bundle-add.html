@@ -10,7 +10,7 @@ next: /command-reference/bundle-binstubs
 
 <em class="text-neutral-600">Add gem to the Gemfile and run bundle install</em>
 
-<p>This reference was automatically generated from Bundler version 4.0.20.</p>
+<p>This reference was automatically generated from Bundler version 4.1.0.beta1.</p>
 
 <div class="mp" id="man">
 
@@ -69,13 +69,16 @@ next: /command-reference/bundle-binstubs
 <dt><code>--skip-install</code></dt>
 <dd>Adds the gem to the Gemfile but does not install it.</dd>
 <dt><code>--optimistic</code></dt>
-<dd>Adds optimistic declaration of version.</dd>
+<dd>Ignored (now default behavior)</dd>
+<dt><code>--pessimistic</code></dt>
+<dd>Adds pessimistic declaration of version.</dd>
 <dt><code>--strict</code></dt>
 <dd>Adds strict declaration of version.</dd>
 <dt><code>--cooldown=&lt;number&gt;</code></dt>
 <dd>Only consider gem versions published at least <var>number</var> days ago when
-resolving. Pass <code>0</code> to disable cooldown for this run. See <code>cooldown</code>
-in <a class="man-ref" href="/command-reference/bundle-config/">bundle-config<span class="s">(1)</span></a> for precedence rules.</dd>
+resolving. Pass <code>0</code> to disable cooldown for this run, overriding every
+other cooldown setting, RubyGems' own included. See <code>cooldown</code> in
+<a class="man-ref" href="/command-reference/bundle-config/">bundle-config<span class="s">(1)</span></a> for precedence rules.</dd>
 </dl>
 
 <h2 id="EXAMPLES">Examples</h2>
@@ -96,7 +99,7 @@ The source of the gem will be the global source.</p>
     <p>You can use the <code>https://gems.example.com</code> custom source and assign the gem
 to a group.</p>
 
-    <p><code>bundle add rails --version "~&gt; 5.0.0" --source "https://gems.example.com" --group "development"</code></p>
+    <p><code>bundle add rails --version "&gt;= 5.0.0" --source "https://gems.example.com" --group "development"</code></p>
   </li>
   <li>
     <p>The following adds the <code>gem</code> entry to the Gemfile without installing the

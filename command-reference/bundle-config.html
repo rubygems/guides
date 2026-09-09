@@ -10,7 +10,7 @@ next: /command-reference/bundle-console
 
 <em class="text-neutral-600">Set bundler configuration options</em>
 
-<p>This reference was automatically generated from Bundler version 4.0.20.</p>
+<p>This reference was automatically generated from Bundler version 4.1.0.beta1.</p>
 
 <div class="mp" id="man">
 
@@ -136,7 +136,7 @@ learn more about their operation in <a href="/command-reference/bundle-install/"
   <li>
 <code>api_request_size</code> (<code>BUNDLE_API_REQUEST_SIZE</code>):
  Configure how many dependencies to fetch when resolving the specifications.
- This configuration is only used when fetchig specifications from RubyGems
+ This configuration is only used when fetching specifications from RubyGems
  servers that didn't implement the Compact Index API.
  Defaults to 100.</li>
   <li>
@@ -182,8 +182,8 @@ learn more about their operation in <a href="/command-reference/bundle-install/"
  layers, highest precedence first:</p>
 
     <ol>
-      <li>CLI flag <code>--cooldown N</code> on <code>install</code>, <code>update</code>, <code>add</code>, and
-<code>outdated</code>.</li>
+      <li>CLI flag <code>--cooldown N</code> on <code>install</code>, <code>update</code>, <code>add</code>, <code>cache</code>,
+<code>lock</code>, and <code>outdated</code>.</li>
       <li>This setting (<code>bundle config set cooldown N</code> or
 <code>BUNDLE_COOLDOWN=N</code>).</li>
       <li>The per-source <code>cooldown:</code> keyword in the Gemfile, such as
@@ -191,11 +191,38 @@ learn more about their operation in <a href="/command-reference/bundle-install/"
     </ol>
 
     <p>The CLI flag and this setting apply uniformly to every source,
- including ones declared with their own <code>cooldown:</code> value. To keep a
- private registry permanently exempt while still cooling down public
- gems, declare <code>source "https://internal", cooldown: 0</code> in the
- Gemfile; remember that <code>--cooldown N</code> on the command line will
- still override it for that single run.</p>
+ including ones declared with their own <code>cooldown:</code> value. To exempt a
+ private registry while still cooling down public gems, declare
+ <code>source "https://internal", cooldown: 0</code> in the Gemfile. That
+ exemption is not absolute. <code>--cooldown N</code> on the command line
+ overrides it for a single run, and a gemrc cooldown raises it the
+ same way it raises any other layer, as described below. Where a
+ gemrc cooldown is configured, <code>--cooldown 0</code> is the only way to get
+ the exemption back.</p>
+
+    <p>RubyGems has a cooldown of its own, set with <code>gem</code>'s <code>--cooldown</code>
+ flag or the <code>:cooldown:</code> key in the gemrc file, and the two are read
+ together. Whatever the three layers above resolve to is raised to the
+ gemrc value, and the longer of the two wins. It carries the other way
+ round as well. <code>gem install</code>, <code>gem update</code> and <code>gem outdated</code> read
+ this setting and <code>BUNDLE_COOLDOWN</code>, so a cooldown configured for
+ either tool covers both. The Gemfile per-source <code>cooldown:</code> is the
+ exception, since <code>gem</code> never reads a Gemfile. A configured <code>0</code> takes
+ part like any other value rather than switching the cooldown off, so
+ <code>bundle config set cooldown 0</code> does not cancel a gemrc cooldown. The
+ <code>--cooldown</code> flag is what bypasses the other tool's setting. It wins
+ outright, which is why <code>--cooldown 0</code> remains the escape hatch for an
+ urgent update.</p>
+
+    <p>The value must be a non-negative integer. <code>--cooldown</code> rejects
+ anything else outright, while a value coming from this setting, from
+ <code>BUNDLE_COOLDOWN</code> or from the gemrc file only warns, because a typo
+ left in a config file should not make every command fail. Such a
+ value takes no part in the resolution above, so a per-source
+ <code>cooldown:</code> in the Gemfile, or a usable value configured for the
+ other tool, still applies. The warning names where the value came
+ from, since either tool reports the other's setting as well as its
+ own.</p>
 
     <p>Cooldown filtering depends on the gem server providing a per-version
  <code>created_at</code> timestamp in the v2 compact-index format. Versions
@@ -205,6 +232,61 @@ learn more about their operation in <a href="/command-reference/bundle-install/"
  window and remain resolvable. If you rely on cooldown for
  supply-chain protection, confirm that the gem server emits
  <code>created_at</code> in its <code>/info/&lt;gem&gt;</code> responses.</p>
+
+    <p>A <code>created_at</code> timestamp is read as UTC when it carries no time zone
+ offset. <code>rubygems.org</code> always sends one, but a third-party server
+ that omits it would otherwise shift the cooldown window by the
+ offset of whatever machine runs bundler.</p>
+  </li>
+  <li>
+    <p><code>credential_store</code> (<code>BUNDLE_CREDENTIAL_STORE</code>):
+ Experimental: store and read host credentials (the values otherwise set
+ via <code>bundle config set &lt;host&gt; &lt;user:pass&gt;</code>) in a credential store instead
+ of the plain text config file. Set it to <code>true</code> to use the operating
+ system's native store (macOS Keychain, Linux Secret Service, Windows
+ Credential Manager) when one is available on this platform, or to the name
+ of a backend provided by a third-party gem, such as <code>1password</code>. Falls
+ back to the config file when the store is unavailable or fails, warning
+ that the credential was written in plain text. Defaults to false.
+ Credentials already written to the config file are not migrated
+ automatically; re-run <code>bundle config set &lt;host&gt; &lt;user:pass&gt;</code> with the
+ setting enabled to move each one into the store. Being experimental, the
+ name and behavior of this setting may change in a future release.</p>
+
+    <p>The value is read in three ways. An empty value and the false values
+ Bundler takes everywhere else (<code>false</code>, <code>f</code>, <code>no</code>, <code>n</code>, <code>0</code>) turn the
+ store off. <code>true</code>, <code>t</code>, <code>yes</code>, <code>y</code>, <code>on</code> and <code>1</code> select the native store.
+ Case does not matter for any of those. Anything else is a backend name,
+ taken as written, and only lowercase letters, digits, <code>_</code> and <code>-</code> are
+ recognized in one. So <code>off</code> names a backend rather than turning the store
+ off, which <code>false</code> does.</p>
+
+    <p>A credential kept in the store is never printed back. <code>bundle config get
+ &lt;host&gt;</code> and <code>bundle config list</code> name the key and say that its value lives
+ in the credential store. With <code>--parseable</code>, such a key is left out
+ entirely, since that output is meant to be read back by <code>bundle config
+ set</code>. A third-party backend is not required to enumerate what it holds, so
+ a credential kept in one may not be listed at all.</p>
+
+    <p>The store belongs to the machine's user, not to a project, so
+ <code>--local</code> and <code>--global</code> make no difference to where a credential is
+ kept. Setting a host's credential in one project changes it for every
+ project on the machine, and unsetting it there removes it everywhere.
+ Protecting the store itself is the operating system's job, or that of
+ whichever backend you selected.</p>
+
+    <p>A credential given in the environment, such as
+ <code>BUNDLE_GEMS__EXAMPLE__COM</code>, takes precedence over the stored one, so a
+ CI run can pass its own credentials without the store getting in the
+ way. The store takes precedence over the config file.</p>
+
+    <p>The store can also be selected per host with <code>credential_store.&lt;host&gt;</code>
+ (<code>BUNDLE_CREDENTIAL_STORE__&lt;HOST&gt;</code>), for example <code>bundle config set
+ credential_store.gems.example.com code_artifact</code>. That host then uses
+ only the named backend, with no chaining to the global one, while every
+ other host keeps following the global setting. Setting a host's value
+ to <code>false</code> keeps that one host on the config file even when a global
+ store is enabled.</p>
   </li>
   <li>
 <code>default_cli_command</code> (<code>BUNDLE_DEFAULT_CLI_COMMAND</code>):
@@ -282,6 +364,10 @@ learn more about their operation in <a href="/command-reference/bundle-install/"
  The number of gems Bundler can download and install in parallel.
  Defaults to the number of available processors.</li>
   <li>
+<code>keep_outdated_cache</code> (<code>BUNDLE_KEEP_OUTDATED_CACHE</code>):
+ Whether Bundler should leave outdated gems unpruned when caching. Defaults
+ to false.</li>
+  <li>
 <code>lockfile</code> (<code>BUNDLE_LOCKFILE</code>):
  The path to the lockfile that bundler should use. By default, Bundler adds
  <code>.lock</code> to the end of the <code>gemfile</code> entry. Can be set to <code>false</code> in the
@@ -292,11 +378,23 @@ learn more about their operation in <a href="/command-reference/bundle-install/"
  Bundler's own checksum is only included when its <code>.gem</code> file is cached, which
  may not be the case when Bundler is installed as a default gem.</li>
   <li>
+<code>no_build_extension</code> (<code>BUNDLE_NO_BUILD_EXTENSION</code>):
+ Whether Bundler should skip building native extensions during installation.
+ When set, gems are installed without compiling their C extensions.
+ To build extensions later, unset this setting and run <code>bundle pristine &lt;gem&gt;</code>.</li>
+  <li>
 <code>no_install</code> (<code>BUNDLE_NO_INSTALL</code>):
  Whether <code>bundle package</code> should skip installing gems.</li>
   <li>
+<code>no_install_plugin</code> (<code>BUNDLE_NO_INSTALL_PLUGIN</code>):
+ Whether Bundler should skip installing RubyGems plugins during installation.
+ When set, plugin files are not written to the plugins directory.
+ To install plugins later, unset this setting and run <code>bundle pristine &lt;gem&gt;</code>.</li>
+  <li>
 <code>no_prune</code> (<code>BUNDLE_NO_PRUNE</code>):
- Whether Bundler should leave outdated gems unpruned when caching.</li>
+ Deprecated name for <code>keep_outdated_cache</code>. Each priority level is checked
+ for <code>keep_outdated_cache</code> and then for <code>no_prune</code>, and the first value
+ found wins. <code>no_prune</code> will be removed in Bundler 5.</li>
   <li>
 <code>only</code> (<code>BUNDLE_ONLY</code>):
  A space-separated list of groups to install only gems of the specified groups.
@@ -323,6 +421,24 @@ learn more about their operation in <a href="/command-reference/bundle-install/"
   <li>
 <code>prefer_patch</code> (<code>BUNDLE_PREFER_PATCH</code>):
  Prefer updating only to next patch version during updates. Makes <code>bundle update</code> calls equivalent to <code>bundler update --patch</code>.</li>
+  <li>
+<code>prune</code> (<code>BUNDLE_PRUNE</code>):
+ A space-separated or <code>:</code>-separated list of Bundler-managed artifacts to
+ delete after a successful <code>bundle install</code>, <code>bundle update</code> or <code>bundle
+ cache</code>, and on <code>bundle clean</code>. <code>cache</code> removes the download cache under the
+ bundle path, which holds both the cached <code>.gem</code> files and the git mirrors.
+ <code>git</code> removes the <code>.git</code> directory of every checked out git gem. Any value
+ that is not a category name is read as a boolean, so <code>BUNDLE_PRUNE=1</code> selects
+ every category and keeps doing so as categories are added. This is meant for
+ container images and other throwaway
+ environments. <strong>The setting only takes effect when a bundle path is set.</strong>
+ Without one Bundler installs into the system gem directory, where the cache
+ is shared with RubyGems and holds gem files Bundler never put there, so
+ pruning is skipped with a warning. Set a path with <code>BUNDLE_PATH</code> or <code>bundle
+ config set path &lt;dir&gt;</code>. A pruned artifact comes back only when Bundler has to
+ install that gem again, so a later <code>bundle install</code> does not restore it on
+ its own. <code>bundle install --redownload</code> does, and <code>bundle pristine</code> works once
+ it has, though with <code>prune</code> still set the reinstall prunes again at the end.</li>
   <li>
 <code>redirect</code> (<code>BUNDLE_REDIRECT</code>):
  The number of redirects allowed for network requests. Defaults to <code>5</code>.</li>
@@ -362,7 +478,9 @@ learn more about their operation in <a href="/command-reference/bundle-install/"
  The location where RubyGems installs binstubs. Defaults to <code>Gem.bindir</code>.</li>
   <li>
 <code>timeout</code> (<code>BUNDLE_TIMEOUT</code>):
- The seconds allowed before timing out for network requests. Defaults to <code>10</code>.</li>
+ The seconds allowed before timing out for network requests, applied to each
+ request individually. A network operation retried by Bundler may wait a
+ multiple of this value in total. Defaults to <code>10</code>.</li>
   <li>
 <code>update_requires_all_flag</code> (<code>BUNDLE_UPDATE_REQUIRES_ALL_FLAG</code>):
  Require passing <code>--all</code> to <code>bundle update</code> when everything should be updated,
@@ -548,6 +666,27 @@ corresponding environment variable.</p>
 <p>This means that if you have a gem server named <code>my.gem-host.com</code>, you'll need to
 use the <code>BUNDLE_MY__GEM___HOST__COM</code> variable to configure credentials for it
 through ENV.</p>
+
+<h2 id="PROXY-SUPPORT">Proxy Support</h2>
+
+<p>Bundler reads the proxy for a gem source from the <code>:http_proxy</code> key in the
+RubyGems configuration file (<code>~/.gemrc</code>), falling back to the environment.
+For an <code>https</code> source, <code>https_proxy</code> (or <code>HTTPS_PROXY</code>) takes precedence over
+<code>http_proxy</code> (or <code>HTTP_PROXY</code>), which is only used when no https-specific
+proxy is set. Proxy credentials that are not embedded in the proxy URL are
+read from <code>HTTP_PROXY_USER</code> and <code>HTTP_PROXY_PASS</code>, or from <code>HTTPS_PROXY_USER</code>
+and <code>HTTPS_PROXY_PASS</code> when the https proxy is used.</p>
+
+<p>Setting <code>:http_proxy: :no_proxy</code> in the RubyGems configuration file disables
+proxies entirely, including any proxy environment variables. To keep using a
+proxy from the environment, remove that line. To configure a proxy in the
+file, replace <code>:no_proxy</code> with an explicit proxy URL.</p>
+
+<p>The <code>NO_PROXY</code> (or <code>no_proxy</code>) environment variable lists hosts that are
+reached directly, bypassing the proxy. An entry matches the host itself and
+its subdomains, so <code>NO_PROXY=example.com</code> bypasses both <code>example.com</code> and
+<code>sub.example.com</code>, but not <code>myexample.com</code>. An entry starting with a dot
+matches only subdomains. A value of <code>*</code> bypasses the proxy for every host.</p>
 
 <h2 id="CONFIGURE-BUNDLER-DIRECTORIES">Configure Bundler Directories</h2>
 
