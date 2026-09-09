@@ -57,10 +57,10 @@ Build a gem from a gemspec
 ### Options
 
 * `--platform PLATFORM`         - Specify the platform of gem to build
+* `--ruby-abi RUBY_ABI`         - Specify Ruby ABI X.Y. With a non-default platform, builds a content-addressable native gem
 * `--force`                     - skip validation of the spec
 * `--strict`                    - consider warnings as errors when validating the spec
 * `-o, --output FILE`               - output gem with the given filename
-* `--ruby-abi RUBY_ABI`         - Specify the Ruby ABI of gem to build (builds a content addressable gem)
 
 ### Common Options
 
@@ -98,9 +98,56 @@ Gems can be saved to a specified filename with the output option:
 
     $ gem build my_gem-1.0.gemspec --output=release.gem
 
-Platform gems can be built for a single Ruby ABI with the --ruby-abi option:
+A content-addressable native gem has a filename that includes a shortened
+lowercase hex SHA-256 checksum calculated from the `.gem` file contents. The
+content address is 8 to 64 characters long. The filename identifies the file by
+its contents; the platform and Ruby ABI come from gem metadata.
 
-    $ gem build my_gem-1.0.gemspec --ruby-abi=3.4
+Native gems can be built as source gems, multi-ABI platform gems, or
+content-addressable native gems:
+
+    $ gem build mygem.gemspec
+    Successfully built RubyGem
+    Name: mygem
+    Version: 1.0.0
+    File: mygem-1.0.0.gem
+
+    $ gem build mygem.gemspec --platform x86_64-linux
+    Successfully built RubyGem
+    Name: mygem
+    Version: 1.0.0
+    File: mygem-1.0.0-x86_64-linux.gem
+
+    $ gem build mygem.gemspec --platform x86_64-linux --ruby-abi 3.4
+    Successfully built RubyGem
+    Name: mygem
+    Version: 1.0.0
+    Platform: x86_64-linux
+    Ruby ABI: 3.4
+    File: mygem-1.0.0-78be552b.gem
+
+`--ruby-abi` creates a content-addressable gem because it is used for native
+gems whose packaged extension files are specific to one Ruby ABI. Traditional
+gem filenames identify only name, version, and platform, so they cannot
+distinguish separate Ruby-ABI-specific builds for the same platform. RubyGems
+therefore uses a content address in the filename and stores the real platform
+and Ruby ABI in the gem metadata.
+
+The `--ruby-abi` value must be in `X.Y` form, such as `3.4`, and the gem must
+be platform-specific, either from the gemspec or from `--platform`. RubyGems
+records the ABI by setting `required_ruby_version` to `~> X.Y.0`, raises
+`required_rubygems_version` to at least `>= 4.1.0.a`, and rejects `--output`
+because the filename must be derived from the gem contents. These fail:
+
+    $ gem build mygem.gemspec --platform x86_64-linux --ruby-abi invalid
+    $ gem build mygem.gemspec --platform x86_64-linux --ruby-abi 3.4.1
+    $ gem build mygem.gemspec --ruby-abi 3.4
+    $ gem build mygem.gemspec --platform x86_64-linux --ruby-abi 3.4 --output release.gem
+
+Builds for the same name, version, and platform but different Ruby ABIs produce
+different content-addressable filenames. If the gemspec already has
+`required_ruby_version`, it must be compatible with the requested ABI.
+Otherwise the build fails instead of creating misleading ABI metadata.
 
 ## gem cert
 
@@ -340,6 +387,11 @@ the named gem).
 The dependency list can be displayed in a format suitable for piping for
 use with other commands.
 
+Remote dependency output understands content-addressable (for example,
+`mygem-1.0.0-78be552b.gem`) native gems. RubyGems displays and matches the
+platform and Ruby ABI from gem metadata instead of treating the SHA suffix as a
+platform.
+
 ## gem environment
 
 Display information about the RubyGems environment
@@ -508,6 +560,12 @@ unpacked to examine their contents.
 See the build command help for an example of unpacking a gem, modifying it,
 then repackaging it.
 
+When the selected remote candidate is a content-addressable native gem, fetch
+writes the `.gem` file named with the content address:
+
+    $ gem fetch mygem
+    Downloaded mygem-1.0.0-78be552b.gem
+
 ## gem generate_index
 
 Generates the index files for a gem server directory (requires rubygems-generate_index)
@@ -601,6 +659,18 @@ Show information for the given gem
 
 Info prints information about the gem such as name, description, website, license and installed paths
 
+For remote content-addressable (for example, `mygem-1.0.0-a1b2c3d4.gem`) native
+gems, info displays the platform and Ruby ABI instead of the content-address
+suffix:
+
+    $ gem info mygem -r
+
+    *** REMOTE GEMS ***
+
+    mygem (1.0.0)
+        Platforms:
+            x86_64-linux Ruby ABI: 3.3, 3.4
+
 ## gem install
 
 Install a gem into the local repository
@@ -679,6 +749,21 @@ Install a gem into the local repository
 ### Description
 
 The install command installs local or remote gem into a gem repository.
+
+Local content-addressable native gems use `.gem` files named with the content
+address, such as `mygem-1.0.0-78be552b.gem`:
+
+    $ gem install ./mygem-1.0.0-78be552b.gem --local
+
+RubyGems validates the content-address suffix against the file SHA-256, installs
+under the name-version-SHA identity, and preserves the platform metadata.
+Reinstalling the same file is idempotent. A content-address mismatch fails.
+
+For remote installs, RubyGems prefers compatible candidates in this order:
+
+1. content-addressable native gem
+2. multi-ABI platform gem
+3. source gem
 
 For gems with executables ruby installs a wrapper file into the executable
 directory by default.  This can be overridden with the --no-wrappers option.
@@ -808,6 +893,16 @@ The --details option displays additional details including the summary, the
 homepage, the author, the locations of different versions of the gem.
 
 To search for remote gems use the search command.
+
+For remote content-addressable native gems, list displays the platform and Ruby
+ABI instead of the content-address suffix:
+
+    $ gem list mygem -r
+    mygem (1.0.0 Platform: x86_64-linux, Ruby ABI: 3.4)
+
+Multiple Ruby ABIs for the same platform are grouped:
+
+    mygem (1.0.0 Platform: x86_64-linux, Ruby ABI: 3.3, 3.4)
 
 ## gem lock
 
@@ -971,6 +1066,9 @@ The outdated command lists gems you may wish to upgrade to a newer version.
 You can check for dependency mismatches using the dependency command and
 update the gems with the update or install commands.
 
+Outdated checks understand content-addressable native gems and do not treat the
+SHA suffix as a platform.
+
 ## gem owner
 
 Manage gem owners of a gem on the push server
@@ -1089,10 +1187,10 @@ Push a gem up to the gem server
 ### Options
 
 * `-k, --key KEYNAME`               - Use the given API key from ~/.local/share/gem/credentials
+* `--platform PLATFORM`         - Platform selector for choosing one gem from multiple files
+* `--ruby-abi RUBY_ABI`         - Ruby ABI X.Y selector for choosing one gem from multiple files
 * `--otp CODE`                  - Digit code for multifactor authentication You can also use the environment variable GEM_HOST_OTP_CODE
 * `--host HOST`                 - Push to another gemcutter-compatible host (e.g. https://rubygems.org)
-* `--platform PLATFORM`         - Push a gem for a specific platform (e.g. x86_64-darwin-20)
-* `--ruby-abi RUBY_ABI`         - Specify the Ruby ABI of gem to push (e.g. 3.4)
 * `--attestation FILE`          - Push with sigstore attestations (FILE must be a JSON sigstore bundle)
 
 ### Local/Remote Options
@@ -1125,6 +1223,26 @@ command.  For further discussion see the help for the yank command.
 The push command will use ~/.gem/credentials to authenticate to a server, but you can use the RubyGems environment variable GEM_HOST_API_KEY to set the api key to authenticate. If the :credential_store: gemrc option (or RUBYGEMS_CREDENTIAL_STORE environment variable) is set, the API key is stored in and read from the credential store it selects instead of ~/.gem/credentials.
 
 The API key to send is resolved in this order: the GEM_HOST_API_KEY environment variable, the --key option, the host's own key in the credential store (when :credential_store: is set), the host's own key in ~/.gem/credentials, then the default RubyGems.org key from either place. The first one found is used.
+
+Pushing an exact file is unchanged, including content-addressable native gems:
+
+    $ gem push mygem-1.0.0.gem
+    $ gem push mygem-1.0.0-x86_64-linux.gem
+    $ gem push mygem-1.0.0-78be552b.gem
+
+When multiple candidate files are given, use the `--platform` and `--ruby-abi`
+selectors to push exactly one gem. RubyGems reads each candidate gemspec and
+matches the requested platform and/or Ruby ABI:
+
+    $ gem push mygem-1.0.0-*.gem --platform x86_64-linux --ruby-abi 3.4
+    $ gem push mygem-1.0.0-*.gem --platform x86_64-linux
+    $ gem push mygem-1.0.0-*.gem --ruby-abi 3.4
+
+If exactly one file matches, it is pushed. If no file matches, the command fails
+with an error. If multiple files match, the command fails as ambiguous. Multiple
+files without selectors are still rejected:
+
+    $ gem push mygem-1.0.0-*.gem
 
 ## gem rdoc
 
@@ -1274,6 +1392,16 @@ take a little longer to complete as it must download the information
 individually from the index.
 
 To list local gems use the list command.
+
+For remote content-addressable native gems, search displays the platform and
+Ruby ABI instead of the content-address suffix:
+
+    $ gem search mygem -r
+    mygem (1.0.0 Platform: x86_64-linux, Ruby ABI: 3.4)
+
+Multiple Ruby ABIs for the same platform are grouped:
+
+    mygem (1.0.0 Platform: x86_64-linux, Ruby ABI: 3.3, 3.4)
 
 ## gem server
 
@@ -1699,6 +1827,10 @@ The update command will update your gems to the latest version.
 The update command does not remove the previous version. Use the cleanup
 command to remove old versions.
 
+Updates understand content-addressable native gems. RubyGems can update to a
+compatible content-addressable native gem and does not treat the SHA suffix as
+a platform.
+
 ## gem which
 
 Find the location of a library file you can require
@@ -1747,8 +1879,8 @@ Remove a pushed gem from the index
 ### Options
 
 * `-v, --version VERSION`           - Specify version of gem to remove
-* `--platform PLATFORM`         - Specify the platform of gem to remove
-* `--ruby-abi RUBY_ABI`         - Specify the Ruby ABI of gem to remove
+* `--platform PLATFORM`         - Platform selector for the gem to remove
+* `--ruby-abi RUBY_ABI`         - Ruby ABI X.Y selector for the content-addressable variant
 * `--otp CODE`                  - Digit code for multifactor authentication You can also use the environment variable GEM_HOST_OTP_CODE
 * `--host HOST`                 - Yank from another gemcutter-compatible host (e.g. https://rubygems.org)
 * `-k, --key KEYNAME`               - Use the given API key from ~/.local/share/gem/credentials
@@ -1775,3 +1907,18 @@ The yank command permanently removes a gem you pushed to a server.
 Once you have pushed a gem several downloads will happen automatically
 via the webhooks. If you accidentally pushed passwords or other sensitive
 data you will need to change them immediately and yank your gem.
+
+Yanking by version or by version and platform is as follows:
+
+    $ gem yank mygem -v 1.0.0
+    $ gem yank mygem -v 1.0.0 --platform x86_64-linux
+
+Use `--ruby-abi` with `--platform` to yank one content-addressable variant:
+
+    $ gem yank mygem -v 1.0.0 --platform x86_64-linux --ruby-abi 3.4
+
+If no matching ABI exists, the command fails. Ruby ABI without platform also
+fails because Ruby ABI variants are platform-specific:
+
+    $ gem yank mygem -v 1.0.0 --platform x86_64-linux --ruby-abi 3.9
+    $ gem yank mygem -v 1.0.0 --ruby-abi 3.4

@@ -84,6 +84,7 @@ Returns some basic information about the given gem. See below an example respons
       "version_created_at": "2026-07-29T15:02:41.060Z",
       "version_downloads": 78333,
       "platform": "ruby",
+      "ruby_abi": null,
       "authors": "David Heinemeier Hansson",
       "info": "Ruby on Rails is a full-stack web framework optimized for programmer happiness and sustainable productivity.",
       "licenses": ["MIT"],
@@ -126,6 +127,12 @@ Returns some basic information about the given gem. See below an example respons
       }
     }
 
+A content-addressable native gem has a filename that includes a shortened
+checksum calculated from the `.gem` file contents. API responses report the
+`platform` and may include `ruby_abi`, for example `"3.4"`. The `.gem` URL may
+use the content-addressable filename, such as `mygem-1.0.0-78be552b.gem`. The
+platform cannot be determined from the filename suffix.
+
 ### GET - `/api/v1/search.(json|yaml)?query=[YOUR QUERY]`
 
 Submit a search to RubyGems.org for active gems, just like a search query on the
@@ -161,6 +168,8 @@ of gems you own.
 ### POST - `/api/v1/gems`
 
 Submit a gem to RubyGems.org. Must post a built RubyGem in the request body.
+Content-addressable native gems are pushed as exact `.gem` files, the same as
+source and multi-ABI platform gems.
 
     $ curl --data-binary @gemcutter-0.2.1.gem \
            -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
@@ -170,7 +179,8 @@ Submit a gem to RubyGems.org. Must post a built RubyGem in the request body.
 
 ### DELETE - `/api/v1/gems/yank`
 
-Remove a gem from RubyGems.org's index. Platform is optional.
+Remove a gem from RubyGems.org's index. Platform is optional. To yank one
+content-addressable variant, pass `ruby_abi` together with `platform`.
 
     $ curl -X DELETE -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
            -d 'gem_name=bills' -d 'version=0.0.1' \
@@ -178,6 +188,13 @@ Remove a gem from RubyGems.org's index. Platform is optional.
            https://rubygems.org/api/v1/gems/yank
 
     Successfully deleted gem: bills (0.0.1)
+
+    $ curl -X DELETE -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
+           -d 'gem_name=mygem' -d 'version=1.0.0' \
+           -d 'platform=x86_64-linux' -d 'ruby_abi=3.4' \
+           https://rubygems.org/api/v1/gems/yank
+
+    Successfully deleted gem: mygem (1.0.0)
 
 
 ### GET - `/api/v1/gems/[GEM NAME]/reverse_dependencies.json`
@@ -222,6 +239,7 @@ Returns an array of gem version details like the below:
         "platform": "ruby",
         "rubygems_version": ">= 0",
         "ruby_version": null,
+        "ruby_abi": null,
         "prerelease": false,
         "licenses": null,
         "requirements": null,
@@ -229,6 +247,11 @@ Returns an array of gem version details like the below:
         "spec_sha": "57b863cff56029a0085eaf1b3416b701ed4fa75418d062358b45753e270c9ffa"
       }
     ]
+
+For content-addressable native gems, version responses may include `ruby_abi`
+and `gem_uri` values that use the content-addressable filename. Use `platform`
+plus `ruby_abi` to identify the variant. The filename suffix is the content
+address.
 
 ### GET - `/api/v1/versions/[GEM NAME]/latest.json`
 
@@ -244,7 +267,7 @@ Returns an object containing the latest version of particular gem.
 
 Returns a dictionary with versions details for a specific gem version.
 
-To return the version for a specific platform (e.g. "ruby", "java", "x86_64-linux"), use the `platform` query parameter.
+To return the version for a specific platform (e.g. "ruby", "java", "x86_64-linux"), use the `platform` query parameter. For a content-addressable variant, pass `ruby_abi` together with `platform`.
 
     $ curl https://rubygems.org/api/v2/rubygems/coulda/versions/0.7.1.json
 
@@ -255,6 +278,7 @@ To return the version for a specific platform (e.g. "ruby", "java", "x86_64-linu
       "version_created_at": "2011-08-08T21:23:40.254Z",
       "version_downloads": 9676,
       "platform": "ruby",
+      "ruby_abi": null,
       "authors": "Evan David Light",
       "info": "Behaviour Driven Development derived from Cucumber but as an internal DSL with methods for reuse",
       "licenses": null,
@@ -291,18 +315,27 @@ To return the version for a specific platform (e.g. "ruby", "java", "x86_64-linu
       "summary": "Test::Unit-based acceptance testing DSL",
       "rubygems_version": ">= 0",
       "ruby_version": null,
+      "ruby_abi": null,
       "prerelease": false,
       "requirements": null
     }
 
+A content-addressable variant can be selected with both `platform` and
+`ruby_abi`:
+
+    $ curl 'https://rubygems.org/api/v2/rubygems/mygem/versions/1.0.0.json?platform=x86_64-linux&ruby_abi=3.4'
+
 ### GET - `/api/v2/rubygems/[GEM NAME]/versions/[VERSION NUMBER]/contents.(json|yaml|sha256)` (API v2)
 
 Returns the checksum of every file packaged in a specific gem version. The
-`platform` query parameter selects a non-default platform, as above.
+`platform` query parameter selects a non-default platform, as above. For a
+content-addressable variant, pass `ruby_abi` together with `platform`.
 
 Only versions pushed after RubyGems.org started recording file manifests have
 this data. Older versions respond `404` with "Content is unavailable for this
 version."
+
+    $ curl 'https://rubygems.org/api/v2/rubygems/mygem/versions/1.0.0/contents.json?platform=x86_64-linux&ruby_abi=3.4'
 
     $ curl https://rubygems.org/api/v2/rubygems/rails/versions/8.1.3.1/contents.json
 
@@ -665,6 +698,11 @@ SHA2-hashed concatenation of the gem name, the gem version and your API key.
            https://rubygems.org/api/v1/web_hooks/fire
 
     Successfully deployed webhook for all gems to http://example.com
+
+Push and yank webhook payloads may include `ruby_abi` for content-addressable
+native gems, and their gem URL may use the content-addressable filename. Consumers
+should use the payload's `platform` and `ruby_abi` fields instead of inferring
+platform from the filename.
 
 Activity Methods
 ------------

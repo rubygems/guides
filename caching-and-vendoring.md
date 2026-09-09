@@ -66,6 +66,8 @@ With a populated `vendor/cache`, or with the needed versions already in the gem 
 
 There is one caveat. During a normal install Bundler checks RubyGems.org for a [precompiled variant](/platforms) matching your platform even when every gem is cached. `--local` skips that check, so it only picks from the gems the cache actually contains. Building the cache with `--all-platforms` on a machine of the deployment platform avoids surprises here.
 
+For content-addressable native gems, `bundle install --local` installs the `.gem` file named with the content address from `vendor/cache`, preserves its content address and real platform metadata, and does not create a platform-named duplicate.
+
 Plain RubyGems can install from a local `.gem` file directly, either by path or by name with `--local` in a directory containing the file:
 
     $ gem install --local ./rake-13.4.2.gem
