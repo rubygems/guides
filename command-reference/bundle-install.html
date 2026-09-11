@@ -57,6 +57,46 @@ that you did not update, but will re-resolve the dependencies of
 gems that you did update. You can find more information about this
 update process below under <a href="#CONSERVATIVE-UPDATING" title="CONSERVATIVE UPDATING" data-bare-link="true">CONSERVATIVE UPDATING</a>.</p>
 
+<h2 id="CONTENT-ADDRESSABLE-NATIVE-GEMS">Content-addressable native gems</h2>
+
+<p>A content-addressable native gem has a filename that includes a shortened
+SHA-256 checksum calculated from the <code>.gem</code> file contents, such as
+<code>mygem-1.0.0-a56253e0.gem</code>. The filename identifies the file by its contents;
+the platform and Ruby ABI come from gem metadata.</p>
+
+<p>A source gem contains source code and builds native extensions during install.
+A multi-ABI platform gem contains prebuilt native files for a platform, such as
+<code>x86_64-linux</code>, and may support more than one Ruby ABI. A content-addressable
+native gem contains prebuilt native files for one platform and one Ruby ABI,
+and uses the content address in the filename.</p>
+
+<p>Bundler selects any compatible content-addressable gem before falling back to a
+compatible multi-ABI platform gem and then to the source gem. Compatible means
+that the gem matches the install platform and Ruby ABI. A content-addressable
+gem may be preferred even when a multi-ABI platform gem offers a more specific
+platform target, such as <code>arm-darwin-23</code> instead of <code>arm-darwin</code>. The
+installed gem can still be required normally.</p>
+
+<p>Bundler records in the lockfile the multi-ABI platform gem in <code>GEM</code> and
+<code>CHECKSUMS</code>, and records the content-addressable file separately:</p>
+
+<pre><code>GEM
+  remote: https://rubygems.org/
+  specs:
+    mygem (1.0.0-x86_64-linux)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  mygem
+
+CONTENT ADDRESSES
+  mygem (1.0.0-x86_64-linux) a56253e0 sha256=&lt;content-addressable gem sha&gt;
+
+CHECKSUMS
+  mygem (1.0.0-x86_64-linux) sha256=&lt;platform gem sha&gt;</code></pre>
+
 <h2 id="OPTIONS">Options</h2>
 
 <dl>
@@ -71,7 +111,7 @@ Bundler config, Gemfile per-source settings, and the gemrc file.</dd>
 </dt>
 <dd>Force reinstalling every gem, even if already installed.</dd>
 <dt><code>--full-index</code></dt>
-<dd>Bundler will not call Rubygems' API endpoint (default) but download and cache
+<dd>Bundler will not call RubyGems' API endpoint (default) but download and cache
 a (currently big) index file of all gems. Performance can be improved for
 large bundles that seldom change by enabling this option.</dd>
 <dt><code>--gemfile=GEMFILE</code></dt>
@@ -87,14 +127,14 @@ to this location.</dd>
 number of available processors.</dd>
 <dt><code>--local</code></dt>
 <dd>Do not attempt to connect to <code>rubygems.org</code>. Instead, Bundler will use the
-gems already present in Rubygems' cache or in <code>vendor/cache</code>. Note that if an
+gems already present in RubyGems' cache or in <code>vendor/cache</code>. Note that if an
 appropriate platform-specific gem exists on <code>rubygems.org</code> it will not be
 found.</dd>
 <dt><code>--lockfile=LOCKFILE</code></dt>
 <dd>The location of the lockfile which Bundler should use. This defaults
 to the Gemfile location with <code>.lock</code> appended.</dd>
 <dt><code>--prefer-local</code></dt>
-<dd>Force using locally installed gems, or gems already present in Rubygems' cache
+<dd>Force using locally installed gems, or gems already present in RubyGems' cache
 or in <code>vendor/cache</code>, when resolving, even if newer versions are available
 remotely. Only attempt to connect to <code>rubygems.org</code> for gems that are not
 present locally.</dd>
@@ -116,15 +156,15 @@ See <span class="man-ref">gemfile<span class="s">(5)</span></span> for more info
 <dt><code>--retry=[&lt;number&gt;]</code></dt>
 <dd>Retry failed network or git requests for <var>number</var> times.</dd>
 <dt><code>--standalone[=&lt;list&gt;]</code></dt>
-<dd>Makes a bundle that can work without depending on Rubygems or Bundler at
+<dd>Makes a bundle that can work without depending on RubyGems or Bundler at
 runtime. A space separated list of groups to install can be specified.
 Bundler creates a directory named <code>bundle</code> and installs the bundle there. It
 also generates a <code>bundle/bundler/setup.rb</code> file to replace Bundler's own setup
 in the manner required.</dd>
 <dt><code>--trust-policy=TRUST-POLICY</code></dt>
-<dd>Apply the Rubygems security policy <var>policy</var>, where policy is one of
+<dd>Apply the RubyGems security policy <var>policy</var>, where policy is one of
 <code>HighSecurity</code>, <code>MediumSecurity</code>, <code>LowSecurity</code>, <code>AlmostNoSecurity</code>, or
-<code>NoSecurity</code>. For more details, please see the Rubygems signing documentation
+<code>NoSecurity</code>. For more details, please see the RubyGems signing documentation
 linked below in <a href="#SEE-ALSO" title="SEE ALSO" data-bare-link="true">SEE ALSO</a>.</dd>
 <dt><code>--target-rbconfig=TARGET-RBCONFIG</code></dt>
 <dd>Path to rbconfig.rb for the deployment target platform.</dd>
@@ -337,7 +377,7 @@ does not work, run <a href="/command-reference/bundle-update/">bundle update(1)<
 
 <ul>
   <li><a href="https://guides.rubygems.org/rubygems-basics/#installing-gems">Gem install docs</a></li>
-  <li><a href="https://guides.rubygems.org/security/">Rubygems signing docs</a></li>
+  <li><a href="https://guides.rubygems.org/security/">RubyGems signing docs</a></li>
 </ul>
 
   

@@ -100,6 +100,25 @@ These are the direct dependencies, one line per `gem` call in the Gemfile. Anyth
 
 Each checksum is the SHA-256 digest of the packaged `.gem` file, and Bundler verifies every gem against it during installation. A gem that was tampered with after the lockfile was written fails to install, which protects deploys against a compromised gem source. Gems from git and path sources have no packaged file to digest, so their entries carry no checksum. Bundler writes this section into new lockfiles by default. To add it to an existing lockfile, see [Lockfile checksums](/security#lockfile-checksums).
 
+For content-addressable native gems, such as `mygem-1.0.0-78be552b.gem`, Bundler records the multi-ABI platform gem in `GEM` and `CHECKSUMS`, and records the content-addressable file separately:
+
+    GEM
+      remote: https://rubygems.org/
+      specs:
+        mygem (1.0.0-x86_64-linux)
+
+    PLATFORMS
+      x86_64-linux
+
+    DEPENDENCIES
+      mygem
+
+    CONTENT ADDRESSES
+      mygem (1.0.0-x86_64-linux) a56253e0 sha256=<content-addressable gem sha>
+
+    CHECKSUMS
+      mygem (1.0.0-x86_64-linux) sha256=<platform gem sha>
+
 ### RUBY VERSION
 
     RUBY VERSION

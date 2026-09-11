@@ -138,13 +138,46 @@ Each following line gives information about 1 version of a rubygem with the form
 The pieces of each line are:
 
 1. **`VERSION`** - The version of the rubygem. Read VERSION until either `-` (minus) or space character is encountered.
-2. **`[-PLATFORM]`** - The platform, if it is not the default platform `ruby`. The first `-` (minus) character in the `VERSION[-PLATFORM]` chunk splits the VERSION and PLATFORM. The PLATFORM may contain more dashes. Read platform until a space is encountered.
+2. **`[-PLATFORM]`** - For multi-ABI platform gems, the suffix after the version is the platform, such as `x86_64-linux`. The first `-` (minus) character after VERSION separates VERSION from PLATFORM. Read the platform until a space is encountered. When the suffix is a content address, such as `78be552b`, the platform cannot be determined from that hash and is provided separately by the `platform` requirement.
 3. **`(SPACE)`** - The space character.
 4. **`[DEPENDENCY]`** - (optional) A dependency is another rubygem required by this gem. DEPENDENCY may contain spaces. See below for format.
 5. **`[(COMMA)DEPENDENCY]`** - (optional) A `,` (comma) character, indicating that another DEPENDENCY will follow. Read comma delimited DEPENCENCY chunks until the `|` (pipe) character is encountered.
 6. **`(PIPE)`** - The `|` (pipe) character.
 7. **`REQUIREMENT`** - Additional requirements for the rubygem, which always includes at least the SHA256 checksum. REQUIREMENT may contain spaces. See below for format.
 8. **`[(COMMA)REQUIREMENT]`** - (optional) A `,` (comma) character, indicating that another REQUIREMENT will follow. Read comma delimited REQUIREMENT chunks until the end of the line.
+
+#### Content-addressable native gems
+
+A content-addressable native gem has a filename that includes a shortened
+SHA-256 checksum calculated from the `.gem` file contents. Native gems may be
+published this way, with one gem file per platform and Ruby ABI. The filename
+and compact-index version token use a lowercase hex SHA-256 prefix instead of
+the platform:
+
+    mygem-1.0.0-78be552b.gem
+
+The content address is 8 to 64 characters. The platform and Ruby ABI are
+stored in metadata and compact-index requirements, not inferred from the
+filename suffix.
+
+Multi-ABI platform gem rows are unchanged:
+
+    1.0.0-x86_64-linux |checksum:<sha256>,ruby:>= 3.2.0
+
+A content-addressable gem row uses the content address in the version token and
+carries the real platform separately:
+
+    1.0.0-78be552b |checksum:<sha256>,ruby:~> 3.4.0,rubygems:>= 4.1.0.beta1,platform:x86_64-linux
+
+Important details:
+
+* Source gem rows and multi-ABI platform gem rows are unchanged.
+* The `platform` requirement is the real platform for content-addressable gems.
+* The `ruby` requirement represents the Ruby ABI compatibility, a single minor
+  ABI such as `~> 3.4.0`.
+* Content-addressable rows include a RubyGems version floor so old clients
+  ignore them and fall back to multi-ABI platform or source gems.
+* Legacy Marshal indexes exclude content-addressable variants.
 
 **`DEPENCENCY` Format**
 
@@ -169,9 +202,9 @@ Format:
 **`REQUIREMENT` Format**
 
 The REQUIREMENT chunk will always contain the `checksum` key. The `ruby` and `rubygems` keys are like a CONSTRAINT above, indicating a required ruby or rubygems version.
-The `created_at` key was added in version 2 of the format, described in the Format Versions section below.
+The `created_at` key was added in version 2 of the format, described in the Format Versions section below. The `platform` key carries the real platform for content-addressable gems when the version token contains a content address.
 
-The `checksum` is the SHA256 checksum of the `GEM-VERSION-PLATFORM.gem` file originally uploaded to rubygems.org. The SHA256 computed from the matching downloaded `.gem` file must match this checksum or the `.gem` must be considered corrupted.
+The `checksum` is the SHA256 checksum of the `.gem` file originally uploaded to RubyGems.org. For multi-ABI platform gems, that file is usually named `GEM-VERSION-PLATFORM.gem`. For content-addressable gems, it is named with the content address, such as `GEM-VERSION-78be552b.gem`. The SHA256 computed from the matching downloaded `.gem` file must match this checksum or the `.gem` must be considered corrupted.
 
 Examples:
 
