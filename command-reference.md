@@ -8,7 +8,7 @@ next: /command-reference/bundle
 
 <em class="text-neutral-600">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 4.1.0.beta1.
+This reference was automatically generated from RubyGems version 4.0.20.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -60,7 +60,6 @@ Build a gem from a gemspec
 * `--force`                     - skip validation of the spec
 * `--strict`                    - consider warnings as errors when validating the spec
 * `-o, --output FILE`               - output gem with the given filename
-* `--ruby-abi RUBY_ABI`         - Specify the Ruby ABI of gem to build (builds a content addressable gem)
 
 ### Common Options
 
@@ -98,10 +97,6 @@ Gems can be saved to a specified filename with the output option:
 
     $ gem build my_gem-1.0.gemspec --output=release.gem
 
-Platform gems can be built for a single Ruby ABI with the --ruby-abi option:
-
-    $ gem build my_gem-1.0.gemspec --ruby-abi=3.4
-
 ## gem cert
 
 Manage RubyGems certificates and signing settings
@@ -118,7 +113,7 @@ Manage RubyGems certificates and signing settings
 * `-b, --build EMAIL_ADDR`          - Build private key and self-signed certificate for EMAIL_ADDR
 * `-C, --certificate CERT`          - Signing certificate for `--sign`
 * `-K, --private-key KEY`           - Key for `--sign` or `--build`
-* `-A, --key-algorithm ALGORITHM`   - Select key algorithm for `--build` from RSA, DSA, EC, ML-DSA-44, ML-DSA-65, or ML-DSA-87. Defaults to RSA.
+* `-A, --key-algorithm ALGORITHM`   - Select which key algorithm to use for `--build`
 * `-s, --sign CERT`                 - Signs CERT with the key from `-K` and the certificate from `-C`
 * `-d, --days NUMBER_OF_DAYS`       - Days before the certificate expires
 * `-R, --re-sign`                   - Re-signs the certificate from `-C` with the key from `-K`
@@ -387,7 +382,6 @@ keys:
     :verbose: Verbosity of the gem command. false, true, and :really are the
               levels
     :update_sources: Enable/disable automatic updating of repository metadata
-    :concurrent_downloads: The number of gem downloads to perform concurrently
     :backtrace: Print backtrace when RubyGems encounters an error
     :gempath: The paths in which to look for gems
     :disable_default_gem_server: Force specification of gem server host on push
@@ -647,9 +641,6 @@ Install a gem into the local repository
 * `--[no-]lock`                 - Create a lock file (when used with `-g`/`--file`)
 * `--[no-]suggestions`          - Suggest alternates when gems are not found
 * `--target-rbconfig [FILE]`    - rbconfig.rb for the deployment target platform
-* `--[no-]build-extension`      - Build native extensions during installation. Defaults to true
-* `--[no-]install-plugin`       - Install plugins during installation. Defaults to true
-* `--cooldown DAYS`             - Do not use gem versions published within the last DAYS days (0 disables the cooldown, overriding the gemrc and Bundler settings)
 
 ### Local/Remote Options
 
@@ -716,7 +707,7 @@ options and the extension's build options:
     [build fails]
     Gem files will remain installed in \
     /path/to/gems/some_extension_gem-1.0 for inspection.
-    Results logged to /path/to/build_info/some_extension_gem-1.0.gem_make.out
+    Results logged to /path/to/gems/some_extension_gem-1.0/gem_make.out
     $ gem install some_extension_gem -- --with-extension-lib=/path/to/lib
     [build succeeds]
     $ gem list some_extension_gem
@@ -733,7 +724,7 @@ to write the specification by hand.  For example:
     [build fails]
     Gem files will remain installed in \
     /path/to/gems/some_extension_gem-1.0 for inspection.
-    Results logged to /path/to/build_info/some_extension_gem-1.0.gem_make.out
+    Results logged to /path/to/gems/some_extension_gem-1.0/gem_make.out
     $ [cd /path/to/gems/some_extension_gem-1.0]
     $ [edit files or what-have-you and run make]
     $ gem spec ../../cache/some_extension_gem-1.0.gem --ruby > \
@@ -937,7 +928,6 @@ Display all gems that need updates
 ### Options
 
 * `--platform PLATFORM`         - Specify the platform of gem to outdated
-* `--cooldown DAYS`             - Do not use gem versions published within the last DAYS days (0 disables the cooldown, overriding the gemrc and Bundler settings)
 
 ### Deprecated Options
 
@@ -1091,9 +1081,7 @@ Push a gem up to the gem server
 * `-k, --key KEYNAME`               - Use the given API key from ~/.local/share/gem/credentials
 * `--otp CODE`                  - Digit code for multifactor authentication You can also use the environment variable GEM_HOST_OTP_CODE
 * `--host HOST`                 - Push to another gemcutter-compatible host (e.g. https://rubygems.org)
-* `--platform PLATFORM`         - Push a gem for a specific platform (e.g. x86_64-darwin-20)
-* `--ruby-abi RUBY_ABI`         - Specify the Ruby ABI of gem to push (e.g. 3.4)
-* `--attestation FILE`          - Push with sigstore attestations (FILE must be a JSON sigstore bundle)
+* `--attestation FILE`          - Push with sigstore attestations
 
 ### Local/Remote Options
 
@@ -1122,9 +1110,7 @@ https://rubygems.org) and adds it to the index.
 The gem can be removed from the index and deleted from the server using the yank
 command.  For further discussion see the help for the yank command.
 
-The push command will use ~/.gem/credentials to authenticate to a server, but you can use the RubyGems environment variable GEM_HOST_API_KEY to set the api key to authenticate. If the :credential_store: gemrc option (or RUBYGEMS_CREDENTIAL_STORE environment variable) is set, the API key is stored in and read from the credential store it selects instead of ~/.gem/credentials.
-
-The API key to send is resolved in this order: the GEM_HOST_API_KEY environment variable, the --key option, the host's own key in the credential store (when :credential_store: is set), the host's own key in ~/.gem/credentials, then the default RubyGems.org key from either place. The first one found is used.
+The push command will use ~/.gem/credentials to authenticate to a server, but you can use the RubyGems environment variable GEM_HOST_API_KEY to set the api key to authenticate.
 
 ## gem rdoc
 
@@ -1324,7 +1310,7 @@ Sign in to any gemcutter-compatible host. It defaults to https://rubygems.org
 
 ### Description
 
-The signin command executes host sign in for a push server (the default is https://rubygems.org). The host can be provided with the host flag or can be inferred from the provided gem. Host resolution matches the resolution strategy for the push command. If the :credential_store: gemrc option (or RUBYGEMS_CREDENTIAL_STORE environment variable) is set, the resulting API key is stored in the credential store it selects instead of ~/.gem/credentials.
+The signin command executes host sign in for a push server (the default is https://rubygems.org). The host can be provided with the host flag or can be inferred from the provided gem. Host resolution matches the resolution strategy for the push command.
 
 ## gem signout
 
@@ -1347,7 +1333,7 @@ Sign out from all the current sessions.
 
 ### Description
 
-The `signout` command is used to sign out from all current sessions, allowing you to sign in using a different set of credentials. It removes the ~/.gem/credentials file. If the :credential_store: gemrc option is set, it also removes every RubyGems key from the credential store, including keys saved for other hosts with `gem signin --host`.
+The `signout` command is used to sign out from all current sessions, allowing you to sign in using a different set of credentials.
 
 ## gem sources
 
@@ -1663,9 +1649,6 @@ Update installed gems to the latest version
 * `--[no-]lock`                 - Create a lock file (when used with `-g`/`--file`)
 * `--[no-]suggestions`          - Suggest alternates when gems are not found
 * `--target-rbconfig [FILE]`    - rbconfig.rb for the deployment target platform
-* `--[no-]build-extension`      - Build native extensions during installation. Defaults to true
-* `--[no-]install-plugin`       - Install plugins during installation. Defaults to true
-* `--cooldown DAYS`             - Do not use gem versions published within the last DAYS days (0 disables the cooldown, overriding the gemrc and Bundler settings)
 
 ### Local/Remote Options
 
@@ -1742,13 +1725,12 @@ Remove a pushed gem from the index
 
 ### Usage
 
-    gem yank -v VERSION [-p PLATFORM] [--ruby-abi RUBY_ABI] [--key KEY_NAME] [--host HOST] GEM [options]
+    gem yank -v VERSION [-p PLATFORM] [--key KEY_NAME] [--host HOST] GEM [options]
 
 ### Options
 
 * `-v, --version VERSION`           - Specify version of gem to remove
 * `--platform PLATFORM`         - Specify the platform of gem to remove
-* `--ruby-abi RUBY_ABI`         - Specify the Ruby ABI of gem to remove
 * `--otp CODE`                  - Digit code for multifactor authentication You can also use the environment variable GEM_HOST_OTP_CODE
 * `--host HOST`                 - Yank from another gemcutter-compatible host (e.g. https://rubygems.org)
 * `-k, --key KEYNAME`               - Use the given API key from ~/.local/share/gem/credentials
