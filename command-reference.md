@@ -8,7 +8,7 @@ next: /command-reference/bundle
 
 <em class="text-neutral-600">What each `gem` command does, and how to use it.</em>
 
-This reference was automatically generated from RubyGems version 4.0.21.
+This reference was automatically generated from RubyGems version 4.0.22.
 
 * [gem build](#gem-build)
 * [gem cert](#gem-cert)
@@ -427,6 +427,10 @@ Run a command from a gem
 ### Install/Update Options
 
 * `--conservative`               Prefer the most recent installed version, - rather than the latest version overall
+
+### Local/Remote Options
+
+* `-s, --source URL`                - Append URL to list of remote gem sources
 
 ### Common Options
 
