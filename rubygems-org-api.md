@@ -84,6 +84,7 @@ Returns some basic information about the given gem. See below an example respons
       "version_created_at": "2026-07-29T15:02:41.060Z",
       "version_downloads": 78333,
       "platform": "ruby",
+      "ruby_abi": null,
       "authors": "David Heinemeier Hansson",
       "info": "Ruby on Rails is a full-stack web framework optimized for programmer happiness and sustainable productivity.",
       "licenses": ["MIT"],
@@ -170,7 +171,8 @@ Submit a gem to RubyGems.org. Must post a built RubyGem in the request body.
 
 ### DELETE - `/api/v1/gems/yank`
 
-Remove a gem from RubyGems.org's index. Platform is optional.
+Remove a gem from RubyGems.org's index. Platform is optional. To yank a single
+[content-addressable gem](/glossary#content-addressable-gem), pass `ruby_abi` together with `platform`.
 
     $ curl -X DELETE -H 'Authorization:rubygems_b9ce70c306b3a2e248679fbbbd66722d408d3c8c4f00566c' \
            -d 'gem_name=bills' -d 'version=0.0.1' \
@@ -223,6 +225,7 @@ Returns an array of gem version details like the below:
         "rubygems_version": ">= 0",
         "ruby_version": null,
         "prerelease": false,
+        "ruby_abi": null,
         "licenses": null,
         "requirements": null,
         "sha": "777c3a7ed83e44198b0a624976ec99822eb6f4a44bf1513eafbc7c13997cd86c",
@@ -244,7 +247,7 @@ Returns an object containing the latest version of particular gem.
 
 Returns a dictionary with versions details for a specific gem version.
 
-To return the version for a specific platform (e.g. "ruby", "java", "x86_64-linux"), use the `platform` query parameter.
+To return the version for a specific platform (e.g. "ruby", "java", "x86_64-linux"), use the `platform` query parameter. For a content-addressable gem, pass `ruby_abi` as well.
 
     $ curl https://rubygems.org/api/v2/rubygems/coulda/versions/0.7.1.json
 
@@ -255,6 +258,7 @@ To return the version for a specific platform (e.g. "ruby", "java", "x86_64-linu
       "version_created_at": "2011-08-08T21:23:40.254Z",
       "version_downloads": 9676,
       "platform": "ruby",
+      "ruby_abi": null,
       "authors": "Evan David Light",
       "info": "Behaviour Driven Development derived from Cucumber but as an internal DSL with methods for reuse",
       "licenses": null,
@@ -298,7 +302,8 @@ To return the version for a specific platform (e.g. "ruby", "java", "x86_64-linu
 ### GET - `/api/v2/rubygems/[GEM NAME]/versions/[VERSION NUMBER]/contents.(json|yaml|sha256)` (API v2)
 
 Returns the checksum of every file packaged in a specific gem version. The
-`platform` query parameter selects a non-default platform, as above.
+`platform` query parameter selects a non-default platform, as above, and
+`ruby_abi` selects a content-addressable gem.
 
 Only versions pushed after RubyGems.org started recording file manifests have
 this data. Older versions respond `404` with "Content is unavailable for this

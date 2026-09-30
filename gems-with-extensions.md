@@ -242,6 +242,52 @@ list in the gemspec:
 
 Now you can build and release the gem!
 
+Publishing Ruby ABI-specific builds
+-----------------------------------
+
+A [precompiled gem](/platforms#precompiled-native-gems) normally bundles a
+shared library for every Ruby version it supports.  Starting in RubyGems 4.1,
+you can instead publish one
+[content-addressable gem](/glossary#content-addressable-gem) per Ruby ABI by
+passing `--content-addressable` to `gem build`.  The gem needs a non-`ruby`
+platform and a `required_ruby_version` that names a single Ruby ABI, in the
+form `~> X.Y.0`; `--ruby-abi` sets the latter for one build:
+
+    $ gem build my_malloc.gemspec --platform x86_64-linux --ruby-abi 3.4 --content-addressable
+    Successfully built RubyGem
+    Name: my_malloc
+    Version: 1.0
+    File: my_malloc-1.0-78be552b.gem
+    Platform: x86_64-linux
+    Ruby ABI: 3.4
+
+[rake-compiler][rake-compiler] can do this for you.  Pass the gemspec to
+`Rake::ExtensionTask` and set `content_addressable`; `rake cross native gem`
+then builds one content-addressable gem per Ruby in `RUBY_CC_VERSION` for
+each cross platform, alongside the usual multi-ABI platform gem and the
+`ruby` gem:
+
+    spec = Gem::Specification.load "my_malloc.gemspec"
+
+    Gem::PackageTask.new spec
+
+    Rake::ExtensionTask.new "my_malloc", spec do |ext|
+      ext.lib_dir = "lib/my_malloc"
+      ext.cross_compile = true
+      ext.cross_platform = "x86_64-linux"
+      ext.content_addressable = true
+    end
+
+    $ rake cross native gem RUBY_CC_VERSION=3.3.11:3.4.9
+    $ ls pkg
+    my_malloc-1.0.gem
+    my_malloc-1.0-x86_64-linux.gem
+    my_malloc-1.0-78be552b.gem
+    my_malloc-1.0-c1d2e3f4.gem
+
+The two hashed files are the Ruby 3.3 and Ruby 3.4 builds.  To build just one
+of them, run `rake native:my_malloc:x86_64-linux:3.4`.
+
 Extension Naming
 ----------------
 

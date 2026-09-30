@@ -34,6 +34,15 @@ You do not choose among them. `gem install` and `bundle install` pick the varian
 
 When a binary matches, installation is fast and needs no compiler. When only the `ruby` gem matches, the extension is compiled on your machine, which requires a working toolchain and the libraries the gem wraps. If that build fails, see [Troubleshooting](/troubleshooting#native-extension-build-failures). If you maintain a gem with an extension and want to publish your own precompiled binaries, see [Gems with Extensions](/gems-with-extensions).
 
+Ruby ABI-specific builds
+------------------------
+
+A compiled extension only loads on the Ruby minor version, or Ruby ABI, it was built against, so a precompiled gem bundles one copy of the extension per supported Ruby. Starting in RubyGems 4.1, a gem can instead publish a separate file per platform and Ruby ABI. Because `name-version-platform.gem` cannot differentiate between ABIs, these files are named after a prefix of their SHA-256 checksum, such as `example-gem-1.0.0-78be552b.gem`. They are called [content-addressable gems](/glossary#content-addressable-gem).
+
+Selection is automatic. `gem install` and `bundle install` prefer a content-addressable gem matching both your platform and Ruby ABI, then a precompiled gem for your platform, then the `ruby` gem. The Ruby ABI match outranks platform specificity: on an `arm64-darwin-23` machine, a content-addressable `arm64-darwin` gem for your Ruby is chosen over a multi-ABI `arm64-darwin-23` gem.
+
+These gems require RubyGems 4.1, so older clients skip them and fall back to the platform or `ruby` gem. See [How Gemfile.lock works](/gemfile-lock#content-addresses) for how they are locked, and [Publishing Ruby ABI-specific builds](/gems-with-extensions#publishing-ruby-abi-specific-builds) to publish your own.
+
 Linux and musl
 --------------
 
