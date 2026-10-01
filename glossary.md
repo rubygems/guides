@@ -20,6 +20,11 @@ bundled gem
 
 A gem that is installed automatically when you install Ruby but is not part of Ruby itself. Unlike a default gem it can be uninstalled, and when using Bundler it must be declared in the Gemfile. See [Default Gems and Bundled Gems](/default-gems-and-bundled-gems).
 
+content addressable gem
+-----------------------
+
+A precompiled gem built for a single platform and a single [Ruby ABI](#ruby-abi), named after its contents rather than its platform: `name-version-` followed by a prefix of the SHA-256 checksum of the `.gem` file, such as `example-gem-1.0.0-78be552b.gem`. The platform and Ruby ABI are stored in the gem's metadata. Requires RubyGems 4.1. See [Platforms and native gems](/platforms#ruby-abi-specific-builds).
+
 cooldown
 --------
 
@@ -73,7 +78,7 @@ The CPU architecture, operating system type, and sometimes operating system vers
 precompiled gem
 ---------------
 
-A gem published in platform-specific variants with its native extension already compiled, so installation skips the compile step and needs no toolchain. Also called a fat gem. The platforms a lockfile covers for such gems are recorded in its `PLATFORMS` section. See [How Gemfile.lock works](/gemfile-lock#platforms).
+A gem published in platform-specific variants with its native extension already compiled, so installation skips the compile step and needs no toolchain. A variant that bundles the extension for several Ruby versions in one file is also called a fat gem; one built for a single Ruby ABI is a [content-addressable gem](#content-addressable-gem). The platforms a lockfile covers for such gems are recorded in its `PLATFORMS` section. See [How Gemfile.lock works](/gemfile-lock#platforms).
 
 prerelease
 ----------
@@ -89,6 +94,11 @@ resolution
 ----------
 
 The process of choosing exactly one version of every gem in the dependency graph so that all requirements hold at the same time. Bundler runs it on the first `bundle install` and writes the result to `Gemfile.lock`. See [How dependency resolution works](/dependency-resolution).
+
+Ruby ABI
+--------
+
+The major and minor version of a Ruby, such as `3.4`, which identifies the binary interface a compiled extension was built against. An extension built for one Ruby ABI does not load on another. RubyGems records a gem's ABI as a `required_ruby_version` of `~> X.Y.0`. See [Platforms and native gems](/platforms#ruby-abi-specific-builds).
 
 source
 ------

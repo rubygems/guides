@@ -133,12 +133,12 @@ Any lines preceeding `---` should be considered opaque.
 
 Each following line gives information about 1 version of a rubygem with the format:
 
-    VERSION[-PLATFORM] [DEPENDENCY[,DEPENDENCY,...]]|REQUIREMENT[,REQUIREMENT,...]
+    VERSION[-SUFFIX] [DEPENDENCY[,DEPENDENCY,...]]|REQUIREMENT[,REQUIREMENT,...]
 
 The pieces of each line are:
 
 1. **`VERSION`** - The version of the rubygem. Read VERSION until either `-` (minus) or space character is encountered.
-2. **`[-PLATFORM]`** - The platform, if it is not the default platform `ruby`. The first `-` (minus) character in the `VERSION[-PLATFORM]` chunk splits the VERSION and PLATFORM. The PLATFORM may contain more dashes. Read platform until a space is encountered.
+2. **`[-SUFFIX]`** (formerly `[-PLATFORM]`) - Present when the gem is not for the default platform `ruby`. For a multi-ABI gem the SUFFIX is the platform, such as `x86_64-linux`. For a [content-addressable gem](/glossary#content-addressable-gem) it is the content address, such as `78be552b`. The first `-` (minus) character in the `VERSION[-SUFFIX]` chunk splits the VERSION and SUFFIX. The SUFFIX may contain more dashes. Read the suffix until a space is encountered.
 3. **`(SPACE)`** - The space character.
 4. **`[DEPENDENCY]`** - (optional) A dependency is another rubygem required by this gem. DEPENDENCY may contain spaces. See below for format.
 5. **`[(COMMA)DEPENDENCY]`** - (optional) A `,` (comma) character, indicating that another DEPENDENCY will follow. Read comma delimited DEPENCENCY chunks until the `|` (pipe) character is encountered.
@@ -169,15 +169,16 @@ Format:
 **`REQUIREMENT` Format**
 
 The REQUIREMENT chunk will always contain the `checksum` key. The `ruby` and `rubygems` keys are like a CONSTRAINT above, indicating a required ruby or rubygems version.
-The `created_at` key was added in version 2 of the format, described in the Format Versions section below.
+The `created_at` key was added in version 2 of the format, described in the Format Versions section below. The `platform` key is present only for content-addressable gems, whose SUFFIX is a content address instead of a platform; such rows also pin a single Ruby ABI with `ruby:~> X.Y.0` and require `rubygems:>= 4.1.0.a`, so older clients skip them.
 
-The `checksum` is the SHA256 checksum of the `GEM-VERSION-PLATFORM.gem` file originally uploaded to rubygems.org. The SHA256 computed from the matching downloaded `.gem` file must match this checksum or the `.gem` must be considered corrupted.
+The `checksum` is the SHA256 checksum of the `.gem` file originally uploaded to RubyGems.org. The SHA256 computed from the matching downloaded `.gem` file must match this checksum or the `.gem` must be considered corrupted.
 
 Examples:
 
     checksum:2c4af8d4a65ac5290445bfe7582be4490162d6934f49d76858b55647b4c4428d
     ruby:< 3.3.dev&>= 2.7
     rubygems:>= 1.8.11
+    platform:x86_64-linux
     created_at:2009-07-25T18:02:12Z
 
 Format:

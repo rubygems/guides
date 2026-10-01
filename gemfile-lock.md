@@ -87,6 +87,13 @@ Rather than curating the list by hand, normalize it before committing, as covere
 
 These are the direct dependencies, one line per `gem` call in the Gemfile. Anything in the source blocks that is missing here is a transitive dependency. A trailing `!` marks a gem pinned to a non-default source, one of the `GIT` or `PATH` blocks above.
 
+### CONTENT ADDRESSES
+
+    CONTENT ADDRESSES
+      example-gem (1.0.0-x86_64-linux) 78be552b sha256=1f4a3c8ec1f0f8b0b7f24d13d56a3c5e6b8c0b1f4c8e0f3a9a7c2e6d5b4a3f21
+
+This section appears only when the bundle includes a [content-addressable gem](/glossary#content-addressable-gem). The gem is listed under its platform name in `GEM`, exactly like a multi-ABI platform gem, and this section adds the content address that identifies which file was actually installed, along with that file's checksum.
+
 ### CHECKSUMS
 
     CHECKSUMS
@@ -99,6 +106,8 @@ These are the direct dependencies, one line per `gem` call in the Gemfile. Anyth
       ...
 
 Each checksum is the SHA-256 digest of the packaged `.gem` file, and Bundler verifies every gem against it during installation. A gem that was tampered with after the lockfile was written fails to install, which protects deploys against a compromised gem source. Gems from git and path sources have no packaged file to digest, so their entries carry no checksum. Bundler writes this section into new lockfiles by default. To add it to an existing lockfile, see [Lockfile checksums](/security#lockfile-checksums).
+
+For a content-addressable gem, the checksum of the installed file lives in `CONTENT ADDRESSES` above. Its `CHECKSUMS` entry, under the platform name, holds the checksum of the multi-ABI platform gem and is present only when one exists.
 
 ### RUBY VERSION
 
