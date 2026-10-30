@@ -42,6 +42,9 @@ The version file should conform to any of the following formats:
 - `ruby-3.1.2` (`.ruby-version`)
 - `ruby 3.1.2` ([`.tool-versions`](https://asdf-vm.com/manage/configuration.html#tool-versions))
 - `ruby = '3.1.2'` ([`mise.toml`](https://mise.jdx.dev/dev-tools/))
+- `ruby = { version = '3.1.2' }` ([`mise.toml`](https://mise.jdx.dev/dev-tools/))
+
+Bundler has no plans to support other version managers or file formats.
 
 Bundler will make checks against the current running Ruby VM to make sure it matches what is specified in the `Gemfile`. If things don't match, Bundler will raise an Exception explaining what doesn't match.
 
