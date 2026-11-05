@@ -10,7 +10,7 @@ next: /gemfile_ruby
 
 <em class="text-neutral-600">A format for describing gem dependencies for Ruby programs</em>
 
-<p>This reference was automatically generated from Bundler version 4.0.23.</p>
+<p>This reference was automatically generated from Bundler version 4.0.24.</p>
 
 <div class="mp" id="man">
 
@@ -624,6 +624,12 @@ paths.</p>
 options, which control where bundler looks for the <code>.gemspec</code>, the glob it uses to look
 for the gemspec (defaults to: <code>{,*,*/*}.gemspec</code>), what named <code>.gemspec</code> it uses
 (if more than one is present), and which group development dependencies are included in.</p>
+
+<p>When <code>gemspec</code> is called inside a <code>group</code> block, the gem requirement on your
+project goes into that group instead of the default group, and so do its runtime
+dependencies. Development dependencies stay in the <code>development</code> group, or the
+group given by <code>:development_group</code>. An enclosing <code>platforms</code> or <code>install_if</code>
+block applies to the project and its development dependencies alike.</p>
 
 <p>When a <code>gemspec</code> dependency encounters version conflicts during resolution, the
 local version under development will always be selected -- even if there are
