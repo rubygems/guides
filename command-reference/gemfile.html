@@ -10,7 +10,7 @@ next: /gemfile_ruby
 
 <em class="text-neutral-600">A format for describing gem dependencies for Ruby programs</em>
 
-<p>This reference was automatically generated from Bundler version 4.0.24.</p>
+<p>This reference was automatically generated from Bundler version 4.1.0.</p>
 
 <div class="mp" id="man">
 
@@ -148,9 +148,11 @@ engine version specified <em>must</em> match the Ruby version.</p>
 
 <h3 id="PATCHLEVEL">Patchlevel</h3>
 
-<p>Each application <em>may</em> specify a Ruby patchlevel. Specifying the patchlevel has
-been meaningless since Ruby 2.1.0 was released as the patchlevel is now
-uniquely determined by a combination of major, minor, and teeny version numbers.</p>
+<p>Each application <em>may</em> specify a Ruby patchlevel. The option is accepted for
+compatibility with existing Gemfiles and ignored: the patchlevel has been
+uniquely determined by the combination of major, minor, and teeny version
+numbers since Ruby 2.1.0 was released, so Bundler does not compare it against
+the patchlevel of the running Ruby.</p>
 
 <p>This option was implemented in Bundler 1.4.0 for Ruby 2.0 or earlier.</p>
 
@@ -421,6 +423,20 @@ is <code>branch: "master"</code>.  For example:
 lets you have another git repository within a subfolder of your repository.
 Specify <code>submodules: true</code> to cause bundler to expand any
 submodules included in the git repository</dd>
+<dt><code>sparse_checkout</code></dt>
+<dd>Specify a directory, or an array of directories, to include when
+checking out a git repository. Uses git's sparse-checkout feature
+(requires git 2.25+) to only check out the specified directories,
+reducing disk usage for large repos. Unless <code>glob</code> is given, the
+<code>.gemspec</code> is looked up within those directories.
+
+    <p>gem "foo", git: "https://github.com/org/monorepo.git",
+             sparse_checkout: "packages/foo"</p>
+
+    <p>Files at the top level of the repository are always checked out.
+On git versions below 2.25, the entire repository will be checked
+out with a warning.</p>
+</dd>
 </dl>
 
 <p>If a git repository contains multiple <code>.gemspecs</code>, each <code>.gemspec</code>
@@ -647,6 +663,119 @@ call.</p>
 
 <p>This can be useful to run tests against multiple combinations of dependencies,
 or to load per-developer gems from an untracked gemfile.</p>
+
+<h2 id="OVERRIDE">Override</h2>
+
+<p>The <code>override</code> directive rewrites a constraint on another gem before
+resolution runs. It targets the common case where an upstream gem's
+published metadata is too narrow on the current project's machine -- a stale
+upper bound, an unwanted floor, or a transitive pin that has to be lifted.</p>
+
+<pre><code>override &lt;target&gt;, &lt;field&gt;: &lt;operation&gt;
+</code></pre>
+
+<p><code>&lt;target&gt;</code> is a gem name string or <code>:all</code>. <code>&lt;field&gt;</code> is one of <code>version:</code>,
+<code>required_ruby_version:</code>, or <code>required_rubygems_version:</code>. <code>&lt;operation&gt;</code> is
+one of:</p>
+
+<ul>
+  <li>a version requirement string (e.g. <code>"&gt;= 8.0"</code>), which <strong>replaces</strong> the
+target's requirement absolutely. The original requirement, both direct
+and transitive, is discarded in favour of the override.</li>
+  <li>
+<code>:ignore_upper</code>, which removes upper-bound operators (<code>&lt;</code> and <code>&lt;=</code>) from
+the existing requirement and folds <code>~&gt;</code> into its lower bound (<code>~&gt; 1.5</code>
+becomes <code>&gt;= 1.5</code>). Other operators, including <code>!=</code>, are preserved.</li>
+  <li>
+<code>nil</code>, which collapses the requirement to <code>&gt;= 0</code> (no constraint at all).</li>
+</ul>
+
+<p><code>:all</code> only applies to <code>required_ruby_version:</code> and <code>required_rubygems_version:</code>.
+A per-gem override on the same field takes precedence over an <code>:all</code> override.
+<code>:all + version:</code> is rejected: version requirements only make sense per gem.</p>
+
+<p>Declaring the same <code>target</code> and <code>field</code> twice is an error.</p>
+
+<pre><code>source "https://rubygems.org"
+
+# Force every reference to "rails" -- direct or transitive -- to &gt;= 8.0.
+override "rails", version: "&gt;= 8.0"
+
+# Strip the upper bound on nokogiri.
+override "nokogiri", version: :ignore_upper
+
+# Drop the version pin on legacy entirely.
+override "legacy", version: nil
+
+# Loosen every gem's required_ruby_version upper bound.
+override :all, required_ruby_version: :ignore_upper
+
+# Override one specific gem's required_rubygems_version.
+override "tricky", required_rubygems_version: nil
+
+gem "rails", "~&gt; 7.0"
+</code></pre>
+
+<p>The override only affects resolution and the install-time Ruby/RubyGems
+compatibility checks; the gems in <code>Gemfile.lock</code> continue to reflect the
+resolved versions, not the rewritten requirements. The overrides themselves are
+recorded in the lockfile's <code>OVERRIDES</code> section, one line per field, sorted:</p>
+
+<pre><code>OVERRIDES
+  "rails", version: "&gt;= 8.0"
+  :all, required_ruby_version: :ignore_upper
+</code></pre>
+
+<p>Requirements are recorded in normalized form, so <code>"&gt;=8.0"</code> and <code>"&gt;= 8.0"</code> are
+the same override. A frozen install fails when the Gemfile's overrides differ
+from the recorded ones. Adding or removing a <code>:all</code> or metadata override
+rewrites the section and keeps the locked versions. The exception is a locked
+gem that is not installed and whose metadata rejects the current Ruby. Bundler
+re-resolves it, as it does without the override. Run <code>bundle update</code> to
+re-resolve under the override. When resolution still fails,
+Bundler appends the active overrides (with their Gemfile location) to the
+error message so it is clear which override shaped the constraint set.</p>
+
+<h3 id="DROPPING-OR-REPLACING-A-DEPENDENCY">Dropping Or Replacing A Dependency</h3>
+
+<p><code>with:</code> and <code>in:</code> rewrite a single dependency of a single gem:</p>
+
+<pre><code>override &lt;target&gt;, with: nil, in: &lt;gem&gt;
+override &lt;target&gt;, with: &lt;replacement&gt;, in: &lt;gem&gt;, version: &lt;requirement&gt;
+</code></pre>
+
+<p><code>with: nil</code> removes the dependency of <code>&lt;gem&gt;</code> on <code>&lt;target&gt;</code>, so <code>&lt;target&gt;</code> is
+not installed unless something else still requires it. <code>with: &lt;replacement&gt;</code>
+makes <code>&lt;gem&gt;</code> depend on <code>&lt;replacement&gt;</code> instead of <code>&lt;target&gt;</code>. The requirement
+<code>&lt;gem&gt;</code> put on <code>&lt;target&gt;</code> is discarded, and the optional <code>version:</code> gives the
+replacement its own. Both forms apply whether <code>&lt;gem&gt;</code> is a direct or a
+transitive dependency.</p>
+
+<p><code>in:</code> is required, and so is <code>with:</code> once <code>in:</code> is given. To rewrite the
+same dependency of several gems, write one <code>override</code> per gem. It is an error
+to declare the same <code>&lt;target&gt;</code> and <code>in:</code> twice, to drop a gem that the
+Gemfile requires directly, or to replace a gem that another gem still
+requires, since both would then be in the bundle.</p>
+
+<pre><code># jekyll only loads em-websocket for `jekyll serve --livereload`.
+override "em-websocket", with: nil, in: "jekyll"
+
+# Use an API-compatible gem that provides the same files.
+override "foo", with: "foo-lite", in: "bar"
+</code></pre>
+
+<p>Bundler does not check what a gem loads at runtime. If <code>&lt;gem&gt;</code> requires
+<code>&lt;target&gt;</code> unconditionally, dropping it makes that require raise <code>LoadError</code>,
+as with jekyll's dependency on jekyll-sass-converter or the adapters that
+faraday 1.x requires on load. A replacement only works when it provides the
+files <code>&lt;gem&gt;</code> requires, and it does not take over the name of <code>&lt;target&gt;</code>:
+<code>Gem.loaded_specs</code> has no entry for <code>&lt;target&gt;</code>, and <code>gem "&lt;target&gt;"</code> fails.</p>
+
+<p><code>Gemfile.lock</code> keeps listing <code>&lt;target&gt;</code> under <code>&lt;gem&gt;</code> as the gem publishes it,
+while the locked gems leave <code>&lt;target&gt;</code> out or include <code>&lt;replacement&gt;</code>, and the
+<code>OVERRIDES</code> section records the rewrite so tools that read the lockfile can
+apply it. A frozen install accepts that lockfile as long as the Gemfile still
+has the override. Removing the override makes Bundler resolve <code>&lt;target&gt;</code> again.</p>
 
 <h2 id="SOURCE-PRIORITY">Source Priority</h2>
 

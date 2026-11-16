@@ -10,7 +10,7 @@ next: /command-reference/bundle-open
 
 <em class="text-neutral-600">Creates / Updates a lockfile without installing</em>
 
-<p>This reference was automatically generated from Bundler version 4.0.24.</p>
+<p>This reference was automatically generated from Bundler version 4.1.0.</p>
 
 <div class="mp" id="man">
 
@@ -35,6 +35,8 @@ next: /command-reference/bundle-open
               [--add-platform]
               [--remove-platform]
               [--normalize-platforms]
+              [--add-ruby-abi]
+              [--remove-ruby-abi]
               [--patch]
               [--minor]
               [--major]
@@ -79,6 +81,12 @@ platform.</dd>
 <dd>Remove a platform from the lockfile.</dd>
 <dt><code>--normalize-platforms</code></dt>
 <dd>Normalize lockfile platforms.</dd>
+<dt><code>--add-ruby-abi=&lt;list&gt;</code></dt>
+<dd>Lock the content-addressed gems of the bundle for a Ruby ABI (a
+major and minor version, like <code>3.4</code>), re-resolving to record them. Running
+<code>bundle install</code> under that Ruby does the same.</dd>
+<dt><code>--remove-ruby-abi=&lt;list&gt;</code></dt>
+<dd>Drop the content-addressed gems for a Ruby ABI from the lockfile.</dd>
 <dt><code>--patch</code></dt>
 <dd>If updating, prefer updating only to next patch version.</dd>
 <dt><code>--minor</code></dt>
@@ -93,8 +101,9 @@ platform.</dd>
 <dd>If updating, use bundle install conservative update behavior and do not allow shared dependencies to be updated.</dd>
 <dt><code>--cooldown=&lt;number&gt;</code></dt>
 <dd>Only consider gem versions published at least <var>number</var> days ago when
-resolving. Pass <code>0</code> to disable cooldown for this run, overriding any
-per-source or global configuration. See <code>cooldown</code> in <a class="man-ref" href="/command-reference/bundle-config/">bundle-config<span class="s">(1)</span></a>.</dd>
+resolving. Pass <code>0</code> to disable cooldown for this run, overriding every
+other cooldown setting, RubyGems' own included. See <code>cooldown</code> in
+<a class="man-ref" href="/command-reference/bundle-config/">bundle-config<span class="s">(1)</span></a>.</dd>
 </dl>
 
 <h2 id="UPDATING-ALL-GEMS">Updating All Gems</h2>

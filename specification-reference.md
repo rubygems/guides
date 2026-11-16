@@ -50,6 +50,8 @@ next: /command-reference
     
 ## Recommended gemspec attributes
     
+* [content_address](#content_address)
+    
 * [description](#description)
     
 * [email](#email)
@@ -103,6 +105,8 @@ next: /command-reference
 * [required_rubygems_version=](#required_rubygems_version=)
     
 * [requirements](#requirements)
+    
+* [ruby_abi](#ruby_abi)
     
 * [signing_key](#signing_key)
     
@@ -186,6 +190,12 @@ next: /command-reference
 
 # Recommended gemspec attributes
 
+
+<a id="content_address"> </a>
+
+## content_address
+
+<p>The content address of this gem, a SHA-256 prefix of the gem file contents used in place of the platform in file and install names (e.g. “example-1.0-78be552b”), or <code>nil</code> for non-content-addressable gems.</p>
 
 <a id="description"> </a>
 
@@ -341,7 +351,7 @@ next: /command-reference
 
 <p>Usage:</p>
 
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_dependency</span> <span class="ruby-string">&#39;example&#39;</span>, <span class="ruby-string">&#39;~&gt; 1.1&#39;</span>, <span class="ruby-string">&#39;&gt;= 1.1.4&#39;</span>
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_dependency</span> <span class="ruby-string">&#39;example&#39;</span>, <span class="ruby-string">&#39;&gt;= 1.1.4&#39;</span>, <span class="ruby-string">&#39;&lt; 2&#39;</span>
 </pre>
 Also known as: **add_runtime_dependency**
 
@@ -353,7 +363,7 @@ Also known as: **add_runtime_dependency**
 
 <p>Usage:</p>
 
-<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_development_dependency</span> <span class="ruby-string">&#39;example&#39;</span>, <span class="ruby-string">&#39;~&gt; 1.1&#39;</span>, <span class="ruby-string">&#39;&gt;= 1.1.4&#39;</span>
+<pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">add_development_dependency</span> <span class="ruby-string">&#39;example&#39;</span>, <span class="ruby-string">&#39;&gt;= 1.1.4&#39;</span>, <span class="ruby-string">&#39;&lt; 2&#39;</span>
 </pre>
 
 <p>Development dependencies aren’t installed by default and aren’t activated when a gem is required.</p>
@@ -534,6 +544,12 @@ ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 <pre class="ruby"><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">requirements</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;libmagick, v6.0&#39;</span>
 <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">requirements</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;A good graphics card&#39;</span>
 </pre>
+
+<a id="ruby_abi"> </a>
+
+## ruby_abi
+
+<p>Ruby ABI of the gem derived from <code>required_ruby_version</code> Only supports <code>required_ruby_version</code> in “~&gt; X.Y.0” format (single pessimistic requirement with 3 segments) Returns nil if the <code>required_ruby_version</code> does not specify a single Ruby ABI</p>
 
 <a id="signing_key"> </a>
 

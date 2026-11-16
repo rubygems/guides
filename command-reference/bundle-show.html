@@ -10,7 +10,7 @@ next: /command-reference/bundle-update
 
 <em class="text-neutral-600">Shows all the gems in your bundle, or the path to a gem</em>
 
-<p>This reference was automatically generated from Bundler version 4.0.24.</p>
+<p>This reference was automatically generated from Bundler version 4.1.0.</p>
 
 <div class="mp" id="man">
 
@@ -25,7 +25,8 @@ next: /command-reference/bundle-update
 
 
 <pre><code>bundle show</code> [GEM]
-              [--paths]</pre>
+              [--paths]
+              [--exact-match]</pre>
 
 <h2 id="DESCRIPTION">Description</h2>
 
@@ -41,6 +42,8 @@ machine.</p>
 <dt><code>--paths</code></dt>
 <dd>List the paths of all gems that are required by your <a href="/gemfile/"><code>Gemfile(5)</code></a>,
 sorted by gem name.</dd>
+<dt><code>--exact-match</code></dt>
+<dd>Only match gems whose names exactly match the given name.</dd>
 </dl>
 
   

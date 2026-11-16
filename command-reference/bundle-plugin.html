@@ -10,7 +10,7 @@ next: /command-reference/bundle-pristine
 
 <em class="text-neutral-600">Manage Bundler plugins</em>
 
-<p>This reference was automatically generated from Bundler version 4.0.24.</p>
+<p>This reference was automatically generated from Bundler version 4.1.0.</p>
 
 <div class="mp" id="man">
 
@@ -102,6 +102,100 @@ hash (revision) to use.</dd>
 <p>Describe subcommands or one specific subcommand.</p>
 
 <p>No options.</p>
+
+<h2 id="HOOKS">Hooks</h2>
+
+<p>A plugin can run code at defined points of Bundler's work by registering a
+hook. In the plugin's <code>plugins.rb</code>, pass one of the event constants of
+<code>Bundler::Plugin::Events</code> and a block to <code>Bundler::Plugin::API.hook</code>. Bundler
+loads a plugin that registers a hook for an event when that event fires, and
+calls the block with the arguments listed for the event below.</p>
+
+<pre><code>Bundler::Plugin::API.hook Bundler::Plugin::Events::GEM_BEFORE_INSTALL_ALL do |dependencies|
+  puts "about to install #{dependencies.map(&amp;:name).join(", ")}"
+end
+</code></pre>
+
+<p>The events fire in the order listed here.</p>
+
+<p><strong>GEMFILE EVALUATION</strong></p>
+
+<dl>
+<dt>
+<code>GEM_BEFORE_EVAL</code> (<code>before-eval</code>)</dt>
+<dd>Called before the Gemfile is evaluated, with the path to the Gemfile and
+the path to the lockfile (<code>nil</code> when there is no lockfile).</dd>
+<dt>
+<code>GEM_AFTER_EVAL</code> (<code>after-eval</code>)</dt>
+<dd>Called after the Gemfile is evaluated, with the resulting
+<code>Bundler::Definition</code>.</dd>
+</dl>
+
+<p><strong>INSTALLATION</strong></p>
+
+<dl>
+<dt>
+<code>GEM_BEFORE_INSTALL_ALL</code> (<code>before-install-all</code>)</dt>
+<dd>Called before any gem is installed, with an Array of the
+<code>Bundler::Dependency</code> objects declared in the Gemfile.</dd>
+<dt>
+<code>GEM_BEFORE_FETCH</code> (<code>before-fetch</code>)</dt>
+<dd>Called before each individual gem is downloaded from a remote source, with
+a spec-like object responding to the <code>Gem::Specification</code> API (for example
+a <code>Bundler::EndpointSpecification</code> or <code>Bundler::RemoteSpecification</code>).
+Does not fire for a gem that is already present in the download cache.</dd>
+<dt>
+<code>GEM_AFTER_FETCH</code> (<code>after-fetch</code>)</dt>
+<dd>Called after each individual gem is downloaded from a remote source, with
+the same spec-like object as <code>GEM_BEFORE_FETCH</code>. Also fires when the
+download fails.</dd>
+<dt>
+<code>GIT_BEFORE_FETCH</code> (<code>before-git-fetch</code>)</dt>
+<dd>Called before a git source is fetched or checked out, with the
+<code>Bundler::Source::Git</code> being fetched.</dd>
+<dt>
+<code>GIT_AFTER_FETCH</code> (<code>after-git-fetch</code>)</dt>
+<dd>Called after a git source is fetched or checked out, with the same
+<code>Bundler::Source::Git</code>. Also fires when the fetch or checkout fails.</dd>
+<dt>
+<code>GEM_BEFORE_INSTALL</code> (<code>before-install</code>)</dt>
+<dd>Called before each individual gem is installed, with a
+<code>Bundler::ParallelInstaller::SpecInstallation</code>. Its <code>state</code>, <code>error</code> and
+<code>post_install_message</code> are not set yet, as nothing has been installed.</dd>
+<dt>
+<code>GEM_AFTER_INSTALL</code> (<code>after-install</code>)</dt>
+<dd>Called after each individual gem is installed, with the same
+<code>Bundler::ParallelInstaller::SpecInstallation</code>. If its <code>state</code> is
+<code>failed</code>, <code>error</code> holds the exception; if the <code>state</code> is <code>success</code>, a
+<code>post_install_message</code> may be present.</dd>
+<dt>
+<code>GEM_AFTER_INSTALL_ALL</code> (<code>after-install-all</code>)</dt>
+<dd>Called after all gems are installed, with an Array of the
+<code>Bundler::Dependency</code> objects declared in the Gemfile.</dd>
+</dl>
+
+<p><strong>REQUIRE</strong></p>
+
+<p>These events fire from <code>Bundler.require</code>.</p>
+
+<dl>
+<dt>
+<code>GEM_BEFORE_REQUIRE_ALL</code> (<code>before-require-all</code>)</dt>
+<dd>Called before any gem is required, with an Array of the
+<code>Bundler::Dependency</code> objects being required.</dd>
+<dt>
+<code>GEM_BEFORE_REQUIRE</code> (<code>before-require</code>)</dt>
+<dd>Called before each individual gem is required, with its
+<code>Bundler::Dependency</code>.</dd>
+<dt>
+<code>GEM_AFTER_REQUIRE</code> (<code>after-require</code>)</dt>
+<dd>Called after each individual gem is required, with its
+<code>Bundler::Dependency</code>.</dd>
+<dt>
+<code>GEM_AFTER_REQUIRE_ALL</code> (<code>after-require-all</code>)</dt>
+<dd>Called after all gems are required, with an Array of the
+<code>Bundler::Dependency</code> objects that were required.</dd>
+</dl>
 
 <h2 id="SEE-ALSO">See Also</h2>
 
