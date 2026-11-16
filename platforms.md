@@ -41,7 +41,7 @@ A compiled extension only loads on the Ruby minor version, or Ruby ABI, it was b
 
 Selection is automatic. `gem install` and `bundle install` prefer a content-addressable gem matching both your platform and Ruby ABI, then a precompiled gem for your platform, then the `ruby` gem. The Ruby ABI match outranks platform specificity: on an `arm64-darwin-23` machine, a content-addressable `arm64-darwin` gem for your Ruby is chosen over a multi-ABI `arm64-darwin-23` gem.
 
-These gems require RubyGems 4.1, so older clients skip them and fall back to the platform or `ruby` gem. See [How Gemfile.lock works](/gemfile-lock#content-addresses) for how they are locked, and [Publishing Ruby ABI-specific builds](/gems-with-extensions#publishing-ruby-abi-specific-builds) to publish your own.
+These gems require RubyGems 4.1, so older clients skip them and fall back to the platform or `ruby` gem. A lockfile records them for each Ruby ABI in its `RUBY ABIS` section, much like `PLATFORMS` records platforms. Running `bundle install` under a new Ruby adds that Ruby's ABI, and `bundle lock --add-ruby-abi` and `--remove-ruby-abi` edit the list directly. See [How Gemfile.lock works](/gemfile-lock#content-addresses) for how they are locked, and [Publishing Ruby ABI-specific builds](/gems-with-extensions#publishing-ruby-abi-specific-builds) to publish your own.
 
 Linux and musl
 --------------

@@ -90,9 +90,10 @@ These are the direct dependencies, one line per `gem` call in the Gemfile. Anyth
 ### CONTENT ADDRESSES
 
     CONTENT ADDRESSES
-      example-gem (1.0.0-x86_64-linux) 78be552b sha256=1f4a3c8ec1f0f8b0b7f24d13d56a3c5e6b8c0b1f4c8e0f3a9a7c2e6d5b4a3f21
+      example-gem (1.0.0-x86_64-linux) 78be552b abi=3.4 sha256=78be552bca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb
+      example-gem (1.0.0-x86_64-linux) 3e23e816 abi=4.0 sha256=3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d
 
-This section appears only when the bundle includes a [content-addressable gem](/glossary#content-addressable-gem). The gem is listed under its platform name in `GEM`, exactly like a multi-ABI platform gem, and this section adds the content address that identifies which file was actually installed, along with that file's checksum.
+This section appears only when the bundle includes a [content-addressable gem](/glossary#content-addressable-gem). The gem is listed under its platform name in `GEM`, exactly like a multi-ABI platform gem, and this section adds the content address that identifies which file to install, along with that file's checksum. Each content-addressable gem is built for a single [Ruby ABI](/glossary#ruby-abi), so a platform has one row for each Ruby ABI in [`RUBY ABIS`](#ruby-abis) that the gem was published for, and `abi=` names the Ruby ABI that row's file is built for. Bundler installs the row matching the running Ruby.
 
 ### CHECKSUMS
 
@@ -108,6 +109,19 @@ This section appears only when the bundle includes a [content-addressable gem](/
 Each checksum is the SHA-256 digest of the packaged `.gem` file, and Bundler verifies every gem against it during installation. A gem that was tampered with after the lockfile was written fails to install, which protects deploys against a compromised gem source. Gems from git and path sources have no packaged file to digest, so their entries carry no checksum. Bundler writes this section into new lockfiles by default. To add it to an existing lockfile, see [Lockfile checksums](/security#lockfile-checksums).
 
 For a content-addressable gem, the checksum of the installed file lives in `CONTENT ADDRESSES` above. Its `CHECKSUMS` entry, under the platform name, holds the checksum of the multi-ABI platform gem and is present only when one exists.
+
+### RUBY ABIS
+
+    RUBY ABIS
+      3.4
+      4.0
+
+This section appears alongside `CONTENT ADDRESSES` and lists the Ruby ABIs its gems are locked for, much like `PLATFORMS` does for platforms. Running `bundle install` under a new Ruby adds its ABI. In a frozen lockfile, Bundler falls back to the platform or `ruby` gem instead. To add or remove an ABI by hand:
+
+    bundle lock --add-ruby-abi 4.0
+    bundle lock --remove-ruby-abi 3.4
+
+If the Gemfile pins a `ruby` version, Bundler removes any ABIs that version doesn't match.
 
 ### RUBY VERSION
 

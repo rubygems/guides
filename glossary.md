@@ -98,7 +98,7 @@ The process of choosing exactly one version of every gem in the dependency graph
 Ruby ABI
 --------
 
-The major and minor version of a Ruby, such as `3.4`, which identifies the binary interface a compiled extension was built against. An extension built for one Ruby ABI does not load on another. RubyGems records a gem's ABI as a `required_ruby_version` of `~> X.Y.0`. See [Platforms and native gems](/platforms#ruby-abi-specific-builds).
+The major and minor version of a Ruby, such as `3.4`, which identifies the binary interface a compiled extension was built against. An extension built for one Ruby ABI does not load on another. RubyGems records a gem's ABI as a `required_ruby_version` of `~> X.Y.0`. The Ruby ABIs a lockfile covers for content-addressable gems are recorded in its `RUBY ABIS` section. See [Platforms and native gems](/platforms#ruby-abi-specific-builds) and [How Gemfile.lock works](/gemfile-lock#ruby-abis).
 
 source
 ------
