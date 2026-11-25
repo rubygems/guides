@@ -10,7 +10,7 @@ next: /command-reference/bundle-open
 
 <em class="text-neutral-600">Creates / Updates a lockfile without installing</em>
 
-<p>This reference was automatically generated from Bundler version 4.1.0.</p>
+<p>This reference was automatically generated from Bundler version 4.1.1.</p>
 
 <div class="mp" id="man">
 
@@ -73,7 +73,11 @@ found.</dd>
 <dt><code>--gemfile=GEMFILE</code></dt>
 <dd>Use the specified gemfile instead of <a href="/gemfile/"><code>Gemfile(5)</code></a>.</dd>
 <dt><code>--add-checksums</code></dt>
-<dd>Add checksums to the lockfile.</dd>
+<dd>Add checksums to the lockfile. Checksums are taken from the source's index,
+or computed from the <code>.gem</code> file of a gem installed on this machine. With a
+source that does not publish checksums, entries for gems not installed here,
+such as gems for other platforms or content-addressed gems for other Ruby
+ABIs, stay empty, and frozen installs reject them.</dd>
 <dt><code>--add-platform=&lt;list&gt;</code></dt>
 <dd>Add a new platform to the lockfile, re-resolving for the addition of that
 platform.</dd>
