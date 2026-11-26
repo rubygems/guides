@@ -19,7 +19,7 @@ jobs:
         with:
           repository: ruby/rubygems
           path: rubygems
-          ref: "4.0"
+          ref: "4.1"
           persist-credentials: false
 
       - name: Set up Ruby

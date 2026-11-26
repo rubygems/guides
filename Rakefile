@@ -120,6 +120,9 @@ task :bundler_reference => %w[RUBYGEMS_DIR_exists] do
   require 'nokogiri'
   require 'ronn'
 
+  # mustache 1.1.3 returns template_path as an Array, which nronn does not expect: https://github.com/n-ronn/nronn/issues/61
+  Ronn::Template.prepend(Module.new { def style_path = super.flatten })
+
   # The Bundler tree lives at the repository root on master, under
   # bundler/ on the stable branches.
   man_dir = %w[lib/bundler/man bundler/lib/bundler/man]
